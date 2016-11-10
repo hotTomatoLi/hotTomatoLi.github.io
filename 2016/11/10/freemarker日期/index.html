@@ -88,7 +88,9 @@
 分析
 输入的数据可能格式错误，需要进行正则匹配
 将字符串转变成日期对象
-日期大小比较实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;quot;^\">
+日期大小比较   
+
+实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Freemarker 日期处理">
 <meta property="og:url" content="http://yoursite.com/2016/11/10/freemarker日期/index.html">
@@ -97,15 +99,19 @@
 分析
 输入的数据可能格式错误，需要进行正则匹配
 将字符串转变成日期对象
-日期大小比较实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;quot;^\">
-<meta property="og:updated_time" content="2016-11-10T06:26:02.166Z">
+日期大小比较   
+
+实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+<meta property="og:updated_time" content="2016-11-10T06:28:53.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Freemarker 日期处理">
 <meta name="twitter:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
 分析
 输入的数据可能格式错误，需要进行正则匹配
 将字符串转变成日期对象
-日期大小比较实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;quot;^\">
+日期大小比较   
+
+实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
 
 
 
@@ -295,9 +301,9 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
 <li>输入的数据可能格式错误，需要进行正则匹配</li>
 <li>将字符串转变成日期对象</li>
-<li>日期大小比较<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure>
-</li>
+<li>日期大小比较   </li>
 </ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3><p>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="字符串和日期转换"><a href="#字符串和日期转换" class="headerlink" title="字符串和日期转换"></a>字符串和日期转换</h3><h4 id="字符串转成日期"><a href="#字符串转成日期" class="headerlink" title="字符串转成日期"></a>字符串转成日期</h4><p>如果匹配相应的格式，这里需要将字符串数据转变成日期数据。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;variable?date(&quot;yyyy-MM-dd&quot;)&#125;</div></pre></td></tr></table></figure>
 <h4 id="日期转成字符串"><a href="#日期转成字符串" class="headerlink" title="日期转成字符串"></a>日期转成字符串</h4><p>当然，在接受到java.util.date类型，如果在Freemarker显示，则需要利用日期处理函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$&#123;parameters.fieldDate?date&#125;                                           //标准日期转日期字符串</div><div class="line">$&#123;parameters.fieldDate?datetime&#125;　　　　　　　　　　　　　//标准日期转日期+时间 字符串</div><div class="line">$&#123;parameters.fieldDate?string(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#125;   //标准日期转自定格式 字符串</div><div class="line">$&#123;(data.validateTimeDate?string(&quot;yyyy-MM-dd&quot;))&#125;               //yyyy-MM-dd日期格式的字符串</div></pre></td></tr></table></figure></p>
