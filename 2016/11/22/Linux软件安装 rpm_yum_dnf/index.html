@@ -6,36 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Freemarker 日期处理 | li</title>
+  <title>Linux软件安装：rpm/yum/dnf | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+  <meta name="description" content="概述软件包一个软件包（简称包），包括需要安装和运行的应用程序，工具，服务器，系统软件脚本，程序，文件和目录，也包括依赖的其他包。软件包的作用是方便软件的安装，更新和卸载。通常的软件包可以是可执行文件或源代码文件。
+PMSPMS，是包管理系统，是一个工具集，用于软件的安装，升级，卸载，搜索，提供了一个统一的方式。它可以跟踪一个包的所有文件，便于卸载。常见的软件包管理器有RPM（RPM软件包管理器）和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Freemarker 日期处理">
-<meta property="og:url" content="http://yoursite.com/2016/11/10/freemarker日期/index.html">
+<meta property="og:title" content="Linux软件安装：rpm/yum/dnf">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/Linux软件安装 rpm_yum_dnf/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
-<meta property="og:updated_time" content="2016-11-17T09:38:35.000Z">
+<meta property="og:description" content="概述软件包一个软件包（简称包），包括需要安装和运行的应用程序，工具，服务器，系统软件脚本，程序，文件和目录，也包括依赖的其他包。软件包的作用是方便软件的安装，更新和卸载。通常的软件包可以是可执行文件或源代码文件。
+PMSPMS，是包管理系统，是一个工具集，用于软件的安装，升级，卸载，搜索，提供了一个统一的方式。它可以跟踪一个包的所有文件，便于卸载。常见的软件包管理器有RPM（RPM软件包管理器）和">
+<meta property="og:updated_time" content="2016-11-22T00:30:44.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Freemarker 日期处理">
-<meta name="twitter:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+<meta name="twitter:title" content="Linux软件安装：rpm/yum/dnf">
+<meta name="twitter:description" content="概述软件包一个软件包（简称包），包括需要安装和运行的应用程序，工具，服务器，系统软件脚本，程序，文件和目录，也包括依赖的其他包。软件包的作用是方便软件的安装，更新和卸载。通常的软件包可以是可执行文件或源代码文件。
+PMSPMS，是包管理系统，是一个工具集，用于软件的安装，升级，卸载，搜索，提供了一个统一的方式。它可以跟踪一个包的所有文件，便于卸载。常见的软件包管理器有RPM（RPM软件包管理器）和">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -159,7 +144,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-freemarker日期" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linux软件安装 rpm_yum_dnf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -169,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Freemarker 日期处理
+      Linux软件安装：rpm/yum/dnf
     </h1>
   
 
@@ -177,26 +162,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在freemarker页面，根据日期大小，来判断是否显示日期内容。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
-<li>输入的数据可能格式错误，需要进行正则匹配</li>
-<li>将字符串转变成日期对象</li>
-<li>日期大小比较   </li>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h3><p>一个软件包（简称包），包括需要安装和运行的应用程序，工具，服务器，系统软件脚本，程序，文件和目录，也包括依赖的其他包。软件包的作用是方便<br>软件的安装，更新和卸载。<br>通常的软件包可以是可执行文件或源代码文件。</p>
+<h3 id="PMS"><a href="#PMS" class="headerlink" title="PMS"></a>PMS</h3><p>PMS，是包管理系统，是一个工具集，用于软件的安装，升级，卸载，搜索，提供了一个统一的方式。它可以跟踪一个包的所有文件，便于卸载。常见的软件<br>包管理器有RPM（RPM软件包管理器）和dkpg（Debian软件包）。</p>
+<h3 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h3><p>RPM（RedHat Package Manager），现在是RPM Package Manager，RPM软件包管理。现在已经是公认的行业标准。RPM可以下载，安装，卸载，升级，<br>查询和验证RPM包，对应的包的扩展名为.rpm。</p>
+<p>Linux下程序安装的方式有：</p>
+<ul>
+<li>源码安装，需要自己下载源码包（如tar.gz结尾），需要自己进行源码编译和安装（config命令，make命令，make install 命令）</li>
+<li>软件包</li>
+<li>通用二进制格式，解压后就可以使用，找到对应的文件执行就可以启动。（idea目录下的idea.sh）</li>
 </ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3><p>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="字符串和日期转换"><a href="#字符串和日期转换" class="headerlink" title="字符串和日期转换"></a>字符串和日期转换</h3><h4 id="字符串转成日期"><a href="#字符串转成日期" class="headerlink" title="字符串转成日期"></a>字符串转成日期</h4><p>如果匹配相应的格式，这里需要将字符串数据转变成日期数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;variable?date(&quot;yyyy-MM-dd&quot;)&#125;</div></pre></td></tr></table></figure>
-<h4 id="日期转成字符串"><a href="#日期转成字符串" class="headerlink" title="日期转成字符串"></a>日期转成字符串</h4><p>当然，在接受到java.util.date类型，如果在Freemarker显示，则需要利用日期处理函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$&#123;parameters.fieldDate?date&#125;                                           //标准日期转日期字符串</div><div class="line">$&#123;parameters.fieldDate?datetime&#125;　　　　　　　　　　　　　//标准日期转日期+时间 字符串</div><div class="line">$&#123;parameters.fieldDate?string(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#125;   //标准日期转自定格式 字符串</div><div class="line">$&#123;(data.validateTimeDate?string(&quot;yyyy-MM-dd&quot;))&#125;               //yyyy-MM-dd日期格式的字符串</div></pre></td></tr></table></figure></p>
-<h3 id="大小比较"><a href="#大小比较" class="headerlink" title="大小比较"></a>大小比较</h3><p>大小比较就很简单了，转变好日期格式后，即可以进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;#assign startDate=&quot;1970-01-01&quot;?date(&quot;yyyy-MM-dd&quot;) /&gt; &lt;!-- 声明日期对象 --&gt;</div><div class="line">&lt;#if variable?date(&quot;yyyy-MM-dd&quot;) gt startDate&gt;</div><div class="line">			$&#123;variable&#125;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="RPM-1"><a href="#RPM-1" class="headerlink" title="RPM"></a>RPM</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.cnblogs.com/shijiaqi1066/p/3843955.html" target="_blank" rel="external">Linux软件安装，RPM与YUM</a></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/10/freemarker日期/" class="archive-article-date">
-  	<time datetime="2016-11-10T06:04:04.117Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-10</time>
+      <a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" class="archive-article-date">
+  	<time datetime="2016-11-22T00:30:44.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dnf/">dnf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -207,18 +196,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/15/githubpage搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/22/一次mavenjar的冲突解决/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          githubpage搭建
+          一次maven的冲突解决
         
       </div>
     </a>
   
   
-    <a href="/2016/10/31/测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Jsgrid使用</div>
+    <a href="/2016/11/18/Fedora安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fedora安装</div>
       <i class="icon-circle-right"></i>
     </a>
   

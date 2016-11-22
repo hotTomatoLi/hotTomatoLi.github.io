@@ -6,36 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Freemarker 日期处理 | li</title>
+  <title>Tag: linux | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Freemarker 日期处理">
-<meta property="og:url" content="http://yoursite.com/2016/11/10/freemarker日期/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="li">
+<meta property="og:url" content="http://yoursite.com/tags/linux/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
-<meta property="og:updated_time" content="2016-11-17T09:38:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Freemarker 日期处理">
-<meta name="twitter:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+<meta name="twitter:title" content="li">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -159,98 +137,54 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-freemarker日期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Freemarker 日期处理
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" class="archive-article-date">
+  	<time datetime="2016-11-22T00:30:44.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/11/22/Linux软件安装 rpm_yum_dnf/">Linux软件安装：rpm/yum/dnf</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在freemarker页面，根据日期大小，来判断是否显示日期内容。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
-<li>输入的数据可能格式错误，需要进行正则匹配</li>
-<li>将字符串转变成日期对象</li>
-<li>日期大小比较   </li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3><p>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="字符串和日期转换"><a href="#字符串和日期转换" class="headerlink" title="字符串和日期转换"></a>字符串和日期转换</h3><h4 id="字符串转成日期"><a href="#字符串转成日期" class="headerlink" title="字符串转成日期"></a>字符串转成日期</h4><p>如果匹配相应的格式，这里需要将字符串数据转变成日期数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;variable?date(&quot;yyyy-MM-dd&quot;)&#125;</div></pre></td></tr></table></figure>
-<h4 id="日期转成字符串"><a href="#日期转成字符串" class="headerlink" title="日期转成字符串"></a>日期转成字符串</h4><p>当然，在接受到java.util.date类型，如果在Freemarker显示，则需要利用日期处理函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$&#123;parameters.fieldDate?date&#125;                                           //标准日期转日期字符串</div><div class="line">$&#123;parameters.fieldDate?datetime&#125;　　　　　　　　　　　　　//标准日期转日期+时间 字符串</div><div class="line">$&#123;parameters.fieldDate?string(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#125;   //标准日期转自定格式 字符串</div><div class="line">$&#123;(data.validateTimeDate?string(&quot;yyyy-MM-dd&quot;))&#125;               //yyyy-MM-dd日期格式的字符串</div></pre></td></tr></table></figure></p>
-<h3 id="大小比较"><a href="#大小比较" class="headerlink" title="大小比较"></a>大小比较</h3><p>大小比较就很简单了，转变好日期格式后，即可以进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;#assign startDate=&quot;1970-01-01&quot;?date(&quot;yyyy-MM-dd&quot;) /&gt; &lt;!-- 声明日期对象 --&gt;</div><div class="line">&lt;#if variable?date(&quot;yyyy-MM-dd&quot;) gt startDate&gt;</div><div class="line">			$&#123;variable&#125;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dnf/">dnf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
+	</div>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/10/freemarker日期/" class="archive-article-date">
-  	<time datetime="2016-11-10T06:04:04.117Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-10</time>
-</a>
-      
-      
+          
 
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/11/15/githubpage搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          githubpage搭建
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/10/31/测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Jsgrid使用</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-	    <a class="jiathis_button_twitter"></a>
-	    <a class="jiathis_button_plus"></a> 
-	    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-
+    
 
 
       </div>
@@ -273,9 +207,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

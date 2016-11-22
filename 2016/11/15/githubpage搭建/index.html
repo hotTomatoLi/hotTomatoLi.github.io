@@ -6,36 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Freemarker 日期处理 | li</title>
+  <title>githubpage搭建 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+  <meta name="description" content="背景GitHub Pages，可以根据github资源仓库中的文件，建立对应的静态网站。
+资源库搭建建立资源库在Github上新建一个与用户名相关的资源库，username.github.io,username是用户名（或者组织的名称）。
+clone项目1git clone https://github.com/username/username.github.io
+记得修改自己的用户名
+编辑in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Freemarker 日期处理">
-<meta property="og:url" content="http://yoursite.com/2016/11/10/freemarker日期/index.html">
+<meta property="og:title" content="githubpage搭建">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/githubpage搭建/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
-<meta property="og:updated_time" content="2016-11-17T09:38:35.000Z">
+<meta property="og:description" content="背景GitHub Pages，可以根据github资源仓库中的文件，建立对应的静态网站。
+资源库搭建建立资源库在Github上新建一个与用户名相关的资源库，username.github.io,username是用户名（或者组织的名称）。
+clone项目1git clone https://github.com/username/username.github.io
+记得修改自己的用户名
+编辑in">
+<meta property="og:image" content="http://img0.ph.126.net/LZvVEzDRZon5j4T6Hg7_gQ==/6631892399419889046.png">
+<meta property="og:updated_time" content="2016-11-22T00:30:44.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Freemarker 日期处理">
-<meta name="twitter:description" content="背景在freemarker页面，根据日期大小，来判断是否显示日期内容。
-分析
-输入的数据可能格式错误，需要进行正则匹配
-将字符串转变成日期对象
-日期大小比较   
-
-实现正则处理首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。123&amp;lt;#assign reg=&amp;qu">
+<meta name="twitter:title" content="githubpage搭建">
+<meta name="twitter:description" content="背景GitHub Pages，可以根据github资源仓库中的文件，建立对应的静态网站。
+资源库搭建建立资源库在Github上新建一个与用户名相关的资源库，username.github.io,username是用户名（或者组织的名称）。
+clone项目1git clone https://github.com/username/username.github.io
+记得修改自己的用户名
+编辑in">
+<meta name="twitter:image" content="http://img0.ph.126.net/LZvVEzDRZon5j4T6Hg7_gQ==/6631892399419889046.png">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -159,7 +155,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-freemarker日期" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-githubpage搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -169,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Freemarker 日期处理
+      githubpage搭建
     </h1>
   
 
@@ -177,26 +173,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在freemarker页面，根据日期大小，来判断是否显示日期内容。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
-<li>输入的数据可能格式错误，需要进行正则匹配</li>
-<li>将字符串转变成日期对象</li>
-<li>日期大小比较   </li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3><p>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="字符串和日期转换"><a href="#字符串和日期转换" class="headerlink" title="字符串和日期转换"></a>字符串和日期转换</h3><h4 id="字符串转成日期"><a href="#字符串转成日期" class="headerlink" title="字符串转成日期"></a>字符串转成日期</h4><p>如果匹配相应的格式，这里需要将字符串数据转变成日期数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;variable?date(&quot;yyyy-MM-dd&quot;)&#125;</div></pre></td></tr></table></figure>
-<h4 id="日期转成字符串"><a href="#日期转成字符串" class="headerlink" title="日期转成字符串"></a>日期转成字符串</h4><p>当然，在接受到java.util.date类型，如果在Freemarker显示，则需要利用日期处理函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$&#123;parameters.fieldDate?date&#125;                                           //标准日期转日期字符串</div><div class="line">$&#123;parameters.fieldDate?datetime&#125;　　　　　　　　　　　　　//标准日期转日期+时间 字符串</div><div class="line">$&#123;parameters.fieldDate?string(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#125;   //标准日期转自定格式 字符串</div><div class="line">$&#123;(data.validateTimeDate?string(&quot;yyyy-MM-dd&quot;))&#125;               //yyyy-MM-dd日期格式的字符串</div></pre></td></tr></table></figure></p>
-<h3 id="大小比较"><a href="#大小比较" class="headerlink" title="大小比较"></a>大小比较</h3><p>大小比较就很简单了，转变好日期格式后，即可以进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;#assign startDate=&quot;1970-01-01&quot;?date(&quot;yyyy-MM-dd&quot;) /&gt; &lt;!-- 声明日期对象 --&gt;</div><div class="line">&lt;#if variable?date(&quot;yyyy-MM-dd&quot;) gt startDate&gt;</div><div class="line">			$&#123;variable&#125;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
-
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a href="https://pages.github.com" target="_blank" rel="external">GitHub Pages</a>，可以根据github<br>资源仓库中的文件，建立对应的静态网站。</p>
+<h2 id="资源库搭建"><a href="#资源库搭建" class="headerlink" title="资源库搭建"></a>资源库搭建</h2><h3 id="建立资源库"><a href="#建立资源库" class="headerlink" title="建立资源库"></a>建立资源库</h3><p>在Github上新建一个与用户名相关的资源库，<code>username.github.io</code>,<br>username是用户名（或者组织的名称）。</p>
+<h3 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/username/username.github.io</div></pre></td></tr></table></figure>
+<p>记得修改自己的用户名</p>
+<h3 id="编辑index-html"><a href="#编辑index-html" class="headerlink" title="编辑index.html"></a>编辑index.html</h3><p>新建一个index.html页面，并进行编辑</p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add --all</div><div class="line">git commit -m &quot;Initial commit&quot;</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>当然，上述操作需要配置好本机的git。可以通过<br><code>git config --list</code><br>查看当前的配置。如果需要进行配置，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your name&quot;</div><div class="line">git config --global user.email &quot;Your email&quot;</div></pre></td></tr></table></figure></p>
+<p>一般配置文件在~目录下的.gitconfig中可以看到。<br>如果需要配置ssh key,可以参考<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">这里</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls -al ~/.ssh</div><div class="line"># 列出所有存在的sshkey</div></pre></td></tr></table></figure></p>
+<p>上述内容主要来自<a href="https://pages.github.com" target="_blank" rel="external">GitHub Pages</a>，比较简单。</p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><a href="http://hexo.io" target="_blank" rel="external">hexo</a>是一个静态博客的生成器，可以方便的与github pages联系起来。<br>hexo是基于nodejs的，因此，首先要安装nodejs。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h4><p>采用dnf安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ dnf install nodejs</div><div class="line">$ dnf install npm</div></pre></td></tr></table></figure></p>
+<p>安装完成后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node --version</div></pre></td></tr></table></figure></p>
+<p><img src="http://img0.ph.126.net/LZvVEzDRZon5j4T6Hg7_gQ==/6631892399419889046.png" alt="结果"></p>
+<h3 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>如果发现网络连接很慢，可以考虑换成国内的资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
+<p>然后初始化一个目录</p>
+<h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /home/li/workspace/blog</div><div class="line">$ hexo init</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/10/freemarker日期/" class="archive-article-date">
-  	<time datetime="2016-11-10T06:04:04.117Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-10</time>
+      <a href="/2016/11/15/githubpage搭建/" class="archive-article-date">
+  	<time datetime="2016-11-15T00:18:22.832Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/githubpage/">githubpage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -207,18 +213,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/15/githubpage搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/17/5 Different Ways to Create Objects in Java/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          githubpage搭建
+          5 Different Ways to Create Objects in Java
         
       </div>
     </a>
   
   
-    <a href="/2016/10/31/测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Jsgrid使用</div>
+    <a href="/2016/11/10/freemarker日期/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Freemarker 日期处理</div>
       <i class="icon-circle-right"></i>
     </a>
   

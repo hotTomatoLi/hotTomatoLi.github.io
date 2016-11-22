@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>Fedora安装 | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="操作系统安装下载操作系统，安装，不再赘述。
+终端快捷键设置-&amp;gt;键盘-&amp;gt;自定义快捷键名称为:terminal命令：/usr/bin/gnome-terminal然后点击’禁用’随便按下快捷键(ctrl+alt+t)
+卸载自带jdk查看现有jdk命令1rpm -aq|grep jdk
+得到结果123$rpm -aq|grep jdkcopy-jdk-configs-1.1-4.fc24.n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora安装">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/Fedora安装/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="操作系统安装下载操作系统，安装，不再赘述。
+终端快捷键设置-&amp;gt;键盘-&amp;gt;自定义快捷键名称为:terminal命令：/usr/bin/gnome-terminal然后点击’禁用’随便按下快捷键(ctrl+alt+t)
+卸载自带jdk查看现有jdk命令1rpm -aq|grep jdk
+得到结果123$rpm -aq|grep jdkcopy-jdk-configs-1.1-4.fc24.n">
+<meta property="og:image" content="http://img1.ph.126.net/r0aDTFg7DtQNTtpDPQVJLQ==/6631568043492828073.png">
+<meta property="og:image" content="http://img2.ph.126.net/R_kosqiRtiJY-yW2syPLDQ==/6631518565469583956.png">
+<meta property="og:image" content="http://img1.ph.126.net/E0sPsa4ULp1Gu13tbRUDvQ==/6632025440326887643.png">
+<meta property="og:image" content="http://img1.ph.126.net/veOi2kABWK1LGCI8-hDLgg==/6632211257791991827.png">
+<meta property="og:updated_time" content="2016-11-22T00:36:25.205Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fedora安装">
+<meta name="twitter:description" content="操作系统安装下载操作系统，安装，不再赘述。
+终端快捷键设置-&amp;gt;键盘-&amp;gt;自定义快捷键名称为:terminal命令：/usr/bin/gnome-terminal然后点击’禁用’随便按下快捷键(ctrl+alt+t)
+卸载自带jdk查看现有jdk命令1rpm -aq|grep jdk
+得到结果123$rpm -aq|grep jdkcopy-jdk-configs-1.1-4.fc24.n">
+<meta name="twitter:image" content="http://img1.ph.126.net/r0aDTFg7DtQNTtpDPQVJLQ==/6631568043492828073.png">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Fedora安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Fedora安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="操作系统安装"><a href="#操作系统安装" class="headerlink" title="操作系统安装"></a>操作系统安装</h2><p>下载操作系统，安装，不再赘述。</p>
+<h2 id="终端快捷键"><a href="#终端快捷键" class="headerlink" title="终端快捷键"></a>终端快捷键</h2><p>设置-&gt;键盘-&gt;自定义快捷键<br>名称为:terminal<br>命令：/usr/bin/gnome-terminal<br><img src="http://img1.ph.126.net/r0aDTFg7DtQNTtpDPQVJLQ==/6631568043492828073.png" alt="新建自定义快捷键"><br><img src="http://img2.ph.126.net/R_kosqiRtiJY-yW2syPLDQ==/6631518565469583956.png" alt="设置快捷键1"><br>然后点击’禁用’<br><img src="http://img1.ph.126.net/E0sPsa4ULp1Gu13tbRUDvQ==/6632025440326887643.png" alt="设置快捷键2"><br>随便按下快捷键(ctrl+alt+t)<br><img src="http://img1.ph.126.net/veOi2kABWK1LGCI8-hDLgg==/6632211257791991827.png" alt="设置快捷键3"></p>
+<h2 id="卸载自带jdk"><a href="#卸载自带jdk" class="headerlink" title="卸载自带jdk"></a>卸载自带jdk</h2><h3 id="查看现有jdk"><a href="#查看现有jdk" class="headerlink" title="查看现有jdk"></a>查看现有jdk</h3><p>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -aq|grep jdk</div></pre></td></tr></table></figure></p>
+<p>得到结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$rpm -aq|grep jdk</div><div class="line">copy-jdk-configs-1.1-4.fc24.noarch</div><div class="line">java-1.8.0-openjdk-headless-1.8.0.91-7.b14.fc24.x86_64</div></pre></td></tr></table></figure></p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf remove java-1.8.0-openjdk-headless-1.8.0.91-7.b14.fc24.x86_64</div></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载jdk，到/usr/local/java中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-8u111-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/profile</div></pre></td></tr></table></figure>
+<p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_111</div><div class="line">export JAVA_BIN=$JAVA_HOME/bin</div><div class="line">export JAVA_LIB=$JAVA_HOME/lib</div><div class="line">export CLASSPATH=.:JAVA_LIB/tools.jar:$JAVA_LIB/dt.jar</div><div class="line">export PATH=$JAVA_BIN:$PATH</div></pre></td></tr></table></figure></p>
+<p>刷新配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure></p>
+<p>查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$java -version</div><div class="line">java version &quot;1.8.0_111&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_111-b14)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)</div></pre></td></tr></table></figure></p>
+<h2 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h2><p>参考<a href="http://www.cnblogs.com/zhangyin6985/p/5635846.html" target="_blank" rel="external">这里</a></p>
+<h3 id="添加chrome源"><a href="#添加chrome源" class="headerlink" title="添加chrome源"></a>添加chrome源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$cd /etc/yum.repos.d/</div><div class="line">$wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repo </div><div class="line">$dnf install -y google-chrome-stable</div></pre></td></tr></table></figure>
+<h2 id="idea-安装"><a href="#idea-安装" class="headerlink" title="idea 安装"></a>idea 安装</h2><h3 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf  ideaIU-2016.2.5.tar.gz</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>JetbrainsCrack-2.5.6.jar</p>
+<h3 id="快捷方式创建"><a href="#快捷方式创建" class="headerlink" title="快捷方式创建"></a>快捷方式创建</h3><p>未成功。</p>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install git</div></pre></td></tr></table></figure>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.7.4</div></pre></td></tr></table></figure>
+<h2 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h2><h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><p>来自<a href="https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/" target="_blank" rel="external">这里</a></p>
+<h4 id="资源库安装"><a href="#资源库安装" class="headerlink" title="资源库安装"></a>资源库安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc24-8.noarch.rpm</div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc23-8.noarch.rpm</div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc22-8.noarch.rpm</div></pre></td></tr></table></figure>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install mysql-community-server</div></pre></td></tr></table></figure>
+<h3 id="tar文件安装"><a href="#tar文件安装" class="headerlink" title="tar文件安装"></a>tar文件安装</h3><p>由于网络原因，dnf安装一直失败。因此采用tar文件安装。<a href="http://www.jb51.net/article/90317.htm" target="_blank" rel="external">参考</a></p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">下载</a>下的Linux Generic里的<code>mysql-5.7.16-linux-glibc2.5-x86_64.tar</code>。</p>
+<h4 id="增加用户和用户组"><a href="#增加用户和用户组" class="headerlink" title="增加用户和用户组"></a>增加用户和用户组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>解压到<code>usr/local/mysql</code>。<code>mysql-5.7.16-linux-glibc2.5-x86_64.tar</code>解压得到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</div><div class="line">mysql-test-5.7.16-linux-glibc2.5-x86_64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>再次解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>得到程序目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$pwd</div><div class="line">/usr/local/mysql</div><div class="line">$ls</div><div class="line">bin  COPYING  docs  include  lib  man  README  share  support-files</div></pre></td></tr></table></figure></p>
+<h4 id="给用户权限"><a href="#给用户权限" class="headerlink" title="给用户权限"></a>给用户权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$chown -R mysql .</div><div class="line">$chgrp -R mysql .</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/18/Fedora安装/" class="archive-article-date">
+  	<time datetime="2016-11-18T00:15:16.811Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-18</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux软件安装：rpm/yum/dnf
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/17/5 Different Ways to Create Objects in Java/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5 Different Ways to Create Objects in Java</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
