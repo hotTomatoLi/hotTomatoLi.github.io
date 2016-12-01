@@ -6,14 +6,48 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: linux | li</title>
+  <title>li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="InnoDB Locking这里描述了Innodb中使用的锁。
+
+Shared and Exclusive Locks 共享锁和排他锁
+Intention Locks 意向锁
+Record Locks 行锁
+Gap Locks 间隙锁
+Next-Key Locks next-key锁
+Insert Intention Locks 插入意向锁
+AUTO-INC Locks 自增锁
+
+Shared a">
+<meta property="og:type" content="article">
 <meta property="og:title" content="li">
-<meta property="og:url" content="http://yoursite.com/tags/linux/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/11/25/mysql_innodb_lock/index.html">
 <meta property="og:site_name" content="li">
+<meta property="og:description" content="InnoDB Locking这里描述了Innodb中使用的锁。
+
+Shared and Exclusive Locks 共享锁和排他锁
+Intention Locks 意向锁
+Record Locks 行锁
+Gap Locks 间隙锁
+Next-Key Locks next-key锁
+Insert Intention Locks 插入意向锁
+AUTO-INC Locks 自增锁
+
+Shared a">
+<meta property="og:updated_time" content="2016-12-01T01:51:22.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="li">
+<meta name="twitter:description" content="InnoDB Locking这里描述了Innodb中使用的锁。
+
+Shared and Exclusive Locks 共享锁和排他锁
+Intention Locks 意向锁
+Record Locks 行锁
+Gap Locks 间隙锁
+Next-Key Locks next-key锁
+Insert Intention Locks 插入意向锁
+AUTO-INC Locks 自增锁
+
+Shared a">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -137,54 +171,160 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-  
+        <article id="post-mysql_innodb_lock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+    <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="InnoDB-Locking"><a href="#InnoDB-Locking" class="headerlink" title="InnoDB Locking"></a>InnoDB Locking</h1><p>这里描述了Innodb中使用的锁。</p>
+<ul>
+<li>Shared and Exclusive Locks 共享锁和排他锁</li>
+<li>Intention Locks 意向锁</li>
+<li>Record Locks 行锁</li>
+<li>Gap Locks 间隙锁</li>
+<li>Next-Key Locks next-key锁</li>
+<li>Insert Intention Locks 插入意向锁</li>
+<li>AUTO-INC Locks 自增锁</li>
+</ul>
+<h2 id="Shared-and-Exclusive-Locks"><a href="#Shared-and-Exclusive-Locks" class="headerlink" title="Shared and Exclusive Locks"></a>Shared and Exclusive Locks</h2><p>InnoDB实现了标准的行级别锁，现在有两种类别的锁，共享锁（shared locks,S locks），排他锁（exclusive locks, X locks）。</p>
+<ul>
+<li>共享锁<br>允许持有锁的事务读取一行数据；<br>共享锁就是多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改；</li>
+<li>排他锁<br>排他锁允许持有锁的事务更新或是删除一行数据</li>
+</ul>
+<p>如果事务T1持有一行数据r的S锁，其他事务T2发起的针对该行的事务如下：</p>
+<ul>
+<li>如果T2请求的是一个S锁，那么T2会马上获得S锁，T1和T2都会持有r的S锁；（s锁个数？）</li>
+<li>如果T2请求的是一个X锁，那么T2不会马上获得锁；</li>
+</ul>
+<p>如果T1持有r的X锁，T2如果请求获得任意锁，都不会马上得到，T2会等待T1释放锁。</p>
+<h2 id="Intension-Locks意向锁"><a href="#Intension-Locks意向锁" class="headerlink" title="Intension Locks意向锁"></a>Intension Locks意向锁</h2><blockquote>
+<p>InnoDB supports multiple granularity locking which permits coexistence of row-level locks and locks on entire tables.<br>To make locking at multiple granularity levels practical, additional types of locks called intention locks are used.</p>
+</blockquote>
+<p>InnoDB 支持了多粒度锁机制，允许行锁和表锁共存。为了实现上述多粒度锁机制，InnoDB使用了意向锁。</p>
+<blockquote>
+<p>Intention locks are table-level locks in InnoDB that indicate which type of lock (shared or exclusive) a transaction<br>will require later for a row in that table.<br>There are two types of intention locks used in InnoDB (assume<br>that transaction T has requested a lock of the indicated type on table t):<br>Intention shared (IS): Transaction T intends to set S locks on individual rows in table t.<br>Intention exclusive (IX): Transaction T intends to set X locks on those rows.</p>
+</blockquote>
+<p>在InnoDB中，意向锁是表级别的锁，也就是说，在一张表中，<br>在InnoDB中，有两种意向锁，（假设事务T已经请求了表t的某种锁）：</p>
+<ul>
+<li>意向共享锁，IS锁：事务T想要对表t中个别的行加上s锁；</li>
+<li>意向排他锁，IX锁：事务T想要对那些行集上X锁。</li>
+</ul>
+<p>例如<code>SELECT ... LOCK IN SHARE MODE</code> 设置了IS锁， <code>SELECT ... FOR UPDATE</code> 设置了IX锁。</p>
+<p>意向锁协议如下：</p>
+<ul>
+<li>一个事务，如果可以获得表t的一行的S锁(即加上S锁)，那么该事务必须首先获得表t的IS锁或是更强的锁；</li>
+<li>一个事务，如果可以获得一行数据的X锁(即加上X锁)，那么它必须首先获得表t的IX锁。</li>
+</ul>
+<p>锁兼容矩阵</p>
+<table>
+<thead>
+<tr>
+<th>请求锁模式<br>是否兼容<br>当前锁模式</th>
+<th>X</th>
+<th>IX</th>
+<th>S</th>
+<th>IS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td>IX</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>冲突</td>
+<td>兼容</td>
+</tr>
+<tr>
+<td>S</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+<tr>
+<td>IS</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+</tbody>
+</table>
+<p>如果请求锁的事务的请求模式与当前锁模式兼容，请求的事务可以获得锁。否则不会获得锁，将会等待冲突的当前锁释放。如果请求锁与现有锁模式冲突，<br>不会获得锁，因为那样会造成死锁，甚至错误。</p>
+<p><a href="http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html</a><br><a href="http://www.myexception.cn/mysql/1712377.html" target="_blank" rel="external">http://www.myexception.cn/mysql/1712377.html</a><br><a href="http://blog.csdn.net/xifeijian/article/details/20313977" target="_blank" rel="external">http://blog.csdn.net/xifeijian/article/details/20313977</a></p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" class="archive-article-date">
-  	<time datetime="2016-11-22T00:30:44.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/25/mysql_innodb_lock/" class="archive-article-date">
+  	<time datetime="2016-11-25T07:46:33.068Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/22/Linux软件安装 rpm_yum_dnf/">Linux软件安装：rpm/yum/dnf</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dnf/">dnf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/01/linux常用总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/22/一次mavenjar的冲突解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一次maven的冲突解决</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -207,9 +347,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
