@@ -139,6 +139,170 @@
       <div class="body-wrap">
         
   
+    <article id="post-Mysql 特殊字符处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/Mysql 特殊字符处理/">Mysql 特殊字符过滤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于推送的数据不规范，接口上也没有进行数据格式校验，导致数据库中的字段存在了莫名的数据（业务端明显错误的数据），需要统计处理一下，</p>
+<h2 id="正则过滤"><a href="#正则过滤" class="headerlink" title="正则过滤"></a>正则过滤</h2><p>首先采用正则表达式进行过滤。Mysql中的正则表达式书写如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM 表名 WHERE 列名  REGEXP &apos;[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]&#123;1,&#125;&apos;</div></pre></td></tr></table></figure></p>
+<p>其中<code>[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]{1,}</code>为正则表达式。</p>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td style="text-align:center">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘\n’ 或 ‘\r’ 之后的位置。</td>
+</tr>
+<tr>
+<td>$</td>
+<td style="text-align:center">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 ‘\n’ 或 ‘\r’ 之前的位置。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td style="text-align:center">字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’。</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td style="text-align:center">负值字符集合。匹配未包含的任意字符。例如， ‘[^abc]’ 可以匹配 “plain” 中的’p’。</td>
+</tr>
+<tr>
+<td>p1</td>
+<td style="text-align:center">p2</td>
+<td>p3</td>
+<td>匹配 p1 或 p2 或 p3。例如，’z</td>
+<td>food’ 能匹配 “z” 或 “food”。’(z</td>
+<td>f)ood’ 则匹配 “zood” 或 “food”。</td>
+</tr>
+<tr>
+<td>*</td>
+<td style="text-align:center">匹配前面的子表达式零次或多次。例如，zo<em> 能匹配 “z” 以及 “zoo”。</em> 等价于{0,}。</td>
+</tr>
+<tr>
+<td>+</td>
+<td style="text-align:center">匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td style="text-align:center">n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td style="text-align:center">m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p><code>\\</code>是转义字符，如果需要匹配特殊字符需要加上转义字符。<br>| 模式        | 描述           |<br>| ————- |:————-:|<br>| \f        | 换页           |<br>| \n         | 换行           |<br>| \r        | 回车           |<br>| \t        | 制表           |<br>| \v       | 纵向制表        |</p>
+<p>一些特殊的匹配规则如下</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td style="text-align:center">文字数字字符</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td style="text-align:center">文字字符</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td style="text-align:center">空白字符</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td style="text-align:center">控制字符</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td style="text-align:center">数字字符</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td style="text-align:center">图形字符</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td style="text-align:center">小写文字字符</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td style="text-align:center">图形或空格字符</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td style="text-align:center">标点字符</td>
+</tr>
+<tr>
+<td>[space:]</td>
+<td style="text-align:center">包括空格在内的任意空白字符（同 [\f\n\t\r\v]）</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td style="text-align:center">大写文字字符</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td style="text-align:center">任意十六进制数字（同 [a-fA-F0-9]）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="AscII查看"><a href="#AscII查看" class="headerlink" title="AscII查看"></a>AscII查看</h2><p>当发现特殊字符的时候，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT ASCII(&quot; &quot;)</div></pre></td></tr></table></figure></p>
+<p>获得对应的ASCII码。<br>至于获得Unicode码的方式，还没有找到</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/09/Mysql 特殊字符处理/" class="archive-article-date">
+  	<time datetime="2016-12-09T00:29:50.803Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特殊字符/">特殊字符</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-POI 使用列值设置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -755,63 +919,6 @@
 
 
   
-    <article id="post-测试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/测试/">Jsgrid使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前项目中需要使用表格组件，由于是新建项目，并且前端人手不足，而且不想再使用Jqgrid组件，因此，决定采用新的组件。google了一些<br>常用组件</p>
-<ul>
-<li>大型框架中的组件，bootstrap、easyui、H-ui、Amaze-ui</li>
-<li><a href="https://codegeekz.com/best-javascript-data-grid-libraries/，里面列举了13个常用的datagrid组件。" target="_blank" rel="external">https://codegeekz.com/best-javascript-data-grid-libraries/，里面列举了13个常用的datagrid组件。</a><br>最终，选择了jsGrid(轻量级，样式也入眼，只依赖jquery)。不过jsGrid的相关资料真是不多，经常会提示我是不是搜索jqgrid。</li>
-</ul>
-<h2 id="jsgrid"><a href="#jsgrid" class="headerlink" title="jsgrid"></a>jsgrid</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="http://js-grid.com/" target="_blank" rel="external">官网地址</a>，<a href="https://github.com/tabalinas/jsgrid" target="_blank" rel="external">github地址</a>，很多问题可以在其github上的issues里面找到答案。</p>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>jsgrid引入需要依赖jquery，已经一个js文件，和一个样式文件。</p>
-<h2 id="jsgrid-与spring-mvc"><a href="#jsgrid-与spring-mvc" class="headerlink" title="jsgrid 与spring mvc"></a>jsgrid 与spring mvc</h2><h3 id="显示静态数据"><a href="#显示静态数据" class="headerlink" title="显示静态数据"></a>显示静态数据</h3><h3 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h3><h2 id="相关依赖知识"><a href="#相关依赖知识" class="headerlink" title="相关依赖知识"></a>相关依赖知识</h2><h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><h3 id="apply和call"><a href="#apply和call" class="headerlink" title="apply和call"></a>apply和call</h3><p>&lt;<img src="http://img9.ph.126.net/2OjLFVzr74uX_u9vwatBDQ==/62768919807297899.jpg" alt="图片"><br>待完成</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/31/测试/" class="archive-article-date">
-  	<time datetime="2016-10-31T09:52:25.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-31</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsgrid/">jsgrid</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -877,7 +984,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a>
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a>
     			</div>
     	</section>
     
