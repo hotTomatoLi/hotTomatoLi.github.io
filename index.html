@@ -139,6 +139,55 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档—开始—安装Solr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档—开始—安装Solr/">Apache Solr(5.5)帮助文档——开始—开始—安装Solr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。</p>
+<h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p>Solr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version &quot;1.8.0_60&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_60-b27)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)</div></pre></td></tr></table></figure></p>
+<p>上述结果可能有所不同，但是需要确保最低版本要求。我们推荐使用未停止更新的版本，如果没有要求的版本，或是找不到Java命令行，可以从Oracle官网下载最新的版本。</p>
+<h3 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h3><p>可以从<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">Solr网站</a>下载Solr。<br>Linux/Unix/OSX系统下载.tgz文件，Windows系统下载.zip文件。一旦开始，只需要解压下载的文件中。如果需要设置生产环境的Solr，请参照在Taking Solr to Production 页面的说明。<br>现在仅仅需要解压Solr文件到你指定的主目录，在Linux下可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/</div><div class="line">$ tar zxf solr-5.0.0.tgz</div></pre></td></tr></table></figure></p>
+<p>一旦解压完毕，可以按照运行Solr章节的内容运行Solr。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/Apache Solr(5.5)帮助文档—开始—安装Solr/" class="archive-article-date">
+  	<time datetime="2017-02-09T00:59:58.027Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档—开始—说明" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -732,64 +781,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOC/">IOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smart-framework/">smart-framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构探险/">架构探险</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浏览器兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/浏览器兼容性问题/">WEB开发中浏览器兼容性问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>WEB开发过程中，总会遇到各种浏览器兼容问题，无论是脚本或是样式问题。仅仅记录一下。</p>
-<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2><h3 id="startWith"><a href="#startWith" class="headerlink" title="startWith"></a>startWith</h3><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>IE中，不支持js中String类的startWith方法，因此需要进行变通。当然，也适用于endWith等方法。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="手动扩展string类"><a href="#手动扩展string类" class="headerlink" title="手动扩展string类"></a>手动扩展string类</h5><p>可以在页面加载时，给String类添加startWith方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    String.prototype.startWith = function(str) &#123;</div><div class="line">    var reg = new RegExp(&quot;^&quot; + str);</div><div class="line">    return reg.test(this);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h5><p>生成全局工具类，供调用者使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.Common_TOOLS.startWith = function(str,startStr)&#123;</div><div class="line">    var reg = new RegExp(&quot;^&quot; + startStr);</div><div class="line">    return reg.test(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="火狐下刷新input不强制刷新"><a href="#火狐下刷新input不强制刷新" class="headerlink" title="火狐下刷新input不强制刷新"></a>火狐下刷新input不强制刷新</h3><h4 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h4><p>火狐自带自动填写表单功能，</p>
-<blockquote>
-<p>How to Turn Off Form Autocompletion<br>(“<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion</a>“)</p>
-</blockquote>
-<h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="form上增加控制"><a href="#form上增加控制" class="headerlink" title="form上增加控制"></a>form上增加控制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;form method=&quot;post&quot; action=&quot;/form&quot; autocomplete=&quot;off&quot;&gt;[…]&lt;/form&gt;</div></pre></td></tr></table></figure>
-<h5 id="元素上增加控制"><a href="#元素上增加控制" class="headerlink" title="元素上增加控制"></a>元素上增加控制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form method=&quot;post&quot; action=&quot;/form&quot;&gt; […] </div><div class="line">&lt;div&gt; &lt;label for=&quot;cc&quot;&gt;Credit card:&lt;/label&gt; </div><div class="line">&lt;input type=&quot;text&quot; id=&quot;cc&quot; name=&quot;cc&quot; autocomplete=&quot;off&quot;&gt; </div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/09/浏览器兼容性问题/" class="archive-article-date">
-  	<time datetime="2016-12-09T01:20:03.565Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WEB开发/">WEB开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容/">兼容</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
 	</div>
 
       
