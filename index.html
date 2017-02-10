@@ -139,6 +139,142 @@
       <div class="body-wrap">
         
   
+    <article id="post-hexo-增加目录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/hexo-增加目录/">hexo-增加目录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>本文主要是针对yilia主题增加目录显示，其他主题未测，参考地址<a href="http://www.jianshu.com/p/ac853e1afedb" target="_blank" rel="external">这里</a></p>
+<h3 id="修改文章显模板"><a href="#修改文章显模板" class="headerlink" title="修改文章显模板"></a>修改文章显模板</h3><p>文件地址themes\yilia\layout_partial\article.ejs。<br>在<code>&lt;%- post.content %&gt;</code>前增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;% if (!index &amp;&amp; post.toc)&#123; %&gt;</div><div class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</div><div class="line">&lt;strong class=&quot;toc-title&quot;&gt;文章目录&lt;/strong&gt;</div><div class="line">	&lt;%- toc(post.content) %&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="修改md文件"><a href="#修改md文件" class="headerlink" title="修改md文件"></a>修改md文件</h3><p>在每个md文件头，增加<code>toc: true</code>值即可。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/10/hexo-增加目录/" class="archive-article-date">
+  	<time datetime="2017-02-10T00:38:45.094Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档—开始—运行Solr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/Apache Solr(5.5)帮助文档—开始—运行Solr/">Apache Solr(5.5)帮助文档——开始—运行Solr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>本章节介绍了根据示例schema运行Solr，增加document，查询信息。</p>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><p>安装完毕后，可以通过在Solr目录下运行bin/solr来运行Solr。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start</div></pre></td></tr></table></figure></p>
+<p>Windows用户，可以通过运行bin/solr.cmd命令运行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start</div></pre></td></tr></table></figure></p>
+<p>上述命令命令会在后台启动Solr，监听端口号8983。<br>当在后台运行Solr时，启动脚本会确保Solr正确启动，才会返回到命令行。<br> bin/solr 和 bin\solr.cmd脚本运行自定义启动内容。下面来看一些 bin/solr脚本的例子（如果使用的 是Windows平台，使用的是bin\solr.cmd）</p>
+<h4 id="Solr脚本参数"><a href="#Solr脚本参数" class="headerlink" title="Solr脚本参数"></a>Solr脚本参数</h4><p>bin/solr 有如下脚本参数</p>
+<h5 id="脚本Help"><a href="#脚本Help" class="headerlink" title="脚本Help"></a>脚本Help</h5><p>查看使用帮助，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr -help</div></pre></td></tr></table></figure></p>
+<p>如果需要查看start命令的专门的使用说明，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -help</div></pre></td></tr></table></figure></p>
+<h5 id="在前台启动Solr"><a href="#在前台启动Solr" class="headerlink" title="在前台启动Solr"></a>在前台启动Solr</h5><p>Solr是个服务，因此通常会在后台运行，尤其是在Linux/Unix上。但是，如果要在前台启动，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -f</div></pre></td></tr></table></figure></p>
+<p>如果运行的是Windows平台，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start -f</div></pre></td></tr></table></figure></p>
+<h5 id="在不同的端口启动"><a href="#在不同的端口启动" class="headerlink" title="在不同的端口启动"></a>在不同的端口启动</h5><p>-p参数可以修改Solr监听的端口，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -p 8984</div></pre></td></tr></table></figure></p>
+<h5 id="停止Solr"><a href="#停止Solr" class="headerlink" title="停止Solr"></a>停止Solr</h5><p>当在前台运行Solr时（用-f参数），可以通过<code>ctrl+c</code>来停止。但是，如果是在后台运行，停止命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bint/solr stop -p 8983</div></pre></td></tr></table></figure></p>
+<p>停止命令需要表明监听的Solr端口。也可以通过<code>-all</code>参数，来停止所有的Solr实例。</p>
+<h5 id="指定启动时的示例配置"><a href="#指定启动时的示例配置" class="headerlink" title="指定启动时的示例配置"></a>指定启动时的示例配置</h5><p>Solr也提供一系列有用的例子来帮助你学习它的主要特点。通过-e 标志可以加载相应的示例。例如，如果要加载”techproducts”例子，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr -e techproducts</div></pre></td></tr></table></figure></p>
+<p>目前已经存在的示例包括：techproducts，dih，schemaless，cloud。如果想要了解关于各个示例的更多细节，可以查看Running with example configurations部分。<br><strong>informations</strong>：开始运行SolrCloud<br>运行cloud示例会在SlorCloud模式下运行Solr。关于更多关于云模式运行的Solr信息，可以查看<strong>开始SolrCloud</strong>。</p>
+<h5 id="检测Solr是否在运行"><a href="#检测Solr是否在运行" class="headerlink" title="检测Solr是否在运行"></a>检测Solr是否在运行</h5><p>如果不确定Solr是否在运行，可以使用状态命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr status</div></pre></td></tr></table></figure></p>
+<p>这个命令将会搜索运行在当前电脑上的所有Solr示例，并将他们的基本信息聚集在一起（例如版本和内存使用等等）。<br>上述内容就可以查看Solr是否在运行，如果需要确认，可以通过Web浏览器查看管理页面。<br>!!!!!Solrweb图<br>如果Solr没有运行，浏览器会报错，错误信息为不能连接到服务器。请检测端口号，然后再重试。</p>
+<h3 id="创建core"><a href="#创建core" class="headerlink" title="创建core"></a>创建core</h3><p>如果没有指定示例配置，需要创建一个core，才能索引和搜索。脚本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -c &lt;name&gt;</div></pre></td></tr></table></figure></p>
+<p>这样会创建一个core。这个core会使用data-driven schema，将会在你新增documents时判断field type。<br>如果需要查看创建新core时所有的参数，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -help</div></pre></td></tr></table></figure></p>
+<h3 id="新增Documents"><a href="#新增Documents" class="headerlink" title="新增Documents"></a>新增Documents</h3><p>Solr的目的是查找符合条件的documents。Solr的schema阐释了它的内容的存储结构，但是没有documents的话，是没有东西来进行搜索的。Solr首先需要有输入内容。<br>在索引你自己需要的内容之前，你可能需要增加一些示例documents。Solr安装程序自带了一些不同类别的示例documents。位置在安装目录下的example子目录下。<br>在bin目录下，是提交脚步。命令行工具可以用来索引不同的documents。现在先不要考虑态度的细节，在Indexing and Basic Data Operations章节，会有关于索引的所有细节。<br><code>-help</code>命令可以查看关于<code>bin/post</code>的更多信息。Windows用户，可以查看Post Tool on Windows章节。<br><code>bin/post</code>可以提交多种形式的内容到Solr上，包括Solr原始的XML文件和JSON格式文件，CSV格式文件，富文档的字典树，甚至一个简短的web crawl。通过在<code>bin/post -help</code>最后不同类别的命令示例，可以轻松的开始提交你自己的内容到Solr上。<br>下面继续将所有的documents按照示例的XML文件格式添加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/solr create -c gettingstarted</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">./bin/post -c gettingstarted example/exampledocs/*.xml</div><div class="line">/usr/local/java/jdk1.8.0_111/bin/java -classpath /home/lienquan/usr/solr-5.5.0/dist/solr-core-5.5.0.jar -Dauto=yes -Dc=gettingstarted -Ddata=files org.apache.solr.util.SimplePostTool example/exampledocs/gb18030-example.xml example/exampledocs/hd.xml example/exampledocs/ipod_other.xml example/exampledocs/ipod_video.xml example/exampledocs/manufacturers.xml example/exampledocs/mem.xml example/exampledocs/money.xml example/exampledocs/monitor2.xml example/exampledocs/monitor.xml example/exampledocs/mp500.xml example/exampledocs/sd500.xml example/exampledocs/solr.xml example/exampledocs/utf8-example.xml example/exampledocs/vidcard.xml</div><div class="line">SimplePostTool version 5.0.0</div><div class="line">Posting files to [base] url http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Entering auto mode. File endings considered are xml,json,jsonl,csv,pdf,doc,docx,ppt,pptx,xls,xlsx,odt,odp,ods,ott,otp,ots,rtf,htm,html,txt,log</div><div class="line">POSTing file gb18030-example.xml (application/xml) to [base]</div><div class="line">POSTing file hd.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_other.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_video.xml (application/xml) to [base]</div><div class="line">POSTing file manufacturers.xml (application/xml) to [base]</div><div class="line">POSTing file mem.xml (application/xml) to [base]</div><div class="line">POSTing file money.xml (application/xml) to [base]</div><div class="line">POSTing file monitor2.xml (application/xml) to [base]</div><div class="line">POSTing file monitor.xml (application/xml) to [base]</div><div class="line">POSTing file mp500.xml (application/xml) to [base]</div><div class="line">POSTing file sd500.xml (application/xml) to [base]</div><div class="line">POSTing file solr.xml (application/xml) to [base]</div><div class="line">POSTing file utf8-example.xml (application/xml) to [base]</div><div class="line">POSTing file vidcard.xml (application/xml) to [base]</div><div class="line">14 files indexed.</div><div class="line">COMMITting Solr index changes to http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Time spent: 0:00:01.243</div></pre></td></tr></table></figure>
+<p>这样，Sol就索引了示例文档。</p>
+<h3 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h3><p>现在你已经获得了索引好的文档，可以进行语句查询了。最简单的方式是拼接带参数的URL，与拼接其他的HTTP URL的方式是一样的。<br>例如，下面的查询在所有的字段搜索”video”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video</div></pre></td></tr></table></figure></p>
+<p>我们注意到URL里包括了主机名称（localhost），服务器监听的端口号（8983），应用名称（solr），查询的请求handler（select），和查询语句（q=video）。<br>上述查询结果包含在一个XML文档中，可以通过直接点击上述URL进行查看。这个XML文档包括两部分，第一部分是响应头（responseHeader），其中包括了响应本身的信息。第二部分是主要的部分，存储在<code>result</code>标签内。<code>result</code>标签里可能包含一个或多个<code>doc</code>标签，每个<code>doc</code>标签里存储了符合查询条件的document的字段。可以通过标准的XML转换技术，将Solr的查询结果转变成适合展示的格式。此外，Solr可以将查询结果按照JSON，PHP，Ruby甚至用户自定义的格式输出。<br>如果万一你在阅读本文档时没有运行Solr，下面的截图展示了一个查询的结果（实际上是下个例子）。浏览器为火狐浏览器。最顶层的节点<code>response</code>包含了一个<code>lst</code>节点（名称属性为“responseHeader”）和一个<code>result</code>节点（名词属性为”response”）。在<code>result</code>节点里，你可以看到表述查询结果的documents。</p>
+<p>～～～图片Page10 AnXML response to a query～～～～</p>
+<p>一旦你掌握了查询的基本概念，你可以很容易的进行查询功能扩展。下面例子的查询与前面的一致，只是结果只包括ID，name，price字段的数据。如果在查询条件中不明确指出需要的字段，所有的字段都会返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
+<p>下面的例子搜索只在name字段值为”black”的数据。如果在查询时不指定搜索的字段，Solr会搜索默认字段，该字段会在schema里配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=name:black</div></pre></td></tr></table></figure></p>
+<p>也可以指定字段值的范围。下面的查询条件搜索price字段在0到400之间的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
+<p><strong>Faceted</strong>浏览是Solr的一个核心特征，它允许用户按照对各自应用有用途的方式精简查询结果。例如，一个购物网站可以提供<strong>facets</strong>从而在制造商或是价格方面精简查询结果。<br><strong>Faceting</strong>信息返回时作为Solr查询结果的第三部分。可以通过下面的查询条件来看一下效果。在这个查询中，增加了<code>facet=true</code>和<code>facet.field=cat</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price&amp;facet=true&amp;facet.field=cat</div></pre></td></tr></table></figure></p>
+<p>在查询结果中，除了熟悉的<code>responseHeader</code>节点和<code>response</code>节点，还有一个<code>facet_counts</code>节点。下面的XML文档将<code>responseHeader</code>节点和<code>response</code>节点收缩了，我们可以更清晰的看到<strong>faceting</strong>信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;response&gt;</div><div class="line">&lt;lst name=&quot;responseHeader&quot;&gt;</div><div class="line">&lt;int name=&quot;status&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;QTime&quot;&gt;205&lt;/int&gt;</div><div class="line">&lt;lst name=&quot;params&quot;&gt;...&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;result name=&quot;response&quot; numFound=&quot;13&quot; start=&quot;0&quot;&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;/result&gt;</div><div class="line">&lt;lst name=&quot;facet_counts&quot;&gt;</div><div class="line">&lt;lst name=&quot;facet_queries&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_fields&quot;&gt;</div><div class="line">&lt;lst name=&quot;cat&quot;&gt;</div><div class="line">&lt;int name=&quot;electronics&quot;&gt;9&lt;/int&gt;</div><div class="line">&lt;int name=&quot;connector&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;hard drive&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;memory&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;search&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;software&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;camera&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;copier&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and stuff2&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;multifunction printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;music&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;scanner&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;currency&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and computer1&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;graphics card&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;lst name=&quot;facet_dates&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_ranges&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_intervals&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_heatmaps&quot;/&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/response&gt;</div></pre></td></tr></table></figure></p>
+<p>在<strong>faceting</strong>结果中，统计了每种cat字段值符合查询条件的数字。可以轻松的根据上述信息为用户提供更加便捷的方式来精简查询结果。可以在Solr请求中增加更多的过滤查询。下面的查询增加了software的策略，来限制查询结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price,cat&amp;facet=true&amp;facet.field=cat&amp;fq=cat:software</div></pre></td></tr></table></figure></p>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p><code>facet=true</code>开启了<strong>facet</strong>查询，<code>facet.field</code>指定了<strong>facet</strong>的字段，上述例子中，<code>facet.field=cat</code>，说明，首先统计所有的cat字段的值，得到cat值字段的分类，在符合查询条件的数据中，统计每种cat值分类的个数。<code>fa=cat:software</code>貌似是不显示cat值为software的统计。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/10/Apache Solr(5.5)帮助文档—开始—运行Solr/" class="archive-article-date">
+  	<time datetime="2017-02-10T00:17:03.879Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA基础—final关键字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -157,6 +293,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <p><a href="深入理解Java中的final关键字">来自这里</a></p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>final在Java中是一个保留的关键字，可以声明成员变量、方法、类以及本地变量。一旦你将引用声明作final，你将不能改变这个引用了，编译器会检查代码，如果你试图将变量再次初始化的话，编译器会报编译错误。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>final是一个保留关键字，作用域可以使成员变量、类变量、方法、类、方法参数。</p>
@@ -237,7 +375,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档—开始—安装Solr/">Apache Solr(5.5)帮助文档——开始—开始—安装Solr</a>
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档—开始—安装Solr/">Apache Solr(5.5)帮助文档——开始—安装Solr</a>
     </h1>
   
 
@@ -245,6 +383,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <p>这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。</p>
 <h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p>Solr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version &quot;1.8.0_60&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_60-b27)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)</div></pre></td></tr></table></figure></p>
 <p>上述结果可能有所不同，但是需要确保最低版本要求。我们推荐使用未停止更新的版本，如果没有要求的版本，或是找不到Java命令行，可以从Oracle官网下载最新的版本。</p>
@@ -299,6 +439,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <p>Solr极大的方便了开发者开发复杂高效的搜索应用，提供了相应的高级特性例如<strong>faceting</strong>（按列排版搜索结果，并表明关键元素的数字）。<br>Solr依赖另一个开源的搜索技术：Lucene。<br>Lucene是一个Java库，提供了索引、搜索、拼写检查、高亮命中结果、高级分词能力等。Solr和Lucene都由 Apache Software Foundation 管理。<br>Lucene项目当前排在所有开源项目的前15，在Apache项目中排前5，大概有超过4000家公司使用。<br>在过去三年，Lucene/Solr的下载量增加了近10倍，现在的频率大约是每天6000次。Solr搜索引擎，提供了基于Lucene库的搜索平台应用，是Lucene中增长最快的子项目。Lucene和Solr为开发搜索和发现的软件供应商提供了一个具有竞争力的选择。<br>这部分内容会帮助你迅速的设置好并运行Solr，并介绍Solr基本的结构和特征。它包括了以下内容：</p>
 <ul>
 <li>安装Solr：Solr安装的流程介绍</li>
@@ -356,6 +498,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <p>本帮助文档是用来描述Apache solr（开源搜索引擎解决方案）（5.5）（<a href="http://archive.apache.org/dist/lucene/solr/ref-guide/" target="_blank" rel="external">下载地址</a>）。</p>
 <p>本文档的初衷是提供一份高水平的说明文档，目的是提供一份涉及多方面的知识的材料的而不仅仅是一本cookbook。从结构来看，本文档覆盖的范围从初学者的了解需求到经验丰富的开发者扩展应用和解决问题的要求。<br>因此，在应用开发的任何阶段，如果需要关于Solr的权威知识，可以参阅本文，并可从中获得很大帮助。<br>下面的内容假设你已经熟悉了一些搜索的概念，并且可以阅读XML文件。了解和掌握JAVA开发并不是必需的，<br>但是当直接操作 Lucene或是在Lucene/Solr基础上进行自定义扩展时，懂得Java还是有很大帮助的。</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-1a69c710487f704a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注意事项"></p>
@@ -411,6 +555,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <p>本帮助文档是用来描述Apache solr，一个开源搜索引擎解决方案（5.5版本）。原文<a href="http://archive.apache.org/dist/lucene/solr/ref-guide/" target="_blank" rel="external">下载地址</a>。<br>内容列表如下：</p>
 <h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>这部分内容指导你安装并且设置Solr。</p>
 <h3 id="使用Solr管理交互界面"><a href="#使用Solr管理交互界面" class="headerlink" title="使用Solr管理交互界面"></a>使用Solr管理交互界面</h3><p>这部分介绍了Solr的web界面。通过浏览器，可以查看配置文件、提交查询、查看日志文件设置、查看Java环境设置、监控并且管理已经发布的配置。</p>
@@ -472,6 +618,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>记录ELE_SHOP开发过程</p>
 <h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>Spring 4.2.8.RELEASE<br>Freemarker 2.3.23<br>mysql 5.7.16<br>Mybatis 3.4.1</p>
 <h2 id="开发过程记录"><a href="#开发过程记录" class="headerlink" title="开发过程记录"></a>开发过程记录</h2><h3 id="基本环境搭建"><a href="#基本环境搭建" class="headerlink" title="基本环境搭建"></a>基本环境搭建</h3><h4 id="新建MAVEN工程"><a href="#新建MAVEN工程" class="headerlink" title="新建MAVEN工程"></a>新建MAVEN工程</h4><ul>
@@ -549,6 +697,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><h2 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h2><h3 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h3><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
 <p>在返回值中（调用page分页查询，数据集结果大于1），发现最终的List中只有一条记录，和SQL单独执行时的结果集相比，改记录为最后一条记录。于是跟踪代码，直到<code>FastResultSetHandler.handleRowValues</code>中，发现被<br><code>NestedResultSetHandler</code>类覆盖，而在<code>NestedResultSetHandler</code>类中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protected void handleRowValues(ResultSet rs, ResultMap resultMap, ResultHandler resultHandler, RowBounds rowBounds, ResultColumnCache resultColumnCache) throws SQLException &#123;</div><div class="line">   final DefaultResultContext resultContext = new DefaultResultContext();</div><div class="line">   skipRows(rs, rowBounds);</div><div class="line">   Object rowValue = null;</div><div class="line">   while (shouldProcessMoreRows(rs, resultContext, rowBounds)) &#123;</div><div class="line">     final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(rs, resultMap, null);</div><div class="line">     final CacheKey rowKey = createRowKey(discriminatedResultMap, rs, null, resultColumnCache);</div><div class="line">     Object partialObject = objectCache.get(rowKey);</div><div class="line">     if (partialObject == null &amp;&amp; rowValue != null) &#123; // issue #542 delay calling ResultHandler until object ends</div><div class="line">       if (mappedStatement.isResultOrdered()) objectCache.clear(); // issue #577 clear memory if ordered</div><div class="line">       callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line">     &#125; </div><div class="line">     rowValue = getRowValue(rs, discriminatedResultMap, rowKey, rowKey, null, resultColumnCache, partialObject);</div><div class="line">   &#125;</div><div class="line">   if (rowValue != null) callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <p>发现，rowValue被不断地覆盖。</p>
@@ -602,6 +752,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	  <!-- Table of Contents -->
+		
         <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>###基本<br>在计算机中，所有的数据都是以二进制的形式表示的。屏幕上显示的文本、浏览器中显示的信息，最终都是以01的格式保存在计算机中，<br>我们看到的都是上述内容经过计算机转换后的结果。</p>
 <p>###编码和解码<br>编码是<strong>信息</strong>从一种形式或格式转换为另一种形式的过程。在计算机中，一个字母、汉字等都会按照规则转成二进制数存储。<br>解码是编码的逆过程，解码需要知道编码的规则，如果规则使用错误，就会产生乱码。</p>
 <p>###字符集和字符编码</p>
@@ -641,157 +793,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charset/">charset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encoding/">encoding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符集/">字符集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编码/">编码</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java代理实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/java代理实现/">JAVA 代理模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>代理，Proxy，在程序开发中有非常重要的作用。在Spring中，使用广泛的AOP，就是利用动态代理实现的。此为，Mybatis中，mapper类文件，也是通过动态代理，<br>生成MybatisFactoryBean。</p>
-<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>静态代理，原理上是：</p>
-<ul>
-<li>借口I，它的实现类Impl(实现类是要被代理的类)</li>
-<li>我们想要在Impl中的某个方法action()调用（或是全部方法调用）前（或后），添加一些其他的方法doBefor()/doAfter()，这时我们<br>需要有代理类ProxyImpl；</li>
-<li>代理类需要实现接口I，同时，代理类的成员变量里，有Impl类的变量impl；</li>
-<li>重写ProxyImpl类中的action()方法，调用doBefore()，然后调用impl的action，然后调用impl的doAfter()方法；</li>
-<li>实际使用中，实例化ProxyImpl变量proxyImpl，调用proxyImpl的action()方法，即实现了代理的调用。</li>
-</ul>
-<p>静态代理的一个问题就是，一般必须对每个实现类都生成一个代理类，才能达到我们需要的效果。</p>
-<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理的机制是，在程序运行时，利用反射生成动态代理的字节码，spring中AOP的实现，都是在spring初始化的时候，生成代理对象。</p>
-<h4 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h4><h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>在JDK提供里，java.lang.reflect 包中的Proxy类和InvocationHandler 接口提供了生成动态代理类的能力。</p>
-<ul>
-<li><p>接口Hello.java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author  leegebe</div><div class="line"> *</div><div class="line"> */</div><div class="line">public interface Hello &#123;</div><div class="line"></div><div class="line">    void sayHello();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author  leegebe</div><div class="line"> *</div><div class="line"> */</div><div class="line">public class HelloImpl implements Hello &#123;</div><div class="line"></div><div class="line">    public void sayHello() &#123;</div><div class="line">        System.out.println(&quot;一个普通的实现类&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>代理类<br>代理类需要实现<code>InvocationHandler.java</code>接口，然后调用Proxy.newProxyInstance方法，其中，参数为</p>
-</li>
-<li>ClasserLoader</li>
-<li>实现类的所有接口类</li>
-<li>动态代理对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">import java.lang.reflect.InvocationHandler;</div><div class="line">import java.lang.reflect.Method;</div><div class="line">import java.lang.reflect.Proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author leegebe</div><div class="line"> * JDK的动态代理</div><div class="line"> */</div><div class="line">public class JdkProxy implements InvocationHandler &#123;</div><div class="line"></div><div class="line">    private Object target;</div><div class="line"></div><div class="line">    public JdkProxy(Object target)&#123;</div><div class="line">        this.target = target;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void before()&#123;</div><div class="line">        System.out.println(&quot;before方法&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void after()&#123;</div><div class="line">        System.out.println(&quot;after方法&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</div><div class="line">        before();</div><div class="line">        Object result = method.invoke(target,args);</div><div class="line">        after();</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        System.getProperties().put(&quot;sun.misc.ProxyGenerator.saveGeneratedFiles&quot;, &quot;true&quot;);</div><div class="line">        Hello hello = new HelloImpl();</div><div class="line">        JdkProxy jdkProxy = new JdkProxy(hello);</div><div class="line">        Hello proxyed = (Hello) Proxy.newProxyInstance(hello.getClass().getClassLoader(),hello.getClass().getInterfaces(),jdkProxy);</div><div class="line">        proxyed.sayHello();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p>JDK动态代理，我们可以看到其调用过程。<br>jdkProxy.main()-&gt;Proxy.newProxyInstance()-&gt;Proxy.getProxyClass0()-&gt;WeakCache.get()-&gt;<br>Factory.get()-&gt;Proxy.apply()-&gt;ProxyGenerator.generateProxyClass()</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/23/java代理实现/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:08.092Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理/">代理</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Runtime.getRuntime()" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Runtime.getRuntime()/">Runtime.getRuntime()中freeMemory()|totalMemory()|maxMemory()</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在查看一个stactoverflowError时，看到<code>Runtime.getRuntime().freeMemory()</code>、<br><code>Runtime.getRuntime().totalMemory()</code>、<code>Runtime.getRuntime().maxMemory()</code>等内容，在此记录一下。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>三个方法都是本地方法。</p>
-<h3 id="freeMemory"><a href="#freeMemory" class="headerlink" title="freeMemory"></a>freeMemory</h3><p>JDK中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the amount of free memory in the Java Virtual Machine.</div><div class="line"> * Calling the</div><div class="line"> * &lt;code&gt;gc&lt;/code&gt; method may result in increasing the value returned</div><div class="line"> * by &lt;code&gt;freeMemory.&lt;/code&gt;</div><div class="line"> *</div><div class="line"> * @return  an approximation to the total amount of memory currently</div><div class="line"> *          available for future allocated objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long freeMemory();</div></pre></td></tr></table></figure></p>
-<p>是个native方法，说明如下：<br>返回了Java虚拟机中的空余(free)内存的数量。<br>调用gc的方法，也许会增大freeMemory的值。<br>在返回值中说明了，该值是一个估计(approximation)值，单位为字节(bytes)，该数值表明虚拟机在将来分配对象空间时可用的空间大小。</p>
-<h3 id="totalMemory"><a href="#totalMemory" class="headerlink" title="totalMemory"></a>totalMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the total amount of memory in the Java virtual machine.</div><div class="line"> * The value returned by this method may vary over time, depending on</div><div class="line"> * the host environment.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * Note that the amount of memory required to hold an object of any</div><div class="line"> * given type may be implementation-dependent.</div><div class="line"> *</div><div class="line"> * @return  the total amount of memory currently available for current</div><div class="line"> *          and future objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long totalMemory();</div></pre></td></tr></table></figure>
-<p>返回了java虚拟机中的内存总大小。这个方法的返回值也许会超时（在不同的环境下），即当前查看的值和实际的值不一致。</p>
-<p>任意给定的类型，需要的内存空间，依赖于具体的实现，不同的虚拟机也许不一致。</p>
-<p>返回值说明中，该值单位为字节，该值表明了当前对现在和未来的对象可以使用的内存空间。</p>
-<h3 id="maxMemory"><a href="#maxMemory" class="headerlink" title="maxMemory"></a>maxMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">   * Returns the maximum amount of memory that the Java virtual machine will</div><div class="line">   * attempt to use.  If there is no inherent limit then the value &#123;@link</div><div class="line">   * java.lang.Long#MAX_VALUE&#125; will be returned.</div><div class="line">   *</div><div class="line">   * @return  the maximum amount of memory that the virtual machine will</div><div class="line">   *          attempt to use, measured in bytes</div><div class="line">   * @since 1.4</div><div class="line">   */</div><div class="line">  public native long maxMemory();</div></pre></td></tr></table></figure>
-<p>返回了虚拟机可以使用的最大内存。如果没有限制，将会返回java.lang.Long#MAX_VALUE。</p>
-<p>返回值说明中，该值单位为字节，是虚拟机能够使用的最大内存。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>启动一个程序，当不设置任何配置时，<br>初始进入时(单位kB)<br>max     1844224<br>total    124416<br>free     121753   </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     96751 </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     96085 </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     85922</p>
-<p> 当进行配置<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-server -Xms256m -Xmx512m -Xmn128m -XX:PermSize=128m -Xss160k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70</div></pre></td></tr></table></figure></p>
-<p> 初始进入时<br> max     511232<br>total    249088<br>free     242790</p>
-<p>再进入<br>max     511232<br>total    249088<br>free     142084</p>
-<p> 再进入<br>max     511232<br>total    249088<br>free     138054</p>
-<p>修改参数<code>-Xmx768m</code><br> 初始进入时<br> max     773376<br>total    249088<br>free     242790</p>
-<p> 再进入<br>max     773376<br>total    249088<br>free     142145</p>
-<p> 再进入<br>max     773376<br>total    249088<br>free     138114</p>
-<p>修改参数<code>-Xms300m</code><br> 初始进入时<br> max     773376<br>total    300288<br>free     293990</p>
-<p> 再进入<br>max     773376<br>total    300288<br>free     193274</p>
-<p> 再进入<br>max     773376<br>total    300288<br>free     189243</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>maxMemory</code>与配置<code>-Xmx</code>一致，在初始时，<code>totalMemory</code>与<code>-Xms</code>有关系，初始值与<code>-Xms</code>值一致。<br>而<code>total-free</code>为当前使用的内存大小。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/16/Runtime.getRuntime()/" class="archive-article-date">
-  	<time datetime="2016-12-16T06:50:48.945Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freeMemory/">freeMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maxMemory/">maxMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/totalMemory/">totalMemory</a></li></ul>
 	</div>
 
       
@@ -876,7 +877,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 10px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 10px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
     			</div>
     	</section>
     
