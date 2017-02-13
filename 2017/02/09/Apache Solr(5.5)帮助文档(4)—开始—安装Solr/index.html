@@ -8,19 +8,25 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Apache Solr(5.5)帮助文档(4)——开始—安装Solr | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
-安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava version &amp;quot;1.8.0_60">
+  <meta name="description" content="Installing Solr
+
+这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
+安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava vers">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache Solr(5.5)帮助文档(4)——开始—安装Solr">
 <meta property="og:url" content="http://yoursite.com/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
-安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava version &amp;quot;1.8.0_60">
-<meta property="og:updated_time" content="2017-02-13T00:25:09.000Z">
+<meta property="og:description" content="Installing Solr
+
+这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
+安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava vers">
+<meta property="og:updated_time" content="2017-02-13T00:58:35.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Solr(5.5)帮助文档(4)——开始—安装Solr">
-<meta name="twitter:description" content="这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
-安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava version &amp;quot;1.8.0_60">
+<meta name="twitter:description" content="Installing Solr
+
+这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。
+安装JavaSolr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：1234$ java -versionjava vers">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -169,10 +175,13 @@
 			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Java"><span class="toc-number">1.</span> <span class="toc-text">安装Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Solr"><span class="toc-number">2.</span> <span class="toc-text">安装Solr</span></a></li></ol>
 		</div>
 		
-        <p>这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。</p>
+        <blockquote>
+<p>Installing Solr</p>
+</blockquote>
+<p>这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。</p>
 <h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p>Solr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version &quot;1.8.0_60&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_60-b27)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)</div></pre></td></tr></table></figure></p>
 <p>上述结果可能有所不同，但是需要确保最低版本要求。我们推荐使用未停止更新的版本，如果没有要求的版本，或是找不到Java命令行，可以从Oracle官网下载最新的版本。</p>
-<h3 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h3><p>可以从<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">Solr网站</a>下载Solr。<br>Linux/Unix/OSX系统下载.tgz文件，Windows系统下载.zip文件。一旦开始，只需要解压下载的文件中。如果需要设置生产环境的Solr，请参照在Taking Solr to Production 页面的说明。<br>现在仅仅需要解压Solr文件到你指定的主目录，在Linux下可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/</div><div class="line">$ tar zxf solr-5.0.0.tgz</div></pre></td></tr></table></figure></p>
+<h3 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h3><p>可以从<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">Solr网站</a>下载Solr。<br>Linux/Unix/OSX系统下载.tgz文件，Windows系统下载.zip文件。一旦开始，只需要解压下载的文件中。如果需要设置生产环境的Solr，请参照在Taking Solr to Production 页面的说明。现在仅仅需要解压Solr文件到你指定的主目录，在Linux下可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/</div><div class="line">$ tar zxf solr-5.0.0.tgz</div></pre></td></tr></table></figure></p>
 <p>一旦解压完毕，可以按照运行Solr章节的内容运行Solr。</p>
 
       
