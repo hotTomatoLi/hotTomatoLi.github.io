@@ -139,6 +139,85 @@
       <div class="body-wrap">
         
   
+    <article id="post-ELE_SHOP开发过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/26/ELE_SHOP开发过程/">ELE_SHOP开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>记录ELE_SHOP开发过程</p>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>Spring 4.2.8.RELEASE<br>Freemarker 2.3.23<br>mysql 5.7.16<br>Mybatis 3.4.1</p>
+<h2 id="开发过程记录"><a href="#开发过程记录" class="headerlink" title="开发过程记录"></a>开发过程记录</h2><h3 id="基本环境搭建"><a href="#基本环境搭建" class="headerlink" title="基本环境搭建"></a>基本环境搭建</h3><h4 id="新建MAVEN工程"><a href="#新建MAVEN工程" class="headerlink" title="新建MAVEN工程"></a>新建MAVEN工程</h4><ul>
+<li><p>POM配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"> &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</div><div class="line">          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">          xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</div><div class="line">     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line"> </div><div class="line">     &lt;groupId&gt;com.leegebe.web&lt;/groupId&gt;</div><div class="line">     &lt;artifactId&gt;ele-shop&lt;/artifactId&gt;</div><div class="line">     &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</div><div class="line"> &lt;/project&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>.gitignore配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#Maven#</div><div class="line">target/</div><div class="line"></div><div class="line">#IDEA#</div><div class="line">.idea/</div><div class="line">*.iml</div><div class="line"></div><div class="line">#Eclipse#</div><div class="line">.settings/</div><div class="line">.metadata/</div><div class="line">.classpath</div><div class="line">.project</div><div class="line">Servers</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="引入Spring-Freemarker"><a href="#引入Spring-Freemarker" class="headerlink" title="引入Spring+Freemarker"></a>引入Spring+Freemarker</h4><ul>
+<li><p>引入pom文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">&lt;properties&gt;</div><div class="line">    &lt;spring.version&gt;4.2.8.RELEASE&lt;/spring.version&gt;</div><div class="line">    &lt;log4j.version&gt;1.2.14&lt;/log4j.version&gt;</div><div class="line">    &lt;slf4j.version&gt;1.7.5&lt;/slf4j.version&gt;</div><div class="line">    &lt;freemarker.version&gt;2.3.23&lt;/freemarker.version&gt;</div><div class="line">&lt;/properties&gt;</div><div class="line">&lt;dependencies&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-oxm&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;spring-test&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;log4j&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;log4j&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;log4j.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;slf4j.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;slf4j.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    &lt;dependency&gt;</div><div class="line">        &lt;groupId&gt;org.freemarker&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;freemarker&lt;/artifactId&gt;</div><div class="line">        &lt;version&gt;$&#123;freemarker.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>引入Spring配置<br>springmvc.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</div><div class="line">       xmlns:util=&quot;http://www.springframework.org/schema/util&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">http://www.springframework.org/schema/context</div><div class="line">http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">http://www.springframework.org/schema/util</div><div class="line">http://www.springframework.org/schema/util/spring-util.xsd</div><div class="line">http://www.springframework.org/schema/mvc</div><div class="line">http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- 添加注解驱动 --&gt;</div><div class="line">    &lt;mvc:annotation-driven /&gt;</div><div class="line">    &lt;!-- 默认扫描的包路径 --&gt;</div><div class="line">    &lt;context:component-scan base-package=&quot;com.leegebe.controller&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;!-- FreeMarkerConfigurer --&gt;</div><div class="line">    &lt;bean id=&quot;freemarkerConfig&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer&quot;&gt;</div><div class="line">        &lt;property name=&quot;templateLoaderPath&quot;&gt;</div><div class="line">            &lt;value&gt;/WEB-INF/ftl/&lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=&quot;freemarkerSettings&quot;&gt;</div><div class="line">            &lt;!-- 设置FreeMarker环境属性 --&gt;</div><div class="line">            &lt;props&gt;</div><div class="line">                &lt;prop key=&quot;template_update_delay&quot;&gt;5&lt;/prop&gt;&lt;!--刷新模板的周  期，单位为秒 --&gt;</div><div class="line">                &lt;prop key=&quot;default_encoding&quot;&gt;UTF-8&lt;/prop&gt;&lt;!--模板的编码格式 --&gt;</div><div class="line">                &lt;prop key=&quot;locale&quot;&gt;UTF-8&lt;/prop&gt;&lt;!-- 本地化设置 --&gt;</div><div class="line">                &lt;prop key=&quot;datetime_format&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;time_format&quot;&gt;HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;number_format&quot;&gt;0.####&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;boolean_format&quot;&gt;true,false&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;whitespace_stripping&quot;&gt;true&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;tag_syntax&quot;&gt;auto_detect&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;url_escaping_charset&quot;&gt;UTF-8&lt;/prop&gt;</div><div class="line">            &lt;/props&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;freemarkerResolver&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;&gt;</div><div class="line">        &lt;property name=&quot;order&quot; value=&quot;1&quot; /&gt;</div><div class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.ftl&quot; /&gt;</div><div class="line">        &lt;property name=&quot;contentType&quot; value=&quot;text/html;charset=utf-8&quot; /&gt;</div><div class="line">        &lt;property name=&quot;viewClass&quot;&gt;</div><div class="line">            &lt;value&gt;org.springframework.web.servlet.view.freemarker.FreeMarkerView</div><div class="line">            &lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>配置web.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</div><div class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</div><div class="line">         version=&quot;3.1&quot;&gt;</div><div class="line">    &lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet</div><div class="line">        &lt;/servlet-class&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line">    &lt;!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 --&gt;</div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>测试<br>IndexController类<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.controller;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Controller;</div><div class="line">import org.springframework.ui.ModelMap;</div><div class="line">import org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Index控制器</div><div class="line"> * @author leegebe</div><div class="line"> * @since 1.0.0</div><div class="line"> *</div><div class="line"> */</div><div class="line">@Controller</div><div class="line">public class IndexController &#123;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;index.html&quot;)</div><div class="line">    public String index(ModelMap modelMap)&#123;</div><div class="line">        modelMap.put(&quot;title&quot;,&quot;名称&quot;);</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>测试页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;title&gt;$&#123;title&#125;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">$&#123;title&#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="引入Spring-mysql-Mybatis"><a href="#引入Spring-mysql-Mybatis" class="headerlink" title="引入Spring+mysql+Mybatis"></a>引入Spring+mysql+Mybatis</h4><ul>
+<li>增加mysql(5.1.40) 和mybatis(3.4.1)和mybatsi-spring(1.3.0)的maven配置</li>
+<li>增加spring.xml配置，配置了需要扫描的注解包，sqlSessionFactory，transactionManager，datasource</li>
+</ul>
+<h4 id="引入mybatis-generator"><a href="#引入mybatis-generator" class="headerlink" title="引入mybatis-generator"></a>引入mybatis-generator</h4>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/26/ELE_SHOP开发过程/" class="archive-article-date">
+  	<time datetime="2016-12-26T08:34:00.626Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Freemarker/">Freemarker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-mybatis 使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -842,125 +921,6 @@
 
 
   
-    <article id="post-mysql_innodb_lock" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h1 id="InnoDB-Locking"><a href="#InnoDB-Locking" class="headerlink" title="InnoDB Locking"></a>InnoDB Locking</h1><p>这里描述了Innodb中使用的锁。</p>
-<ul>
-<li>Shared and Exclusive Locks 共享锁和排他锁</li>
-<li>Intention Locks 意向锁</li>
-<li>Record Locks 行锁</li>
-<li>Gap Locks 间隙锁</li>
-<li>Next-Key Locks next-key锁</li>
-<li>Insert Intention Locks 插入意向锁</li>
-<li>AUTO-INC Locks 自增锁</li>
-</ul>
-<h2 id="Shared-and-Exclusive-Locks"><a href="#Shared-and-Exclusive-Locks" class="headerlink" title="Shared and Exclusive Locks"></a>Shared and Exclusive Locks</h2><p>InnoDB实现了标准的行级别锁，现在有两种类别的锁，共享锁（shared locks,S locks），排他锁（exclusive locks, X locks）。</p>
-<ul>
-<li>共享锁<br>允许持有锁的事务读取一行数据；<br>共享锁就是多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改；</li>
-<li>排他锁<br>排他锁允许持有锁的事务更新或是删除一行数据</li>
-</ul>
-<p>如果事务T1持有一行数据r的S锁，其他事务T2发起的针对该行的事务如下：</p>
-<ul>
-<li>如果T2请求的是一个S锁，那么T2会马上获得S锁，T1和T2都会持有r的S锁；（s锁个数？）</li>
-<li>如果T2请求的是一个X锁，那么T2不会马上获得锁；</li>
-</ul>
-<p>如果T1持有r的X锁，T2如果请求获得任意锁，都不会马上得到，T2会等待T1释放锁。</p>
-<h2 id="Intension-Locks意向锁"><a href="#Intension-Locks意向锁" class="headerlink" title="Intension Locks意向锁"></a>Intension Locks意向锁</h2><blockquote>
-<p>InnoDB supports multiple granularity locking which permits coexistence of row-level locks and locks on entire tables.<br>To make locking at multiple granularity levels practical, additional types of locks called intention locks are used.</p>
-</blockquote>
-<p>InnoDB 支持了多粒度锁机制，允许行锁和表锁共存。为了实现上述多粒度锁机制，InnoDB使用了意向锁。</p>
-<blockquote>
-<p>Intention locks are table-level locks in InnoDB that indicate which type of lock (shared or exclusive) a transaction<br>will require later for a row in that table.<br>There are two types of intention locks used in InnoDB (assume<br>that transaction T has requested a lock of the indicated type on table t):<br>Intention shared (IS): Transaction T intends to set S locks on individual rows in table t.<br>Intention exclusive (IX): Transaction T intends to set X locks on those rows.</p>
-</blockquote>
-<p>在InnoDB中，意向锁是表级别的锁，也就是说，在一张表中，<br>在InnoDB中，有两种意向锁，（假设事务T已经请求了表t的某种锁）：</p>
-<ul>
-<li>意向共享锁，IS锁：事务T想要对表t中个别的行加上s锁；</li>
-<li>意向排他锁，IX锁：事务T想要对那些行集上X锁。</li>
-</ul>
-<p>例如<code>SELECT ... LOCK IN SHARE MODE</code> 设置了IS锁， <code>SELECT ... FOR UPDATE</code> 设置了IX锁。</p>
-<p>意向锁协议如下：</p>
-<ul>
-<li>一个事务，如果可以获得表t的一行的S锁(即加上S锁)，那么该事务必须首先获得表t的IS锁或是更强的锁；</li>
-<li>一个事务，如果可以获得一行数据的X锁(即加上X锁)，那么它必须首先获得表t的IX锁。</li>
-</ul>
-<p>锁兼容矩阵</p>
-<table>
-<thead>
-<tr>
-<th>请求锁模式<br>是否兼容<br>当前锁模式</th>
-<th>X</th>
-<th>IX</th>
-<th>S</th>
-<th>IS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X</td>
-<td>冲突</td>
-<td>冲突</td>
-<td>冲突</td>
-<td>冲突</td>
-</tr>
-<tr>
-<td>IX</td>
-<td>冲突</td>
-<td>兼容</td>
-<td>冲突</td>
-<td>兼容</td>
-</tr>
-<tr>
-<td>S</td>
-<td>冲突</td>
-<td>冲突</td>
-<td>兼容</td>
-<td>兼容</td>
-</tr>
-<tr>
-<td>IS</td>
-<td>冲突</td>
-<td>兼容</td>
-<td>兼容</td>
-<td>兼容</td>
-</tr>
-</tbody>
-</table>
-<p>如果请求锁的事务的请求模式与当前锁模式兼容，请求的事务可以获得锁。否则不会获得锁，将会等待冲突的当前锁释放。如果请求锁与现有锁模式冲突，<br>不会获得锁，因为那样会造成死锁，甚至错误。</p>
-<p><a href="http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html</a><br><a href="http://www.myexception.cn/mysql/1712377.html" target="_blank" rel="external">http://www.myexception.cn/mysql/1712377.html</a><br><a href="http://blog.csdn.net/xifeijian/article/details/20313977" target="_blank" rel="external">http://blog.csdn.net/xifeijian/article/details/20313977</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/25/mysql_innodb_lock/" class="archive-article-date">
-  	<time datetime="2016-11-25T07:46:33.068Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-25</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1026,7 +986,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 10px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 13.33px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
     			</div>
     	</section>
     

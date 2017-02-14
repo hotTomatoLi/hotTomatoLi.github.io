@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>JAVA基础-HashMap | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用途名词说明
+
+
+名词
+描述
+
+
+
+
+bucket
+桶
+
+
+bin
+箱子
+
+
+
+源码结构常量
+
+
+
+名称
+用途
+
+
+
+
+serialVersionUID
+序列化ID
+
+
+DEFAULT_INITIAL_CAPACITY
+默认容量，16
+
+
+MAXIMUM_CAPACITY
+最大容量，2的30次方
+
+
+DEFAULT_LOAD_FACTOR
+默认加载因子0.75，加载因子用于扩容时，如果当前已经存储">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA基础-HashMap">
+<meta property="og:url" content="http://yoursite.com/2017/02/14/JAVA基础-HashMap/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="用途名词说明
+
+
+名词
+描述
+
+
+
+
+bucket
+桶
+
+
+bin
+箱子
+
+
+
+源码结构常量
+
+
+
+名称
+用途
+
+
+
+
+serialVersionUID
+序列化ID
+
+
+DEFAULT_INITIAL_CAPACITY
+默认容量，16
+
+
+MAXIMUM_CAPACITY
+最大容量，2的30次方
+
+
+DEFAULT_LOAD_FACTOR
+默认加载因子0.75，加载因子用于扩容时，如果当前已经存储">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-3d2e5ebc515bb001.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-4d3effbbd092efc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-14T05:37:58.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA基础-HashMap">
+<meta name="twitter:description" content="用途名词说明
+
+
+名词
+描述
+
+
+
+
+bucket
+桶
+
+
+bin
+箱子
+
+
+
+源码结构常量
+
+
+
+名称
+用途
+
+
+
+
+serialVersionUID
+序列化ID
+
+
+DEFAULT_INITIAL_CAPACITY
+默认容量，16
+
+
+MAXIMUM_CAPACITY
+最大容量，2的30次方
+
+
+DEFAULT_LOAD_FACTOR
+默认加载因子0.75，加载因子用于扩容时，如果当前已经存储">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-3d2e5ebc515bb001.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-JAVA基础-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA基础-HashMap
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用途"><span class="toc-number">1.</span> <span class="toc-text">用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名词说明"><span class="toc-number">2.</span> <span class="toc-text">名词说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码结构"><span class="toc-number">3.</span> <span class="toc-text">源码结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常量"><span class="toc-number">3.1.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">3.2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内部类"><span class="toc-number">3.3.</span> <span class="toc-text">内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node"><span class="toc-number">3.3.1.</span> <span class="toc-text">Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KeySet"><span class="toc-number">3.3.2.</span> <span class="toc-text">KeySet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Values"><span class="toc-number">3.3.3.</span> <span class="toc-text">Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EntrySet"><span class="toc-number">3.3.4.</span> <span class="toc-text">EntrySet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashIterator"><span class="toc-number">3.3.5.</span> <span class="toc-text">HashIterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KeyIterator"><span class="toc-number">3.3.6.</span> <span class="toc-text">KeyIterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ValueIterator"><span class="toc-number">3.3.7.</span> <span class="toc-text">ValueIterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EntryIterator"><span class="toc-number">3.3.8.</span> <span class="toc-text">EntryIterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMapSpliterator"><span class="toc-number">3.3.9.</span> <span class="toc-text">HashMapSpliterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KeySpliterator"><span class="toc-number">3.3.10.</span> <span class="toc-text">KeySpliterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ValueSpliterator"><span class="toc-number">3.3.11.</span> <span class="toc-text">ValueSpliterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EntrySpliterator"><span class="toc-number">3.3.12.</span> <span class="toc-text">EntrySpliterator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TreeNode"><span class="toc-number">3.3.13.</span> <span class="toc-text">TreeNode</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">3.4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#构造函数"><span class="toc-number">3.4.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hash-Object-key"><span class="toc-number">3.4.2.</span> <span class="toc-text">hash(Object key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#comparableClassFor-Object-x"><span class="toc-number">3.4.3.</span> <span class="toc-text">comparableClassFor(Object x)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#compareComparables-Class-lt-gt-kc-Object-k-Object-x"><span class="toc-number">3.4.4.</span> <span class="toc-text">compareComparables(Class<?> kc, Object k, Object x)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tableSizeFor-int-cap"><span class="toc-number">3.4.5.</span> <span class="toc-text">tableSizeFor(int cap)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#putMapEntries-Map-lt-extends-K-extends-V-gt-m-boolean-evict"><span class="toc-number">3.4.6.</span> <span class="toc-text">putMapEntries(Map<? extends K, ? extends V> m, boolean evict)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#size"><span class="toc-number">3.4.7.</span> <span class="toc-text">size()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isEmpty"><span class="toc-number">3.4.8.</span> <span class="toc-text">isEmpty()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#get-Object-key"><span class="toc-number">3.4.9.</span> <span class="toc-text">get(Object key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getNode-int-hash-Object-key"><span class="toc-number">3.4.10.</span> <span class="toc-text">getNode(int hash, Object key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#containsKey-Object-key"><span class="toc-number">3.4.11.</span> <span class="toc-text">containsKey(Object key)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#put-K-key-V-value"><span class="toc-number">3.4.12.</span> <span class="toc-text">put(K key, V value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict"><span class="toc-number">3.4.13.</span> <span class="toc-text">putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+        <h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><h2 id="名词说明"><a href="#名词说明" class="headerlink" title="名词说明"></a>名词说明</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">名词</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bucket</td>
+<td style="text-align:center">桶</td>
+</tr>
+<tr>
+<td style="text-align:center">bin</td>
+<td style="text-align:center">箱子</td>
+</tr>
+</tbody>
+</table>
+<h2 id="源码结构"><a href="#源码结构" class="headerlink" title="源码结构"></a>源码结构</h2><h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-3d2e5ebc515bb001.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常量"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">serialVersionUID</td>
+<td style="text-align:center">序列化ID</td>
+</tr>
+<tr>
+<td style="text-align:center">DEFAULT_INITIAL_CAPACITY</td>
+<td style="text-align:center">默认容量，16</td>
+</tr>
+<tr>
+<td style="text-align:center">MAXIMUM_CAPACITY</td>
+<td style="text-align:center">最大容量，2的30次方</td>
+</tr>
+<tr>
+<td style="text-align:center">DEFAULT_LOAD_FACTOR</td>
+<td style="text-align:center">默认加载因子0.75，加载因子用于扩容时，如果当前已经存储的数据量大于总容量的0.75，会进行扩容</td>
+</tr>
+<tr>
+<td style="text-align:center">TREEIFY_THRESHOLD</td>
+<td style="text-align:center">8，这个阈值表明，当一个bucket有超过8个节点时，会将链表转成树</td>
+</tr>
+<tr>
+<td style="text-align:center">UNTREEIFY_THRESHOLD</td>
+<td style="text-align:center">6，这个阈值表明，当一个bucket小于6个节点时，会将链表转成树</td>
+</tr>
+<tr>
+<td style="text-align:center">MIN_TREEIFY_CAPACITY</td>
+<td style="text-align:center">bin被树化时最小的hash表容量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>transient ：java语言的关键字，变量修饰符，如果用transient声明一个实例变量，当对象存储时，它的值不需要维持。换句话来说就是，用transient关键字标记的成员变量不参与序列化过程。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-4d3effbbd092efc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="变量"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">table</td>
+<td style="text-align:center">Node<k,v>[]</k,v></td>
+<td style="text-align:center">HashMap的实际数据结构，为一个数组，Node<k,v>为内部定义的数据结构。</k,v></td>
+</tr>
+<tr>
+<td style="text-align:center">entrySet</td>
+<td style="text-align:center">Set<map.entry<k,v>&gt;</map.entry<k,v></td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:center">size</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">当前存储数据的数量</td>
+</tr>
+<tr>
+<td style="text-align:center">modCount</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">记录HashMap结构修改的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">threshold</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">触发扩容的数值</td>
+</tr>
+<tr>
+<td style="text-align:center">loadFactor</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">加载因子，加载因子用于扩容时，如果当前已经存储的数据量/总容量&gt;loadFactor，会进行扩容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>Node类是一个HashMap中存储的基本数据（）</p>
+<ul>
+<li>hash 哈希值，在table[i]位置存储的Node初始是队列，队列的所有的hash值相等</li>
+<li>key 主键</li>
+<li>value 值</li>
+<li>next 指向链表的下个Node</li>
+</ul>
+<h4 id="KeySet"><a href="#KeySet" class="headerlink" title="KeySet"></a>KeySet</h4><p>存储所有Key值的Set，Key值不重复。</p>
+<h4 id="Values"><a href="#Values" class="headerlink" title="Values"></a>Values</h4><p>存储所有的Value类</p>
+<h4 id="EntrySet"><a href="#EntrySet" class="headerlink" title="EntrySet"></a>EntrySet</h4><h4 id="HashIterator"><a href="#HashIterator" class="headerlink" title="HashIterator"></a>HashIterator</h4><p>抽象类</p>
+<h4 id="KeyIterator"><a href="#KeyIterator" class="headerlink" title="KeyIterator"></a>KeyIterator</h4><h4 id="ValueIterator"><a href="#ValueIterator" class="headerlink" title="ValueIterator"></a>ValueIterator</h4><h4 id="EntryIterator"><a href="#EntryIterator" class="headerlink" title="EntryIterator"></a>EntryIterator</h4><h4 id="HashMapSpliterator"><a href="#HashMapSpliterator" class="headerlink" title="HashMapSpliterator"></a>HashMapSpliterator</h4><h4 id="KeySpliterator"><a href="#KeySpliterator" class="headerlink" title="KeySpliterator"></a>KeySpliterator</h4><h4 id="ValueSpliterator"><a href="#ValueSpliterator" class="headerlink" title="ValueSpliterator"></a>ValueSpliterator</h4><h4 id="EntrySpliterator"><a href="#EntrySpliterator" class="headerlink" title="EntrySpliterator"></a>EntrySpliterator</h4><h4 id="TreeNode"><a href="#TreeNode" class="headerlink" title="TreeNode"></a>TreeNode</h4><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>HashMap提供四种构造函数。</p>
+<ul>
+<li>HashMap(int initialCapacity, float loadFactor)，指定初始容量和加载因子</li>
+<li>HashMap(int initialCapacity)，指定初始容量</li>
+<li>HashMap()，采用默认值</li>
+<li>HashMap(Map&lt;? extends K, ? extends V&gt; m)，根据一个Map初始化hashMap</li>
+</ul>
+<h4 id="hash-Object-key"><a href="#hash-Object-key" class="headerlink" title="hash(Object key)"></a>hash(Object key)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static final int hash(Object key) &#123;</div><div class="line">    int h;</div><div class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至于为什么会有移位异或，可以参看<a href="https://www.zhihu.com/question/20733617" target="_blank" rel="external">这里</a>。<br>总结如下：</p>
+<ul>
+<li>代码的学名叫”扰动函数”</li>
+<li>int类型32位，右移16位，再将高地位异或，混合原始哈希码的高位和低位，以此来加大低位的随机性</li>
+</ul>
+<h4 id="comparableClassFor-Object-x"><a href="#comparableClassFor-Object-x" class="headerlink" title="comparableClassFor(Object x)"></a>comparableClassFor(Object x)</h4><p>判断一个对象是否实现了<code>Comparable</code>接口，如果是，返回x的class对象；否，返回null。</p>
+<h4 id="compareComparables-Class-lt-gt-kc-Object-k-Object-x"><a href="#compareComparables-Class-lt-gt-kc-Object-k-Object-x" class="headerlink" title="compareComparables(Class&lt;?&gt; kc, Object k, Object x)"></a>compareComparables(Class&lt;?&gt; kc, Object k, Object x)</h4><p>判断对象x的class类别不是是kc，返回0；否则，比对k和x的大小。</p>
+<h4 id="tableSizeFor-int-cap"><a href="#tableSizeFor-int-cap" class="headerlink" title="tableSizeFor(int cap)"></a>tableSizeFor(int cap)</h4><p>返回大于等于cap的最小的2的整幂数，如果超过最大值，则返回最大值。<br>解释可以参看<a href="http://blog.csdn.net/fan2012huan/article/details/51097331" target="_blank" rel="external">这里</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">static final int tableSizeFor(int cap) &#123;</div><div class="line">       int n = cap - 1;</div><div class="line">       n |= n &gt;&gt;&gt; 1;</div><div class="line">       n |= n &gt;&gt;&gt; 2;</div><div class="line">       n |= n &gt;&gt;&gt; 4;</div><div class="line">       n |= n &gt;&gt;&gt; 8;</div><div class="line">       n |= n &gt;&gt;&gt; 16;</div><div class="line">       return (n &lt; 0) ? 1 : (n &gt;= (1 &lt;&lt; 30)) ? (1 &lt;&lt; 30) : n + 1;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>通过将n不断移位或运算（加上n的二进制为1的最大位为Bit），得到Bit之后所有位值都是1的数，然后加1，得到最小的2的整幂数。<br><code>cap-1</code>的原理如下：<br>假设一个数值，二进制有m个1，如果</p>
+<ul>
+<li>m=1，则m-1的最高位会降低，即最高位会变成原来位后一位；</li>
+<li>m&gt;1，m-1的最高位不会降低；</li>
+</ul>
+<p>只有1个1，要借位到最高位；多个1，不用借位到最高，最高位不变。</p>
+<p>最终目的是为了得到大于等于cap的最小的2的整幂数，所以，通过<code>cap-1</code>，假设原来是<code>0000 1000</code>，减一得到<code>0000 01111</code>，最终再加1，得到本身；如果原来的不是2的整幂，减一也不会降低最高位，那么最终结果就是大于该值的最小2的整幂数。</p>
+<h4 id="putMapEntries-Map-lt-extends-K-extends-V-gt-m-boolean-evict"><a href="#putMapEntries-Map-lt-extends-K-extends-V-gt-m-boolean-evict" class="headerlink" title="putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict)"></a>putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict)</h4><h4 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h4><p>返回大小。</p>
+<h4 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty()"></a>isEmpty()</h4><p>判断是否为空。</p>
+<h4 id="get-Object-key"><a href="#get-Object-key" class="headerlink" title="get(Object key)"></a>get(Object key)</h4><p>获取对象。</p>
+<h4 id="getNode-int-hash-Object-key"><a href="#getNode-int-hash-Object-key" class="headerlink" title="getNode(int hash, Object key)"></a>getNode(int hash, Object key)</h4><ul>
+<li>根据给定的hash值，计算在<code>table</code>中的位置((n - 1) &amp; hash，n为table的size),得到first</li>
+<li>如果该位置的第一个节点first（Node<k,v>）的<code>key</code>值与输入的<code>key</code>一致，则返回first；</k,v></li>
+<li>否则，遍历first对应的列表或是tree，得到匹配返回，没有则返回null。</li>
+</ul>
+<h4 id="containsKey-Object-key"><a href="#containsKey-Object-key" class="headerlink" title="containsKey(Object key)"></a>containsKey(Object key)</h4><p>判断是否包含key</p>
+<h4 id="put-K-key-V-value"><a href="#put-K-key-V-value" class="headerlink" title="put(K key, V value)"></a>put(K key, V value)</h4><p>添加键值对</p>
+<h4 id="putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict"><a href="#putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict" class="headerlink" title="putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)"></a>putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)</h4>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/14/JAVA基础-HashMap/" class="archive-article-date">
+  	<time datetime="2017-02-14T05:37:37.300Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Solr(5.5)帮助文档(7)-开始-更进一步</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 13.33px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">从小听过了很多大道理&lt;br&gt;&lt;br&gt;却依旧过不好这一生</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
