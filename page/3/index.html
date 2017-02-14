@@ -139,6 +139,68 @@
       <div class="body-wrap">
         
   
+    <article id="post-一次mavenjar的冲突解决" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/一次mavenjar的冲突解决/">一次maven的冲突解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前项目有统一的公共父pom文件，为的是保证各个项目组的依赖统一。但是，当前统一的配置与自己的项目有冲突，因此，对冲突进行了排解。<br>主要目的是升级现有的spring框架，需要检查当前项目的依赖关系。</p>
+<h2 id="maven命令"><a href="#maven命令" class="headerlink" title="maven命令"></a>maven命令</h2><h3 id="mvn-dependency-tree"><a href="#mvn-dependency-tree" class="headerlink" title="mvn dependency tree"></a>mvn dependency tree</h3><p><code>mvn dependency:tree</code>命令可以查看当前项目的依赖关系。可以将当前POM的依赖关系按照树形结构展开。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- org.springframework:spring-aop:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  \- aopalliance:aopalliance:jar:1.0:compile</div><div class="line">[INFO] |  +- org.springframework:spring-beans:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.springframework:spring-expression:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-core:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.aspectj:aspectjweaver:jar:1.8.9:compile</div><div class="line">[INFO] +- org.freemarker:freemarker:jar:2.3.20:compile</div><div class="line">[INFO] +- mysql:mysql-connector-java:jar:5.1.22:compile</div><div class="line">[INFO] +- c3p0:c3p0:jar:0.9.1.2:compile</div><div class="line">[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile</div><div class="line">[INFO] +- org.slf4j:jcl-over-slf4j:jar:1.7.5:compile</div><div class="line">[INFO] +- org.slf4j:log4j-over-slf4j:jar:1.7.5:compile</div><div class="line">[INFO] +- ch.qos.logback:logback-classic:jar:1.0.13:compile</div><div class="line">[INFO] |  \- ch.qos.logback:logback-core:jar:1.0.13:compile</div></pre></td></tr></table></figure></p>
+<p>上述树形结构里，’-’表示当前父节点最后的子节点。</p>
+<h4 id="–Dverbose"><a href="#–Dverbose" class="headerlink" title="–Dverbose"></a>–Dverbose</h4><p>加上这个参数，可以将当前所有的依赖关系都展示出来，包括来自不同处的依赖项。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-context:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-tx:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.aspectj:aspectjweaver:jar:1.8.9:compile</div></pre></td></tr></table></figure></p>
+<h4 id="–Dincludes"><a href="#–Dincludes" class="headerlink" title="–Dincludes"></a>–Dincludes</h4><p><code>-Dincludes</code> 可以进行参数过滤，如果需要查询spring相关的依赖，可以<br><code>mvn dependency:tree -Dverbose -Dincludes=*spring*:*spring*</code>，结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- org.springframework:spring-aop:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  +- org.springframework:spring-beans:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  \- org.springframework:spring-expression:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |     \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] +- org.springframework:spring-core:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-context:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-tx:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-test:jar:4.2.8.RELEASE:test</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:test - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div></pre></td></tr></table></figure></p>
+<p>当然，可以将输出结果导入到文本中。只需要在命令后加入”&gt;a.txt”即可。</p>
+<h3 id="mvn-help-effective-pom"><a href="#mvn-help-effective-pom" class="headerlink" title="mvn help:effective-pom"></a>mvn help:effective-pom</h3><p>上述命令可以将当前项目自己的POM已经从父类中继承的POM内容输出，可以输出到文本中<br><code>mvn help:effective-pom&gt;a.txt</code></p>
+<h3 id="mvn-dependency-analyze"><a href="#mvn-dependency-analyze" class="headerlink" title="mvn dependency:analyze"></a>mvn dependency:analyze</h3><p><code>dependency:analyze</code>是通过分析bytecode来输出报告。上面的输出有两部分，一是’Used undeclared dependencies’（使用但未定义的依赖项），<br>二是’Unused declared dependencies’（未使用但却定义的依赖项）。<br>‘Used undeclared dependencies’<br>该列表列出的是程序代码直接用到的、但并没在pom.xml里定义的依赖项。<br>Unused declared dependencies<br>该列表列出的是程序代码没用到的、但在pom.xml里定义的依赖项。<br>注意，该列表可能不准确，因为程序代码可能使用了反射技术，在运行时需要这些jar包存在。</p>
+<h2 id="排除依赖"><a href="#排除依赖" class="headerlink" title="排除依赖"></a>排除依赖</h2><h3 id="dependency"><a href="#dependency" class="headerlink" title="dependency"></a>dependency</h3><p>在dependency中，可以通过exclusions标签进行依赖排除。<br>排除spring<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">   &lt;exclusion&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring&lt;/artifactId&gt;</div><div class="line">   &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure></p>
+<p>排除所有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">   &lt;exclusion&gt;</div><div class="line">      &lt;groupId&gt;*&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;*&lt;/artifactId&gt;</div><div class="line">   &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当有的引入是由当前项目POM继承父POM时，子类继承了父类的dependencyManagement。这种机制本身作用是将公共模块提取出来，<br>在子类中可以不用声明版本号，统一按照父类的定义。<br>但是，如果我们想要指定新的版本号，则需要在子类的dependency中声明版本号，只有dependencies元素中没有指明版本信息时，<br>dependencyManagement 中的 dependencies 元素才起作用。<br>可以通过mvn help:effective-pom查看生成的POM，可以发现子类中包含了dependencyManagement元素。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/22/一次mavenjar的冲突解决/" class="archive-article-date">
+  	<time datetime="2016-11-22T00:30:44.205Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/冲突/">冲突</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux软件安装 rpm_yum_dnf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

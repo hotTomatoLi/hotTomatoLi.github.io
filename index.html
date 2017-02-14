@@ -139,6 +139,62 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(7)—开始—更进一步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>A Step Closer</p>
+</blockquote>
+<p>当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。<br>当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。<br>Solr的home目录的关键部分如下面的例子。</p>
+<p><strong>单机模式</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-cac4b6d3ca4f0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单机模式"></p>
+<p><strong>SolrCloud模式</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c333c247b76d7365.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SolrCloud模式"></p>
+<p>也许会看到其他的一些文件，但是需要掌握的主要的文件如下：</p>
+<ul>
+<li>solr.xml 表明了你Solr服务器运行实例的配置信息。关于Solr.xml的更多信息，可以查看Solr Cores and solr.xml章节</li>
+<li>每个Solr的Core<ul>
+<li>core.properties 定义了每个core的特定属性，例如名字，core所属的集合，schema文件的位置和其他参数。更多关于core.properties的细节，清查看Defining core.properties。</li>
+<li>solrconfig.xml 控制更高级别的行为。例如，可以指定数据目录的位置。更多关于solrconfig.xml的信息，可以查看Configuring solrconfig.xml。</li>
+<li>schema.xml （或是managed-schema）描述了Solr需要索引的documents。在schema.xml里，可以定义document，实际上时一些字段的集合。需要定义字段的类别和字段本身。字段类别定义是很重要的，它包括了Solr如何处理输入字段值和查询值。更多关于schema.xml的信息，可以看Documents，Fields，and Schema Design。如果使用的是Solr的Schema API来管理字段，你需要查看managed-schema而不是schema.xml（看Managed Schma Definition in SolrConfig获取更多信息）。</li>
+<li>data/ 包括低级别索引文件的目录。</li>
+</ul>
+</li>
+</ul>
+<p>需要注意的是，SolrCloud示例在每个Solr Core里不包括conf目录（就没有solrconfig.xml或是schema.xml文件）。这是因为在conf目录下的配置文件保存在Zookeeper中，从而可以在集群中传播。<br>如果使用的是SolrCloud以及嵌入式Zookeeper实例，你会看到Zookeeper配置zoo.cfg和数据文件zoo.data。然而，如果使用的是自己的Zookeeper，将会将你自己的Zookeeper中的配置应用到Solr中，而Solr中的复制文件将不会被使用。更多关于Zookeeper和SolrCloud信息，请查看SolrCloud章节。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/" class="archive-article-date">
+  	<time datetime="2017-02-14T00:14:40.395Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(6)—开始—快速预览" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -149,7 +205,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/">Apache Solr(5.5)帮助文档(6)——快速预览</a>
+      <a class="article-title" href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/">Apache Solr(5.5)帮助文档(6)-开始-快速预览</a>
     </h1>
   
 
@@ -267,7 +323,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/">Apache Solr(5.5)帮助文档(5)——开始—运行Solr</a>
+      <a class="article-title" href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/">Apache Solr(5.5)帮助文档(5)-开始-运行Solr</a>
     </h1>
   
 
@@ -442,7 +498,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/">Apache Solr(5.5)帮助文档(4)——开始—安装Solr</a>
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/">Apache Solr(5.5)帮助文档(4)-开始-安装Solr</a>
     </h1>
   
 
@@ -501,7 +557,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/">Apache Solr(5.5)帮助文档(3)——开始—说明</a>
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/">Apache Solr(5.5)帮助文档(3)-开始-说明</a>
     </h1>
   
 
@@ -563,7 +619,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(2)—关于/">Apache Solr(5.5)帮助文档(2)——关于</a>
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(2)—关于/">Apache Solr(5.5)帮助文档(2)-关于</a>
     </h1>
   
 
@@ -622,7 +678,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/">Apache Solr(5.5)帮助文档(1)——目录</a>
+      <a class="article-title" href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/">Apache Solr(5.5)帮助文档(1)-目录</a>
     </h1>
   
 
@@ -738,61 +794,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Freemarker/">Freemarker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mybatis 使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/mybatis 使用/">JAVA 代理模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><h2 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h2><h3 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h3><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
-<p>在返回值中（调用page分页查询，数据集结果大于1），发现最终的List中只有一条记录，和SQL单独执行时的结果集相比，改记录为最后一条记录。于是跟踪代码，直到<code>FastResultSetHandler.handleRowValues</code>中，发现被<br><code>NestedResultSetHandler</code>类覆盖，而在<code>NestedResultSetHandler</code>类中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protected void handleRowValues(ResultSet rs, ResultMap resultMap, ResultHandler resultHandler, RowBounds rowBounds, ResultColumnCache resultColumnCache) throws SQLException &#123;</div><div class="line">   final DefaultResultContext resultContext = new DefaultResultContext();</div><div class="line">   skipRows(rs, rowBounds);</div><div class="line">   Object rowValue = null;</div><div class="line">   while (shouldProcessMoreRows(rs, resultContext, rowBounds)) &#123;</div><div class="line">     final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(rs, resultMap, null);</div><div class="line">     final CacheKey rowKey = createRowKey(discriminatedResultMap, rs, null, resultColumnCache);</div><div class="line">     Object partialObject = objectCache.get(rowKey);</div><div class="line">     if (partialObject == null &amp;&amp; rowValue != null) &#123; // issue #542 delay calling ResultHandler until object ends</div><div class="line">       if (mappedStatement.isResultOrdered()) objectCache.clear(); // issue #577 clear memory if ordered</div><div class="line">       callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line">     &#125; </div><div class="line">     rowValue = getRowValue(rs, discriminatedResultMap, rowKey, rowKey, null, resultColumnCache, partialObject);</div><div class="line">   &#125;</div><div class="line">   if (rowValue != null) callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>发现，rowValue被不断地覆盖。</p>
-<p>具体bug<a href="https://github.com/mybatis/mybatis-3/issues/39" target="_blank" rel="external">这里</a><br>如果增加了一个id，则返回正常。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;id column=&quot;ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/23/mybatis 使用/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:25.878Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理/">代理</a></li></ul>
 	</div>
 
       

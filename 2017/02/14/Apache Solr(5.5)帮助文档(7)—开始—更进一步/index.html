@@ -6,29 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Apache Solr(5.5)帮助文档(6)-开始-快速预览 | li</title>
+  <title>li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A Quick Overview
+  <meta name="description" content="A Step Closer
 
-从前面的内容以及体会到Solr的一些乐趣了，那么下面你将会学习Solr能够做到的所有有趣的事情。下面是Solr与应用交互的示例图。
-在上面的情景中，Solr与其他的系统应用分开运行。例如，一个在线商城应用，会为终端用户提供用户交互界面，购物车以及购买下单的方式；同时，库存管理系统应用，会允许雇员修改商品信息。商品的元数据会并行保存在数据库和Solr中。按照下面">
+当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。Solr的home目录的关键部分如下面的例子。
+单机模式
+
+SolrCloud模">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Solr(5.5)帮助文档(6)-开始-快速预览">
-<meta property="og:url" content="http://yoursite.com/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/index.html">
+<meta property="og:title" content="li">
+<meta property="og:url" content="http://yoursite.com/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="A Quick Overview
+<meta property="og:description" content="A Step Closer
 
-从前面的内容以及体会到Solr的一些乐趣了，那么下面你将会学习Solr能够做到的所有有趣的事情。下面是Solr与应用交互的示例图。
-在上面的情景中，Solr与其他的系统应用分开运行。例如，一个在线商城应用，会为终端用户提供用户交互界面，购物车以及购买下单的方式；同时，库存管理系统应用，会允许雇员修改商品信息。商品的元数据会并行保存在数据库和Solr中。按照下面">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-1ae194417412dd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-02-14T00:22:45.735Z">
+当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。Solr的home目录的关键部分如下面的例子。
+单机模式
+
+SolrCloud模">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-cac4b6d3ca4f0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-c333c247b76d7365.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-14T00:25:58.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(6)-开始-快速预览">
-<meta name="twitter:description" content="A Quick Overview
+<meta name="twitter:title" content="li">
+<meta name="twitter:description" content="A Step Closer
 
-从前面的内容以及体会到Solr的一些乐趣了，那么下面你将会学习Solr能够做到的所有有趣的事情。下面是Solr与应用交互的示例图。
-在上面的情景中，Solr与其他的系统应用分开运行。例如，一个在线商城应用，会为终端用户提供用户交互界面，购物车以及购买下单的方式；同时，库存管理系统应用，会允许雇员修改商品信息。商品的元数据会并行保存在数据库和Solr中。按照下面">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-1ae194417412dd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。Solr的home目录的关键部分如下面的例子。
+单机模式
+
+SolrCloud模">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-cac4b6d3ca4f0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -152,58 +159,45 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Apache Solr(5.5)帮助文档(6)—开始—快速预览" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache Solr(5.5)帮助文档(7)—开始—更进一步" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Apache Solr(5.5)帮助文档(6)-开始-快速预览
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
 	  <!-- Table of Contents -->
 		
-		<div id="toc" class="toc-article">
-		<strong class="toc-title">文章目录</strong>
-			
-		</div>
-		
         <blockquote>
-<p>A Quick Overview</p>
+<p>A Step Closer</p>
 </blockquote>
-<p>从前面的内容以及体会到Solr的一些乐趣了，那么下面你将会学习Solr能够做到的所有有趣的事情。<br>下面是Solr与应用交互的示例图。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-1ae194417412dd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Solr 交互示例图"><br>在上面的情景中，Solr与其他的系统应用分开运行。例如，一个在线商城应用，会为终端用户提供用户交互界面，购物车以及购买下单的方式；同时，库存管理系统应用，会允许雇员修改商品信息。商品的元数据会并行保存在数据库和Solr中。<br>按照下面的步骤，可以轻松的在在线商城增加搜索的能力：</p>
+<p>当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。<br>当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。<br>Solr的home目录的关键部分如下面的例子。</p>
+<p><strong>单机模式</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-cac4b6d3ca4f0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单机模式"></p>
+<p><strong>SolrCloud模式</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c333c247b76d7365.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SolrCloud模式"></p>
+<p>也许会看到其他的一些文件，但是需要掌握的主要的文件如下：</p>
 <ul>
-<li>1.定义schema。schema会告知Solr数据如何被索引。在在线商城示例中，schema会定义产品名称，描述，价格，制造商等等字段。在Solr中，schema是一个有力的且灵活的，允许你调整在你自己应用中的Solr的行为。更多信息，请查看Documents,Fields,and Schema Design章节。</li>
-<li>2.在应用服务器上部署Solr。</li>
-<li>3.填充用户需要搜索的document.</li>
-<li>4.在你的应用中提供搜索功能。</li>
+<li>solr.xml 表明了你Solr服务器运行实例的配置信息。关于Solr.xml的更多信息，可以查看Solr Cores and solr.xml章节</li>
+<li>每个Solr的Core<ul>
+<li>core.properties 定义了每个core的特定属性，例如名字，core所属的集合，schema文件的位置和其他参数。更多关于core.properties的细节，清查看Defining core.properties。</li>
+<li>solrconfig.xml 控制更高级别的行为。例如，可以指定数据目录的位置。更多关于solrconfig.xml的信息，可以查看Configuring solrconfig.xml。</li>
+<li>schema.xml （或是managed-schema）描述了Solr需要索引的documents。在schema.xml里，可以定义document，实际上时一些字段的集合。需要定义字段的类别和字段本身。字段类别定义是很重要的，它包括了Solr如何处理输入字段值和查询值。更多关于schema.xml的信息，可以看Documents，Fields，and Schema Design。如果使用的是Solr的Schema API来管理字段，你需要查看managed-schema而不是schema.xml（看Managed Schma Definition in SolrConfig获取更多信息）。</li>
+<li>data/ 包括低级别索引文件的目录。</li>
 </ul>
-<p>正因为Solr基于开源的标准，它是高度可扩展的。Solr查询是RESTful类别的，就是说，Solr的查询仅仅是一个Http请求的URL，响应是结构化的文档：主要是XML文档，但是也可以是JSON，CSV，或是其他的格式。这就意味着广泛的客户端可以使用Solr，从其他的web应用到浏览器客户端，富客户端应用，移动断应用。任何可以使用HTTP协议的平台，可以使用Solr。更多细节可以查看Client APIS章节。</p>
-<p>Solr基于Apache Lucene项目（高性能，功能全面的搜索引擎），它提供了从简单的关键字搜索到复杂的复合字段和<strong>faceted</strong>搜索。更多的信息，可以查看Seaching章节。<br>如果在你看来，Solr的能力还不是很印象深刻，那么它在大数据容量的应用上的处理能力，将会令你印象深刻。<br>一个相对常见的场景是，你有很多的数据，或是大量的查询，单个Solr服务不能处理你整个数据量。在这种情况下，你可以通过使用SolrCloud来升级你的应用，从而更好的在多个服务器发布数据，处理请求。根据你的应用需要的扩展类别，可以对多个选项可以混合和匹配。<br>例如，“Sharding”是一种扩展技术，该技术可以将一个集合，划分成多个叫做”shards”的逻辑片段，从而是集合中的documents的数量高于在一个物理服务器上的数量。输入的查询语句会被分配到集合中的每一个shard，并且将响应结果进行合并。另一项可用的技术是提升当前集合的”复制因子”，意味着，允许将当前集合的复制到其他的服务器上，通过将请求在这些服务器上进行分发，获得更高的并发查询能力。“Sharding”和“Replication”不是互斥的，可以在一起使用来是Solr变成更有力的和可扩展的平台。<br>当前关于高容量应用的话题并不是假设，某些有名的互联网网站包括：Macy’s，EBay，Zappo’s。<br>更多信息可以查看<a href="https://wiki.apache.org/solr/PublicServers。" target="_blank" rel="external">https://wiki.apache.org/solr/PublicServers。</a></p>
+</li>
+</ul>
+<p>需要注意的是，SolrCloud示例在每个Solr Core里不包括conf目录（就没有solrconfig.xml或是schema.xml文件）。这是因为在conf目录下的配置文件保存在Zookeeper中，从而可以在集群中传播。<br>如果使用的是SolrCloud以及嵌入式Zookeeper实例，你会看到Zookeeper配置zoo.cfg和数据文件zoo.data。然而，如果使用的是自己的Zookeeper，将会将你自己的Zookeeper中的配置应用到Solr中，而Solr中的复制文件将不会被使用。更多关于Zookeeper和SolrCloud信息，请查看SolrCloud章节。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/" class="archive-article-date">
-  	<time datetime="2017-02-13T00:39:05.873Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-13</time>
+      <a href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/" class="archive-article-date">
+  	<time datetime="2017-02-14T00:14:40.395Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
 </a>
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
       
 
       <div class="clearfix"></div>
@@ -214,18 +208,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/10/hexo-增加目录/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo-增加目录</div>
+    <a href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Solr(5.5)帮助文档(6)-开始-快速预览</div>
       <i class="icon-circle-right"></i>
     </a>
   
