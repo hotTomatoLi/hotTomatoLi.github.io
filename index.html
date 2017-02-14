@@ -139,6 +139,74 @@
       <div class="body-wrap">
         
   
+    <article id="post-JAVA基础-开发规范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/JAVA基础-开发规范/">JAVA基础-开发规范（阿里巴巴）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="编程规约"><a href="#编程规约" class="headerlink" title="编程规约"></a>编程规约</h1><h2 id="命名规约"><a href="#命名规约" class="headerlink" title="命名规约"></a>命名规约</h2><ol>
+<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例： <em>name / __name / $Object / name</em> / name$ / Object$</li>
+<li>【强制】 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。<br>说明： 正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用。<br>反例： DaZhePromotion [打折] / getPingfenByName() [评分] / int 某变量 = 3<br>正例： alibaba / taobao / youku / hangzhou 等国际通用的名称， 可视同英文。</li>
+<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外： （ 领域模型的相关命名） DO / BO / DTO / VO 等。<br>正例： MarcoPolo / UserDO / XmlService / TcpUdpDeal / TaPromotion<br>反例： macroPolo / UserDo / XMLService / TCPUDPDeal / TAPromotion   </li>
+<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>正例： localValue / getHttpMessage() / inputUserId   </li>
+<li>【 强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>正例： MAX_STOCK_COUNT<br>反例： MAX_COUNT   </li>
+<li>【强制】抽象类命名使用 Abstract 或 Base 开头； 异常类命名使用 Exception 结尾； 测试类<br>命名以它要测试的类的名称开始，以 Test 结尾。   </li>
+<li>【强制】中括号是数组类型的一部分，数组定义如下： String[] args;<br>反例： 请勿使用 String args[]的方式来定义。   </li>
+<li>【强制】 POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。<br>反例： 定义为基本数据类型 boolean isSuccess； 的属性，它的方法也是 isSuccess()， RPC框架在反向解析的时候， “以为”对应的属性名称是 success，导致属性获取不到，进而抛出异常。   </li>
+<li>【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>正例： 应用工具类包名为 com.alibaba.open.util、类名为 MessageUtils（ 此规则参考spring 的框架结构）   </li>
+<li>【强制】杜绝完全不规范的缩写， 避免望文不知义。<br>反例： AbstractClass“ 缩写” 命名成 AbsClass； condition“ 缩写” 命名成 condi，此类随意缩写严重降低了代码的可阅读性。 </li>
+<li>【推荐】如果使用到了设计模式，建议在类名中体现出具体模式。<br>说明： 将设计模式体现在名字中，有利于阅读者快速理解架构设计思想。<br>正例： public class OrderFactory;<br>public class LoginProxy;<br>public class ResourceObserver;   </li>
+<li>【推荐】接口类中的方法和属性不要加任何修饰符号（ public 也不要加） ，保持代码的简洁性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。<br>正例： 接口方法签名： void f();<br>接口基础常量表示： String COMPANY = “alibaba”;<br>反例： 接口方法定义： public abstract void f();<br>说明： JDK8 中接口允许有默认实现，那么这个 default 方法，是对所有实现类都有价值的默认实现。</li>
+<li>接口和实现类的命名有两套规则：<br>1） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部的实现类用 Impl 的后缀与接口区别。<br>正例： CacheServiceImpl 实现 CacheService 接口。<br>2）【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是–able 的形式）。<br>正例： AbstractTranslator 实现 Translatable。   </li>
+<li>【参考】枚举类名建议带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>说明： 枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>正例： 枚举名字： DealStatusEnum， 成员名称： SUCCESS / UNKOWN_REASON。    </li>
+<li>【参考】各层命名规约：<br>A) Service/DAO 层方法命名规约<br>　1） 获取单个对象的方法用 get 做前缀。<br>　2） 获取多个对象的方法用 list 做前缀。<br>　3） 获取统计值的方法用 count 做前缀。<br>　4） 插入的方法用 save（ 推荐） 或 insert 做前缀。<br>　5） 删除的方法用 remove（ 推荐） 或 delete 做前缀。<br>　6） 修改的方法用 update 做前缀。<br>B) 领域模型命名规约<br>　1） 数据对象： xxxDO， xxx 即为数据表名。<br>　2） 数据传输对象： xxxDTO， xxx 为业务领域相关的名称。<br>　3） 展示对象： xxxVO， xxx 一般为网页名称。<br>　4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。   </li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/14/JAVA基础-开发规范/" class="archive-article-date">
+  	<time datetime="2017-02-14T06:27:40.219Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发规范/">开发规范</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA基础-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -879,72 +947,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(1)—目录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/">Apache Solr(5.5)帮助文档(1)-目录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Apache Solr Reference Guide</p>
-</blockquote>
-<p>本帮助文档是用来描述Apache solr，一个开源搜索引擎解决方案（5.5版本）。原文<a href="http://archive.apache.org/dist/lucene/solr/ref-guide/" target="_blank" rel="external">下载地址</a>。<br>内容列表如下：</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>这部分内容指导你安装并且设置Solr。</p>
-<h3 id="使用Solr管理交互界面"><a href="#使用Solr管理交互界面" class="headerlink" title="使用Solr管理交互界面"></a>使用Solr管理交互界面</h3><p>这部分介绍了Solr的web界面。通过浏览器，可以查看配置文件、提交查询、查看日志文件设置、查看Java环境设置、监控并且管理已经发布的配置。</p>
-<h3 id="Documents-Fields-and-Schema-Design"><a href="#Documents-Fields-and-Schema-Design" class="headerlink" title="Documents, Fields, and Schema Design"></a>Documents, Fields, and Schema Design</h3><p>这部分内容描述了Solr如何构建它的数据，使其可以被索引。其中，介绍了如何定义<strong>fields</strong> 和 <strong>field types</strong>。<strong>fields</strong> 和 <strong>field types</strong>被Solr用于在<strong>document</strong>中组织数据，而<strong>document</strong>被Solr用于索引数据。</p>
-<h3 id="理解-Analyzers-Tokenizers-and-Filters"><a href="#理解-Analyzers-Tokenizers-and-Filters" class="headerlink" title="理解 Analyzers, Tokenizers, and Filters"></a>理解 Analyzers, Tokenizers, and Filters</h3><p>这部分介绍了Solr如何准备被索引和搜索的文本。<strong>Analyzers</strong>解析文本，输出<strong>tokens</strong>和<strong>lexical units</strong>（<strong>tokens</strong>和<strong>lexical units</strong>被用于索引和搜索）。<br><strong>Tokenizers</strong>将<strong>field</strong>数据分解成<strong>tokens</strong>。<strong>Filters</strong>则根据<strong>token</strong>流，进行一些其他的选择或是转换的工作。</p>
-<h3 id="索引和基本的数据操作"><a href="#索引和基本的数据操作" class="headerlink" title="索引和基本的数据操作"></a>索引和基本的数据操作</h3><p>这部分描述了索引的流程和基本的索引操作，例如提交、优化和回滚。</p>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>这部分从总体上描述了Sol的查询过程。它描述了查询中的主要组件，包括请求处理器（<strong>request handlers</strong>）、查询解析器（<strong>query parsers</strong>）、响应输出（<strong>response writers</strong>）。在这部分内容中，列出了Solr搜索可以使用的参数，也描述了一些可以用来调整搜索结果的特点，如<strong>boosting</strong>和<strong>faceting</strong>。</p>
-<h3 id="配置好的Solr实例"><a href="#配置好的Solr实例" class="headerlink" title="配置好的Solr实例"></a>配置好的Solr实例</h3><p>这部分介绍了Solr的性能调优。首先，从整体上介绍了solrconfig.xml文件，然后介绍如何通过修改solr.xml文件来修改<strong>core</strong>的配置，如何修改<strong>Luncene index writer</strong>的配置，等等。</p>
-<h3 id="管理Solr"><a href="#管理Solr" class="headerlink" title="管理Solr"></a>管理Solr</h3><p>在这部分内容中，主要讨论了运行和监控Solr的主题。也包括其他的主题，如何备份Solr实例，以及如何用Java Management Extensions (JMX) 运行Solr.</p>
-<h3 id="SolrCloud"><a href="#SolrCloud" class="headerlink" title="SolrCloud"></a>SolrCloud</h3><p>这部分描述了Solr新特征中最新和最令人兴奋的特征—SolrCloud。SolrCloud使Solr具有综合的分布式能力。</p>
-<h3 id="遗留系统和分布式"><a href="#遗留系统和分布式" class="headerlink" title="遗留系统和分布式"></a>遗留系统和分布式</h3><p>这部分讲述了建立Solr分布式的过程。首先将一个大的索引，分成小的部分（称为<strong>shards</strong>），然后将<strong>shards</strong>在多个服务器端进行分发，或是通过多个服务复制同一个索引数据。</p>
-<h3 id="客户端API"><a href="#客户端API" class="headerlink" title="客户端API"></a>客户端API</h3><p>这部分描述了如何通过客户端API操作Solr（Javascript，JSON，Ruby）。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/" class="archive-article-date">
-  	<time datetime="2017-02-07T01:43:08.895Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-07</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1010,7 +1012,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 13.33px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
     			</div>
     	</section>
     

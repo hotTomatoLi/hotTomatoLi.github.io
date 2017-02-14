@@ -139,6 +139,72 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(1)—目录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/">Apache Solr(5.5)帮助文档(1)-目录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Apache Solr Reference Guide</p>
+</blockquote>
+<p>本帮助文档是用来描述Apache solr，一个开源搜索引擎解决方案（5.5版本）。原文<a href="http://archive.apache.org/dist/lucene/solr/ref-guide/" target="_blank" rel="external">下载地址</a>。<br>内容列表如下：</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>这部分内容指导你安装并且设置Solr。</p>
+<h3 id="使用Solr管理交互界面"><a href="#使用Solr管理交互界面" class="headerlink" title="使用Solr管理交互界面"></a>使用Solr管理交互界面</h3><p>这部分介绍了Solr的web界面。通过浏览器，可以查看配置文件、提交查询、查看日志文件设置、查看Java环境设置、监控并且管理已经发布的配置。</p>
+<h3 id="Documents-Fields-and-Schema-Design"><a href="#Documents-Fields-and-Schema-Design" class="headerlink" title="Documents, Fields, and Schema Design"></a>Documents, Fields, and Schema Design</h3><p>这部分内容描述了Solr如何构建它的数据，使其可以被索引。其中，介绍了如何定义<strong>fields</strong> 和 <strong>field types</strong>。<strong>fields</strong> 和 <strong>field types</strong>被Solr用于在<strong>document</strong>中组织数据，而<strong>document</strong>被Solr用于索引数据。</p>
+<h3 id="理解-Analyzers-Tokenizers-and-Filters"><a href="#理解-Analyzers-Tokenizers-and-Filters" class="headerlink" title="理解 Analyzers, Tokenizers, and Filters"></a>理解 Analyzers, Tokenizers, and Filters</h3><p>这部分介绍了Solr如何准备被索引和搜索的文本。<strong>Analyzers</strong>解析文本，输出<strong>tokens</strong>和<strong>lexical units</strong>（<strong>tokens</strong>和<strong>lexical units</strong>被用于索引和搜索）。<br><strong>Tokenizers</strong>将<strong>field</strong>数据分解成<strong>tokens</strong>。<strong>Filters</strong>则根据<strong>token</strong>流，进行一些其他的选择或是转换的工作。</p>
+<h3 id="索引和基本的数据操作"><a href="#索引和基本的数据操作" class="headerlink" title="索引和基本的数据操作"></a>索引和基本的数据操作</h3><p>这部分描述了索引的流程和基本的索引操作，例如提交、优化和回滚。</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>这部分从总体上描述了Sol的查询过程。它描述了查询中的主要组件，包括请求处理器（<strong>request handlers</strong>）、查询解析器（<strong>query parsers</strong>）、响应输出（<strong>response writers</strong>）。在这部分内容中，列出了Solr搜索可以使用的参数，也描述了一些可以用来调整搜索结果的特点，如<strong>boosting</strong>和<strong>faceting</strong>。</p>
+<h3 id="配置好的Solr实例"><a href="#配置好的Solr实例" class="headerlink" title="配置好的Solr实例"></a>配置好的Solr实例</h3><p>这部分介绍了Solr的性能调优。首先，从整体上介绍了solrconfig.xml文件，然后介绍如何通过修改solr.xml文件来修改<strong>core</strong>的配置，如何修改<strong>Luncene index writer</strong>的配置，等等。</p>
+<h3 id="管理Solr"><a href="#管理Solr" class="headerlink" title="管理Solr"></a>管理Solr</h3><p>在这部分内容中，主要讨论了运行和监控Solr的主题。也包括其他的主题，如何备份Solr实例，以及如何用Java Management Extensions (JMX) 运行Solr.</p>
+<h3 id="SolrCloud"><a href="#SolrCloud" class="headerlink" title="SolrCloud"></a>SolrCloud</h3><p>这部分描述了Solr新特征中最新和最令人兴奋的特征—SolrCloud。SolrCloud使Solr具有综合的分布式能力。</p>
+<h3 id="遗留系统和分布式"><a href="#遗留系统和分布式" class="headerlink" title="遗留系统和分布式"></a>遗留系统和分布式</h3><p>这部分讲述了建立Solr分布式的过程。首先将一个大的索引，分成小的部分（称为<strong>shards</strong>），然后将<strong>shards</strong>在多个服务器端进行分发，或是通过多个服务复制同一个索引数据。</p>
+<h3 id="客户端API"><a href="#客户端API" class="headerlink" title="客户端API"></a>客户端API</h3><p>这部分描述了如何通过客户端API操作Solr（Javascript，JSON，Ruby）。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/07/Apache Solr(5.5)帮助文档(1)—目录/" class="archive-article-date">
+  	<time datetime="2017-02-07T01:43:08.895Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ELE_SHOP开发过程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -885,42 +951,6 @@
 
 
   
-    <article id="post-linux常用总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/01/linux常用总结/" class="archive-article-date">
-  	<time datetime="2016-12-01T01:51:22.702Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -986,7 +1016,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 13.33px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 16.67px;">JAVA</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/代理/" style="font-size: 13.33px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a>
     			</div>
     	</section>
     
