@@ -139,6 +139,65 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(2)—关于" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(2)—关于/">Apache Solr(5.5)帮助文档(2)-关于</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>About This Guide</p>
+</blockquote>
+<p>本帮助文档是用来描述Apache solr（开源搜索引擎解决方案）（5.5）。<a href="http://archive.apache.org/dist/lucene/solr/ref-guide/" target="_blank" rel="external">下载地址</a>。<br>本文档的初衷是提供一份高水平的说明文档，因此目的是提供一份涉及多方面的帮助文档的而不仅仅是一本cookbook。从结构来看，本文档涉及的范围从初学者的了解需求到经验丰富的开发者扩展应用和解决问题的要求。因此，在应用开发的任何阶段，如果需要关于Solr的权威知识，可以参阅本文，可以从中获得很大帮助。<br>下面的内容假设你已经熟悉了一些搜索的概念，并且可以阅读XML文件。并不一定要了解JAVA开发，但是当直接操作 Lucene或是在Lucene/Solr基础上进行自定义扩展时，懂得Java还是有很大帮助的。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-1a69c710487f704a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注意事项"></p>
+<p><strong>Information</strong>：蓝黑色背景，用于标记重点知识<br><strong>Notes</strong>         ：黄色标记是当使用Solr时需要牢记于心的知识点<br><strong>Tip</strong>              ：绿色背景，内容是一些有用的小技巧<br><strong>Warning</strong>      ：红色背景，内容是一些警告信息。</p>
+<h3 id="主机和端口"><a href="#主机和端口" class="headerlink" title="主机和端口"></a>主机和端口</h3><p>运行Solr的默认端口是<strong>8983 </strong>。本文的例子、URL、截屏可能会有不同的端口号，是因为端口号可以进行修改。如果没有自定义你的Solr的配置，在运行示例时请确保可以使用<strong>8983</strong>端口号，或是修改配置，运行例子中的端口号。关于修改端口号的信息，请参看<strong>管理Solr</strong>章节<br>同样，默认的ULR都是’localhost’，如果你使用的是远程服务器的Solr，将’localhost’替换为相应的IP或是地址。</p>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><p>路径信息与<code>solr.home</code>有关。<code>solr.home</code>位于Solr的主要安装目录，里面存储了Solr集合以及他们的配置文件和数据信息。当运行教程中例子时，<code>solr.home</code>会是在对应的例子example目录下的子目录，对应的目录会自动创建。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/Apache Solr(5.5)帮助文档(2)—关于/" class="archive-article-date">
+  	<time datetime="2017-02-09T00:42:35.568Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(1)—目录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -897,63 +956,9 @@
 
 
   
-    <article id="post-POI 使用列值设置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/01/POI 使用列值设置/">POI使用—列值设定</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用POI操作Excel时，往往会有一些特殊的列值设定。这里进行记录。</p>
-<h3 id="设置列值为下拉选择"><a href="#设置列值为下拉选择" class="headerlink" title="设置列值为下拉选择"></a>设置列值为下拉选择</h3><p>有的时候，需要设置某一列的值为固定选项的值，这时候就需要进行数据类值的设定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> //生下拉框</div><div class="line">String[] data = XXX;//生成数据</div><div class="line">DVConstraint constraint = DVConstraint.createExplicitListConstraint(data);</div><div class="line">//设置数据有效性加载在哪个单元格上,四个参数分别是：起始行、终止行、起始列、终止列</div><div class="line">CellRangeAddressList regions = new CellRangeAddressList(currentRowIndex, 65535, 5, 5);</div><div class="line">//数据有效性对象</div><div class="line">HSSFDataValidation data_validation_list = new HSSFDataValidation(regions, constraint);</div><div class="line">workbook.getSheetAt(0).addValidationData(data_validation_list);</div></pre></td></tr></table></figure>
-<h3 id="设置值内容为文本"><a href="#设置值内容为文本" class="headerlink" title="设置值内容为文本"></a>设置值内容为文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//设置日期列为文本模式</div><div class="line">HSSFCellStyle textStyle = workbook.createCellStyle();</div><div class="line">HSSFDataFormat format = workbook.createDataFormat();</div><div class="line">textStyle.setDataFormat(format.getFormat(&quot;@&quot;));</div><div class="line">workbook.getSheetAt(0).setDefaultColumnStyle(3,textStyle);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/01/POI 使用列值设置/" class="archive-article-date">
-  	<time datetime="2016-12-01T02:11:22.603Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/column/">column</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poi/">poi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作总结/">工作总结</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

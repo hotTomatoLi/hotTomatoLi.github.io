@@ -139,6 +139,60 @@
       <div class="body-wrap">
         
   
+    <article id="post-POI 使用列值设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/POI 使用列值设置/">POI使用—列值设定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用POI操作Excel时，往往会有一些特殊的列值设定。这里进行记录。</p>
+<h3 id="设置列值为下拉选择"><a href="#设置列值为下拉选择" class="headerlink" title="设置列值为下拉选择"></a>设置列值为下拉选择</h3><p>有的时候，需要设置某一列的值为固定选项的值，这时候就需要进行数据类值的设定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> //生下拉框</div><div class="line">String[] data = XXX;//生成数据</div><div class="line">DVConstraint constraint = DVConstraint.createExplicitListConstraint(data);</div><div class="line">//设置数据有效性加载在哪个单元格上,四个参数分别是：起始行、终止行、起始列、终止列</div><div class="line">CellRangeAddressList regions = new CellRangeAddressList(currentRowIndex, 65535, 5, 5);</div><div class="line">//数据有效性对象</div><div class="line">HSSFDataValidation data_validation_list = new HSSFDataValidation(regions, constraint);</div><div class="line">workbook.getSheetAt(0).addValidationData(data_validation_list);</div></pre></td></tr></table></figure>
+<h3 id="设置值内容为文本"><a href="#设置值内容为文本" class="headerlink" title="设置值内容为文本"></a>设置值内容为文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//设置日期列为文本模式</div><div class="line">HSSFCellStyle textStyle = workbook.createCellStyle();</div><div class="line">HSSFDataFormat format = workbook.createDataFormat();</div><div class="line">textStyle.setDataFormat(format.getFormat(&quot;@&quot;));</div><div class="line">workbook.getSheetAt(0).setDefaultColumnStyle(3,textStyle);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/01/POI 使用列值设置/" class="archive-article-date">
+  	<time datetime="2016-12-01T02:11:22.603Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/column/">column</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poi/">poi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作总结/">工作总结</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-linux常用总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -789,64 +843,9 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/hello-world/">欢迎页面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/31/hello-world/" class="archive-article-date">
-  	<time datetime="2016-10-31T09:25:39.605Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-31</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
