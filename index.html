@@ -139,6 +139,82 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/">Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Using the Solr Administration User Interface</p>
+</blockquote>
+<p>这部分内容介绍了Solr管理交互界面（ the Solr Administration User Interface ，Admin UI）。<br><strong>Solr管理交互界面概述</strong>介绍了交互界面的初始管理界面的基本特征，以及如果配置界面。此外，对管理界面的每个页面，都有单独的章节进行描述。</p>
+<ul>
+<li><strong>获得帮助</strong> 介绍如何获得关于交互界面的更多信息</li>
+<li><strong>日志</strong> 介绍了不同的日志级别，以及调用他们的方式</li>
+<li><strong>Cloud页面</strong> 在运行SolrCloud模式时，展示关于节点的信息</li>
+<li><strong>Core管理</strong>  介绍如何获取每个Core的管理信息</li>
+<li><strong>JAVA配置</strong> 介绍每个Core的JAVA信息</li>
+<li><strong>线程 dump</strong> 展示每一个线程的详细信息，和状态信息</li>
+<li><strong>指定Core的工具</strong> 是每个命名了的Core可使用的功能页面集的介绍<ul>
+<li><strong>分析</strong> 分析指定field的数据</li>
+<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
+<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
+<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
+<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
+<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
+<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
+<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
+<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
+<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/" class="archive-article-date">
+  	<time datetime="2017-02-16T00:50:55.658Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(8)-开始-Solr启动脚步参考" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -551,6 +627,13 @@
 <li>接口和实现类的命名有两套规则：<br>1） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部的实现类用 Impl 的后缀与接口区别。<br>正例： CacheServiceImpl 实现 CacheService 接口。<br>2）【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是–able 的形式）。<br>正例： AbstractTranslator 实现 Translatable。   </li>
 <li>【参考】枚举类名建议带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>说明： 枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>正例： 枚举名字： DealStatusEnum， 成员名称： SUCCESS / UNKOWN_REASON。    </li>
 <li>【参考】各层命名规约：<br>A) Service/DAO 层方法命名规约<br>　1） 获取单个对象的方法用 get 做前缀。<br>　2） 获取多个对象的方法用 list 做前缀。<br>　3） 获取统计值的方法用 count 做前缀。<br>　4） 插入的方法用 save（ 推荐） 或 insert 做前缀。<br>　5） 删除的方法用 remove（ 推荐） 或 delete 做前缀。<br>　6） 修改的方法用 update 做前缀。<br>B) 领域模型命名规约<br>　1） 数据对象： xxxDO， xxx 即为数据表名。<br>　2） 数据传输对象： xxxDTO， xxx 为业务领域相关的名称。<br>　3） 展示对象： xxxVO， xxx 一般为网页名称。<br>　4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。   </li>
+</ol>
+<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><ol>
+<li>【强制】不允许出现任何魔法值（ 即未经定义的常量） 直接出现在代码中。<br>反例：String key=”Id#taobao_”+tradeId；<br>　　　cache.put(key, value);</li>
+<li>【强制】 long 或者 Long 初始赋值时，必须使用大写的 L，不能是小写的 l，小写容易跟数字1 混淆，造成误解。<br>说明： Long a = 2l; 写的是数字的 21，还是 Long 型的 2?   </li>
+<li>【推荐】不要使用一个常量类维护所有常量，应该按常量功能进行归类，分开维护。如：缓存相关的常量放在类： CacheConsts 下； 系统配置相关的常量放在类： ConfigConsts 下。<br>说明： 大而全的常量类，非得使用查找功能才能定位到修改的常量，不利于理解和维护。   </li>
+<li>【推荐】常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量。<br>1） 跨应用共享常量：放置在二方库中，通常是 client.jar 中的 constant 目录下。<br>2） 应用内共享常量：放置在一方库的 modules 中的 constant 目录下。<br>反例： 易懂变量也要统一定义成应用内共享常量，两位攻城师在两个类中分别定义了表示“是”的变量：<br>　　类 A 中： public static final String YES = “yes”;<br>　　类 B 中： public static final String YES = “y”;<br>　　A.YES.equals(B.YES)，预期是 true，但实际返回为 false，导致产生线上问题。<br>3） 子工程内部共享常量：即在当前子工程的 constant 目录下。<br>4） 包内共享常量：即在当前包下单独的 constant 目录下。<br>5） 类内共享常量：直接在类内部 private static final 定义。   </li>
+<li>【推荐】如果变量值仅在一个范围内变化用 Enum 类。如果还带有名称之外的延伸属性，必须使用 Enum 类，下面正例中的数字就是延伸信息，表示星期几。<br>正例： public Enum{ MONDAY(1), TUESDAY(2), WEDNESDAY(3), THURSDAY(4), FRIDAY(5),SATURDAY(6), SUNDAY(7);}</li>
 </ol>
 
       
@@ -1178,68 +1261,6 @@
       
       <a href="/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/" class="archive-article-date">
   	<time datetime="2017-02-09T00:59:58.027Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(3)—开始—说明" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/">Apache Solr(5.5)帮助文档(3)-开始-说明</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Getting Started</p>
-</blockquote>
-<p>Solr极大的方便了开发者开发复杂高效的搜索应用，并提供相应的高级特性例如<strong>faceting</strong>（按列排版搜索结果，并表明关键元素的数字）。Solr依赖另一个开源的搜索技术：Lucene。Lucene是一个Java库，提供了索引、搜索、拼写检查、高亮命中结果、高级分词能力等。Solr和Lucene都由 Apache Software Foundation 管理。<br>Lucene项目当前排在所有开源项目的前15，在Apache项目中排前5，大概有超过4000家公司使用。在过去三年，Lucene/Solr的下载量增加了近10倍，现在的频率大约是每天6000次。Solr搜索引擎，提供了基于Lucene库的搜索平台应用，是Lucene中增长最快的子项目。Lucene和Solr为开发搜索和发现的软件供应商提供了一个具有竞争力的选择。<br>这部分内容会帮助你迅速的设置好并运行Solr，并介绍Solr基本的结构和特征。它包括了一下内容：</p>
-<ul>
-<li>安装Solr：Solr安装的流程介绍</li>
-<li>运行Solr：运行Solr的介绍，包括启动服务器，增加document，运行索引。</li>
-<li>快速概览：Solr工作原理的概览</li>
-<li>更进一步：Solr主目录和配置项的介绍</li>
-<li>Solr启动脚本介绍：bin/solr下脚本命令和参数的完整介绍</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/" class="archive-article-date">
-  	<time datetime="2017-02-09T00:50:49.602Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
