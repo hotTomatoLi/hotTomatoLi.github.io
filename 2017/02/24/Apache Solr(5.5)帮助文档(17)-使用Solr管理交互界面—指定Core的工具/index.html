@@ -6,24 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA中级—内存模型 | li</title>
+  <title>Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注意：个人学习总结
-概述并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。等待上述操作同时，可以利用处理器进行其他的工作。并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。
-硬件的效率与一致性计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因">
+  <meta name="description" content="Core-Specific Tools
+
+在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
+一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA中级—内存模型">
-<meta property="og:url" content="http://yoursite.com/2017/02/20/JAVA中级-内存模型/index.html">
+<meta property="og:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="注意：个人学习总结
-概述并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。等待上述操作同时，可以利用处理器进行其他的工作。并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。
-硬件的效率与一致性计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因">
-<meta property="og:updated_time" content="2017-02-20T08:55:52.629Z">
+<meta property="og:description" content="Core-Specific Tools
+
+在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
+一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+<meta property="og:updated_time" content="2017-02-24T01:02:02.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA中级—内存模型">
-<meta name="twitter:description" content="注意：个人学习总结
-概述并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。等待上述操作同时，可以利用处理器进行其他的工作。并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。
-硬件的效率与一致性计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因">
+<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
+<meta name="twitter:description" content="Core-Specific Tools
+
+在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
+一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -147,7 +150,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-JAVA中级-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -157,7 +160,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA中级—内存模型
+      Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具
     </h1>
   
 
@@ -169,24 +172,39 @@
 		
 		<div id="toc" class="toc-article">
 		<strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件的效率与一致性"><span class="toc-number">1.1.</span> <span class="toc-text">硬件的效率与一致性</span></a></li></ol></li></ol>
+			
 		</div>
 		
-        <p>注意：个人学习总结</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。<br>等待上述操作同时，可以利用处理器进行其他的工作。<br>并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。</p>
-<h2 id="硬件的效率与一致性"><a href="#硬件的效率与一致性" class="headerlink" title="硬件的效率与一致性"></a>硬件的效率与一致性</h2><p>计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因此加入高速缓存（Cache，L1，L2，价格昂贵）。<br>运算数据从内存复制到缓存中，数据经处理器处理完毕后，由缓存同步会内存。</p>
+        <blockquote>
+<p>Core-Specific Tools</p>
+</blockquote>
+<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
+<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
+<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
+<ul>
+<li><strong>分析</strong> 分析指定field的数据</li>
+<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
+<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
+<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
+<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
+<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
+<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
+<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
+<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
+<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
+</ul>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/20/JAVA中级-内存模型/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.629Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
+  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA中级/">JAVA中级</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
 	</div>
 
       
@@ -199,18 +217,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/20/JAVA基础—volatile关键字/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JAVA基础—volatile关键字
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/20/Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump</div>
+    <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">软件架构—MVC,MVP,MVVM</div>
       <i class="icon-circle-right"></i>
     </a>
   
