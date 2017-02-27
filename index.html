@@ -139,7 +139,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -149,7 +149,622 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/">Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具</a>
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/">Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Documents界面"></p>
+<p>在该界面可以执行以下操作：</p>
+<ul>
+<li>以JSON、CSV或XML格式复制documents，并且提交到索引；</li>
+<li>上传documents（JSON、CSV和XML格式）文件；</li>
+<li>通过选取fields和fields值构建documents；</li>
+</ul>
+<p>首先定义使用的RequestHandler（也就是’qt’）。默认使用的是<code>/update</code>。如果要换成其他的Handler，例如使用Solr Cell，改变request handler为<code>/update/extract</code>。</p>
+<p>然后选择Document类别，来定义载入的document的类别。剩下的参数会根据选取的document type不同而有所不同。</p>
+<p>###JSON<br>使用JSON的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足JSON格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）；以及if a document boost should be applied。</p>
+<p>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
+<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>使用CSV的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足CSV格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
+<h3 id="Document-Builder"><a href="#Document-Builder" class="headerlink" title="Document Builder"></a>Document Builder</h3><p>Document Builder选项提供了一个向导界面来输入一个document的field。</p>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>文件上传选项允许选择一个准备好的文件并上传。如果在Request Handler选项中选择<code>/update</code>，文件格式将被限制在XML、CSV和JSON中。<br>此外，如果要使用ExtractingRequestHandler（也就是Solr Cell），可以将选项值改为<code>/update/extract</code>。必须在solrconfig.xml中定义这个handler，定义好期望的默认值。同时需要更新的是ExtractingRequestHandler参数中的&amp;literal.id，这样选择的文件才能指定唯一ID。</p>
+<p>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
+<h3 id="Solr-Command"><a href="#Solr-Command" class="headerlink" title="Solr Command"></a>Solr Command</h3><p>Solr Command选项允许你通过XML或JSON在documents上执行特殊的操作，例如决定document是否新增或是删除，更新documents的特定fields，或是在索引上执行和优化命令。<br>如果在命令行选择<code>/uppdate</code>选项，document需要按照规则组织。</p>
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>使用XML的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足XML格式，每个document之间用<code>&lt;doc&gt;</code>标签分隔，并且每个field都已经定义。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。<br>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
+<h3 id="相关的主题"><a href="#相关的主题" class="headerlink" title="相关的主题"></a>相关的主题</h3><ul>
+<li>Uploading Data with Index Handlers</li>
+<li>Uploading Data with Solr Cell using Apache Tika</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:55:56.345Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/">Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Segments Info</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Segments Info"><br>Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。<br>上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:51:02.312Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面/">Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Schema Browser Screen</p>
+</blockquote>
+<p>Schema浏览界面通过浏览器窗口查看schema的数据。如果你是从Analysis界面跳转到Schema浏览界面，它会打开指定的field、dynamic field rule或是field type的界面。如果没有选中任何值，可以通过下拉菜单来选中一个field或是field type。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3e94b73a77168b3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Schema Browser Screen"></p>
+<p>Schema浏览界面对每一个field都提供了大量的有用信息。在上面的例子中，我们选中了<code>text</code> field。在中间窗口的右侧，展示了field名称，以及一系列构成<code>text</code>field的其他field。根据定义，这些field会被复制到<code>text</code>field。点击这些field中的一个，可以看到该field的定义信息。也可以看到field type，当然也可以查看对应的field type的定义信息。</p>
+<p>在中间窗口的左侧，可以看到field type，以及field的定义信息。也可以查看到具有这个field的document数量。还有用于索引和查询的analyzer。点击这些内容左侧的图标，可以查看正在使用的tokenizer和filter的定义信息。当前看到的这些处理过程的输出结果就是在<strong>Analysis Screen</strong>界面测试某个指定的field的内容如何被处理时的看到的信息。<br>在analyzer信息下面，有一个<strong>Load Term Info</strong>按钮。点击这个按钮可以查看当前这个field中索引的前N个单词（terms）。点击任意一个单词（terms），将会前往<strong>Query Screen</strong>界面，查看该field值为这个单词（terms）的查询结果。如果想要每次都看到这些单词（term）统计结果，选中<strong>Autoload</strong>选择框，如果对应的field中有单词（term），这些信息就会展示出来。边上的直方图按照给定的频率大小展示对应的单词（terms）数量统计。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:50:11.899Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面/">Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Replication Screen</p>
+</blockquote>
+<p>Replication界面展示了指定名字的Core的副本状态。SolrCloud已经取代了本界面的大部分功能，但如果你仍在用主-从索引机制，你可以在本界面进行如下操作：</p>
+<ol>
+<li>View the replicatable index state. (on a master node)</li>
+<li>View the current replication status (on a slave node)</li>
+<li>Disable replication. (on a master node)</li>
+</ol>
+<p>注意：当使用SolrCloud时需要注意<br>When using SolrCloud, do not attempt to disable replication via this screen.</p>
+<p>更多关于如何配置replication的内容在<strong>Index Replication</strong>章节</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:49:11.061Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/">Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Query Screen</p>
+</blockquote>
+<p>你可以通过在每个Core下的<strong>Query</strong>，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b0c001ef819e16d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Query Screen"></p>
+<p>查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”<em>:</em>“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持其他的参数为默认值，下面的表格解释了这些参数的含义，在本文档中的后续部分中，也介绍了这些参数的细节信息。</p>
+<p>查询请求的响应在表单的右边展示。对Solr发起的请求时普通的HTTP请求，查询请求的内容在查询结果上方，以灰色字体展示。如果点击该内容，浏览器会打开一个新窗口，仅仅展示查询请求和响应内容（不包括Solr管理交互界面的其他内容）。响应的内容是以JSON格式展示，格式设置是请求的一部分（可以查看在请求结尾的<code>wt=json</code>参数）。</p>
+<p>查询响应至少包含两部分数据，根据选择的参数不同，可能会包含更多的部分。肯定包含的两部分是响应头和响应内容。响应头里包括了查询状态（status）、查询时间（QTime）、发起查询时传递的参数（params）。</p>
+<p>本界面运行你通过尝试不同的查询参数，观察索引的document。在表单下面可使用的查询参数是大多数用户可用的基本参数，此外，也有很多参数可以通过手动加入到查询请求中（在浏览器打开）。下面的表格列出了可用的参数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字段</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Request-handler(qt)</td>
+<td style="text-align:center">指定查询请求使用的查询handler。如果没有明确指定查询handler，那么Solr会使用标准查询handler来执行查询。</td>
+</tr>
+<tr>
+<td style="text-align:center">q</td>
+<td style="text-align:center">查询事件。请在<strong>Searching</strong>章节查看关于此参数的解释。</td>
+</tr>
+<tr>
+<td style="text-align:center">fq</td>
+<td style="text-align:center">过滤查询，请在<strong>Common Query Parameters</strong>章节查看关于此参数的更多信息。</td>
+</tr>
+<tr>
+<td style="text-align:center">sort</td>
+<td style="text-align:center">根据响应的结果的score或是其他的指定的字段，将查询响应排序（升序或降序）</td>
+</tr>
+<tr>
+<td style="text-align:center">start, rows</td>
+<td style="text-align:center">start是只查询偏移量，查询返回的数据从该位置的document开始，默认值为0，意思是查询结果将会从匹配查询条件的第一个document开始返回。该字段也可以输入符合开始查询参数语法的内容（在<strong>Searching</strong>章节介绍）。row是指需要返回的行数</td>
+</tr>
+<tr>
+<td style="text-align:center">fl</td>
+<td style="text-align:center">定义每个document返回的field。可以明确的列出你想要Solr返回的内容，包括存储的field、function、doc transformers，通过空格或是逗号进行分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">wt</td>
+<td style="text-align:center">指定用于格式化查询结果的响应Writer。未明确定义，采用的是XML格式</td>
+</tr>
+<tr>
+<td style="text-align:center">indent</td>
+<td style="text-align:center">勾选这个选项后，响应Writer 会将响应内容进行压缩，使其可读性更高</td>
+</tr>
+<tr>
+<td style="text-align:center">debugQuery</td>
+<td style="text-align:center">勾选这个选项会要求查询结果带有调试信息，包括每个document返回的”explain info”。这些调试信息主要是为管理人员或是程序员准备的</td>
+</tr>
+<tr>
+<td style="text-align:center">dismax</td>
+<td style="text-align:center">勾选这个选项，会启用Dismax查询解析器。更多信息请查阅<strong>The DisMax Query Parser</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">edismax</td>
+<td style="text-align:center">勾选这个选项会启动Extended查询解析器。更多信息请查阅<strong>The Extended DisMax QueryParser</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">hl</td>
+<td style="text-align:center">勾选这个选项后，会启用查询响应中高亮功能。更多信息请查阅<strong>Highlighting</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">facet</td>
+<td style="text-align:center">启动faceting功能，会将查询结果根据索引的字段进行归类。更多信息请查阅<strong>Faceting</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">spatial</td>
+<td style="text-align:center">勾选该按钮，会允许使用本地数据，主要应用于物理空间搜索。Click to enable using location data for use in spatial or geospatial searches.更多信息请查阅<strong> Spatial Search </strong>章节。</td>
+</tr>
+<tr>
+<td style="text-align:center">spellcheck</td>
+<td style="text-align:center">勾选该按钮会启动Spellchecker，会基于其他类似的单词提供内联查询建议。更多信息请查阅<strong>Spell Checking </strong>章节。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相关主题"><a href="#相关主题" class="headerlink" title="相关主题"></a>相关主题</h3><p><strong>Searching</strong></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:48:17.375Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面/">Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Plugins &amp; Stats Screen</p>
+</blockquote>
+<p>插件界面展示了Solr运行状态和性能的信息以及数据统计。从中可以看到Solr缓存性能信息、Solr搜索的状态、searchHandler和requesthandler的配置。</p>
+<p>在右侧出现的面板中，选择感兴趣的菜单，然后在屏幕中央面板上出现的名字中，点击任意一个，可以看到更多详细信息。在本例中，选择查看对应Core的搜索器的状态</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-6e9c73e3ed97fb13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Searcher Statistics"></p>
+<p>页面上展示的内容是在页面加载时得到的快照，可以通过选择点击<strong>Watch Changes</strong> 或是 <strong>Refresh Values</strong>来更新数据状态。<strong>Watch Changes</strong>会将变更的区域高亮展示，<strong>Refresh Values</strong>会重新加载页面获得最新的信息。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:47:25.311Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(22)-使用Solr管理交互界面—指定Core的工具—Ping" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(22)-使用Solr管理交互界面—指定Core的工具—Ping/">Apache Solr(5.5)帮助文档(22)-使用Solr管理交互界面—指定Core的工具—Ping</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Ping</p>
+</blockquote>
+<p>在一个Core名称下选择Ping，是向服务器发起一个<code>ping</code>请求，来检测服务器是否启动。<br>通过在<code>solrconfig.xml</code>文件中使用<code>requestHandler</code>，可以配置Ping的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!-- ping/healthcheck --&gt;</div><div class="line">&lt;requestHandler name=&quot;/admin/ping&quot; class=&quot;solr.PingRequestHandler&quot;&gt;</div><div class="line">    &lt;lst name=&quot;invariants&quot;&gt;</div><div class="line">        &lt;str name=&quot;q&quot;&gt;solrpingquery&lt;/str&gt;</div><div class="line">    &lt;/lst&gt;</div><div class="line">    &lt;lst name=&quot;defaults&quot;&gt;</div><div class="line">        &lt;str name=&quot;echoParams&quot;&gt;all&lt;/str&gt;</div><div class="line">    &lt;/lst&gt;</div><div class="line">&lt;!-- An optional feature of the PingRequestHandler is to configure the</div><div class="line">handler with a &quot;healthcheckFile&quot; which can be used to enable/disable</div><div class="line">the PingRequestHandler.</div><div class="line">relative paths are resolved against the data dir</div><div class="line">--&gt;</div><div class="line">&lt;!-- &lt;str name=&quot;healthcheckFile&quot;&gt;server-enabled.txt&lt;/str&gt; --&gt;</div><div class="line">&lt;/requestHandler&gt;</div></pre></td></tr></table></figure></p>
+<p>Ping选项并不会打开一个新页面，但是如果选择了某一个core，可以在core总览页面查看相应的ping的request的状态。请求花费的时间会在Ping选项的后面展示，单位是毫秒。<br>例子如下：<br><strong>输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/&lt;core-name&gt;/admin/ping</div></pre></td></tr></table></figure></p>
+<p>该命令会向相应名称的core发送ping请求，来得到响应。</p>
+<p><strong>输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/&lt;collection-name&gt;admin/ping?wt=json&amp;distrib=true&amp;indent=true</div></pre></td></tr></table></figure></p>
+<p>该命令会向给定名称的collection的所有副本发送请求从而获得响应。</p>
+<p><strong>实例输出</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;response&gt;</div><div class="line">    &lt;lst name=&quot;responseHeader&quot;&gt;</div><div class="line">        &lt;int name=&quot;status&quot;&gt;0&lt;/int&gt;</div><div class="line">        &lt;int name=&quot;QTime&quot;&gt;13&lt;/int&gt;</div><div class="line">        &lt;lst name=&quot;params&quot;&gt;</div><div class="line">            &lt;str name=&quot;q&quot;&gt;&#123;!lucene&#125;*:*&lt;/str&gt;</div><div class="line">            &lt;str name=&quot;distrib&quot;&gt;false&lt;/str&gt;</div><div class="line">            &lt;str name=&quot;df&quot;&gt;_text_&lt;/str&gt;</div><div class="line">            &lt;str name=&quot;rows&quot;&gt;10&lt;/str&gt;</div><div class="line">            &lt;str name=&quot;echoParams&quot;&gt;all&lt;/str&gt;</div><div class="line">        &lt;/lst&gt;</div><div class="line">    &lt;/lst&gt;</div><div class="line">    &lt;str name=&quot;status&quot;&gt;OK&lt;/str&gt;</div><div class="line">&lt;/response&gt;</div></pre></td></tr></table></figure></p>
+<p>前面的请求都会有上述输出结果。输出的status值是OK表明对应的节点成功响应请求。</p>
+<p><strong>使用SolrJ的示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SolrPing ping = new SolrPing();</div><div class="line">ping.getParams().add(&quot;distrib&quot;, &quot;true&quot;); //To make it a distributed request against</div><div class="line">a collection</div><div class="line">rsp = ping.process(solrClient, collectionName);</div><div class="line">int status = rsp.getStatus();</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(22)-使用Solr管理交互界面—指定Core的工具—Ping/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:46:02.503Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(21)-使用Solr管理交互界面—指定Core的工具—文件界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(21)-使用Solr管理交互界面—指定Core的工具—文件界面/">Apache Solr(5.5)帮助文档(21)-使用Solr管理交互界面—指定Core的工具—文件界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>文件界面允许你查看所选择的core的不同的配置文件（例如solrconfig.xml）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-68cb2717788718b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件界面"></p>
+<p>solrconfig.xml文件定义了Solr在索引数据和响应请求的行为，schema.xml定义了数据的类别(field类别)，document需要分解的field，以及根据输入document的filed名称生成的动态field。任何在使用中的其他的配置文件会在solrconfig.xml或是schema.xml中引用。<br>配置文件在页面中无法编辑，必须使用文本编辑器。</p>
+<p>这个页面与<strong>Schema浏览页面</strong>相关，这俩个页面都可以展示shema中的信息。<strong>Schema浏览页面</strong>提供了研究分析链的方式，并且展示了field的类别、field、动态field规则之间的关系。</p>
+<p>在solrconfig.xml和schema.xml中定义的其他的配置选项在文档剩余的部分中都有描述。你可以特别注意一下几个章节：</p>
+<ul>
+<li>Indexing and Basic Data Operations</li>
+<li>Searching</li>
+<li>The Well-Configured Solr Instance</li>
+<li>Documents, Fields, and Schema Design</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(21)-使用Solr管理交互界面—指定Core的工具—文件界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:45:31.268Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面/">Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>Dataimport界面展示了DataImportHandler (DIH)配置，并且允许你启动、监视由界面上选择的命令的状态，和在配置文件中定义的命令的状态。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-38386fd8f0647357.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Dataimport 界面"></p>
+<p>Dataimport界面也允许你通过调整不同的参数来控制导入到Solr中的数据，也允许你查看控制导入过程的数据导入配置文件。更多关于使用DIH导入数据的信息，请查看章节<strong>Uploading Structured Data Store Data with the Data Import Handler</strong>。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:44:31.403Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/">Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面</a>
     </h1>
   
 
@@ -162,611 +777,19 @@
         <blockquote>
 <p>Core-Specific Tools</p>
 </blockquote>
-<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
-<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
-<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
-<ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
-</ul>
+<p>Analysis界面会根据schema.xml中的field，field类别，动态规则等配置，向你展示数据是如何处理。你可以分别在索引或是在查询过程中，查看数据是如何处理的，也可以在同一时间查看数据处理。理想情况下，你会希望数据内容被连贯处理。这个界面允许你在field类别或是filed的分析链中验证配置。</p>
+<p>在页面顶部的俩个输入框中，输入一个或俩个都输入，然后选择用于分析的filed或是filed 类别定义。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-2abfbf136c5eaa36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Anlysis界面"></p>
+<p>如果勾选了<strong>Verbose Output</strong>选择框，讲会看到更多信息，包括输入值的转换（例如，转成小写，去除额外的字符），字节信息，类别，详细位置信息。根据配置文件中的field和field的类别的不同，展示的信息也会有很大的不同。分析过程的每一步都会在不同的区域展示，开头是应用在该步上的tokenier或是filter的缩写。鼠标移动或是点击缩写名称，就可以看到对应的tokenier或filter的名称和路径。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-e01f40dfd3eaaec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="v"><br>在上面的截图示例中可以看到，在输入值”Running is a sport”上，应用了多个信息转换器。单词”is”和”a”都被删除，”running”变为基本形式”run”。这是因为，在上述场景中，我们使用的field类别是<code>text_en</code>，该类别是用于移除停止符单词（通常是没有什么实际含义的小单词）和”stem” terms（词干？？），可以用于找到更多可能的匹配（尤其对复数单词的场景很有效）。如果点击在<strong>Analyze Fieldname/Field Type</strong>下拉菜单边上的问号标识，会打开Schema浏览窗口，展示这个field的配置。</p>
+<p><strong>理解 Analyzers, Tokenizers, and Filters</strong>部分详细描述了每一个选项的含义，以及它将如何转换你的数据。<strong>运行你的 Analyzer</strong>部分包含了使用Analysis界面的示例。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
-  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-软件架构-MVC,MVP,MVVM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/软件架构-MVC,MVP,MVVM/">软件架构—MVC,MVP,MVVM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>主要探讨当前热门的<strong>MVC</strong>,<strong>MVP</strong>,<strong>MVVM</strong>的含义，主要参考<a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">阮一峰的MVC，MVP 和 MVVM 的图示</a>。</p>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC，Model-View-Controller。</p>
-<ul>
-<li>View，视图层，主要指用户界面</li>
-<li>Model，数据模型层，指的是交互的数据模型</li>
-<li>Controller，控制层，主要是接受View层的请求，处理执行逻辑，得到数据模型Model，讲数据模型传递给View层。</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件架构/">软件架构</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA基础—volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/JAVA基础—volatile关键字/">JAVA基础—volatile关键字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>volatile</code>关键字可以用来修饰变量，是JAVA提供的轻量级的同步机制。</p>
-<p>##特性</p>
-<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>“可见性”指的是<code>volatile</code>变量的读取。<code>volatile</code>变量对于所有的线程可见，字面含义是，如果一个线程修改了该变量值，其他的线程可以立即查看到变化，可以看到<br>该变量最后写入的值。</p>
-<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>对单个<code>volatile</code>变量的读/写具有原子性。</p>
-<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><p><code>volatile</code>具有可见性，但并不代表其实并发安全的。考虑多个线程，每个线程都读取<code>volatile</code>变量到线程工作空间，此时各个线程认为自己得到的是最新的数据，<br>操作（自增等），数据同步回主内存时，会有部分线程的数据被覆盖掉。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/JAVA基础—volatile关键字/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA中级-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/JAVA中级-内存模型/">JAVA中级—内存模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <p>注意：个人学习总结</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。<br>等待上述操作同时，可以利用处理器进行其他的工作。<br>并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。</p>
-<h2 id="硬件的效率与一致性"><a href="#硬件的效率与一致性" class="headerlink" title="硬件的效率与一致性"></a>硬件的效率与一致性</h2><p>计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因此加入高速缓存（Cache，L1，L2，价格昂贵）。<br>运算数据从内存复制到缓存中，数据经处理器处理完毕后，由缓存同步会内存。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/JAVA中级-内存模型/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.629Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA中级/">JAVA中级</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/">Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Java Properties</p>
-</blockquote>
-<p>Java属性页面展示了在一个表现最佳的Solr系统中一个必不可少的组件。<br>通过Java 属性页面，可以看到运行Solr的JVM的所有属性，包括classpath，文件编码，JVM内存设置，操作系统等等。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c40e0fee25baa2ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java 属性"></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.628Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump/">Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Thread Dump</p>
-</blockquote>
-<p>线程 dump页面可以让你观察到在你的服务器上活动的线程信息。页面上列出了每一个线程，并且可以查看它的堆栈信息。线程左边的图标表明了当前线程的状态：例如，绿色圆圈里对勾表明当前线程是”RUNNABLE”状态。在线程右边的下拉箭头表明，你可以点击展开来查看线程的堆栈信息。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-1703d7fcd9a9d5fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线程 dump"></p>
-<p>当鼠标在线程名字上滑动时，会提示一个消息框，展示当前线程的状态。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">状态</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">NEW</td>
-<td style="text-align:center">一个还未启动的线程</td>
-</tr>
-<tr>
-<td style="text-align:center">RUNNABLE</td>
-<td style="text-align:center">正在虚拟机中执行的线程</td>
-</tr>
-<tr>
-<td style="text-align:center">BLOCKED</td>
-<td style="text-align:center">线程阻塞，等待监控锁</td>
-</tr>
-<tr>
-<td style="text-align:center">WAITING</td>
-<td style="text-align:center">线程无限期等待另一个线程执行特定操作</td>
-</tr>
-<tr>
-<td style="text-align:center">TIMED_WAITING</td>
-<td style="text-align:center">线程在指定时间内等待另一个线程执行特定操作</td>
-</tr>
-<tr>
-<td style="text-align:center">TERMINATED</td>
-<td style="text-align:center">线程退出</td>
-</tr>
-</tbody>
-</table>
-<p>当点击一个可以展开的线程，可以看到堆栈信息，如下图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-00ab80d48f736d1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查看一个线程"></p>
-<p>也可以勾选<strong>Show all Stacktraces</strong>按钮，自动展示所有可以展开的线程。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.628Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理/">Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Core Admin</p>
-</blockquote>
-<p>Core管理页面运行你管理所有的Cores。<br>顶部的按钮功能是新增一个Core，卸载展示的Core，重命名当前选中的Core，将存在的Core与在下拉菜单中选择的Core进行交换，重新加载当前Core，优化当前Core。<br>Core 管理页面中的主要行为与使用CoreAdminHandler的命名是一致的，仅仅提供了管理Core的另一种形式。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-521bf185cdfded12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Core Admin"></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.627Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面/">Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Cloud Screens</p>
-</blockquote>
-<p>当运行在SolrCloud模式下，在交互界面中，<strong>日志</strong>和<strong>Core管理</strong>之间会增加一个选项。现阶段，通过交互界面管理SolrCloud集群是不可行的。但是可以通过交互界面查看集群，并打开每个节点来查看节点的状态和统计数据，以及每一个节点上的每一个Core。</p>
-<p>注意：当使用SolrCloud时是只读的<br>“Cloud”菜单只在Solr实例运行在SolrCloud模式下才有效。单个节点或是主节点都不会展示这个选项。<br>点击左侧导航的Cloud选项，一个由”Tree”、”Graph”、”Graph (Radial)” 和 “Dump”组成的菜单会展示出来。默认视图”Graph”展示了每一个collection的图形，包括构成这些collection的shards，以及每一个shard的每个replica的地址。下面的图片展示了可以通过运行<code>bin/solr -e cloud</code>脚本启动示例的图形，包括两个节点，两个shard，两个cluster的集群。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-4d1a4cbe6632b81b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="集群示例.png"></p>
-<p> “Graph (Radial)” 选项从另一个角度来展示每个节点。同样的例子，”radial graph”的结果如下</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3351e05e5da94982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Graph (Radial)集群"></p>
-<p> “Tree” 选项展示了ZooKeeper下的目录结构，包括clusterstate.json，配置文件，和其他的状态信息文件。下图中，我们展示了”gettingstarted”collection中”shard1”中的leader定义。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9a0d8d3c476fba9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Tree"></p>
-<p>最后的选项为”Dump”，会让你下载一个包含所有ZooKeeper的配置信息的XML文件。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.626Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/">Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Logging</p>
-</blockquote>
-<p>日志页面展示了Solr日志文件中的信息。<br>当点击”Logging”链接，可以看到一张与下图类似的界面</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b083ee95db102e88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志界面，包含了由于客户端传递错误document而产生的错误日志"></p>
-<p>上述例子只是展示了一个core的日志。如果单个实例中有多个Core，每一个都会被展示出来，并有对应的日志级别。</p>
-<h3 id="选取一个日志级别"><a href="#选取一个日志级别" class="headerlink" title="选取一个日志级别"></a>选取一个日志级别</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-18d866086fb9a4c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志级别"></p>
-<p>当点击了左侧<strong>Level</strong>链接，可以看到实例中的classpath和classname的层级。黄色高亮表明该类具有日志能力。点击一个高亮的行，会弹出一个菜单，通过该菜单可以修改日志级别。黑色字段表明该类不会因为root的日志级别改变而改变自己的日志级别。<br>更多细节可以查看<strong>Configuring Logging</strong>章节。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.625Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助/">Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Getting Assistance</p>
-</blockquote>
-<p>在每个页面的底部，都有一系列帮助链接。通过这些链接，可以获得关于配置和使用Solr的更多帮助。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-d82aa7b93ed9cbf8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="帮助链接图标"></p>
-<p>上述链接图标包含的链接内容如下。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">链接</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Documentation</td>
-<td style="text-align:center">导航到Apache Solr的文档<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">http://lucene.apache.org/solr/</a>.</td>
-</tr>
-<tr>
-<td style="text-align:center">Issue Tracker</td>
-<td style="text-align:center">导航到Apache Solr项目的JIRA问题追踪系统。地址为<a href="http://issues.apache.org/jira/browse/SOLR" target="_blank" rel="external">http://issues.apache.org/jira/browse/SOLR</a>.</td>
-</tr>
-<tr>
-<td style="text-align:center">IRC Channel</td>
-<td style="text-align:center">导航到如何加入Solr在线聊天室的Apache维基百科。</td>
-</tr>
-<tr>
-<td style="text-align:center">Community forum</td>
-<td style="text-align:center">导航到Apache Solr Web 页面<a href="http://lucene.apache.org/solr/resources.html#community，该页面有参加方式的更多信息。" target="_blank" rel="external">http://lucene.apache.org/solr/resources.html#community，该页面有参加方式的更多信息。</a></td>
-</tr>
-<tr>
-<td style="text-align:center">Solr Query Syntax</td>
-<td style="text-align:center">导航到帮助文档中Query Syntax and Parsing区域</td>
-</tr>
-</tbody>
-</table>
-<p>上述链接可以通过编辑包含管理界面文件的solr.war中的admin.html中修改。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.624Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:43:38.718Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -793,7 +816,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

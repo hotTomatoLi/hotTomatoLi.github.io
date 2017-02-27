@@ -6,27 +6,44 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具 | li</title>
+  <title>Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Core-Specific Tools
+  <meta name="description" content="Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+在该界面可以执行以下操作：
+
+以JSON、CSV或XML格式复制documents，并且提交到索引；
+上传documents（JSON、CSV和XML格式）文件；
+通过选取fields和fields值构建documents；
+
+首先定义使用的RequestHandler（也就是’qt’）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta property="og:url" content="http://yoursite.com/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/index.html">
+<meta property="og:title" content="Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="Core-Specific Tools
+<meta property="og:description" content="Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
-<meta property="og:updated_time" content="2017-02-24T01:02:02.148Z">
+在该界面可以执行以下操作：
+
+以JSON、CSV或XML格式复制documents，并且提交到索引；
+上传documents（JSON、CSV和XML格式）文件；
+通过选取fields和fields值构建documents；
+
+首先定义使用的RequestHandler（也就是’qt’）。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-27T00:56:06.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta name="twitter:description" content="Core-Specific Tools
+<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面">
+<meta name="twitter:description" content="Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+在该界面可以执行以下操作：
+
+以JSON、CSV或XML格式复制documents，并且提交到索引；
+上传documents（JSON、CSV和XML格式）文件；
+通过选取fields和fields值构建documents；
+
+首先定义使用的RequestHandler（也就是’qt’）。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -150,7 +167,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -160,7 +177,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具
+      Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面
     </h1>
   
 
@@ -172,34 +189,38 @@
 		
 		<div id="toc" class="toc-article">
 		<strong class="toc-title">文章目录</strong>
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSV"><span class="toc-number">1.</span> <span class="toc-text">CSV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Document-Builder"><span class="toc-number">2.</span> <span class="toc-text">Document Builder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传"><span class="toc-number">3.</span> <span class="toc-text">文件上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solr-Command"><span class="toc-number">4.</span> <span class="toc-text">Solr Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML"><span class="toc-number">5.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关的主题"><span class="toc-number">6.</span> <span class="toc-text">相关的主题</span></a></li></ol>
 		</div>
 		
-        <blockquote>
-<p>Core-Specific Tools</p>
-</blockquote>
-<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
-<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
-<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
+        <p>Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Documents界面"></p>
+<p>在该界面可以执行以下操作：</p>
 <ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
+<li>以JSON、CSV或XML格式复制documents，并且提交到索引；</li>
+<li>上传documents（JSON、CSV和XML格式）文件；</li>
+<li>通过选取fields和fields值构建documents；</li>
+</ul>
+<p>首先定义使用的RequestHandler（也就是’qt’）。默认使用的是<code>/update</code>。如果要换成其他的Handler，例如使用Solr Cell，改变request handler为<code>/update/extract</code>。</p>
+<p>然后选择Document类别，来定义载入的document的类别。剩下的参数会根据选取的document type不同而有所不同。</p>
+<p>###JSON<br>使用JSON的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足JSON格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）；以及if a document boost should be applied。</p>
+<p>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
+<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>使用CSV的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足CSV格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
+<h3 id="Document-Builder"><a href="#Document-Builder" class="headerlink" title="Document Builder"></a>Document Builder</h3><p>Document Builder选项提供了一个向导界面来输入一个document的field。</p>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>文件上传选项允许选择一个准备好的文件并上传。如果在Request Handler选项中选择<code>/update</code>，文件格式将被限制在XML、CSV和JSON中。<br>此外，如果要使用ExtractingRequestHandler（也就是Solr Cell），可以将选项值改为<code>/update/extract</code>。必须在solrconfig.xml中定义这个handler，定义好期望的默认值。同时需要更新的是ExtractingRequestHandler参数中的&amp;literal.id，这样选择的文件才能指定唯一ID。</p>
+<p>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
+<h3 id="Solr-Command"><a href="#Solr-Command" class="headerlink" title="Solr Command"></a>Solr Command</h3><p>Solr Command选项允许你通过XML或JSON在documents上执行特殊的操作，例如决定document是否新增或是删除，更新documents的特定fields，或是在索引上执行和优化命令。<br>如果在命令行选择<code>/uppdate</code>选项，document需要按照规则组织。</p>
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>使用XML的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足XML格式，每个document之间用<code>&lt;doc&gt;</code>标签分隔，并且每个field都已经定义。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。<br>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
+<h3 id="相关的主题"><a href="#相关的主题" class="headerlink" title="相关的主题"></a>相关的主题</h3><ul>
+<li>Uploading Data with Index Handlers</li>
+<li>Uploading Data with Solr Cell using Apache Tika</li>
 </ul>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
-  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:55:56.345Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -217,18 +238,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">软件架构—MVC,MVP,MVVM</div>
+    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info</div>
       <i class="icon-circle-right"></i>
     </a>
   

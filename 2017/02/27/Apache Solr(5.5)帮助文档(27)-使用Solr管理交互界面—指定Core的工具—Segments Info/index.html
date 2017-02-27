@@ -6,27 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具 | li</title>
+  <title>Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Core-Specific Tools
+  <meta name="description" content="Segments Info
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta property="og:url" content="http://yoursite.com/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/index.html">
+<meta property="og:title" content="Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="Core-Specific Tools
+<meta property="og:description" content="Segments Info
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
-<meta property="og:updated_time" content="2017-02-24T01:02:02.148Z">
+Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-27T00:55:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta name="twitter:description" content="Core-Specific Tools
+<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info">
+<meta name="twitter:description" content="Segments Info
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -150,7 +149,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -160,7 +159,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具
+      Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info
     </h1>
   
 
@@ -176,30 +175,16 @@
 		</div>
 		
         <blockquote>
-<p>Core-Specific Tools</p>
+<p>Segments Info</p>
 </blockquote>
-<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
-<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
-<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
-<ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
-</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Segments Info"><br>Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。<br>上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
-  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:51:02.312Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -217,18 +202,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面
+          Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">软件架构—MVC,MVP,MVVM</div>
+    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面</div>
       <i class="icon-circle-right"></i>
     </a>
   

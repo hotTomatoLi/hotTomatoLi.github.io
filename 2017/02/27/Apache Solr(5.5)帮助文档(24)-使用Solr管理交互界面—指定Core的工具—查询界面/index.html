@@ -6,27 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具 | li</title>
+  <title>Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Core-Specific Tools
+  <meta name="description" content="Query Screen
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+你可以通过在每个Core下的Query，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。
+
+查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”:“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta property="og:url" content="http://yoursite.com/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/index.html">
+<meta property="og:title" content="Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="Core-Specific Tools
+<meta property="og:description" content="Query Screen
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
-<meta property="og:updated_time" content="2017-02-24T01:02:02.148Z">
+你可以通过在每个Core下的Query，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。
+
+查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”:“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-b0c001ef819e16d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-27T00:55:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具">
-<meta name="twitter:description" content="Core-Specific Tools
+<meta name="twitter:title" content="Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面">
+<meta name="twitter:description" content="Query Screen
 
-在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。
-一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。">
+你可以通过在每个Core下的Query，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。
+
+查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”:“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-b0c001ef819e16d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -150,7 +155,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -160,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具
+      Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面
     </h1>
   
 
@@ -172,34 +177,96 @@
 		
 		<div id="toc" class="toc-article">
 		<strong class="toc-title">文章目录</strong>
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#相关主题"><span class="toc-number">1.</span> <span class="toc-text">相关主题</span></a></li></ol>
 		</div>
 		
         <blockquote>
-<p>Core-Specific Tools</p>
+<p>Query Screen</p>
 </blockquote>
-<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
-<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
-<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
-<ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
-</ul>
+<p>你可以通过在每个Core下的<strong>Query</strong>，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b0c001ef819e16d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Query Screen"></p>
+<p>查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”<em>:</em>“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持其他的参数为默认值，下面的表格解释了这些参数的含义，在本文档中的后续部分中，也介绍了这些参数的细节信息。</p>
+<p>查询请求的响应在表单的右边展示。对Solr发起的请求时普通的HTTP请求，查询请求的内容在查询结果上方，以灰色字体展示。如果点击该内容，浏览器会打开一个新窗口，仅仅展示查询请求和响应内容（不包括Solr管理交互界面的其他内容）。响应的内容是以JSON格式展示，格式设置是请求的一部分（可以查看在请求结尾的<code>wt=json</code>参数）。</p>
+<p>查询响应至少包含两部分数据，根据选择的参数不同，可能会包含更多的部分。肯定包含的两部分是响应头和响应内容。响应头里包括了查询状态（status）、查询时间（QTime）、发起查询时传递的参数（params）。</p>
+<p>本界面运行你通过尝试不同的查询参数，观察索引的document。在表单下面可使用的查询参数是大多数用户可用的基本参数，此外，也有很多参数可以通过手动加入到查询请求中（在浏览器打开）。下面的表格列出了可用的参数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字段</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Request-handler(qt)</td>
+<td style="text-align:center">指定查询请求使用的查询handler。如果没有明确指定查询handler，那么Solr会使用标准查询handler来执行查询。</td>
+</tr>
+<tr>
+<td style="text-align:center">q</td>
+<td style="text-align:center">查询事件。请在<strong>Searching</strong>章节查看关于此参数的解释。</td>
+</tr>
+<tr>
+<td style="text-align:center">fq</td>
+<td style="text-align:center">过滤查询，请在<strong>Common Query Parameters</strong>章节查看关于此参数的更多信息。</td>
+</tr>
+<tr>
+<td style="text-align:center">sort</td>
+<td style="text-align:center">根据响应的结果的score或是其他的指定的字段，将查询响应排序（升序或降序）</td>
+</tr>
+<tr>
+<td style="text-align:center">start, rows</td>
+<td style="text-align:center">start是只查询偏移量，查询返回的数据从该位置的document开始，默认值为0，意思是查询结果将会从匹配查询条件的第一个document开始返回。该字段也可以输入符合开始查询参数语法的内容（在<strong>Searching</strong>章节介绍）。row是指需要返回的行数</td>
+</tr>
+<tr>
+<td style="text-align:center">fl</td>
+<td style="text-align:center">定义每个document返回的field。可以明确的列出你想要Solr返回的内容，包括存储的field、function、doc transformers，通过空格或是逗号进行分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">wt</td>
+<td style="text-align:center">指定用于格式化查询结果的响应Writer。未明确定义，采用的是XML格式</td>
+</tr>
+<tr>
+<td style="text-align:center">indent</td>
+<td style="text-align:center">勾选这个选项后，响应Writer 会将响应内容进行压缩，使其可读性更高</td>
+</tr>
+<tr>
+<td style="text-align:center">debugQuery</td>
+<td style="text-align:center">勾选这个选项会要求查询结果带有调试信息，包括每个document返回的”explain info”。这些调试信息主要是为管理人员或是程序员准备的</td>
+</tr>
+<tr>
+<td style="text-align:center">dismax</td>
+<td style="text-align:center">勾选这个选项，会启用Dismax查询解析器。更多信息请查阅<strong>The DisMax Query Parser</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">edismax</td>
+<td style="text-align:center">勾选这个选项会启动Extended查询解析器。更多信息请查阅<strong>The Extended DisMax QueryParser</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">hl</td>
+<td style="text-align:center">勾选这个选项后，会启用查询响应中高亮功能。更多信息请查阅<strong>Highlighting</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">facet</td>
+<td style="text-align:center">启动faceting功能，会将查询结果根据索引的字段进行归类。更多信息请查阅<strong>Faceting</strong>章节</td>
+</tr>
+<tr>
+<td style="text-align:center">spatial</td>
+<td style="text-align:center">勾选该按钮，会允许使用本地数据，主要应用于物理空间搜索。Click to enable using location data for use in spatial or geospatial searches.更多信息请查阅<strong> Spatial Search </strong>章节。</td>
+</tr>
+<tr>
+<td style="text-align:center">spellcheck</td>
+<td style="text-align:center">勾选该按钮会启动Spellchecker，会基于其他类似的单词提供内联查询建议。更多信息请查阅<strong>Spell Checking </strong>章节。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相关主题"><a href="#相关主题" class="headerlink" title="相关主题"></a>相关主题</h3><p><strong>Searching</strong></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
-  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
+      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/" class="archive-article-date">
+  	<time datetime="2017-02-27T00:48:17.375Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -217,18 +284,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面
+          Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">软件架构—MVC,MVP,MVVM</div>
+    <a href="/2017/02/27/Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面</div>
       <i class="icon-circle-right"></i>
     </a>
   
