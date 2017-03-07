@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>mysql-windows压缩版安装 | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##背景5.7版本的mysql离线版安装有很多坑，在此一一记载。
+###下载下载64位zip包，
+解压解压文件。
+初始化配置在文件目录下，找到my-default.ini文件，复制并重命名my.ini，然后指定data目录。1234567891011121314151617# For advice on how to change settings please see# http://dev.m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql-windows压缩版安装">
+<meta property="og:url" content="http://yoursite.com/2017/03/07/mysql-windows压缩版安装/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="##背景5.7版本的mysql离线版安装有很多坑，在此一一记载。
+###下载下载64位zip包，
+解压解压文件。
+初始化配置在文件目录下，找到my-default.ini文件，复制并重命名my.ini，然后指定data目录。1234567891011121314151617# For advice on how to change settings please see# http://dev.m">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1213316-773206cb4902ac44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-07T00:12:21.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql-windows压缩版安装">
+<meta name="twitter:description" content="##背景5.7版本的mysql离线版安装有很多坑，在此一一记载。
+###下载下载64位zip包，
+解压解压文件。
+初始化配置在文件目录下，找到my-default.ini文件，复制并重命名my.ini，然后指定data目录。1234567891011121314151617# For advice on how to change settings please see# http://dev.m">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1213316-773206cb4902ac44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-mysql-windows压缩版安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql-windows压缩版安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">1.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化配置"><span class="toc-number">2.</span> <span class="toc-text">初始化配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装mysql服务"><span class="toc-number">3.</span> <span class="toc-text">安装mysql服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动mysql"><span class="toc-number">4.</span> <span class="toc-text">启动mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看mysql日志"><span class="toc-number">4.1.</span> <span class="toc-text">查看mysql日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决方案"><span class="toc-number">4.2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#清空data目录内容"><span class="toc-number">4.2.1.</span> <span class="toc-text">清空data目录内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行初始化命令"><span class="toc-number">4.2.2.</span> <span class="toc-text">执行初始化命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#启动服务"><span class="toc-number">4.2.3.</span> <span class="toc-text">启动服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载myql服务"><span class="toc-number">5.</span> <span class="toc-text">卸载myql服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql登录"><span class="toc-number"></span> <span class="toc-text">mysql登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#跳过密码"><span class="toc-number">1.</span> <span class="toc-text">跳过密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改密码"><span class="toc-number">2.</span> <span class="toc-text">修改密码</span></a></li></ol>
+		</div>
+		
+        <p>##背景<br>5.7版本的mysql离线版安装有很多坑，在此一一记载。</p>
+<p>###下载<br><img src="http://upload-images.jianshu.io/upload_images/1213316-773206cb4902ac44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载页面"><br>下载64位zip包，</p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>解压文件。</p>
+<h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><p>在文件目录下，找到<code>my-default.ini</code>文件，复制并重命名<code>my.ini</code>，然后指定data目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># For advice on how to change settings please see</div><div class="line"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</div><div class="line"># *** DO NOT EDIT THIS FILE. It&apos;s a template which will be copied to the</div><div class="line"># *** default location during install, and will be replaced if you</div><div class="line"># *** upgrade to a newer version of MySQL.</div><div class="line"></div><div class="line"></div><div class="line">[client]</div><div class="line">port=3306 </div><div class="line">[mysql]</div><div class="line">default-character-set=utf8</div><div class="line">[mysqld]</div><div class="line">port=3306 </div><div class="line">basedir=&quot;D:/DevelopTools/mysql5_7_14&quot; </div><div class="line">datadir=&quot;D:/DevelopTools/mysql5_7_14/data&quot; </div><div class="line">character-set-server=utf8</div><div class="line">default-storage-engine=INNODB</div></pre></td></tr></table></figure></p>
+<h3 id="安装mysql服务"><a href="#安装mysql服务" class="headerlink" title="安装mysql服务"></a>安装mysql服务</h3><p>需要在管理员权限下执行cmd。<br>在bin目录下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;mysqld --install</div><div class="line">Service successfully installed.</div></pre></td></tr></table></figure></p>
+<h3 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h3><p>在bin目录下，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;net start mysql</div></pre></td></tr></table></figure></p>
+<p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;net start mysql</div><div class="line">MySQL 服务正在启动 ..</div><div class="line">MySQL 服务无法启动。</div><div class="line"></div><div class="line">服务没有报告任何错误。</div><div class="line"></div><div class="line">请键入 NET HELPMSG 3534 以获得更多的帮助。</div></pre></td></tr></table></figure></p>
+<h4 id="查看mysql日志"><a href="#查看mysql日志" class="headerlink" title="查看mysql日志"></a>查看mysql日志</h4><p>在data目录下，查看*.err文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">2016-08-23T13:20:42.303713Z 0 [Note] Plugin &apos;FEDERATED&apos; is disabled.</div><div class="line">MySQL: Table &apos;mysql.plugin&apos; doesn&apos;t exist</div><div class="line">2016-08-23T13:20:42.305713Z 0 [ERROR] Can&apos;t open the mysql.plugin table. Please run mysql_upgrade to create it.</div><div class="line">2016-08-23T13:20:42.308713Z 0 [Note] Salting uuid generator variables, current_pid: 3656, server_start_time: 1471958439, bytes_sent: 0, </div><div class="line">2016-08-23T13:20:42.337715Z 0 [Note] Generated uuid: &apos;644d3f84-6934-11e6-9f6d-507b9d0180aa&apos;, server_start_time: 1471962095, bytes_sent: 109367744</div><div class="line">2016-08-23T13:20:42.338715Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 644d3f84-6934-11e6-9f6d-507b9d0180aa.</div><div class="line">2016-08-23T13:20:42.365717Z 0 [Warning] Gtid table is not ready to be used. Table &apos;mysql.gtid_executed&apos; cannot be opened.</div><div class="line">2016-08-23T13:20:42.368717Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key</div><div class="line">2016-08-23T13:20:42.369717Z 0 [Note] Server hostname (bind-address): &apos;*&apos;; port: 3306</div><div class="line">2016-08-23T13:20:42.372717Z 0 [Note] IPv6 is available.</div><div class="line">2016-08-23T13:20:42.373717Z 0 [Note]   - &apos;::&apos; resolves to &apos;::&apos;;</div><div class="line">2016-08-23T13:20:42.374717Z 0 [Note] Server socket created on IP: &apos;::&apos;.</div><div class="line">2016-08-23T13:20:42.380718Z 0 [Warning] Failed to open optimizer cost constant tables</div><div class="line">2016-08-23T13:20:42.382718Z 0 [ERROR] Fatal error: Can&apos;t open and lock privilege tables: Table &apos;mysql.user&apos; doesn&apos;t exist</div></pre></td></tr></table></figure></p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p><a href="http://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization-mysqld.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization-mysqld.html</a></p>
+<h5 id="清空data目录内容"><a href="#清空data目录内容" class="headerlink" title="清空data目录内容"></a>清空data目录内容</h5><p>首先需要情况data目录下内容，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;mysqld --initialize</div><div class="line">2016-08-23T13:27:23.129639Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is</div><div class="line"> deprecated. Please use --explicit_defaults_for_timestamp server option (see doc</div><div class="line">umentation for more details).</div><div class="line">2016-08-23T13:27:23.132639Z 0 [ERROR] --initialize specified but the data direct</div><div class="line">ory has files in it. Aborting.</div><div class="line">2016-08-23T13:27:23.132639Z 0 [ERROR] Aborting</div></pre></td></tr></table></figure></p>
+<h5 id="执行初始化命令"><a href="#执行初始化命令" class="headerlink" title="执行初始化命令"></a>执行初始化命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;mysqld --initialize</div></pre></td></tr></table></figure>
+<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;net start mysql</div><div class="line">MySQL 服务正在启动 .</div><div class="line">MySQL 服务已经启动成功。</div></pre></td></tr></table></figure>
+<h3 id="卸载myql服务"><a href="#卸载myql服务" class="headerlink" title="卸载myql服务"></a>卸载myql服务</h3><p>在mysql的bin目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqld  --remove</div></pre></td></tr></table></figure></p>
+<h2 id="mysql登录"><a href="#mysql登录" class="headerlink" title="mysql登录"></a>mysql登录</h2><h3 id="跳过密码"><a href="#跳过密码" class="headerlink" title="跳过密码"></a>跳过密码</h3><p>首次登录时，设置跳过密码，可以进入数据库修改密码信息。<br>在<code>my.ini</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 跳过密码验证  </div><div class="line">skip-grant-tables</div></pre></td></tr></table></figure></p>
+<h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mysql&gt; use mysql</div><div class="line">Database changed</div><div class="line">mysql&gt; update user set authentication_string=password(&quot;root&quot;) where user=&quot;root&quot;;</div><div class="line"></div><div class="line">Query OK, 1 row affected, 1 warning (0.00 sec)</div><div class="line">Rows matched: 1  Changed: 1  Warnings: 1</div><div class="line"></div><div class="line">mysql&gt; flush privileges;</div><div class="line">Query OK, 0 rows affected (0.02 sec)</div></pre></td></tr></table></figure>
+<p>重启服务后登录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;net stop mysql</div><div class="line">MySQL 服务正在停止.</div><div class="line">MySQL 服务已成功停止。</div><div class="line"></div><div class="line"></div><div class="line">D:\DevelopTools\mysql5_7_14\bin&gt;net start mysql</div><div class="line">MySQL 服务正在启动 .</div><div class="line">MySQL 服务已经启动成功。</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/07/mysql-windows压缩版安装/" class="archive-article-date">
+  	<time datetime="2017-03-07T00:12:21.733Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/07/项目实践/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          项目实践-后台管理系统
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/07/JAVA基础-事务-spring事务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA基础-事务-spring事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 13.33px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 10px;">项目实践</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">从小听过了很多大道理&lt;br&gt;&lt;br&gt;却依旧过不好这一生</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
