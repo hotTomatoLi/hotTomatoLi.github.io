@@ -139,6 +139,156 @@
       <div class="body-wrap">
         
   
+    <article id="post-项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）/">项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>搭建一个示例项目，由dubbo、spring、mybatis和freemarker基本框架组成。主要目的是根据当前工作中使用的技术，搭建一个可以快速开发的框架，也方便自己使用。使用idea进行搭建。</p>
+<ul>
+<li>service项目，后端服务，包括一个api项目和一个impl项目，api项目主要是前后端共享的jar包，impl项目是实现具体功能；</li>
+<li>app项目，前端程序，运行在tomcat中</li>
+</ul>
+<h1 id="service搭建过程"><a href="#service搭建过程" class="headerlink" title="service搭建过程"></a>service搭建过程</h1><h2 id="建立Service项目及其子项目"><a href="#建立Service项目及其子项目" class="headerlink" title="建立Service项目及其子项目"></a>建立Service项目及其子项目</h2><ul>
+<li>建立dubbo-service的maven项目，删除src目录，只保留pom文件，作为父模块；</li>
+<li>建立子项目dubbo-service-api和dubbo-service-impl（需要明确指定子项目的Content root和Module file location时，否则会报错:<code>pom.xml already exists in vfs</code>）</li>
+</ul>
+<h2 id="增加依赖包"><a href="#增加依赖包" class="headerlink" title="增加依赖包"></a>增加依赖包</h2><h3 id="dubbo-service"><a href="#dubbo-service" class="headerlink" title="dubbo-service"></a>dubbo-service</h3><p>增加依赖包是在dubbo-service的pom里，增加<code>dependency management</code>，从而可以控制子模块的依赖的版本。<br>增加的依赖包括：</p>
+<ul>
+<li>dubbo相关依赖，需要移除dubbo的spring，版本太低，同时也移除了日志包；</li>
+<li>Spring相关依赖</li>
+<li>日志相关依赖，slf4j和logback</li>
+<li>MyBatis相关依赖</li>
+<li>数据库（mysql）、连接池相关依赖</li>
+<li>Commons 相关</li>
+<li>Quartz相关</li>
+<li>zookeeper相关</li>
+</ul>
+<h3 id="dubbo-service-api"><a href="#dubbo-service-api" class="headerlink" title="dubbo-service-api"></a>dubbo-service-api</h3><p>由于本身就是接口模块，暂时不需要增加依赖关系。</p>
+<h3 id="dubbo-service-impl"><a href="#dubbo-service-impl" class="headerlink" title="dubbo-service-impl"></a>dubbo-service-impl</h3><p>基本上按照dubbo-service中的dependency management中的引入，只是无需标明版本号。</p>
+<h2 id="增加dubbo配置文件和日志文件"><a href="#增加dubbo配置文件和日志文件" class="headerlink" title="增加dubbo配置文件和日志文件"></a>增加dubbo配置文件和日志文件</h2><h3 id="dubbo-propertise"><a href="#dubbo-propertise" class="headerlink" title="dubbo.propertise"></a>dubbo.propertise</h3><p>系统会自动加载ClassPath下的dubbo.properties，因此，在test的resources下增加dubbo.properties。（官方推荐采用xml配置方式）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dubbo.container=spring</div><div class="line">dubbo.application.name=demo</div><div class="line">dubbo.application.owner=com.leegebe</div><div class="line">dubbo.registry.register=true</div><div class="line"># 需要替换成自己的zookeeper</div><div class="line">dubbo.registry.address=zookeeper://192.168.255.255:2181</div><div class="line">dubbo.registry.file=dubbo.registry.properties</div><div class="line"></div><div class="line"># 传输数据大小，默认值为8M</div><div class="line">dubbo.protocol.payload=30000000</div></pre></td></tr></table></figure></p>
+<h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h3><p>采用的是logback日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;</div><div class="line">    &lt;!-- 控制台 --&gt;</div><div class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</div><div class="line">        &lt;encoder&gt;</div><div class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger - %msg%n&lt;/pattern&gt;</div><div class="line">        &lt;/encoder&gt;</div><div class="line">    &lt;/appender&gt;</div><div class="line"></div><div class="line">    &lt;root level=&quot;DEBUG&quot;&gt;</div><div class="line">    	&lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</div><div class="line">    &lt;/root&gt;</div><div class="line"></div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="增加spring配置文件"><a href="#增加spring配置文件" class="headerlink" title="增加spring配置文件"></a>增加spring配置文件</h2><p>下面的配置放在了resources/META-INF/spring目录，dubbo会自动加载META-INF/spring目录下的所有Spring配置，可以合并成一个，为了表示方便进行拆分。</p>
+<h3 id="spring-bean-xml"><a href="#spring-bean-xml" class="headerlink" title="spring-bean.xml"></a>spring-bean.xml</h3><p>配置所有的bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xsi:schemaLocation=&quot;</div><div class="line">      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="provider-xml"><a href="#provider-xml" class="headerlink" title="provider.xml"></a>provider.xml</h3><p>用于定义提供的dubbo服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">               http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">                       http://code.alibabatech.com/schema/dubbo</div><div class="line">                               http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="编写接口和实现"><a href="#编写接口和实现" class="headerlink" title="编写接口和实现"></a>编写接口和实现</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>在dubbo-service-api中编写测试接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * dubbo的示例Service</div><div class="line"> */</div><div class="line">public interface DemoService &#123;</div><div class="line"></div><div class="line">    String sayHello(String name);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>在dubbo-service-impl中编写相应的实现类.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * demoService的实现类</div><div class="line"> */</div><div class="line">public class DemoServiceImpl implements DemoService &#123;</div><div class="line"></div><div class="line">    public String sayHello(String name) &#123;</div><div class="line">        return &quot;Hello&quot; + name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="配置spring的Bean"><a href="#配置spring的Bean" class="headerlink" title="配置spring的Bean"></a>配置spring的Bean</h3><p>在spring.xml中，增加bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;demoService&quot; class=&quot;com.leegebe.dubbo.DemoServiceImpl&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="配置dubbo服务"><a href="#配置dubbo服务" class="headerlink" title="配置dubbo服务"></a>配置dubbo服务</h3><p>在provider.xml中，增加dubbo服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;dubbo:service interface=&quot;com.leegebe.dubbo.DemoService&quot; ref=&quot;demoService&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>在test包下，编写dubbo启动类的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Dubbo主程序</div><div class="line"> */</div><div class="line">public class DubboApplication &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Main.main(args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>启动后，可以通过dubbo-admin查找到相应的服务。</p>
+<h1 id="app端项目搭建"><a href="#app端项目搭建" class="headerlink" title="app端项目搭建"></a>app端项目搭建</h1><h2 id="建立app项目"><a href="#建立app项目" class="headerlink" title="建立app项目"></a>建立app项目</h2><p>新建maven项目</p>
+<h2 id="增加依赖"><a href="#增加依赖" class="headerlink" title="增加依赖"></a>增加依赖</h2><ul>
+<li>spring，spring-web依赖</li>
+<li>dubbo依赖</li>
+<li>日志依赖</li>
+<li>freemarker依赖</li>
+<li>servlet依赖</li>
+</ul>
+<h2 id="增加web的Module"><a href="#增加web的Module" class="headerlink" title="增加web的Module"></a>增加web的Module</h2><p>需要定义Web Rersource Directory目录。</p>
+<h2 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h2><p>指定DispatcherServlet的配置文件springmvc.xml，和spring的配置目录/spring/*.xml。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</div><div class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</div><div class="line">         version=&quot;3.1&quot;&gt;</div><div class="line">    &lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet</div><div class="line">        &lt;/servlet-class&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line">    &lt;!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 --&gt;</div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div><div class="line"></div><div class="line">    &lt;!-- spring config --&gt;</div><div class="line">    &lt;context-param&gt;</div><div class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">        &lt;param-value&gt;</div><div class="line">            classpath:/spring/*.xml,</div><div class="line">        &lt;/param-value&gt;</div><div class="line">    &lt;/context-param&gt;</div><div class="line"></div><div class="line">    &lt;listener&gt;</div><div class="line">        &lt;listener-class&gt;</div><div class="line">            org.springframework.web.context.ContextLoaderListener</div><div class="line">        &lt;/listener-class&gt;</div><div class="line">    &lt;/listener&gt;</div><div class="line">    &lt;context-param&gt;</div><div class="line">        &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;</div><div class="line">        &lt;param-value&gt;WEB-INF/log4j.properties&lt;/param-value&gt;</div><div class="line">    &lt;/context-param&gt;</div><div class="line"></div><div class="line">    &lt;listener&gt;</div><div class="line">        &lt;listener-class&gt;</div><div class="line">            org.springframework.web.util.Log4jConfigListener</div><div class="line">        &lt;/listener-class&gt;</div><div class="line">    &lt;/listener&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置springmvc-xml"><a href="#配置springmvc-xml" class="headerlink" title="配置springmvc.xml"></a>配置springmvc.xml</h2><p>定义了扫描的包，并配置了freemarker相关内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</div><div class="line">       xmlns:util=&quot;http://www.springframework.org/schema/util&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">http://www.springframework.org/schema/context</div><div class="line">http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">http://www.springframework.org/schema/util</div><div class="line">http://www.springframework.org/schema/util/spring-util.xsd</div><div class="line">http://www.springframework.org/schema/mvc</div><div class="line">http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- 添加注解驱动 --&gt;</div><div class="line">    &lt;mvc:annotation-driven /&gt;</div><div class="line">    &lt;!-- 默认扫描的包路径 --&gt;</div><div class="line">    &lt;context:component-scan base-package=&quot;com.leegebe.controller&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;!-- FreeMarkerConfigurer --&gt;</div><div class="line">    &lt;bean id=&quot;freemarkerConfig&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer&quot;&gt;</div><div class="line">        &lt;property name=&quot;templateLoaderPath&quot;&gt;</div><div class="line">            &lt;value&gt;/WEB-INF/ftl/&lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=&quot;freemarkerSettings&quot;&gt;</div><div class="line">            &lt;!-- 设置FreeMarker环境属性 --&gt;</div><div class="line">            &lt;props&gt;</div><div class="line">                &lt;prop key=&quot;template_update_delay&quot;&gt;5&lt;/prop&gt;&lt;!--刷新模板的周  期，单位为秒 --&gt;</div><div class="line">                &lt;prop key=&quot;default_encoding&quot;&gt;UTF-8&lt;/prop&gt;&lt;!--模板的编码格式 --&gt;</div><div class="line">                &lt;prop key=&quot;locale&quot;&gt;UTF-8&lt;/prop&gt;&lt;!-- 本地化设置 --&gt;</div><div class="line">                &lt;prop key=&quot;datetime_format&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;time_format&quot;&gt;HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;number_format&quot;&gt;0.####&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;boolean_format&quot;&gt;true,false&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;whitespace_stripping&quot;&gt;true&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;tag_syntax&quot;&gt;auto_detect&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;url_escaping_charset&quot;&gt;UTF-8&lt;/prop&gt;</div><div class="line">            &lt;/props&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;freemarkerResolver&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;&gt;</div><div class="line">        &lt;property name=&quot;order&quot; value=&quot;1&quot; /&gt;</div><div class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.ftl&quot; /&gt;</div><div class="line">        &lt;property name=&quot;contentType&quot; value=&quot;text/html;charset=utf-8&quot; /&gt;</div><div class="line">        &lt;property name=&quot;viewClass&quot;&gt;</div><div class="line">            &lt;value&gt;org.springframework.web.servlet.view.freemarker.FreeMarkerView</div><div class="line">            &lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置ftl文件"><a href="#配置ftl文件" class="headerlink" title="配置ftl文件"></a>配置ftl文件</h2><p>新增WEB-INF/ftl/index.ftl文件，作为展示页面。</p>
+<h2 id="配置dubbo相关"><a href="#配置dubbo相关" class="headerlink" title="配置dubbo相关"></a>配置dubbo相关</h2><h3 id="dubbo-properties"><a href="#dubbo-properties" class="headerlink" title="dubbo.properties"></a>dubbo.properties</h3><p>在resources下增加dubbo配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">##</div><div class="line"># Dubbo Configuration</div><div class="line">##</div><div class="line">dubbo.container=spring</div><div class="line">dubbo.application.name=demo</div><div class="line">dubbo.application.owner=com.leegebe</div><div class="line">dubbo.registry.register=true</div><div class="line">dubbo.registry.address=zookeeper://192.168.10.150:2181</div><div class="line">dubbo.protocol.dubbo.port=20958</div><div class="line">dubbo.registry.file=dubbo.registry.properties</div></pre></td></tr></table></figure></p>
+<h3 id="consumer-xml"><a href="#consumer-xml" class="headerlink" title="consumer.xml"></a>consumer.xml</h3><p>在consumer.xml文件中，编写dubbo服务端提供的服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- 生成远程服务代理，可以和本地bean一样使用demoService --&gt;</div><div class="line">    &lt;dubbo:reference id=&quot;demoService&quot; interface=&quot;com.leegebe.dubbo.DemoService&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="controller类"><a href="#controller类" class="headerlink" title="controller类"></a>controller类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class IndexController &#123;</div><div class="line"></div><div class="line">    @Resource</div><div class="line">    DemoService demoService;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;index.html&quot;)</div><div class="line">    public String index(ModelMap modelMap)&#123;</div><div class="line">        modelMap.put(&quot;title&quot;,demoService.sayHello(&quot;index&quot;));</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）/" class="archive-article-date">
+  	<time datetime="2017-03-09T02:14:09.197Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目实践/">项目实践</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA基础-事务-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/JAVA基础-事务-mysql/">JAVA基础-事务-mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="mysql（InnoDB）中事务隔离机制"><a href="#mysql（InnoDB）中事务隔离机制" class="headerlink" title="mysql（InnoDB）中事务隔离机制"></a>mysql（InnoDB）中事务隔离机制</h1><p>mysql中实现了SQL标准的事务隔离机制（Serializable，Repeatable reads，Read Commited，Read uncommitted）。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/JAVA基础-事务-mysql/" class="archive-article-date">
+  	<time datetime="2017-03-09T02:12:25.270Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事务/">事务</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-项目实践" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +316,7 @@
 <li>vuejs + webpack</li>
 <li></li>
 </ul>
-<p># </p>
+<h1 id="spring-boot项目搭建"><a href="#spring-boot项目搭建" class="headerlink" title="spring boot项目搭建"></a>spring boot项目搭建</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建springboot项目</p>
 
       
     </div>
@@ -353,6 +503,11 @@
 <p>脏读（dirty read）：一个事务读取了另一个事务尚未提交的数据，而这个数据是有可能回滚。   </p>
 <p>不可重复读（non-repeatable read）：一个事务的操作导致另一个事务前后两次读到不同的数据。不可重复读意味着，<br>在数据库访问中，一个事务范围内两个相同的查询却返回了不同数据。这是由于查询时系统中其他事务修改的提交而引起的。   </p>
 <p>幻读（phantom read）：一个事务的操作导致另一个事务前后两次查询的结果数据量不同。幻读,是指当事务不是独立执行时发生<br>的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。<br>同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，<br>以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样.。   </p>
+<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p>在数据库系统中，事务的隔离级别（Isolation ）决定了该事务的完整性，低级别的事务隔离级别增强了多用户同时访问数据的能力，<br>但是也加大了并发产生负面影响的可能性（脏读，丢失更新等等）。<br>标准的事务隔离级别定义如下：</p>
+<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p>最高的隔离级别，在基于锁机制的并发控制的数据库系统中，Serializable要求在选中数据上的读锁和写锁在事务结束时才释放。<br>在不基于锁的并发控制机制中，系统检测到事务有写冲突时，只有一个事务能够提交。</p>
+<h3 id="Repeatable-reads"><a href="#Repeatable-reads" class="headerlink" title="Repeatable reads"></a>Repeatable reads</h3><p>基于锁的并发控制中，会对选定的对象进行读锁和写锁，但没有范围锁，因此会有幻读。</p>
+<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>基于锁的并发控制中，选中对象的写锁会一直保持到事务结束，但是读锁在SELECT语句后会立即释放，会产出不可重复读。</p>
+<h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>最低级别的隔离级别，允许脏读，其他事务可以看到当前事务未提交的修改。</p>
 <h1 id="Java-JDBC事务机制"><a href="#Java-JDBC事务机制" class="headerlink" title="Java JDBC事务机制"></a>Java JDBC事务机制</h1><p>JDBC的事务基于Connection，通过Connection对象对事务进行管理。<code>setAutoCommit</code>、<code>commit</code>、<code>rollback</code>等。</p>
 <ul>
 <li>自动提交模式 auto-commit mode，auto-commit 为true</li>
@@ -789,134 +944,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/">Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <p>Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Documents界面"></p>
-<p>在该界面可以执行以下操作：</p>
-<ul>
-<li>以JSON、CSV或XML格式复制documents，并且提交到索引；</li>
-<li>上传documents（JSON、CSV和XML格式）文件；</li>
-<li>通过选取fields和fields值构建documents；</li>
-</ul>
-<p>首先定义使用的RequestHandler（也就是’qt’）。默认使用的是<code>/update</code>。如果要换成其他的Handler，例如使用Solr Cell，改变request handler为<code>/update/extract</code>。</p>
-<p>然后选择Document类别，来定义载入的document的类别。剩下的参数会根据选取的document type不同而有所不同。</p>
-<p>###JSON<br>使用JSON的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足JSON格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）；以及if a document boost should be applied。</p>
-<p>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
-<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>使用CSV的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足CSV格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
-<h3 id="Document-Builder"><a href="#Document-Builder" class="headerlink" title="Document Builder"></a>Document Builder</h3><p>Document Builder选项提供了一个向导界面来输入一个document的field。</p>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>文件上传选项允许选择一个准备好的文件并上传。如果在Request Handler选项中选择<code>/update</code>，文件格式将被限制在XML、CSV和JSON中。<br>此外，如果要使用ExtractingRequestHandler（也就是Solr Cell），可以将选项值改为<code>/update/extract</code>。必须在solrconfig.xml中定义这个handler，定义好期望的默认值。同时需要更新的是ExtractingRequestHandler参数中的&amp;literal.id，这样选择的文件才能指定唯一ID。</p>
-<p>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
-<h3 id="Solr-Command"><a href="#Solr-Command" class="headerlink" title="Solr Command"></a>Solr Command</h3><p>Solr Command选项允许你通过XML或JSON在documents上执行特殊的操作，例如决定document是否新增或是删除，更新documents的特定fields，或是在索引上执行和优化命令。<br>如果在命令行选择<code>/uppdate</code>选项，document需要按照规则组织。</p>
-<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>使用XML的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足XML格式，每个document之间用<code>&lt;doc&gt;</code>标签分隔，并且每个field都已经定义。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。<br>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
-<h3 id="相关的主题"><a href="#相关的主题" class="headerlink" title="相关的主题"></a>相关的主题</h3><ul>
-<li>Uploading Data with Index Handlers</li>
-<li>Uploading Data with Solr Cell using Apache Tika</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:55:56.345Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/">Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Segments Info</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Segments Info"><br>Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。<br>上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:51:02.312Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -982,7 +1009,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 13.33px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 10px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 12.5px;">项目实践</a>
     			</div>
     	</section>
     

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>项目搭建Demo[dubbo-spring-mybatis-freemarker]（一） | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="说明搭建一个示例项目，由dubbo、spring、mybatis和freemarker基本框架组成。主要目的是根据当前工作中使用的技术，搭建一个可以快速开发的框架，也方便自己使用。使用idea进行搭建。
+
+service项目，后端服务，包括一个api项目和一个impl项目，api项目主要是前后端共享的jar包，impl项目是实现具体功能；
+app项目，前端程序，运行在tomcat中
+
+servic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）">
+<meta property="og:url" content="http://yoursite.com/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="说明搭建一个示例项目，由dubbo、spring、mybatis和freemarker基本框架组成。主要目的是根据当前工作中使用的技术，搭建一个可以快速开发的框架，也方便自己使用。使用idea进行搭建。
+
+service项目，后端服务，包括一个api项目和一个impl项目，api项目主要是前后端共享的jar包，impl项目是实现具体功能；
+app项目，前端程序，运行在tomcat中
+
+servic">
+<meta property="og:updated_time" content="2017-03-09T08:14:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）">
+<meta name="twitter:description" content="说明搭建一个示例项目，由dubbo、spring、mybatis和freemarker基本框架组成。主要目的是根据当前工作中使用的技术，搭建一个可以快速开发的框架，也方便自己使用。使用idea进行搭建。
+
+service项目，后端服务，包括一个api项目和一个impl项目，api项目主要是前后端共享的jar包，impl项目是实现具体功能；
+app项目，前端程序，运行在tomcat中
+
+servic">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#service搭建过程"><span class="toc-number">2.</span> <span class="toc-text">service搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立Service项目及其子项目"><span class="toc-number">2.1.</span> <span class="toc-text">建立Service项目及其子项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加依赖包"><span class="toc-number">2.2.</span> <span class="toc-text">增加依赖包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dubbo-service"><span class="toc-number">2.2.1.</span> <span class="toc-text">dubbo-service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dubbo-service-api"><span class="toc-number">2.2.2.</span> <span class="toc-text">dubbo-service-api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dubbo-service-impl"><span class="toc-number">2.2.3.</span> <span class="toc-text">dubbo-service-impl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加dubbo配置文件和日志文件"><span class="toc-number">2.3.</span> <span class="toc-text">增加dubbo配置文件和日志文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dubbo-propertise"><span class="toc-number">2.3.1.</span> <span class="toc-text">dubbo.propertise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志文件"><span class="toc-number">2.3.2.</span> <span class="toc-text">日志文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加spring配置文件"><span class="toc-number">2.4.</span> <span class="toc-text">增加spring配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#spring-bean-xml"><span class="toc-number">2.4.1.</span> <span class="toc-text">spring-bean.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#provider-xml"><span class="toc-number">2.4.2.</span> <span class="toc-text">provider.xml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写接口和实现"><span class="toc-number">2.5.</span> <span class="toc-text">编写接口和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">2.5.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">2.5.2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置spring的Bean"><span class="toc-number">2.5.3.</span> <span class="toc-text">配置spring的Bean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置dubbo服务"><span class="toc-number">2.5.4.</span> <span class="toc-text">配置dubbo服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">2.6.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#app端项目搭建"><span class="toc-number">3.</span> <span class="toc-text">app端项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#建立app项目"><span class="toc-number">3.1.</span> <span class="toc-text">建立app项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加依赖"><span class="toc-number">3.2.</span> <span class="toc-text">增加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加web的Module"><span class="toc-number">3.3.</span> <span class="toc-text">增加web的Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置web-xml"><span class="toc-number">3.4.</span> <span class="toc-text">配置web.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置springmvc-xml"><span class="toc-number">3.5.</span> <span class="toc-text">配置springmvc.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置ftl文件"><span class="toc-number">3.6.</span> <span class="toc-text">配置ftl文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置dubbo相关"><span class="toc-number">3.7.</span> <span class="toc-text">配置dubbo相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dubbo-properties"><span class="toc-number">3.7.1.</span> <span class="toc-text">dubbo.properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#consumer-xml"><span class="toc-number">3.7.2.</span> <span class="toc-text">consumer.xml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#controller类"><span class="toc-number">3.8.</span> <span class="toc-text">controller类</span></a></li></ol></li></ol>
+		</div>
+		
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>搭建一个示例项目，由dubbo、spring、mybatis和freemarker基本框架组成。主要目的是根据当前工作中使用的技术，搭建一个可以快速开发的框架，也方便自己使用。使用idea进行搭建。</p>
+<ul>
+<li>service项目，后端服务，包括一个api项目和一个impl项目，api项目主要是前后端共享的jar包，impl项目是实现具体功能；</li>
+<li>app项目，前端程序，运行在tomcat中</li>
+</ul>
+<h1 id="service搭建过程"><a href="#service搭建过程" class="headerlink" title="service搭建过程"></a>service搭建过程</h1><h2 id="建立Service项目及其子项目"><a href="#建立Service项目及其子项目" class="headerlink" title="建立Service项目及其子项目"></a>建立Service项目及其子项目</h2><ul>
+<li>建立dubbo-service的maven项目，删除src目录，只保留pom文件，作为父模块；</li>
+<li>建立子项目dubbo-service-api和dubbo-service-impl（需要明确指定子项目的Content root和Module file location时，否则会报错:<code>pom.xml already exists in vfs</code>）</li>
+</ul>
+<h2 id="增加依赖包"><a href="#增加依赖包" class="headerlink" title="增加依赖包"></a>增加依赖包</h2><h3 id="dubbo-service"><a href="#dubbo-service" class="headerlink" title="dubbo-service"></a>dubbo-service</h3><p>增加依赖包是在dubbo-service的pom里，增加<code>dependency management</code>，从而可以控制子模块的依赖的版本。<br>增加的依赖包括：</p>
+<ul>
+<li>dubbo相关依赖，需要移除dubbo的spring，版本太低，同时也移除了日志包；</li>
+<li>Spring相关依赖</li>
+<li>日志相关依赖，slf4j和logback</li>
+<li>MyBatis相关依赖</li>
+<li>数据库（mysql）、连接池相关依赖</li>
+<li>Commons 相关</li>
+<li>Quartz相关</li>
+<li>zookeeper相关</li>
+</ul>
+<h3 id="dubbo-service-api"><a href="#dubbo-service-api" class="headerlink" title="dubbo-service-api"></a>dubbo-service-api</h3><p>由于本身就是接口模块，暂时不需要增加依赖关系。</p>
+<h3 id="dubbo-service-impl"><a href="#dubbo-service-impl" class="headerlink" title="dubbo-service-impl"></a>dubbo-service-impl</h3><p>基本上按照dubbo-service中的dependency management中的引入，只是无需标明版本号。</p>
+<h2 id="增加dubbo配置文件和日志文件"><a href="#增加dubbo配置文件和日志文件" class="headerlink" title="增加dubbo配置文件和日志文件"></a>增加dubbo配置文件和日志文件</h2><h3 id="dubbo-propertise"><a href="#dubbo-propertise" class="headerlink" title="dubbo.propertise"></a>dubbo.propertise</h3><p>系统会自动加载ClassPath下的dubbo.properties，因此，在test的resources下增加dubbo.properties。（官方推荐采用xml配置方式）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dubbo.container=spring</div><div class="line">dubbo.application.name=demo</div><div class="line">dubbo.application.owner=com.leegebe</div><div class="line">dubbo.registry.register=true</div><div class="line"># 需要替换成自己的zookeeper</div><div class="line">dubbo.registry.address=zookeeper://192.168.255.255:2181</div><div class="line">dubbo.registry.file=dubbo.registry.properties</div><div class="line"></div><div class="line"># 传输数据大小，默认值为8M</div><div class="line">dubbo.protocol.payload=30000000</div></pre></td></tr></table></figure></p>
+<h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h3><p>采用的是logback日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;</div><div class="line">    &lt;!-- 控制台 --&gt;</div><div class="line">    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</div><div class="line">        &lt;encoder&gt;</div><div class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger - %msg%n&lt;/pattern&gt;</div><div class="line">        &lt;/encoder&gt;</div><div class="line">    &lt;/appender&gt;</div><div class="line"></div><div class="line">    &lt;root level=&quot;DEBUG&quot;&gt;</div><div class="line">    	&lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</div><div class="line">    &lt;/root&gt;</div><div class="line"></div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="增加spring配置文件"><a href="#增加spring配置文件" class="headerlink" title="增加spring配置文件"></a>增加spring配置文件</h2><p>下面的配置放在了resources/META-INF/spring目录，dubbo会自动加载META-INF/spring目录下的所有Spring配置，可以合并成一个，为了表示方便进行拆分。</p>
+<h3 id="spring-bean-xml"><a href="#spring-bean-xml" class="headerlink" title="spring-bean.xml"></a>spring-bean.xml</h3><p>配置所有的bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xsi:schemaLocation=&quot;</div><div class="line">      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="provider-xml"><a href="#provider-xml" class="headerlink" title="provider.xml"></a>provider.xml</h3><p>用于定义提供的dubbo服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">               http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">                       http://code.alibabatech.com/schema/dubbo</div><div class="line">                               http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="编写接口和实现"><a href="#编写接口和实现" class="headerlink" title="编写接口和实现"></a>编写接口和实现</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>在dubbo-service-api中编写测试接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * dubbo的示例Service</div><div class="line"> */</div><div class="line">public interface DemoService &#123;</div><div class="line"></div><div class="line">    String sayHello(String name);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>在dubbo-service-impl中编写相应的实现类.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * demoService的实现类</div><div class="line"> */</div><div class="line">public class DemoServiceImpl implements DemoService &#123;</div><div class="line"></div><div class="line">    public String sayHello(String name) &#123;</div><div class="line">        return &quot;Hello&quot; + name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="配置spring的Bean"><a href="#配置spring的Bean" class="headerlink" title="配置spring的Bean"></a>配置spring的Bean</h3><p>在spring.xml中，增加bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;demoService&quot; class=&quot;com.leegebe.dubbo.DemoServiceImpl&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="配置dubbo服务"><a href="#配置dubbo服务" class="headerlink" title="配置dubbo服务"></a>配置dubbo服务</h3><p>在provider.xml中，增加dubbo服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;dubbo:service interface=&quot;com.leegebe.dubbo.DemoService&quot; ref=&quot;demoService&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>在test包下，编写dubbo启动类的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Dubbo主程序</div><div class="line"> */</div><div class="line">public class DubboApplication &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Main.main(args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>启动后，可以通过dubbo-admin查找到相应的服务。</p>
+<h1 id="app端项目搭建"><a href="#app端项目搭建" class="headerlink" title="app端项目搭建"></a>app端项目搭建</h1><h2 id="建立app项目"><a href="#建立app项目" class="headerlink" title="建立app项目"></a>建立app项目</h2><p>新建maven项目</p>
+<h2 id="增加依赖"><a href="#增加依赖" class="headerlink" title="增加依赖"></a>增加依赖</h2><ul>
+<li>spring，spring-web依赖</li>
+<li>dubbo依赖</li>
+<li>日志依赖</li>
+<li>freemarker依赖</li>
+<li>servlet依赖</li>
+</ul>
+<h2 id="增加web的Module"><a href="#增加web的Module" class="headerlink" title="增加web的Module"></a>增加web的Module</h2><p>需要定义Web Rersource Directory目录。</p>
+<h2 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h2><p>指定DispatcherServlet的配置文件springmvc.xml，和spring的配置目录/spring/*.xml。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</div><div class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</div><div class="line">         version=&quot;3.1&quot;&gt;</div><div class="line">    &lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet</div><div class="line">        &lt;/servlet-class&gt;</div><div class="line">        &lt;init-param&gt;</div><div class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">            &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;</div><div class="line">        &lt;/init-param&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line">    &lt;!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 --&gt;</div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div><div class="line"></div><div class="line">    &lt;!-- spring config --&gt;</div><div class="line">    &lt;context-param&gt;</div><div class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">        &lt;param-value&gt;</div><div class="line">            classpath:/spring/*.xml,</div><div class="line">        &lt;/param-value&gt;</div><div class="line">    &lt;/context-param&gt;</div><div class="line"></div><div class="line">    &lt;listener&gt;</div><div class="line">        &lt;listener-class&gt;</div><div class="line">            org.springframework.web.context.ContextLoaderListener</div><div class="line">        &lt;/listener-class&gt;</div><div class="line">    &lt;/listener&gt;</div><div class="line">    &lt;context-param&gt;</div><div class="line">        &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;</div><div class="line">        &lt;param-value&gt;WEB-INF/log4j.properties&lt;/param-value&gt;</div><div class="line">    &lt;/context-param&gt;</div><div class="line"></div><div class="line">    &lt;listener&gt;</div><div class="line">        &lt;listener-class&gt;</div><div class="line">            org.springframework.web.util.Log4jConfigListener</div><div class="line">        &lt;/listener-class&gt;</div><div class="line">    &lt;/listener&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置springmvc-xml"><a href="#配置springmvc-xml" class="headerlink" title="配置springmvc.xml"></a>配置springmvc.xml</h2><p>定义了扫描的包，并配置了freemarker相关内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</div><div class="line">       xmlns:util=&quot;http://www.springframework.org/schema/util&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">http://www.springframework.org/schema/context</div><div class="line">http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">http://www.springframework.org/schema/util</div><div class="line">http://www.springframework.org/schema/util/spring-util.xsd</div><div class="line">http://www.springframework.org/schema/mvc</div><div class="line">http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- 添加注解驱动 --&gt;</div><div class="line">    &lt;mvc:annotation-driven /&gt;</div><div class="line">    &lt;!-- 默认扫描的包路径 --&gt;</div><div class="line">    &lt;context:component-scan base-package=&quot;com.leegebe.controller&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;!-- FreeMarkerConfigurer --&gt;</div><div class="line">    &lt;bean id=&quot;freemarkerConfig&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer&quot;&gt;</div><div class="line">        &lt;property name=&quot;templateLoaderPath&quot;&gt;</div><div class="line">            &lt;value&gt;/WEB-INF/ftl/&lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=&quot;freemarkerSettings&quot;&gt;</div><div class="line">            &lt;!-- 设置FreeMarker环境属性 --&gt;</div><div class="line">            &lt;props&gt;</div><div class="line">                &lt;prop key=&quot;template_update_delay&quot;&gt;5&lt;/prop&gt;&lt;!--刷新模板的周  期，单位为秒 --&gt;</div><div class="line">                &lt;prop key=&quot;default_encoding&quot;&gt;UTF-8&lt;/prop&gt;&lt;!--模板的编码格式 --&gt;</div><div class="line">                &lt;prop key=&quot;locale&quot;&gt;UTF-8&lt;/prop&gt;&lt;!-- 本地化设置 --&gt;</div><div class="line">                &lt;prop key=&quot;datetime_format&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;time_format&quot;&gt;HH:mm:ss&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;number_format&quot;&gt;0.####&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;boolean_format&quot;&gt;true,false&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;whitespace_stripping&quot;&gt;true&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;tag_syntax&quot;&gt;auto_detect&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;url_escaping_charset&quot;&gt;UTF-8&lt;/prop&gt;</div><div class="line">            &lt;/props&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;freemarkerResolver&quot;</div><div class="line">          class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;&gt;</div><div class="line">        &lt;property name=&quot;order&quot; value=&quot;1&quot; /&gt;</div><div class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.ftl&quot; /&gt;</div><div class="line">        &lt;property name=&quot;contentType&quot; value=&quot;text/html;charset=utf-8&quot; /&gt;</div><div class="line">        &lt;property name=&quot;viewClass&quot;&gt;</div><div class="line">            &lt;value&gt;org.springframework.web.servlet.view.freemarker.FreeMarkerView</div><div class="line">            &lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置ftl文件"><a href="#配置ftl文件" class="headerlink" title="配置ftl文件"></a>配置ftl文件</h2><p>新增WEB-INF/ftl/index.ftl文件，作为展示页面。</p>
+<h2 id="配置dubbo相关"><a href="#配置dubbo相关" class="headerlink" title="配置dubbo相关"></a>配置dubbo相关</h2><h3 id="dubbo-properties"><a href="#dubbo-properties" class="headerlink" title="dubbo.properties"></a>dubbo.properties</h3><p>在resources下增加dubbo配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">##</div><div class="line"># Dubbo Configuration</div><div class="line">##</div><div class="line">dubbo.container=spring</div><div class="line">dubbo.application.name=demo</div><div class="line">dubbo.application.owner=com.leegebe</div><div class="line">dubbo.registry.register=true</div><div class="line">dubbo.registry.address=zookeeper://192.168.10.150:2181</div><div class="line">dubbo.protocol.dubbo.port=20958</div><div class="line">dubbo.registry.file=dubbo.registry.properties</div></pre></td></tr></table></figure></p>
+<h3 id="consumer-xml"><a href="#consumer-xml" class="headerlink" title="consumer.xml"></a>consumer.xml</h3><p>在consumer.xml文件中，编写dubbo服务端提供的服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- 生成远程服务代理，可以和本地bean一样使用demoService --&gt;</div><div class="line">    &lt;dubbo:reference id=&quot;demoService&quot; interface=&quot;com.leegebe.dubbo.DemoService&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="controller类"><a href="#controller类" class="headerlink" title="controller类"></a>controller类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class IndexController &#123;</div><div class="line"></div><div class="line">    @Resource</div><div class="line">    DemoService demoService;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;index.html&quot;)</div><div class="line">    public String index(ModelMap modelMap)&#123;</div><div class="line">        modelMap.put(&quot;title&quot;,demoService.sayHello(&quot;index&quot;));</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）/" class="archive-article-date">
+  	<time datetime="2017-03-09T02:14:09.197Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目实践/">项目实践</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/09/JAVA基础-事务-mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA基础-事务-mysql</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 12.5px;">项目实践</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">从小听过了很多大道理&lt;br&gt;&lt;br&gt;却依旧过不好这一生</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

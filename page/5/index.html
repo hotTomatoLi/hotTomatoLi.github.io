@@ -139,6 +139,127 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(4)—开始—安装Solr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/">Apache Solr(5.5)帮助文档(4)-开始-安装Solr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Installing Solr</p>
+</blockquote>
+<p>这部分介绍了如何安装Solr。Solr可以运行在任意一个可使用Java运行环境（JRE）的系统上，当前包括Linux、OS/X和Windows。下面的介绍在上述平台都成立，除了在标记中说明的一些在Windows平台的特例。</p>
+<h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p>Solr要求JRE 1.7及以上版本。命令行里检查Java版本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version &quot;1.8.0_60&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_60-b27)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)</div></pre></td></tr></table></figure></p>
+<p>上述结果可能有所不同，但是需要确保最低版本要求。我们推荐使用未停止更新的版本，如果没有要求的版本，或是找不到Java命令行，可以从Oracle官网下载最新的版本。</p>
+<h3 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h3><p>可以从<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">Solr网站</a>下载Solr。<br>Linux/Unix/OSX系统下载.tgz文件，Windows系统下载.zip文件。一旦开始，只需要解压下载的文件中。如果需要设置生产环境的Solr，请参照在Taking Solr to Production 页面的说明。现在仅仅需要解压Solr文件到你指定的主目录，在Linux下可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/</div><div class="line">$ tar zxf solr-5.0.0.tgz</div></pre></td></tr></table></figure></p>
+<p>一旦解压完毕，可以按照运行Solr章节的内容运行Solr。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/Apache Solr(5.5)帮助文档(4)—开始—安装Solr/" class="archive-article-date">
+  	<time datetime="2017-02-09T00:59:58.027Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(3)—开始—说明" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/">Apache Solr(5.5)帮助文档(3)-开始-说明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Getting Started</p>
+</blockquote>
+<p>Solr极大的方便了开发者开发复杂高效的搜索应用，并提供相应的高级特性例如<strong>faceting</strong>（按列排版搜索结果，并表明关键元素的数字）。Solr依赖另一个开源的搜索技术：Lucene。Lucene是一个Java库，提供了索引、搜索、拼写检查、高亮命中结果、高级分词能力等。Solr和Lucene都由 Apache Software Foundation 管理。<br>Lucene项目当前排在所有开源项目的前15，在Apache项目中排前5，大概有超过4000家公司使用。在过去三年，Lucene/Solr的下载量增加了近10倍，现在的频率大约是每天6000次。Solr搜索引擎，提供了基于Lucene库的搜索平台应用，是Lucene中增长最快的子项目。Lucene和Solr为开发搜索和发现的软件供应商提供了一个具有竞争力的选择。<br>这部分内容会帮助你迅速的设置好并运行Solr，并介绍Solr基本的结构和特征。它包括了一下内容：</p>
+<ul>
+<li>安装Solr：Solr安装的流程介绍</li>
+<li>运行Solr：运行Solr的介绍，包括启动服务器，增加document，运行索引。</li>
+<li>快速概览：Solr工作原理的概览</li>
+<li>更进一步：Solr主目录和配置项的介绍</li>
+<li>Solr启动脚本介绍：bin/solr下脚本命令和参数的完整介绍</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/09/Apache Solr(5.5)帮助文档(3)—开始—说明/" class="archive-article-date">
+  	<time datetime="2017-02-09T00:50:49.602Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(2)—关于" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -730,232 +851,6 @@
 
 
   
-    <article id="post-浏览器兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/浏览器兼容性问题/">WEB开发中浏览器兼容性问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>WEB开发过程中，总会遇到各种浏览器兼容问题，无论是脚本或是样式问题。仅仅记录一下。</p>
-<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2><h3 id="startWith"><a href="#startWith" class="headerlink" title="startWith"></a>startWith</h3><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>IE中，不支持js中String类的startWith方法，因此需要进行变通。当然，也适用于endWith等方法。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="手动扩展string类"><a href="#手动扩展string类" class="headerlink" title="手动扩展string类"></a>手动扩展string类</h5><p>可以在页面加载时，给String类添加startWith方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    String.prototype.startWith = function(str) &#123;</div><div class="line">    var reg = new RegExp(&quot;^&quot; + str);</div><div class="line">    return reg.test(this);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h5><p>生成全局工具类，供调用者使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.Common_TOOLS.startWith = function(str,startStr)&#123;</div><div class="line">    var reg = new RegExp(&quot;^&quot; + startStr);</div><div class="line">    return reg.test(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="火狐下刷新input不强制刷新"><a href="#火狐下刷新input不强制刷新" class="headerlink" title="火狐下刷新input不强制刷新"></a>火狐下刷新input不强制刷新</h3><h4 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h4><p>火狐自带自动填写表单功能，</p>
-<blockquote>
-<p>How to Turn Off Form Autocompletion<br>(“<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion</a>“)</p>
-</blockquote>
-<h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="form上增加控制"><a href="#form上增加控制" class="headerlink" title="form上增加控制"></a>form上增加控制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;form method=&quot;post&quot; action=&quot;/form&quot; autocomplete=&quot;off&quot;&gt;[…]&lt;/form&gt;</div></pre></td></tr></table></figure>
-<h5 id="元素上增加控制"><a href="#元素上增加控制" class="headerlink" title="元素上增加控制"></a>元素上增加控制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form method=&quot;post&quot; action=&quot;/form&quot;&gt; […] </div><div class="line">&lt;div&gt; &lt;label for=&quot;cc&quot;&gt;Credit card:&lt;/label&gt; </div><div class="line">&lt;input type=&quot;text&quot; id=&quot;cc&quot; name=&quot;cc&quot; autocomplete=&quot;off&quot;&gt; </div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/09/浏览器兼容性问题/" class="archive-article-date">
-  	<time datetime="2016-12-09T01:20:03.565Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WEB开发/">WEB开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容/">兼容</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mysql 特殊字符处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/Mysql 特殊字符处理/">Mysql 特殊字符过滤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于推送的数据不规范，接口上也没有进行数据格式校验，导致数据库中的字段存在了莫名的数据（业务端明显错误的数据），需要统计处理一下，</p>
-<h2 id="正则过滤"><a href="#正则过滤" class="headerlink" title="正则过滤"></a>正则过滤</h2><p>首先采用正则表达式进行过滤。Mysql中的正则表达式书写如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM 表名 WHERE 列名  REGEXP &apos;[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]&#123;1,&#125;&apos;</div></pre></td></tr></table></figure></p>
-<p>其中<code>[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]{1,}</code>为正则表达式。</p>
-<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><table>
-<thead>
-<tr>
-<th>模式</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^</td>
-<td style="text-align:center">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘\n’ 或 ‘\r’ 之后的位置。</td>
-</tr>
-<tr>
-<td>$</td>
-<td style="text-align:center">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 ‘\n’ 或 ‘\r’ 之前的位置。</td>
-</tr>
-<tr>
-<td>[…]</td>
-<td style="text-align:center">字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’。</td>
-</tr>
-<tr>
-<td>[^…]</td>
-<td style="text-align:center">负值字符集合。匹配未包含的任意字符。例如， ‘[^abc]’ 可以匹配 “plain” 中的’p’。</td>
-</tr>
-<tr>
-<td>p1</td>
-<td style="text-align:center">p2</td>
-<td>p3</td>
-<td>匹配 p1 或 p2 或 p3。例如，’z</td>
-<td>food’ 能匹配 “z” 或 “food”。’(z</td>
-<td>f)ood’ 则匹配 “zood” 或 “food”。</td>
-</tr>
-<tr>
-<td>*</td>
-<td style="text-align:center">匹配前面的子表达式零次或多次。例如，zo<em> 能匹配 “z” 以及 “zoo”。</em> 等价于{0,}。</td>
-</tr>
-<tr>
-<td>+</td>
-<td style="text-align:center">匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td style="text-align:center">n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td style="text-align:center">m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p><code>\\</code>是转义字符，如果需要匹配特殊字符需要加上转义字符。<br>| 模式        | 描述           |<br>| ————- |:————-:|<br>| \f        | 换页           |<br>| \n         | 换行           |<br>| \r        | 回车           |<br>| \t        | 制表           |<br>| \v       | 纵向制表        |</p>
-<p>一些特殊的匹配规则如下</p>
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[:alnum:]</td>
-<td style="text-align:center">文字数字字符</td>
-</tr>
-<tr>
-<td>[:alpha:]</td>
-<td style="text-align:center">文字字符</td>
-</tr>
-<tr>
-<td>[:blank:]</td>
-<td style="text-align:center">空白字符</td>
-</tr>
-<tr>
-<td>[:cntrl:]</td>
-<td style="text-align:center">控制字符</td>
-</tr>
-<tr>
-<td>[:digit:]</td>
-<td style="text-align:center">数字字符</td>
-</tr>
-<tr>
-<td>[:graph:]</td>
-<td style="text-align:center">图形字符</td>
-</tr>
-<tr>
-<td>[:lower:]</td>
-<td style="text-align:center">小写文字字符</td>
-</tr>
-<tr>
-<td>[:print:]</td>
-<td style="text-align:center">图形或空格字符</td>
-</tr>
-<tr>
-<td>[:punct:]</td>
-<td style="text-align:center">标点字符</td>
-</tr>
-<tr>
-<td>[space:]</td>
-<td style="text-align:center">包括空格在内的任意空白字符（同 [\f\n\t\r\v]）</td>
-</tr>
-<tr>
-<td>[:upper:]</td>
-<td style="text-align:center">大写文字字符</td>
-</tr>
-<tr>
-<td>[:xdigit:]</td>
-<td style="text-align:center">任意十六进制数字（同 [a-fA-F0-9]）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="AscII查看"><a href="#AscII查看" class="headerlink" title="AscII查看"></a>AscII查看</h2><p>当发现特殊字符的时候，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT ASCII(&quot; &quot;)</div></pre></td></tr></table></figure></p>
-<p>获得对应的ASCII码。<br>至于获得Unicode码的方式，还没有找到</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/09/Mysql 特殊字符处理/" class="archive-article-date">
-  	<time datetime="2016-12-09T00:29:50.803Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特殊字符/">特殊字符</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1021,7 +916,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 13.33px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 10px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 12.5px;">项目实践</a>
     			</div>
     	</section>
     

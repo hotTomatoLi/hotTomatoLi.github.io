@@ -139,6 +139,75 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/">Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Core-Specific Tools</p>
+</blockquote>
+<p>在左侧的导航栏，可以看到一个名字为”Core Selector”的下拉菜单。点击该菜单会展示Solr的Core的列表，以及一个可用来搜索指定Core的搜索框（当有很多Core会很方便）。当选中了一个Core，一个二级菜单会在Core的名称下展示，通过该菜单可以对该Core进行管理。</p>
+<p>一旦选中了一个Core，页面中间区域会展示该Core统计信息和其他信息。可以通过定义一个包含链接或是其他想要展示的信息的admin-extra.html文件，在主页面的Admin Extra”展示相应信息。</p>
+<p>左边栏Core名称下面的链接，可以用于展示选择Core信息，和提供相应的选项。指定Core的选项在下面列出，可以点击相应的链接了解更多。</p>
+<ul>
+<li><strong>分析</strong> 分析指定field的数据</li>
+<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
+<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
+<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
+<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
+<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
+<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
+<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
+<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
+<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/24/Apache Solr(5.5)帮助文档(17)-使用Solr管理交互界面—指定Core的工具/" class="archive-article-date">
+  	<time datetime="2017-02-24T01:01:48.814Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-软件架构-MVC,MVP,MVVM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,6 +247,62 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件架构/">软件架构</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA基础—volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/JAVA基础—volatile关键字/">JAVA基础—volatile关键字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>volatile</code>关键字可以用来修饰变量，是JAVA提供的轻量级的同步机制。</p>
+<p>##特性</p>
+<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>“可见性”指的是<code>volatile</code>变量的读取。<code>volatile</code>变量对于所有的线程可见，字面含义是，如果一个线程修改了该变量值，其他的线程可以立即查看到变化，可以看到<br>该变量最后写入的值。</p>
+<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>对单个<code>volatile</code>变量的读/写具有原子性。</p>
+<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><p><code>volatile</code>具有可见性，但并不代表其实并发安全的。考虑多个线程，每个线程都读取<code>volatile</code>变量到线程工作空间，此时各个线程认为自己得到的是最新的数据，<br>操作（自增等），数据同步回主内存时，会有部分线程的数据被覆盖掉。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/JAVA基础—volatile关键字/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
 	</div>
 
       
@@ -666,146 +791,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述/">Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面—Solr管理交互界面概述</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Overview of the Solr Admin UI</p>
-</blockquote>
-<p>Solr提供了一个Web接口，使Solr管理员和开发人员更容易的使用查看Solr配置信息，通过查询和分析document的field调整Solr配置，获取在线documentation和其他帮助。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-52b73bc63c2bfba5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Solr管理交互界面"></p>
-<p>访问<code>http://localhost:8983/solr/</code>可以查看主面板，面板包括两方面：<br>在屏幕左侧，Solr的logo下面是一个菜单栏。这个菜单栏提供了交互界面的所有页面的导航。上半部分链接内容指向系统信息和配置、日志、Core管理、Java配置和其他内容。下半部分是Solr实例的配置管理信息。选中一个Core后，会展示一个二级菜单。这个菜单用于展示对应Core的信息和配置选项等，菜单内容包括：Schema，配置，插件，查询数据等。</p>
-<p>页面的中心部分展示了选中的详细信息。这部分可能的内容是参数的二级导航、文本内容、请求数据的图形化展示。详细信息请查看对应页面的说明文档。</p>
-<p>实际上，Solr管理界面使用了和其他客户端访问获取Solr数据同样的 HTTP API 来展示图形界面。</p>
-<p>注意：Solr管理交互界面的地址为<code>http://hostname:port/solr</code>，在当前版本（5.5）该地址会被重定向到<code>http://hostname:port/solr/#/</code>。当然，也支持快捷重定向，只需要通过<code>http://hostname:port/</code>也会重定向到<code>http://hostname:port/solr/#/</code>，从而访问管理界面。</p>
-<h3 id="在solrconfig-xml配置管理界面"><a href="#在solrconfig-xml配置管理界面" class="headerlink" title="在solrconfig.xml配置管理界面"></a>在solrconfig.xml配置管理界面</h3><p>在solrconfig.xml文件中，<admin>标签定义了在特定Core查询页面的默认查询语句。默认值是<code>*:*</code>，将会查询所有的文档。本例中，改为<code>solr</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;admin&gt;</div><div class="line">&lt;defaultQuery&gt;solr&lt;/defaultQuery&gt;</div><div class="line">&lt;/admin&gt;</div></pre></td></tr></table></figure></admin></p>
-<h3 id="相关主题"><a href="#相关主题" class="headerlink" title="相关主题"></a>相关主题</h3><ul>
-<li>Configuring solrconfig.xml</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.623Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/">Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Using the Solr Administration User Interface</p>
-</blockquote>
-<p>这部分内容介绍了Solr管理交互界面（ the Solr Administration User Interface ，Admin UI）。<br><strong>Solr管理交互界面概述</strong>介绍了交互界面的初始管理界面的基本特征，以及如果配置界面。此外，对管理界面的每个页面，都有单独的章节进行描述。</p>
-<ul>
-<li><strong>获得帮助</strong> 介绍如何获得关于交互界面的更多信息</li>
-<li><strong>日志</strong> 介绍了不同的日志级别，以及调用他们的方式</li>
-<li><strong>Cloud页面</strong> 在运行SolrCloud模式时，展示关于节点的信息</li>
-<li><strong>Core管理</strong>  介绍如何获取每个Core的管理信息</li>
-<li><strong>JAVA配置</strong> 介绍每个Core的JAVA信息</li>
-<li><strong>线程 dump</strong> 展示每一个线程的详细信息，和状态信息</li>
-<li><strong>指定Core的工具</strong> 是每个命名了的Core可使用的功能页面集的介绍<ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/" class="archive-article-date">
-  	<time datetime="2017-02-16T00:50:55.658Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -871,7 +856,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 16.67px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 13.33px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 10px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 12.5px;">项目实践</a>
     			</div>
     	</section>
     
