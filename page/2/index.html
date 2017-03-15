@@ -139,6 +139,63 @@
       <div class="body-wrap">
         
   
+    <article id="post-JAVA-面试题（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/JAVA-面试题（1）/">JAVA面试题（1）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="为什么函数重载不可以根据返回类型区分"><a href="#为什么函数重载不可以根据返回类型区分" class="headerlink" title="为什么函数重载不可以根据返回类型区分"></a>为什么函数重载不可以根据返回类型区分</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>为什么函数重载不可以根据返回类型区分。</p>
+<h2 id="解答（知乎）"><a href="#解答（知乎）" class="headerlink" title="解答（知乎）"></a>解答（知乎）</h2><p>因为调用时不能指定类型信息，编译器不知道你要调用哪个函数。<br>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">float max(int a, int b);</div><div class="line">int max(int a, int b);</div></pre></td></tr></table></figure></p>
+<p>当调用<code>max(1, 2);</code>时无法确定调用的是哪个，单从这一点上来说，仅返回值类型不同的重载是不应该允许的。<br>再比如对下面这两个方法来说，虽然它们有同样的名字和自变量，但其实是很容易区分的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">void f() &#123;&#125; </div><div class="line">int f() &#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>若编译器可根据上下文（语境）明确判断出含义，比如在 int x=f()中，那么这样做完全没有问题。然而，<br>我们也可能调用一个方法，同时忽略返回值；我们通常把这称为“为它的副作用去调用一个方法”，因为我 们关心的不是返回值，而是方法调用的其他效果。所以假如我们象下面这样调用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f();</div></pre></td></tr></table></figure></p>
+<p>Java 怎样判断f()的具体调用方式呢？而且别人如何识别并理解代码呢？由于存在这一类的问题，所以不能根据返回值类型来区分过载的方法。</p>
+<p>函数的返回值只是作为函数运行之后的一个“状态”他是保持方法的调用者与被调用者进行通信的关键，并不能作为某个方法的“标识”。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/02/JAVA-面试题（1）/" class="archive-article-date">
+  	<time datetime="2017-03-02T00:17:24.042Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA面试题/">JAVA面试题</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -754,66 +811,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/">Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Core-Specific Tools</p>
-</blockquote>
-<p>Analysis界面会根据schema.xml中的field，field类别，动态规则等配置，向你展示数据是如何处理。你可以分别在索引或是在查询过程中，查看数据是如何处理的，也可以在同一时间查看数据处理。理想情况下，你会希望数据内容被连贯处理。这个界面允许你在field类别或是filed的分析链中验证配置。</p>
-<p>在页面顶部的俩个输入框中，输入一个或俩个都输入，然后选择用于分析的filed或是filed 类别定义。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-2abfbf136c5eaa36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Anlysis界面"></p>
-<p>如果勾选了<strong>Verbose Output</strong>选择框，讲会看到更多信息，包括输入值的转换（例如，转成小写，去除额外的字符），字节信息，类别，详细位置信息。根据配置文件中的field和field的类别的不同，展示的信息也会有很大的不同。分析过程的每一步都会在不同的区域展示，开头是应用在该步上的tokenier或是filter的缩写。鼠标移动或是点击缩写名称，就可以看到对应的tokenier或filter的名称和路径。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-e01f40dfd3eaaec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="v"><br>在上面的截图示例中可以看到，在输入值”Running is a sport”上，应用了多个信息转换器。单词”is”和”a”都被删除，”running”变为基本形式”run”。这是因为，在上述场景中，我们使用的field类别是<code>text_en</code>，该类别是用于移除停止符单词（通常是没有什么实际含义的小单词）和”stem” terms（词干？？），可以用于找到更多可能的匹配（尤其对复数单词的场景很有效）。如果点击在<strong>Analyze Fieldname/Field Type</strong>下拉菜单边上的问号标识，会打开Schema浏览窗口，展示这个field的配置。</p>
-<p><strong>理解 Analyzers, Tokenizers, and Filters</strong>部分详细描述了每一个选项的含义，以及它将如何转换你的数据。<strong>运行你的 Analyzer</strong>部分包含了使用Analysis界面的示例。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(18)-使用Solr管理交互界面—指定Core的工具—Analysis界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:43:38.718Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -879,7 +876,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 12.5px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>项目搭建Demo[dubbo-spring-mybatis-freemarker]（二） | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mybatis新增mybatis依赖数据库采用的是mysql1234567891011121314151617181920212223242526272829&amp;lt;mybatis_version&amp;gt;3.2.1&amp;lt;/mybatis_version&amp;gt;&amp;lt;mybatis_spring_version&amp;gt;1.2.0&amp;lt;/mybatis_spring_version&amp;gt;&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）">
+<meta property="og:url" content="http://yoursite.com/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="mybatis新增mybatis依赖数据库采用的是mysql1234567891011121314151617181920212223242526272829&amp;lt;mybatis_version&amp;gt;3.2.1&amp;lt;/mybatis_version&amp;gt;&amp;lt;mybatis_spring_version&amp;gt;1.2.0&amp;lt;/mybatis_spring_version&amp;gt;&amp;lt">
+<meta property="og:updated_time" content="2017-03-15T06:31:19.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）">
+<meta name="twitter:description" content="mybatis新增mybatis依赖数据库采用的是mysql1234567891011121314151617181920212223242526272829&amp;lt;mybatis_version&amp;gt;3.2.1&amp;lt;/mybatis_version&amp;gt;&amp;lt;mybatis_spring_version&amp;gt;1.2.0&amp;lt;/mybatis_spring_version&amp;gt;&amp;lt">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mybatis"><span class="toc-number">1.</span> <span class="toc-text">mybatis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#新增mybatis依赖"><span class="toc-number">1.1.</span> <span class="toc-text">新增mybatis依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置spring的mybatis配置"><span class="toc-number">1.2.</span> <span class="toc-text">配置spring的mybatis配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置数据源连接池"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置数据源连接池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置mybatis-config-xml"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置mybatis-config.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置sqlSessionFactoryBean"><span class="toc-number">1.2.3.</span> <span class="toc-text">配置sqlSessionFactoryBean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置扫描mapper"><span class="toc-number">1.2.4.</span> <span class="toc-text">配置扫描mapper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置事务"><span class="toc-number">1.3.</span> <span class="toc-text">配置事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立demo"><span class="toc-number">1.4.</span> <span class="toc-text">建立demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立Model对象User"><span class="toc-number">1.4.1.</span> <span class="toc-text">建立Model对象User</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立mapper对象UserMapper"><span class="toc-number">1.4.2.</span> <span class="toc-text">建立mapper对象UserMapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立mapper文件"><span class="toc-number">1.4.3.</span> <span class="toc-text">建立mapper文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立serviceApi和impl"><span class="toc-number">1.4.4.</span> <span class="toc-text">建立serviceApi和impl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立测试类"><span class="toc-number">1.4.5.</span> <span class="toc-text">建立测试类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前后端连调测试"><span class="toc-number">1.4.6.</span> <span class="toc-text">前后端连调测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA新建子项目问题"><span class="toc-number">2.1.</span> <span class="toc-text">IDEA新建子项目问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tomcat部署时ClassNotFound"><span class="toc-number">2.2.</span> <span class="toc-text">tomcat部署时ClassNotFound</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-lang-IllegalStateException-Could-not-load-TestContextBootstrapper-null"><span class="toc-number">2.3.</span> <span class="toc-text">java.lang.IllegalStateException: Could not load TestContextBootstrapper [null]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件导入问题"><span class="toc-number">2.4.</span> <span class="toc-text">配置文件导入问题</span></a></li></ol></li></ol>
+		</div>
+		
+        <h1 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h1><h2 id="新增mybatis依赖"><a href="#新增mybatis依赖" class="headerlink" title="新增mybatis依赖"></a>新增mybatis依赖</h2><p>数据库采用的是mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;mybatis_version&gt;3.2.1&lt;/mybatis_version&gt;</div><div class="line">&lt;mybatis_spring_version&gt;1.2.0&lt;/mybatis_spring_version&gt;</div><div class="line">&lt;mysql-connector_version&gt;5.1.39&lt;/mysql-connector_version&gt;</div><div class="line">&lt;c3p0_version&gt;0.9.1.2&lt;/c3p0_version&gt;</div><div class="line">&lt;!-- MyBatis相关jar包 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;mybatis_version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;mybatis_spring_version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;!-- 数据库相关依赖 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;mysql-connector_version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;!-- C3P0连接池 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;c3p0&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;c3p0&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;c3p0_version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置spring的mybatis配置"><a href="#配置spring的mybatis配置" class="headerlink" title="配置spring的mybatis配置"></a>配置spring的mybatis配置</h2><h3 id="配置数据源连接池"><a href="#配置数据源连接池" class="headerlink" title="配置数据源连接池"></a>配置数据源连接池</h3><p>数据库配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">## 数据库配置文件</div><div class="line">jdbc.user=root</div><div class="line">jdbc.password=XXX</div><div class="line">jdbc.driverClassName=com.mysql.jdbc.Driver</div><div class="line">jdbc.url=jdbc:mysql://localhost:3306/ELE_SHOP?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</div><div class="line">jdbc.minPoolSize=5</div><div class="line">jdbc.maxPoolSize=10</div><div class="line">jdbc.initialPoolSize=5</div></pre></td></tr></table></figure></p>
+<p>数据源配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 导入属性配置文件 --&gt;</div><div class="line">&lt;context:property-placeholder location=&quot;classpath:database.properties&quot; /&gt;</div><div class="line"></div><div class="line">&lt;!-- 注解扫描 --&gt;</div><div class="line">&lt;!--&lt;context:component-scan base-package=&quot;com.leegebe.userservice.service&quot; /&gt;--&gt;</div><div class="line"></div><div class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</div><div class="line">      destroy-method=&quot;close&quot;&gt;</div><div class="line">    &lt;property name=&quot;driverClass&quot; value=&quot;$&#123;jdbc.driverClassName&#125;&quot; /&gt;</div><div class="line">    &lt;property name=&quot;jdbcUrl&quot; value=&quot;$&#123;jdbc.url&#125;&quot; /&gt;</div><div class="line">    &lt;property name=&quot;user&quot; value=&quot;$&#123;jdbc.user&#125;&quot; /&gt;</div><div class="line">    &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot; /&gt;</div><div class="line">    &lt;!-- 保持最小连接数 --&gt;</div><div class="line">    &lt;property name=&quot;minPoolSize&quot; value=&quot;$&#123;jdbc.minPoolSize&#125;&quot; /&gt;</div><div class="line">    &lt;!-- 保持最大连接数 --&gt;</div><div class="line">    &lt;property name=&quot;maxPoolSize&quot; value=&quot;$&#123;jdbc.maxPoolSize&#125;&quot; /&gt;</div><div class="line">    &lt;!-- 初始化连接数 --&gt;</div><div class="line">    &lt;property name=&quot;initialPoolSize&quot; value=&quot;$&#123;jdbc.initialPoolSize&#125;&quot; /&gt;</div><div class="line">    &lt;!-- 连接的最大空闲时间，如果超过这个时间，某个数据库连接还没有被使用，则会断开掉这个连接,单位 s --&gt;</div><div class="line">    &lt;property name=&quot;maxIdleTime&quot; value=&quot;60&quot; /&gt;</div><div class="line">    &lt;!-- #连接池在无空闲连接可用时一次性创建的新数据库连接数 --&gt;</div><div class="line">    &lt;property name=&quot;acquireIncrement&quot; value=&quot;5&quot; /&gt;</div><div class="line">    &lt;!-- 连接池为数据源缓存的PreparedStatement的总数。由于PreparedStatement属于单个Connection,</div><div class="line">    所以这个数量应该根据应用中平均连接数乘以每个连接的平均PreparedStatement来计算。</div><div class="line">    同时maxStatementsPerConnection的配置无效。 --&gt;</div><div class="line">    &lt;property name=&quot;maxStatements&quot; value=&quot;0&quot; /&gt;</div><div class="line">    &lt;!-- 用来配置测试空闲连接的间隔时间。测试方式还是上面的两种之一，可以用来解决MySQL8小时断开连接的问题。</div><div class="line">        因为它保证连接池会每隔一定时间对空闲连接进行一次测试，</div><div class="line">        从而保证有效的空闲连接能每隔一定时间访问一次数据库，</div><div class="line">        将于MySQL8小时无会话的状态打破。 --&gt;</div><div class="line">    &lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;60&quot; /&gt;</div><div class="line">    &lt;!-- 连接池在获得新连接失败时重试的次数，如果小于等于0则无限重试直至连接获得成功。 --&gt;</div><div class="line">    &lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;2&quot; /&gt;</div><div class="line">    &lt;!--  如果为true，则当连接获取失败时自动关闭数据源，除非重新启动应用程序。所以一般不用。default : false（不建议使用） --&gt;</div><div class="line">    &lt;property name=&quot;breakAfterAcquireFailure&quot; value=&quot;false&quot; /&gt;</div><div class="line">    &lt;!--  连接池在获得新连接时的间隔时间。单位ms--&gt;</div><div class="line">    &lt;property name=&quot;acquireRetryDelay&quot; value=&quot;1000&quot;/&gt;</div><div class="line">    &lt;property name=&quot;testConnectionOnCheckout&quot; value=&quot;false&quot; /&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="配置mybatis-config-xml"><a href="#配置mybatis-config-xml" class="headerlink" title="配置mybatis-config.xml"></a>配置mybatis-config.xml</h3><p>这里可以进行<code>typeAliases</code>和<code>mapper</code>等配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line">    &lt;!--&lt;typeAliases&gt;--&gt;</div><div class="line">        &lt;!--&lt;typeAlias alias=&quot;StudentEntity&quot; type=&quot;com.manager.data.model.StudentEntity&quot;/&gt;--&gt;</div><div class="line">    &lt;!--&lt;/typeAliases&gt;--&gt;</div><div class="line">    &lt;!--&lt;mappers&gt;--&gt;</div><div class="line">        &lt;!--&lt;mapper resource=&quot;mapper/StudentMapper.xml&quot; /&gt;--&gt;</div><div class="line">    &lt;!--&lt;/mappers&gt;--&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="配置sqlSessionFactoryBean"><a href="#配置sqlSessionFactoryBean" class="headerlink" title="配置sqlSessionFactoryBean"></a>配置sqlSessionFactoryBean</h3><p>mybatis的所有操作都是依赖SqlSession，这个工厂对象进行管理和创建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!-- sqlSessionFactory --&gt;</div><div class="line">&lt;bean id=&quot;sqlSessionFactory&quot; name=&quot;sqlSessionFactoryBean&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</div><div class="line">    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:META-INF/spring/mybatis-config.xml&quot; /&gt;</div><div class="line">    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</div><div class="line">    &lt;property name=&quot;mapperLocations&quot;&gt;</div><div class="line">        &lt;list&gt;</div><div class="line">            &lt;value&gt;classpath*:META-INF/mapper/**/*Mapper.xml&lt;/value&gt;</div><div class="line">        &lt;/list&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="配置扫描mapper"><a href="#配置扫描mapper" class="headerlink" title="配置扫描mapper"></a>配置扫描mapper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Mapper扫描配置 --&gt;</div><div class="line">&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</div><div class="line">    &lt;property name=&quot;basePackage&quot; value=&quot;com.leegebe.userservice.dao&quot; /&gt;</div><div class="line">    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactoryBean&quot;&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<h2 id="配置事务"><a href="#配置事务" class="headerlink" title="配置事务"></a>配置事务</h2><p>mybatis和spring集成后，mybatis自身的事务会被spring覆盖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 事务管理器 --&gt;</div><div class="line">   &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</div><div class="line">       &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</div><div class="line">   &lt;/bean&gt;</div><div class="line"></div><div class="line">   &lt;!-- Transaction Configuration --&gt;</div><div class="line">   &lt;bean id=&quot;matchAllTxInterceptor&quot; class=&quot;org.springframework.transaction.interceptor.TransactionInterceptor&quot;&gt;</div><div class="line">       &lt;property name=&quot;transactionManager&quot;&gt;</div><div class="line">           &lt;ref bean=&quot;transactionManager&quot; /&gt;</div><div class="line">       &lt;/property&gt;</div><div class="line">       &lt;property name=&quot;transactionAttributes&quot;&gt;</div><div class="line">           &lt;props&gt;</div><div class="line">               &lt;prop key=&quot;newT_*&quot;&gt;PROPAGATION_REQUIRES_NEW&lt;/prop&gt;</div><div class="line">               &lt;prop key=&quot;find*&quot;&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;</div><div class="line">               &lt;prop key=&quot;get*&quot;&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;</div><div class="line">               &lt;prop key=&quot;search*&quot;&gt;PROPAGATION_REQUIRED,readOnly&lt;/prop&gt;</div><div class="line">               &lt;prop key=&quot;query*&quot;&gt;PROPAGATION_REQUIRED&lt;/prop&gt;</div><div class="line">               &lt;prop key=&quot;*&quot;&gt;PROPAGATION_REQUIRED&lt;/prop&gt;</div><div class="line">           &lt;/props&gt;</div><div class="line">       &lt;/property&gt;</div><div class="line">   &lt;/bean&gt;</div><div class="line"></div><div class="line">   &lt;bean id=&quot;autoProxyCreator&quot; class=&quot;org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator&quot;&gt;</div><div class="line">       &lt;property name=&quot;interceptorNames&quot;&gt;</div><div class="line">           &lt;list&gt;</div><div class="line">               &lt;idref bean=&quot;matchAllTxInterceptor&quot; /&gt;</div><div class="line">           &lt;/list&gt;</div><div class="line">       &lt;/property&gt;</div><div class="line">       &lt;property name=&quot;beanNames&quot;&gt;</div><div class="line">           &lt;list&gt;</div><div class="line">               &lt;value&gt;*Api&lt;/value&gt;</div><div class="line">           &lt;/list&gt;</div><div class="line">       &lt;/property&gt;</div><div class="line">   &lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="建立demo"><a href="#建立demo" class="headerlink" title="建立demo"></a>建立demo</h2><h3 id="建立Model对象User"><a href="#建立Model对象User" class="headerlink" title="建立Model对象User"></a>建立Model对象User</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line">public class User implements Serializable &#123;</div><div class="line"></div><div class="line">    private static final long serialVersionUID = -7396402169234330389L;</div><div class="line"></div><div class="line">    private Long id;</div><div class="line"></div><div class="line">    private String userId;</div><div class="line"></div><div class="line">    private String userName;</div><div class="line"></div><div class="line">    private String loginName;</div><div class="line"></div><div class="line">    private String password;</div><div class="line"></div><div class="line">    private Long createTime;</div><div class="line"></div><div class="line">    private Long updateTime;</div><div class="line"></div><div class="line">    private Integer isValidated;</div><div class="line"></div><div class="line">    public Long getId() &#123;</div><div class="line">        return id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setId(Long id) &#123;</div><div class="line">        this.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getUserId() &#123;</div><div class="line">        return userId;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setUserId(String userId) &#123;</div><div class="line">        this.userId = userId;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getUserName() &#123;</div><div class="line">        return userName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setUserName(String userName) &#123;</div><div class="line">        this.userName = userName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getLoginName() &#123;</div><div class="line">        return loginName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setLoginName(String loginName) &#123;</div><div class="line">        this.loginName = loginName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Long getCreateTime() &#123;</div><div class="line">        return createTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setCreateTime(Long createTime) &#123;</div><div class="line">        this.createTime = createTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Long getUpdateTime() &#123;</div><div class="line">        return updateTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setUpdateTime(Long updateTime) &#123;</div><div class="line">        this.updateTime = updateTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Integer getIsValidated() &#123;</div><div class="line">        return isValidated;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setIsValidated(Integer isValidated) &#123;</div><div class="line">        this.isValidated = isValidated;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="建立mapper对象UserMapper"><a href="#建立mapper对象UserMapper" class="headerlink" title="建立mapper对象UserMapper"></a>建立mapper对象UserMapper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.dubbo.mapper;</div><div class="line"></div><div class="line">import com.leegebe.dubbo.model.User;</div><div class="line"></div><div class="line">/**</div><div class="line"> *</div><div class="line"> */</div><div class="line">public interface UserMapper &#123;</div><div class="line"></div><div class="line">    User getUserById(int id);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="建立mapper文件"><a href="#建立mapper文件" class="headerlink" title="建立mapper文件"></a>建立mapper文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;</div><div class="line">&lt;mapper namespace=&quot;com.leegebe.dubbo.mapper.UserMapper&quot;&gt;</div><div class="line"></div><div class="line">    &lt;resultMap id=&quot;userResultMap&quot; type=&quot;com.leegebe.dubbo.model.User&quot;&gt;</div><div class="line">        &lt;id column=&quot;ID&quot; jdbcType=&quot;BIGINT&quot; property=&quot;id&quot; /&gt;</div><div class="line">        &lt;result column=&quot;USER_ID&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;userId&quot; /&gt;</div><div class="line">        &lt;result column=&quot;USER_NAME&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;userName&quot; /&gt;</div><div class="line">        &lt;result column=&quot;LOGIN_NAME&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;loginName&quot; /&gt;</div><div class="line">        &lt;result column=&quot;PASSWORD&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;password&quot; /&gt;</div><div class="line">        &lt;result column=&quot;CREATE_TIME&quot; property=&quot;createTime&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">        &lt;result column=&quot;UPDATE_TIME&quot; property=&quot;updateTime&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">        &lt;result column=&quot;IS_VALIDATE&quot; property=&quot;isValidated&quot; jdbcType=&quot;INTEGER&quot; /&gt;</div><div class="line">    &lt;/resultMap&gt;</div><div class="line"></div><div class="line">    &lt;sql id=&quot;tableName&quot;&gt;</div><div class="line">        ele_shop_user</div><div class="line">    &lt;/sql&gt;</div><div class="line"></div><div class="line">    &lt;select id=&quot;getUserById&quot; resultMap=&quot;userResultMap&quot;&gt;</div><div class="line">        SELECT * FROM &lt;include refid=&quot;tableName&quot;/&gt; WHERE ID = #&#123;id&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure>
+<h3 id="建立serviceApi和impl"><a href="#建立serviceApi和impl" class="headerlink" title="建立serviceApi和impl"></a>建立serviceApi和impl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.dubbo.api;</div><div class="line"></div><div class="line">import com.leegebe.dubbo.model.User;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 查询用户API</div><div class="line"> */</div><div class="line">public interface UserApi &#123;</div><div class="line"></div><div class="line">    User getUserById(int id);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.dubbo.api.impl;</div><div class="line"></div><div class="line">import com.leegebe.dubbo.api.UserApi;</div><div class="line">import com.leegebe.dubbo.mapper.UserMapper;</div><div class="line">import com.leegebe.dubbo.model.User;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line"></div><div class="line">import javax.annotation.Resource;</div><div class="line"></div><div class="line">/**</div><div class="line"> * User接口实现类</div><div class="line"> */</div><div class="line">@Service(&quot;userApi&quot;)</div><div class="line">public class UserApiImpl implements UserApi &#123;</div><div class="line"></div><div class="line">    @Resource</div><div class="line">    UserMapper userMapper;</div><div class="line"></div><div class="line">    public User getUserById(int id) &#123;</div><div class="line">        return userMapper.getUserById(id);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="建立测试类"><a href="#建立测试类" class="headerlink" title="建立测试类"></a>建立测试类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.dubbo.api.impl;</div><div class="line"></div><div class="line">import com.leegebe.dubbo.api.UserApi;</div><div class="line">import com.leegebe.dubbo.model.User;</div><div class="line">import org.junit.Assert;</div><div class="line">import org.junit.Test;</div><div class="line">import org.junit.runner.RunWith;</div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.test.context.ContextConfiguration;</div><div class="line">import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</div><div class="line"></div><div class="line">import javax.annotation.Resource;</div><div class="line"></div><div class="line">import static org.junit.Assert.*;</div><div class="line"></div><div class="line">/**</div><div class="line"> *</div><div class="line"> */</div><div class="line">@RunWith(SpringJUnit4ClassRunner.class)</div><div class="line">@ContextConfiguration(locations=&#123;&quot;classpath*:META-INF/spring/*.xml&quot;&#125;)</div><div class="line">public class UserApiImplTest &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    UserApi userApi;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void getUserById() throws Exception &#123;</div><div class="line">        int userId = 1;</div><div class="line">        User user = userApi.getUserById(userId);</div><div class="line">        Assert.assertNotNull(user);</div><div class="line">        System.out.println(user.getUserName());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="前后端连调测试"><a href="#前后端连调测试" class="headerlink" title="前后端连调测试"></a>前后端连调测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;dubbo:service interface=&quot;com.leegebe.dubbo.api.UserApi&quot; ref=&quot;userApi&quot; version=&quot;$&#123;dubbo.service.version&#125;&quot;/&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 生成远程服务代理，可以和本地bean一样使用 --&gt;</div><div class="line">&lt;dubbo:reference id=&quot;userApi&quot; interface=&quot;com.leegebe.dubbo.api.UserApi&quot; version=&quot;$&#123;dubbo.service.version&#125;&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>版本号在配置文件中定义并在spring中引入即可。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>搭建过程中，遇到一些问题，总结如下。</p>
+<h2 id="IDEA新建子项目问题"><a href="#IDEA新建子项目问题" class="headerlink" title="IDEA新建子项目问题"></a>IDEA新建子项目问题</h2><p><code>pom.xml already exists in vfs</code>，原因是在建立是Content root和Module file location的配置不正确，选择了父项目的目录，当前父项目中已经有了pom文件，所以会提示错误。</p>
+<h2 id="tomcat部署时ClassNotFound"><a href="#tomcat部署时ClassNotFound" class="headerlink" title="tomcat部署时ClassNotFound"></a>tomcat部署时ClassNotFound</h2><p>是因为在部署的时候没有部署maven依赖的包，Project Structure-&gt;Artifacts-&gt;Output Layout，将Available Elements下的maven依赖，以及dubbo-service-api依赖添加到部署目录的lib包下。</p>
+<h2 id="java-lang-IllegalStateException-Could-not-load-TestContextBootstrapper-null"><a href="#java-lang-IllegalStateException-Could-not-load-TestContextBootstrapper-null" class="headerlink" title="java.lang.IllegalStateException: Could not load TestContextBootstrapper [null]"></a>java.lang.IllegalStateException: Could not load TestContextBootstrapper [null]</h2><p>原因是spring-test依赖的版本和spring的版本不一致导致</p>
+<h2 id="配置文件导入问题"><a href="#配置文件导入问题" class="headerlink" title="配置文件导入问题"></a>配置文件导入问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;context:property-placeholder location=&quot;classpath:database.properties,classpath:conf.properties&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>如果在俩个文件中分别引入配置文件导入，会导致一个失效。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（二）/" class="archive-article-date">
+  	<time datetime="2017-03-09T08:32:31.149Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目实践/">项目实践</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/09/项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目搭建Demo[dubbo-spring-mybatis-freemarker]（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">从小听过了很多大道理&lt;br&gt;&lt;br&gt;却依旧过不好这一生</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
