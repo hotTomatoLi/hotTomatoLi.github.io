@@ -322,62 +322,6 @@
 
 
   
-    <article id="post-JAVA基础—volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/JAVA基础—volatile关键字/">JAVA基础—volatile关键字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>volatile</code>关键字可以用来修饰变量，是JAVA提供的轻量级的同步机制。</p>
-<p>##特性</p>
-<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>“可见性”指的是<code>volatile</code>变量的读取。<code>volatile</code>变量对于所有的线程可见，字面含义是，如果一个线程修改了该变量值，其他的线程可以立即查看到变化，可以看到<br>该变量最后写入的值。</p>
-<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>对单个<code>volatile</code>变量的读/写具有原子性。</p>
-<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><p><code>volatile</code>具有可见性，但并不代表其实并发安全的。考虑多个线程，每个线程都读取<code>volatile</code>变量到线程工作空间，此时各个线程认为自己得到的是最新的数据，<br>操作（自增等），数据同步回主内存时，会有部分线程的数据被覆盖掉。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/JAVA基础—volatile关键字/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-软件架构-MVC,MVP,MVVM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -436,6 +380,62 @@
 
 
   
+    <article id="post-JAVA基础—volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/JAVA基础—volatile关键字/">JAVA基础—volatile关键字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>volatile</code>关键字可以用来修饰变量，是JAVA提供的轻量级的同步机制。</p>
+<p>##特性</p>
+<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>“可见性”指的是<code>volatile</code>变量的读取。<code>volatile</code>变量对于所有的线程可见，字面含义是，如果一个线程修改了该变量值，其他的线程可以立即查看到变化，可以看到<br>该变量最后写入的值。</p>
+<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>对单个<code>volatile</code>变量的读/写具有原子性。</p>
+<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><p><code>volatile</code>具有可见性，但并不代表其实并发安全的。考虑多个线程，每个线程都读取<code>volatile</code>变量到线程工作空间，此时各个线程认为自己得到的是最新的数据，<br>操作（自增等），数据同步回主内存时，会有部分线程的数据被覆盖掉。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/JAVA基础—volatile关键字/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA中级-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -471,6 +471,62 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA中级/">JAVA中级</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/">Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Java Properties</p>
+</blockquote>
+<p>Java属性页面展示了在一个表现最佳的Solr系统中一个必不可少的组件。<br>通过Java 属性页面，可以看到运行Solr的JVM的所有属性，包括classpath，文件编码，JVM内存设置，操作系统等等。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c40e0fee25baa2ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java 属性"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.628Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
 	</div>
 
       
@@ -559,62 +615,6 @@
     <div class="article-info article-info-index">
       
       <a href="/2017/02/20/Apache Solr(5.5)帮助文档(16)-使用Solr管理交互界面—线程dump/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.628Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/">Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Java Properties</p>
-</blockquote>
-<p>Java属性页面展示了在一个表现最佳的Solr系统中一个必不可少的组件。<br>通过Java 属性页面，可以看到运行Solr的JVM的所有属性，包括classpath，文件编码，JVM内存设置，操作系统等等。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c40e0fee25baa2ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Java 属性"></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(15)-使用Solr管理交互界面—Java 属性/" class="archive-article-date">
   	<time datetime="2017-02-20T08:55:52.628Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
 </a>
       
