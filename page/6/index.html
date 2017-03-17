@@ -139,6 +139,83 @@
       <div class="body-wrap">
         
   
+    <article id="post-Runtime.getRuntime()" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/Runtime.getRuntime()/">Runtime.getRuntime()中freeMemory()|totalMemory()|maxMemory()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在查看一个stactoverflowError时，看到<code>Runtime.getRuntime().freeMemory()</code>、<br><code>Runtime.getRuntime().totalMemory()</code>、<code>Runtime.getRuntime().maxMemory()</code>等内容，在此记录一下。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>三个方法都是本地方法。</p>
+<h3 id="freeMemory"><a href="#freeMemory" class="headerlink" title="freeMemory"></a>freeMemory</h3><p>JDK中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the amount of free memory in the Java Virtual Machine.</div><div class="line"> * Calling the</div><div class="line"> * &lt;code&gt;gc&lt;/code&gt; method may result in increasing the value returned</div><div class="line"> * by &lt;code&gt;freeMemory.&lt;/code&gt;</div><div class="line"> *</div><div class="line"> * @return  an approximation to the total amount of memory currently</div><div class="line"> *          available for future allocated objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long freeMemory();</div></pre></td></tr></table></figure></p>
+<p>是个native方法，说明如下：<br>返回了Java虚拟机中的空余(free)内存的数量。<br>调用gc的方法，也许会增大freeMemory的值。<br>在返回值中说明了，该值是一个估计(approximation)值，单位为字节(bytes)，该数值表明虚拟机在将来分配对象空间时可用的空间大小。</p>
+<h3 id="totalMemory"><a href="#totalMemory" class="headerlink" title="totalMemory"></a>totalMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the total amount of memory in the Java virtual machine.</div><div class="line"> * The value returned by this method may vary over time, depending on</div><div class="line"> * the host environment.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * Note that the amount of memory required to hold an object of any</div><div class="line"> * given type may be implementation-dependent.</div><div class="line"> *</div><div class="line"> * @return  the total amount of memory currently available for current</div><div class="line"> *          and future objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long totalMemory();</div></pre></td></tr></table></figure>
+<p>返回了java虚拟机中的内存总大小。这个方法的返回值也许会超时（在不同的环境下），即当前查看的值和实际的值不一致。</p>
+<p>任意给定的类型，需要的内存空间，依赖于具体的实现，不同的虚拟机也许不一致。</p>
+<p>返回值说明中，该值单位为字节，该值表明了当前对现在和未来的对象可以使用的内存空间。</p>
+<h3 id="maxMemory"><a href="#maxMemory" class="headerlink" title="maxMemory"></a>maxMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">   * Returns the maximum amount of memory that the Java virtual machine will</div><div class="line">   * attempt to use.  If there is no inherent limit then the value &#123;@link</div><div class="line">   * java.lang.Long#MAX_VALUE&#125; will be returned.</div><div class="line">   *</div><div class="line">   * @return  the maximum amount of memory that the virtual machine will</div><div class="line">   *          attempt to use, measured in bytes</div><div class="line">   * @since 1.4</div><div class="line">   */</div><div class="line">  public native long maxMemory();</div></pre></td></tr></table></figure>
+<p>返回了虚拟机可以使用的最大内存。如果没有限制，将会返回java.lang.Long#MAX_VALUE。</p>
+<p>返回值说明中，该值单位为字节，是虚拟机能够使用的最大内存。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>启动一个程序，当不设置任何配置时，<br>初始进入时(单位kB)<br>max     1844224<br>total    124416<br>free     121753   </p>
+<p>再进入<br>max     1844224<br>total    124416<br>free     96751 </p>
+<p>再进入<br>max     1844224<br>total    124416<br>free     96085 </p>
+<p>再进入<br>max     1844224<br>total    124416<br>free     85922</p>
+<p> 当进行配置<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-server -Xms256m -Xmx512m -Xmn128m -XX:PermSize=128m -Xss160k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70</div></pre></td></tr></table></figure></p>
+<p> 初始进入时<br> max     511232<br>total    249088<br>free     242790</p>
+<p>再进入<br>max     511232<br>total    249088<br>free     142084</p>
+<p> 再进入<br>max     511232<br>total    249088<br>free     138054</p>
+<p>修改参数<code>-Xmx768m</code><br> 初始进入时<br> max     773376<br>total    249088<br>free     242790</p>
+<p> 再进入<br>max     773376<br>total    249088<br>free     142145</p>
+<p> 再进入<br>max     773376<br>total    249088<br>free     138114</p>
+<p>修改参数<code>-Xms300m</code><br> 初始进入时<br> max     773376<br>total    300288<br>free     293990</p>
+<p> 再进入<br>max     773376<br>total    300288<br>free     193274</p>
+<p> 再进入<br>max     773376<br>total    300288<br>free     189243</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>maxMemory</code>与配置<code>-Xmx</code>一致，在初始时，<code>totalMemory</code>与<code>-Xms</code>有关系，初始值与<code>-Xms</code>值一致。<br>而<code>total-free</code>为当前使用的内存大小。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Runtime.getRuntime()/" class="archive-article-date">
+  	<time datetime="2016-12-16T06:50:48.945Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freeMemory/">freeMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maxMemory/">maxMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/totalMemory/">totalMemory</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-架构探险学习(1)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,84 +976,6 @@
 
 
   
-    <article id="post-5 Different Ways to Create Objects in Java" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/5 Different Ways to Create Objects in Java/">5 Different Ways to Create Objects in Java</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a href="https://dzone.com/articles/5-different-ways-to-create-objects-in-java-with-ex" target="_blank" rel="external">原文</a><br><a href="http://www.importnew.com/22405.html" target="_blank" rel="external">译文</a></p>
-<p>JAVA中，创建对象有5种方式。现在开发一遍利用依赖管理工具（例如Spring）进行创建。除此之外，还有其他的方式。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:right"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>new</td>
-<td style="text-align:right">构造函数调用</td>
-</tr>
-<tr>
-<td>class类的newInstance()</td>
-<td style="text-align:right">构造函数调用</td>
-</tr>
-<tr>
-<td>构造函数的newInstance()</td>
-<td style="text-align:right">构造函数调用</td>
-</tr>
-<tr>
-<td>clone()方法</td>
-<td style="text-align:right">没有构造函数</td>
-</tr>
-<tr>
-<td>反序列化</td>
-<td style="text-align:right">没有函数调用</td>
-</tr>
-</tbody>
-</table>
-<h3 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h3>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/17/5 Different Ways to Create Objects in Java/" class="archive-article-date">
-  	<time datetime="2016-11-17T09:36:08.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-17</time>
-</a>
-      
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1042,7 +1041,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

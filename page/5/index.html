@@ -139,6 +139,91 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(5)—开始—运行Solr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/">Apache Solr(5.5)帮助文档(5)-开始-运行Solr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Running Solr</p>
+</blockquote>
+<p>本章节介绍了根据示例schema运行Solr，增加document，查询信息。</p>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><p>安装完毕后，可以通过在Solr目录下运行bin/solr来运行Solr。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start</div></pre></td></tr></table></figure></p>
+<p>Windows用户，可以通过运行bin/solr.cmd命令运行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start</div></pre></td></tr></table></figure></p>
+<p>上述命令命令会在后台启动Solr，监听端口号8983。<br>当在后台运行Solr时，启动脚本会确保Solr正确启动，才会返回到命令行。<br> bin/solr 和 bin\solr.cmd脚本运行自定义启动内容。下面来看一些 bin/solr脚本的例子（如果使用的 是Windows平台，使用的是bin\solr.cmd）</p>
+<h4 id="Solr脚本参数"><a href="#Solr脚本参数" class="headerlink" title="Solr脚本参数"></a>Solr脚本参数</h4><p>bin/solr 有如下脚本参数</p>
+<h5 id="脚本Help"><a href="#脚本Help" class="headerlink" title="脚本Help"></a>脚本Help</h5><p>查看使用帮助，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr -help</div></pre></td></tr></table></figure></p>
+<p>如果需要查看start命令的专门的使用说明，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -help</div></pre></td></tr></table></figure></p>
+<h5 id="在前台启动Solr"><a href="#在前台启动Solr" class="headerlink" title="在前台启动Solr"></a>在前台启动Solr</h5><p>Solr是个服务，因此通常会在后台运行，尤其是在Linux/Unix上。但是，如果要在前台启动，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -f</div></pre></td></tr></table></figure></p>
+<p>如果运行的是Windows平台，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start -f</div></pre></td></tr></table></figure></p>
+<h5 id="在不同的端口启动"><a href="#在不同的端口启动" class="headerlink" title="在不同的端口启动"></a>在不同的端口启动</h5><p>-p参数可以修改Solr监听的端口，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -p 8984</div></pre></td></tr></table></figure></p>
+<h5 id="停止Solr"><a href="#停止Solr" class="headerlink" title="停止Solr"></a>停止Solr</h5><p>当在前台运行Solr时（用-f参数），可以通过<code>ctrl+c</code>来停止。但是，如果是在后台运行，停止命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bint/solr stop -p 8983</div></pre></td></tr></table></figure></p>
+<p>停止命令需要表明监听的Solr端口。也可以通过<code>-all</code>参数，来停止所有的Solr实例。</p>
+<h5 id="指定启动时的示例配置"><a href="#指定启动时的示例配置" class="headerlink" title="指定启动时的示例配置"></a>指定启动时的示例配置</h5><p>Solr也提供一系列有用的例子来帮助你学习它的主要特点。通过-e 标志可以加载相应的示例。例如，如果要加载”techproducts”例子，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr -e techproducts</div></pre></td></tr></table></figure></p>
+<p>目前已经存在的示例包括：techproducts，dih，schemaless，cloud。如果想要了解关于各个示例的更多细节，可以查看Running with example configurations部分。<br><strong>informations</strong>：开始运行SolrCloud<br>运行cloud示例会在SlorCloud模式下运行Solr。关于更多关于云模式运行的Solr信息，可以查看<strong>开始SolrCloud</strong>。</p>
+<h5 id="检测Solr是否在运行"><a href="#检测Solr是否在运行" class="headerlink" title="检测Solr是否在运行"></a>检测Solr是否在运行</h5><p>如果不确定Solr是否在运行，可以使用状态命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr status</div></pre></td></tr></table></figure></p>
+<p>这个命令将会搜索运行在当前电脑上的所有Solr示例，并将他们的基本信息聚集在一起（例如版本和内存使用等等）。<br>上述内容就可以查看Solr是否在运行，如果需要确认，可以通过Web浏览器查看管理页面。<br>!!!!!Solrweb图<br>如果Solr没有运行，浏览器会报错，错误信息为不能连接到服务器。请检测端口号，然后再重试。</p>
+<h3 id="创建core"><a href="#创建core" class="headerlink" title="创建core"></a>创建core</h3><p>如果没有指定示例配置，需要创建一个core，才能索引和搜索。脚本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -c &lt;name&gt;</div></pre></td></tr></table></figure></p>
+<p>这样会创建一个core。这个core会使用data-driven schema，将会在你新增documents时判断field type。<br>如果需要查看创建新core时所有的参数，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -help</div></pre></td></tr></table></figure></p>
+<h3 id="新增Documents"><a href="#新增Documents" class="headerlink" title="新增Documents"></a>新增Documents</h3><p>Solr的目的是查找符合条件的documents。Solr的schema阐释了它的内容的存储结构，但是没有documents的话，是没有东西来进行搜索的。Solr首先需要有输入内容。<br>在索引你自己需要的内容之前，你可能需要增加一些示例documents。Solr安装程序自带了一些不同类别的示例documents。位置在安装目录下的example子目录下。<br>在bin目录下，是提交脚步。命令行工具可以用来索引不同的documents。现在先不要考虑态度的细节，在Indexing and Basic Data Operations章节，会有关于索引的所有细节。<br><code>-help</code>命令可以查看关于<code>bin/post</code>的更多信息。Windows用户，可以查看Post Tool on Windows章节。<br><code>bin/post</code>可以提交多种形式的内容到Solr上，包括Solr原始的XML文件和JSON格式文件，CSV格式文件，富文档的字典树，甚至一个简短的web crawl。通过在<code>bin/post -help</code>最后不同类别的命令示例，可以轻松的开始提交你自己的内容到Solr上。<br>下面继续将所有的documents按照示例的XML文件格式添加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/solr create -c gettingstarted</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">./bin/post -c gettingstarted example/exampledocs/*.xml</div><div class="line">/usr/local/java/jdk1.8.0_111/bin/java -classpath /home/lienquan/usr/solr-5.5.0/dist/solr-core-5.5.0.jar -Dauto=yes -Dc=gettingstarted -Ddata=files org.apache.solr.util.SimplePostTool example/exampledocs/gb18030-example.xml example/exampledocs/hd.xml example/exampledocs/ipod_other.xml example/exampledocs/ipod_video.xml example/exampledocs/manufacturers.xml example/exampledocs/mem.xml example/exampledocs/money.xml example/exampledocs/monitor2.xml example/exampledocs/monitor.xml example/exampledocs/mp500.xml example/exampledocs/sd500.xml example/exampledocs/solr.xml example/exampledocs/utf8-example.xml example/exampledocs/vidcard.xml</div><div class="line">SimplePostTool version 5.0.0</div><div class="line">Posting files to [base] url http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Entering auto mode. File endings considered are xml,json,jsonl,csv,pdf,doc,docx,ppt,pptx,xls,xlsx,odt,odp,ods,ott,otp,ots,rtf,htm,html,txt,log</div><div class="line">POSTing file gb18030-example.xml (application/xml) to [base]</div><div class="line">POSTing file hd.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_other.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_video.xml (application/xml) to [base]</div><div class="line">POSTing file manufacturers.xml (application/xml) to [base]</div><div class="line">POSTing file mem.xml (application/xml) to [base]</div><div class="line">POSTing file money.xml (application/xml) to [base]</div><div class="line">POSTing file monitor2.xml (application/xml) to [base]</div><div class="line">POSTing file monitor.xml (application/xml) to [base]</div><div class="line">POSTing file mp500.xml (application/xml) to [base]</div><div class="line">POSTing file sd500.xml (application/xml) to [base]</div><div class="line">POSTing file solr.xml (application/xml) to [base]</div><div class="line">POSTing file utf8-example.xml (application/xml) to [base]</div><div class="line">POSTing file vidcard.xml (application/xml) to [base]</div><div class="line">14 files indexed.</div><div class="line">COMMITting Solr index changes to http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Time spent: 0:00:01.243</div></pre></td></tr></table></figure>
+<p>这样，Sol就索引了示例文档。</p>
+<h3 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h3><p>现在你已经获得了索引好的文档，可以进行语句查询了。最简单的方式是拼接带参数的URL，与拼接其他的HTTP URL的方式是一样的。<br>例如，下面的查询在所有的字段搜索”video”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video</div></pre></td></tr></table></figure></p>
+<p>我们注意到URL里包括了主机名称（localhost），服务器监听的端口号（8983），应用名称（solr），查询的请求handler（select），和查询语句（q=video）。<br>上述查询结果包含在一个XML文档中，可以通过直接点击上述URL进行查看。这个XML文档包括两部分，第一部分是响应头（responseHeader），其中包括了响应本身的信息。第二部分是主要的部分，存储在<code>result</code>标签内。<code>result</code>标签里可能包含一个或多个<code>doc</code>标签，每个<code>doc</code>标签里存储了符合查询条件的document的字段。可以通过标准的XML转换技术，将Solr的查询结果转变成适合展示的格式。此外，Solr可以将查询结果按照JSON，PHP，Ruby甚至用户自定义的格式输出。<br>如果万一你在阅读本文档时没有运行Solr，下面的截图展示了一个查询的结果（实际上是下个例子）。浏览器为火狐浏览器。最顶层的节点<code>response</code>包含了一个<code>lst</code>节点（名称属性为“responseHeader”）和一个<code>result</code>节点（名词属性为”response”）。在<code>result</code>节点里，你可以看到表述查询结果的documents。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3f0e753f79b44c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查询结果"></p>
+<p>一旦你掌握了查询的基本概念，你可以很容易的进行查询功能扩展。下面例子的查询与前面的一致，只是结果只包括ID，name，price字段的数据。如果在查询条件中不明确指出需要的字段，所有的字段都会返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
+<p>下面的例子搜索只在name字段值为”black”的数据。如果在查询时不指定搜索的字段，Solr会搜索默认字段，该字段会在schema里配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=name:black</div></pre></td></tr></table></figure></p>
+<p>也可以指定字段值的范围。下面的查询条件搜索price字段在0到400之间的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
+<p><strong>Faceted</strong>浏览是Solr的一个核心特征，它允许用户按照对各自应用有用途的方式精简查询结果。例如，一个购物网站可以提供<strong>facets</strong>从而在制造商或是价格方面精简查询结果。<br><strong>Faceting</strong>信息返回时作为Solr查询结果的第三部分。可以通过下面的查询条件来看一下效果。在这个查询中，增加了<code>facet=true</code>和<code>facet.field=cat</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price&amp;facet=true&amp;facet.field=cat</div></pre></td></tr></table></figure></p>
+<p>在查询结果中，除了熟悉的<code>responseHeader</code>节点和<code>response</code>节点，还有一个<code>facet_counts</code>节点。下面的XML文档将<code>responseHeader</code>节点和<code>response</code>节点收缩了，我们可以更清晰的看到<strong>faceting</strong>信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;response&gt;</div><div class="line">&lt;lst name=&quot;responseHeader&quot;&gt;</div><div class="line">&lt;int name=&quot;status&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;QTime&quot;&gt;205&lt;/int&gt;</div><div class="line">&lt;lst name=&quot;params&quot;&gt;...&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;result name=&quot;response&quot; numFound=&quot;13&quot; start=&quot;0&quot;&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;/result&gt;</div><div class="line">&lt;lst name=&quot;facet_counts&quot;&gt;</div><div class="line">&lt;lst name=&quot;facet_queries&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_fields&quot;&gt;</div><div class="line">&lt;lst name=&quot;cat&quot;&gt;</div><div class="line">&lt;int name=&quot;electronics&quot;&gt;9&lt;/int&gt;</div><div class="line">&lt;int name=&quot;connector&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;hard drive&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;memory&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;search&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;software&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;camera&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;copier&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and stuff2&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;multifunction printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;music&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;scanner&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;currency&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and computer1&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;graphics card&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;lst name=&quot;facet_dates&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_ranges&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_intervals&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_heatmaps&quot;/&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/response&gt;</div></pre></td></tr></table></figure></p>
+<p>在<strong>faceting</strong>结果中，统计了每种cat字段值符合查询条件的数字。可以轻松的根据上述信息为用户提供更加便捷的方式来精简查询结果。可以在Solr请求中增加更多的过滤查询。下面的查询增加了software的策略，来限制查询结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price,cat&amp;facet=true&amp;facet.field=cat&amp;fq=cat:software</div></pre></td></tr></table></figure></p>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p><code>facet=true</code>开启了<strong>facet</strong>查询，<code>facet.field</code>指定了<strong>facet</strong>的字段，上述例子中，<code>facet.field=cat</code>，说明，首先统计所有的cat字段的值，得到cat值字段的分类，在符合查询条件的数据中，统计每种cat值分类的个数。<code>fa=cat:software</code>貌似是不显示cat值为software的统计。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/" class="archive-article-date">
+  	<time datetime="2017-02-10T00:17:03.879Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA基础—final关键字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -609,84 +694,6 @@
 
 
   
-    <article id="post-字符集和字符编码(Charset &amp; Encoding)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/字符集和字符编码(Charset & Encoding)/">字符集和字符编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>###基本<br>在计算机中，所有的数据都是以二进制的形式表示的。屏幕上显示的文本、浏览器中显示的信息，最终都是以01的格式保存在计算机中，<br>我们看到的都是上述内容经过计算机转换后的结果。</p>
-<p>###编码和解码<br>编码是<strong>信息</strong>从一种形式或格式转换为另一种形式的过程。在计算机中，一个字母、汉字等都会按照规则转成二进制数存储。<br>解码是编码的逆过程，解码需要知道编码的规则，如果规则使用错误，就会产生乱码。</p>
-<p>###字符集和字符编码</p>
-<p>####字符集<br>字符集(Charset)：是一个系统支持的所有抽象字符的集合。字符是各种文字和符号的总称，包括各国文字、标点符号、图形符号、数字等。</p>
-<p>####字符编码<br>字符编码（Character Encoding）：是一套法则，使用该法则能够对自然语言的字符的一个集合（如字母表或音节表），<br>与其他东西的一个集合（如号码或电脉冲）进行配对。即在符号集合与数字系统之间建立对应关系，它是信息处理的一项基本技术。<br>通常人们用符号集合（一般情况下就是文字）来表达信息。而以计算机为基础的信息处理系统则是利用元件（硬件）不同状态的组合来存储和处理信息的。<br>元件不同状态的组合能代表数字系统的数字，因此字符编码就是将符号转换为计算机可以接受的数字系统的数，称为数字代码。</p>
-<p>####常用的字符集和字符编码<br>常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、GB18030字符集、Unicode字符集等。<br>计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</p>
-<p>##ASCII<br>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）<br>是基于拉丁字母的一套电脑编码系统。它主要用于显示现代英语，而其扩展版本EASCII则可以勉强显示其他西欧语言。<br>它是现今最通用的单字节编码系统（但是有被Unicode追上的迹象），并等同于国际标准ISO/IEC 646。</p>
-<p><strong>ASCII字符集</strong>：主要包括控制字符（回车键、退格、换行键等）；可显示字符（英文大小写字符、阿拉伯数字和西文符号）。<br><strong>ASCII编码</strong>：将ASCII字符集转换为计算机可以接受的数字系统的数的规则。使用7位（bits）表示一个字符，共128字符；<br>但是7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，<br>ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。ASCII字符集映射到数字编码规则如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1213316-3a2778158b42df56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII 字符代码表一"><br><img src="http://upload-images.jianshu.io/upload_images/1213316-9671ea573f094c83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII字符代码表二"></p>
-<p>ASCII的最大缺点是只能显示26个基本拉丁字母、阿拉伯数目字和英式标点符号，因此只能用于显示现代美国英语<br>（而且在处理英语当中的外来词如naïve、café、élite等等时，所有重音符号都不得不去掉，即使这样做会违反拼写规则）。<br>而EASCII虽然解决了部份西欧语言的显示问题，但对更多其他语言依然无能为力。因此现在的苹果电脑已经抛弃ASCII而转用Unicode。</p>
-<p>##GB编码<br>为了将汉字转换成计算机识别的格式，出现了GB编码。<br>127号之后的奇异符号们（即EASCII）取消掉，规定：一个小于127的字符的意义与原来相同，但<strong>两个大于127的字符连在一起时，就表示一个汉字</strong>，<br>前面的一个字节（他称之为高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。<br>在这些编码里，还把数学符号、罗马希腊的 字母、日文的假名们都编进去了，连在ASCII里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，<br>这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br>上述编码规则就是GB2312。GB2312或GB2312-80是中国国家标准简体中文字符集，全称《信息交换用汉字编码字符集·基本集》，又称GB0，<br>由中国国家标准总局发布，1981年5月1日实施。GB2312编码通行于中国大陆；新加坡等地也采用此编码。<br>中国大陆几乎所有的中文系统和国际化的软件都支持GB2312。GB2312的出现，基本满足了汉字的计算机处理需要，<br>它所收录的汉字已经覆盖中国大陆99.75%的使用频率。对于人名、古汉语等方面出现的罕用字，GB2312不能处理，<br>这导致了后来GBK及GB 18030汉字字符集的出现。</p>
-<p>于是厂商微软利用GB 2312-80未使用的编码空间，收录GB 13000.1-93全部字符制定了GBK编码。根据微软资料，GBK是对GB2312-80的扩展，也就是CP936字码表 (Code Page 936)的扩展（之前CP936和GB 2312-80一模一样），最早实现于Windows 95简体中文版。虽然GBK收录GB 13000.1-93的全部字符，但编码方式并不相同。GBK自身并非国家标准，只是曾由国家技术监督局标准化司、电子工业部科技与质量监督司公布为”技术规范指导性文件”。原始GB13000一直未被业界采用，后续国家标准GB18030技术上兼容GBK而非GB13000。</p>
-<p>GB 18030，全称：国家标准GB 18030-2005《信息技术 中文编码字符集》，是中华人民共和国现时最新的内码字集，是GB 18030-2000《信息技术 信息交换用汉字编码字符集 基本集的扩充》的修订版。与GB 2312-1980完全兼容，与GBK基本兼容，支持GB 13000及Unicode的全部统一汉字，共收录汉字70244个。GB 18030主要有以下特点：<br>与UTF-8相同，采用多字节编码，每个字可以由1个、2个或4个字节组成。<br>编码空间庞大，最多可定义161万个字符。<br>支持中国国内少数民族的文字，不需要动用造字区。<br>汉字收录范围包含繁体汉字以及日韩汉字。</p>
-<p>##BIG5码<br>Big5，又称为大五码或五大码，是使用繁体中文（正体中文）社区中最常用的电脑汉字字符集标准，共收录13,060个汉字。中文码分为内码及交换码两类，Big5属中文内码，知名的中文交换码有CCCII、CNS11643。Big5虽普及于台湾、香港与澳门等繁体中文通行区，但长期以来并非当地的国家标准，而只是业界标准。倚天中文系统、Windows等主要系统的字符集都是以Big5为基准，但厂商又各自增加不同的造字与造字区，派生成多种不同版本。2003年，Big5被收录到CNS11643中文标准交换码的附录当中，取得了较正式的地位。这个最新版本被称为Big5-2003。</p>
-<p>##Unicode字符集&amp;UTF编码<br>Unicode编码系统为表达任意语言的任意字符而设计。它使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)。每个数字代表唯一的至少在某种语言中使用的符号。<br>在计算机科学领域中，Unicode（统一码、万国码、单一码、标准万国码）是业界的一种标准，它可以使电脑得以体现世界上数十种文字的系统。Unicode 是基于通用字符集（Universal Character Set）的标准来发展，并且同时也以书本的形式对外发表。Unicode 还不断在扩增， 每个新版本插入更多新的字符。直至目前为止的第六版，Unicode 就已经包含了超过十万个字符（在2005年，Unicode 的第十万个字符被采纳且认可成为标准之一）、一组可用以作为视觉参考的代码图表、一套编码方法与一组标准字符编码、一套包含了上标字、下标字等字符特性的枚举等。Unicode 组织（The Unicode Consortium）是由一个非营利性的机构所运作，并主导 Unicode 的后续发展，其目标在于：将既有的字符编码方案以Unicode 编码方案来加以取代，特别是既有的方案在多语环境下，皆仅有有限的空间以及不兼容的问题。<br>（<strong>可以这样理解：Unicode是字符集，UTF-32/ UTF-16/ UTF-8是三种字符编码方案。有的时候也会用UTF-8表示字符集</strong>）</p>
-<p>###UTF-8<br>UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示Unicode标准中的任何字符，且其编码中的第一个字节仍与ASCII兼容，这使得原来处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。因此，它逐渐成为电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。互联网工程工作小组（IETF）要求所有互联网协议都必须支持UTF-8编码。<br>UTF-8使用一至四个字节为每个字符编码：</p>
-<ol>
-<li>128个US-ASCII字符只需一个字节编码（Unicode范围由U+0000至U+007F）。</li>
-<li>带有附加符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文及它拿字母则需要二个字节编码（Unicode范围由U+0080至U+07FF）。</li>
-<li>其他基本多文种平面（BMP）中的字符（这包含了大部分常用字）使用三个字节编码。</li>
-<li>其他极少使用的Unicode辅助平面的字符使用四字节编码。<br>在处理经常会用到的ASCII字符方面非常有效。在处理扩展的拉丁字符集方面也不比UTF-16差。对于中文字符来说，比UTF-32要好。同时，（在这一条上你得相信我，因为我不打算给你展示它的数学原理。）由位操作的天性使然，使用UTF-8不再存在字节顺序的问题了。一份以utf-8编码的文档在不同的计算机之间是一样的比特流。<br>总体来说，在Unicode字符串中不可能由码点数量决定显示它所需要的长度，或者显示字符串之后在文本缓冲区中光标应该放置的位置；组合字符、变宽字体、不可打印字符和从右至左的文字都是其归因。所以尽管在UTF-8字符串中字符数量与码点数量的关系比UTF-32更为复杂，在实际中很少会遇到有不同的情形。<br><strong>优点</strong><br><strong>UTF-8是ASCII的一个超集</strong>。因为一个纯ASCII字符串也是一个合法的UTF-8字符串，所以现存的ASCII文本不需要转换。为传统的扩展ASCII字符集设计的软件通常可以不经修改或很少修改就能与UTF-8一起使用。<br>使用标准的面向字节的排序例程对UTF-8排序将产生与基于Unicode代码点排序相同的结果。（尽管这只有有限的有用性，因为在任何特定语言或文化下都不太可能有仍可接受的文字排列顺序。）<br>UTF-8和UTF-16都是可扩展标记语言文档的标准编码。所有其它编码都必须通过显式或文本声明来指定。<br>任何面向字节的字符串搜索算法都可以用于UTF-8的数据（只要输入仅由完整的UTF-8字符组成）。但是，对于包含字符记数的正则表达式或其它结构必须小心。<br>UTF-8字符串可以由一个简单的算法可靠地识别出来。就是，一个字符串在任何其它编码中表现为合法的UTF-8的可能性很低，并随字符串长度增长而减小。举例说，字符值C0,C1,F5至FF从来没有出现。为了更好的可靠性，可以使用正则表达式来统计非法过长和替代值（可以查看<a href="http://www.w3.org/International/questions/qa-forms-utf-8" target="_blank" rel="external">W3 FAQ: Multilingual Forms</a>上的验证UTF-8字符串的正则表达式）。</li>
-</ol>
-<p><strong>缺点</strong><br>因为每个字符使用不同数量的字节编码，所以寻找串中第N个字符是一个O(N)复杂度的操作 — 即，串越长，则需要更多的时间来定位特定的字符。同时，还需要位变换来把字符编码成字节，把字节解码成字符。</p>
-<p>###UTF-16<br>尽管有Unicode字符非常多，但是实际上大多数人不会用到超过前65535个以外的字符。因此，就有了另外一种Unicode编码方式，叫做UTF-16(因为16位 = 2字节)。UTF-16将0–65535范围内的字符编码成2个字节，如果真的需要表达那些很少使用的”星芒层(astral plane)”内超过这65535范围的Unicode字符，则需要使用一些诡异的技巧来实现。UTF-16编码最明显的优点是它在空间效率上比UTF-32高两倍，因为每个字符只需要2个字节来存储（除去65535范围以外的），而不是UTF-32中的4个字节。并且，如果我们假设某个字符串不包含任何星芒层中的字符，那么我们依然可以在常数时间内找到其中的第N个字符，直到它不成立为止这总是一个不错的推断。其编码方法是：<br>如果字符编码U小于0x10000，也就是十进制的0到65535之内，则直接使用两字节表示；<br>如果字符编码U大于0x10000，由于UNICODE编码范围最大为0x10FFFF，从0x10000到0x10FFFF之间 共有0xFFFFF个编码，也就是需要20个bit就可以标示这些编码。用U’表示从0-0xFFFFF之间的值，将其前 10 bit作为高位和16 bit的数值0xD800进行 逻辑or 操作，将后10 bit作为低位和0xDC00做 逻辑or 操作，这样组成的 4个byte就构成了U的编码。</p>
-<p>对于UTF-32和UTF-16编码方式还有一些其他不明显的缺点。不同的计算机系统会以不同的顺序保存字节。这意味着字符U+4E2D在UTF-16编码方式下可能被保存为4E 2D或者2D 4E，这取决于该系统使用的是大尾端(big-endian)还是小尾端(little-endian)。（对于UTF-32编码方式，则有更多种可能的字节排列。）只要文档没有离开你的计算机，它还是安全的——同一台电脑上的不同程序使用相同的字节顺序(byte order)。但是当我们需要在系统之间传输这个文档的时候，也许在万维网中，我们就需要一种方法来指示当前我们的字节是怎样存储的。不然的话，接收文档的计算机就无法知道这两个字节4E 2D表达的到底是U+4E2D还是U+2D4E。<br>为了解决这个问题，多字节的Unicode编码方式定义了一个”字节顺序标记(Byte Order Mark)”，它是一个特殊的非打印字符，你可以把它包含在文档的开头来指示你所使用的字节顺序。对于UTF-16，字节顺序标记是U+FEFF。如果收到一个以字节FF FE开头的UTF-16编码的文档，你就能确定它的字节顺序是单向的(one way)的了；如果它以FE FF开头，则可以确定字节顺序反向了。</p>
-<p>###UTF-32<br>上述使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)，每个数字代表唯一的至少在某种语言中使用的符号的编码方案，称为UTF-32。UTF-32又称<strong>UCS-4</strong>是一种将Unicode字符编码的协定，对每个字符都使用4字节。就空间而言，是非常没有效率的。<br>这种方法有其优点，最重要的一点就是可以在常数时间内定位字符串里的第N个字符，因为第N个字符从第4×Nth个字节开始。虽然每一个码位使用固定长定的字节看似方便，它并不如其它Unicode编码使用得广泛。</p>
-<p>##HTTP中编码相关<br>在HTTP中，与字符集和字符编码相关的消息头是Accept-Charset/Content-Type，另外主区区分Accept-Charset/Accept-Encoding/Accept-Language/Content-Type/Content-Encoding/Content-Language：<br>Accept-Charset：浏览器申明自己接收的字符集，这就是本文前面介绍的各种字符集和字符编码，如gb2312，utf-8（通常我们说Charset包括了相应的字符编码方案）；<br>Accept-Encoding：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate），（注意：这不是只字符编码）；<br>Accept-Language：浏览器申明自己接收的语言。语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；<br>Content-Type：WEB服务器告诉浏览器自己响应的对象的类型和字符集。例如：Content-Type: text/html; charset=’gb2312’（有时候也会写为utf-8字符集）<br>Content-Encoding：WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip<br>Content-Language：WEB服务器告诉浏览器自己响应的对象的语言。</p>
-<p>来源：<a href="http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html" target="_blank" rel="external">http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/23/字符集和字符编码(Charset & Encoding)/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:08.092Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charset/">charset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encoding/">encoding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符集/">字符集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编码/">编码</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-java代理实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -765,7 +772,7 @@
 
 
   
-    <article id="post-Runtime.getRuntime()" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-字符集和字符编码(Charset &amp; Encoding)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -775,7 +782,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Runtime.getRuntime()/">Runtime.getRuntime()中freeMemory()|totalMemory()|maxMemory()</a>
+      <a class="article-title" href="/2016/12/23/字符集和字符编码(Charset & Encoding)/">字符集和字符编码</a>
     </h1>
   
 
@@ -785,44 +792,45 @@
       
 	  <!-- Table of Contents -->
 		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在查看一个stactoverflowError时，看到<code>Runtime.getRuntime().freeMemory()</code>、<br><code>Runtime.getRuntime().totalMemory()</code>、<code>Runtime.getRuntime().maxMemory()</code>等内容，在此记录一下。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>三个方法都是本地方法。</p>
-<h3 id="freeMemory"><a href="#freeMemory" class="headerlink" title="freeMemory"></a>freeMemory</h3><p>JDK中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the amount of free memory in the Java Virtual Machine.</div><div class="line"> * Calling the</div><div class="line"> * &lt;code&gt;gc&lt;/code&gt; method may result in increasing the value returned</div><div class="line"> * by &lt;code&gt;freeMemory.&lt;/code&gt;</div><div class="line"> *</div><div class="line"> * @return  an approximation to the total amount of memory currently</div><div class="line"> *          available for future allocated objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long freeMemory();</div></pre></td></tr></table></figure></p>
-<p>是个native方法，说明如下：<br>返回了Java虚拟机中的空余(free)内存的数量。<br>调用gc的方法，也许会增大freeMemory的值。<br>在返回值中说明了，该值是一个估计(approximation)值，单位为字节(bytes)，该数值表明虚拟机在将来分配对象空间时可用的空间大小。</p>
-<h3 id="totalMemory"><a href="#totalMemory" class="headerlink" title="totalMemory"></a>totalMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Returns the total amount of memory in the Java virtual machine.</div><div class="line"> * The value returned by this method may vary over time, depending on</div><div class="line"> * the host environment.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * Note that the amount of memory required to hold an object of any</div><div class="line"> * given type may be implementation-dependent.</div><div class="line"> *</div><div class="line"> * @return  the total amount of memory currently available for current</div><div class="line"> *          and future objects, measured in bytes.</div><div class="line"> */</div><div class="line">public native long totalMemory();</div></pre></td></tr></table></figure>
-<p>返回了java虚拟机中的内存总大小。这个方法的返回值也许会超时（在不同的环境下），即当前查看的值和实际的值不一致。</p>
-<p>任意给定的类型，需要的内存空间，依赖于具体的实现，不同的虚拟机也许不一致。</p>
-<p>返回值说明中，该值单位为字节，该值表明了当前对现在和未来的对象可以使用的内存空间。</p>
-<h3 id="maxMemory"><a href="#maxMemory" class="headerlink" title="maxMemory"></a>maxMemory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">   * Returns the maximum amount of memory that the Java virtual machine will</div><div class="line">   * attempt to use.  If there is no inherent limit then the value &#123;@link</div><div class="line">   * java.lang.Long#MAX_VALUE&#125; will be returned.</div><div class="line">   *</div><div class="line">   * @return  the maximum amount of memory that the virtual machine will</div><div class="line">   *          attempt to use, measured in bytes</div><div class="line">   * @since 1.4</div><div class="line">   */</div><div class="line">  public native long maxMemory();</div></pre></td></tr></table></figure>
-<p>返回了虚拟机可以使用的最大内存。如果没有限制，将会返回java.lang.Long#MAX_VALUE。</p>
-<p>返回值说明中，该值单位为字节，是虚拟机能够使用的最大内存。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>启动一个程序，当不设置任何配置时，<br>初始进入时(单位kB)<br>max     1844224<br>total    124416<br>free     121753   </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     96751 </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     96085 </p>
-<p>再进入<br>max     1844224<br>total    124416<br>free     85922</p>
-<p> 当进行配置<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-server -Xms256m -Xmx512m -Xmn128m -XX:PermSize=128m -Xss160k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70</div></pre></td></tr></table></figure></p>
-<p> 初始进入时<br> max     511232<br>total    249088<br>free     242790</p>
-<p>再进入<br>max     511232<br>total    249088<br>free     142084</p>
-<p> 再进入<br>max     511232<br>total    249088<br>free     138054</p>
-<p>修改参数<code>-Xmx768m</code><br> 初始进入时<br> max     773376<br>total    249088<br>free     242790</p>
-<p> 再进入<br>max     773376<br>total    249088<br>free     142145</p>
-<p> 再进入<br>max     773376<br>total    249088<br>free     138114</p>
-<p>修改参数<code>-Xms300m</code><br> 初始进入时<br> max     773376<br>total    300288<br>free     293990</p>
-<p> 再进入<br>max     773376<br>total    300288<br>free     193274</p>
-<p> 再进入<br>max     773376<br>total    300288<br>free     189243</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>maxMemory</code>与配置<code>-Xmx</code>一致，在初始时，<code>totalMemory</code>与<code>-Xms</code>有关系，初始值与<code>-Xms</code>值一致。<br>而<code>total-free</code>为当前使用的内存大小。</p>
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>###基本<br>在计算机中，所有的数据都是以二进制的形式表示的。屏幕上显示的文本、浏览器中显示的信息，最终都是以01的格式保存在计算机中，<br>我们看到的都是上述内容经过计算机转换后的结果。</p>
+<p>###编码和解码<br>编码是<strong>信息</strong>从一种形式或格式转换为另一种形式的过程。在计算机中，一个字母、汉字等都会按照规则转成二进制数存储。<br>解码是编码的逆过程，解码需要知道编码的规则，如果规则使用错误，就会产生乱码。</p>
+<p>###字符集和字符编码</p>
+<p>####字符集<br>字符集(Charset)：是一个系统支持的所有抽象字符的集合。字符是各种文字和符号的总称，包括各国文字、标点符号、图形符号、数字等。</p>
+<p>####字符编码<br>字符编码（Character Encoding）：是一套法则，使用该法则能够对自然语言的字符的一个集合（如字母表或音节表），<br>与其他东西的一个集合（如号码或电脉冲）进行配对。即在符号集合与数字系统之间建立对应关系，它是信息处理的一项基本技术。<br>通常人们用符号集合（一般情况下就是文字）来表达信息。而以计算机为基础的信息处理系统则是利用元件（硬件）不同状态的组合来存储和处理信息的。<br>元件不同状态的组合能代表数字系统的数字，因此字符编码就是将符号转换为计算机可以接受的数字系统的数，称为数字代码。</p>
+<p>####常用的字符集和字符编码<br>常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、GB18030字符集、Unicode字符集等。<br>计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</p>
+<p>##ASCII<br>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）<br>是基于拉丁字母的一套电脑编码系统。它主要用于显示现代英语，而其扩展版本EASCII则可以勉强显示其他西欧语言。<br>它是现今最通用的单字节编码系统（但是有被Unicode追上的迹象），并等同于国际标准ISO/IEC 646。</p>
+<p><strong>ASCII字符集</strong>：主要包括控制字符（回车键、退格、换行键等）；可显示字符（英文大小写字符、阿拉伯数字和西文符号）。<br><strong>ASCII编码</strong>：将ASCII字符集转换为计算机可以接受的数字系统的数的规则。使用7位（bits）表示一个字符，共128字符；<br>但是7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，<br>ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。ASCII字符集映射到数字编码规则如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1213316-3a2778158b42df56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII 字符代码表一"><br><img src="http://upload-images.jianshu.io/upload_images/1213316-9671ea573f094c83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII字符代码表二"></p>
+<p>ASCII的最大缺点是只能显示26个基本拉丁字母、阿拉伯数目字和英式标点符号，因此只能用于显示现代美国英语<br>（而且在处理英语当中的外来词如naïve、café、élite等等时，所有重音符号都不得不去掉，即使这样做会违反拼写规则）。<br>而EASCII虽然解决了部份西欧语言的显示问题，但对更多其他语言依然无能为力。因此现在的苹果电脑已经抛弃ASCII而转用Unicode。</p>
+<p>##GB编码<br>为了将汉字转换成计算机识别的格式，出现了GB编码。<br>127号之后的奇异符号们（即EASCII）取消掉，规定：一个小于127的字符的意义与原来相同，但<strong>两个大于127的字符连在一起时，就表示一个汉字</strong>，<br>前面的一个字节（他称之为高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。<br>在这些编码里，还把数学符号、罗马希腊的 字母、日文的假名们都编进去了，连在ASCII里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，<br>这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br>上述编码规则就是GB2312。GB2312或GB2312-80是中国国家标准简体中文字符集，全称《信息交换用汉字编码字符集·基本集》，又称GB0，<br>由中国国家标准总局发布，1981年5月1日实施。GB2312编码通行于中国大陆；新加坡等地也采用此编码。<br>中国大陆几乎所有的中文系统和国际化的软件都支持GB2312。GB2312的出现，基本满足了汉字的计算机处理需要，<br>它所收录的汉字已经覆盖中国大陆99.75%的使用频率。对于人名、古汉语等方面出现的罕用字，GB2312不能处理，<br>这导致了后来GBK及GB 18030汉字字符集的出现。</p>
+<p>于是厂商微软利用GB 2312-80未使用的编码空间，收录GB 13000.1-93全部字符制定了GBK编码。根据微软资料，GBK是对GB2312-80的扩展，也就是CP936字码表 (Code Page 936)的扩展（之前CP936和GB 2312-80一模一样），最早实现于Windows 95简体中文版。虽然GBK收录GB 13000.1-93的全部字符，但编码方式并不相同。GBK自身并非国家标准，只是曾由国家技术监督局标准化司、电子工业部科技与质量监督司公布为”技术规范指导性文件”。原始GB13000一直未被业界采用，后续国家标准GB18030技术上兼容GBK而非GB13000。</p>
+<p>GB 18030，全称：国家标准GB 18030-2005《信息技术 中文编码字符集》，是中华人民共和国现时最新的内码字集，是GB 18030-2000《信息技术 信息交换用汉字编码字符集 基本集的扩充》的修订版。与GB 2312-1980完全兼容，与GBK基本兼容，支持GB 13000及Unicode的全部统一汉字，共收录汉字70244个。GB 18030主要有以下特点：<br>与UTF-8相同，采用多字节编码，每个字可以由1个、2个或4个字节组成。<br>编码空间庞大，最多可定义161万个字符。<br>支持中国国内少数民族的文字，不需要动用造字区。<br>汉字收录范围包含繁体汉字以及日韩汉字。</p>
+<p>##BIG5码<br>Big5，又称为大五码或五大码，是使用繁体中文（正体中文）社区中最常用的电脑汉字字符集标准，共收录13,060个汉字。中文码分为内码及交换码两类，Big5属中文内码，知名的中文交换码有CCCII、CNS11643。Big5虽普及于台湾、香港与澳门等繁体中文通行区，但长期以来并非当地的国家标准，而只是业界标准。倚天中文系统、Windows等主要系统的字符集都是以Big5为基准，但厂商又各自增加不同的造字与造字区，派生成多种不同版本。2003年，Big5被收录到CNS11643中文标准交换码的附录当中，取得了较正式的地位。这个最新版本被称为Big5-2003。</p>
+<p>##Unicode字符集&amp;UTF编码<br>Unicode编码系统为表达任意语言的任意字符而设计。它使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)。每个数字代表唯一的至少在某种语言中使用的符号。<br>在计算机科学领域中，Unicode（统一码、万国码、单一码、标准万国码）是业界的一种标准，它可以使电脑得以体现世界上数十种文字的系统。Unicode 是基于通用字符集（Universal Character Set）的标准来发展，并且同时也以书本的形式对外发表。Unicode 还不断在扩增， 每个新版本插入更多新的字符。直至目前为止的第六版，Unicode 就已经包含了超过十万个字符（在2005年，Unicode 的第十万个字符被采纳且认可成为标准之一）、一组可用以作为视觉参考的代码图表、一套编码方法与一组标准字符编码、一套包含了上标字、下标字等字符特性的枚举等。Unicode 组织（The Unicode Consortium）是由一个非营利性的机构所运作，并主导 Unicode 的后续发展，其目标在于：将既有的字符编码方案以Unicode 编码方案来加以取代，特别是既有的方案在多语环境下，皆仅有有限的空间以及不兼容的问题。<br>（<strong>可以这样理解：Unicode是字符集，UTF-32/ UTF-16/ UTF-8是三种字符编码方案。有的时候也会用UTF-8表示字符集</strong>）</p>
+<p>###UTF-8<br>UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示Unicode标准中的任何字符，且其编码中的第一个字节仍与ASCII兼容，这使得原来处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。因此，它逐渐成为电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。互联网工程工作小组（IETF）要求所有互联网协议都必须支持UTF-8编码。<br>UTF-8使用一至四个字节为每个字符编码：</p>
+<ol>
+<li>128个US-ASCII字符只需一个字节编码（Unicode范围由U+0000至U+007F）。</li>
+<li>带有附加符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文及它拿字母则需要二个字节编码（Unicode范围由U+0080至U+07FF）。</li>
+<li>其他基本多文种平面（BMP）中的字符（这包含了大部分常用字）使用三个字节编码。</li>
+<li>其他极少使用的Unicode辅助平面的字符使用四字节编码。<br>在处理经常会用到的ASCII字符方面非常有效。在处理扩展的拉丁字符集方面也不比UTF-16差。对于中文字符来说，比UTF-32要好。同时，（在这一条上你得相信我，因为我不打算给你展示它的数学原理。）由位操作的天性使然，使用UTF-8不再存在字节顺序的问题了。一份以utf-8编码的文档在不同的计算机之间是一样的比特流。<br>总体来说，在Unicode字符串中不可能由码点数量决定显示它所需要的长度，或者显示字符串之后在文本缓冲区中光标应该放置的位置；组合字符、变宽字体、不可打印字符和从右至左的文字都是其归因。所以尽管在UTF-8字符串中字符数量与码点数量的关系比UTF-32更为复杂，在实际中很少会遇到有不同的情形。<br><strong>优点</strong><br><strong>UTF-8是ASCII的一个超集</strong>。因为一个纯ASCII字符串也是一个合法的UTF-8字符串，所以现存的ASCII文本不需要转换。为传统的扩展ASCII字符集设计的软件通常可以不经修改或很少修改就能与UTF-8一起使用。<br>使用标准的面向字节的排序例程对UTF-8排序将产生与基于Unicode代码点排序相同的结果。（尽管这只有有限的有用性，因为在任何特定语言或文化下都不太可能有仍可接受的文字排列顺序。）<br>UTF-8和UTF-16都是可扩展标记语言文档的标准编码。所有其它编码都必须通过显式或文本声明来指定。<br>任何面向字节的字符串搜索算法都可以用于UTF-8的数据（只要输入仅由完整的UTF-8字符组成）。但是，对于包含字符记数的正则表达式或其它结构必须小心。<br>UTF-8字符串可以由一个简单的算法可靠地识别出来。就是，一个字符串在任何其它编码中表现为合法的UTF-8的可能性很低，并随字符串长度增长而减小。举例说，字符值C0,C1,F5至FF从来没有出现。为了更好的可靠性，可以使用正则表达式来统计非法过长和替代值（可以查看<a href="http://www.w3.org/International/questions/qa-forms-utf-8" target="_blank" rel="external">W3 FAQ: Multilingual Forms</a>上的验证UTF-8字符串的正则表达式）。</li>
+</ol>
+<p><strong>缺点</strong><br>因为每个字符使用不同数量的字节编码，所以寻找串中第N个字符是一个O(N)复杂度的操作 — 即，串越长，则需要更多的时间来定位特定的字符。同时，还需要位变换来把字符编码成字节，把字节解码成字符。</p>
+<p>###UTF-16<br>尽管有Unicode字符非常多，但是实际上大多数人不会用到超过前65535个以外的字符。因此，就有了另外一种Unicode编码方式，叫做UTF-16(因为16位 = 2字节)。UTF-16将0–65535范围内的字符编码成2个字节，如果真的需要表达那些很少使用的”星芒层(astral plane)”内超过这65535范围的Unicode字符，则需要使用一些诡异的技巧来实现。UTF-16编码最明显的优点是它在空间效率上比UTF-32高两倍，因为每个字符只需要2个字节来存储（除去65535范围以外的），而不是UTF-32中的4个字节。并且，如果我们假设某个字符串不包含任何星芒层中的字符，那么我们依然可以在常数时间内找到其中的第N个字符，直到它不成立为止这总是一个不错的推断。其编码方法是：<br>如果字符编码U小于0x10000，也就是十进制的0到65535之内，则直接使用两字节表示；<br>如果字符编码U大于0x10000，由于UNICODE编码范围最大为0x10FFFF，从0x10000到0x10FFFF之间 共有0xFFFFF个编码，也就是需要20个bit就可以标示这些编码。用U’表示从0-0xFFFFF之间的值，将其前 10 bit作为高位和16 bit的数值0xD800进行 逻辑or 操作，将后10 bit作为低位和0xDC00做 逻辑or 操作，这样组成的 4个byte就构成了U的编码。</p>
+<p>对于UTF-32和UTF-16编码方式还有一些其他不明显的缺点。不同的计算机系统会以不同的顺序保存字节。这意味着字符U+4E2D在UTF-16编码方式下可能被保存为4E 2D或者2D 4E，这取决于该系统使用的是大尾端(big-endian)还是小尾端(little-endian)。（对于UTF-32编码方式，则有更多种可能的字节排列。）只要文档没有离开你的计算机，它还是安全的——同一台电脑上的不同程序使用相同的字节顺序(byte order)。但是当我们需要在系统之间传输这个文档的时候，也许在万维网中，我们就需要一种方法来指示当前我们的字节是怎样存储的。不然的话，接收文档的计算机就无法知道这两个字节4E 2D表达的到底是U+4E2D还是U+2D4E。<br>为了解决这个问题，多字节的Unicode编码方式定义了一个”字节顺序标记(Byte Order Mark)”，它是一个特殊的非打印字符，你可以把它包含在文档的开头来指示你所使用的字节顺序。对于UTF-16，字节顺序标记是U+FEFF。如果收到一个以字节FF FE开头的UTF-16编码的文档，你就能确定它的字节顺序是单向的(one way)的了；如果它以FE FF开头，则可以确定字节顺序反向了。</p>
+<p>###UTF-32<br>上述使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)，每个数字代表唯一的至少在某种语言中使用的符号的编码方案，称为UTF-32。UTF-32又称<strong>UCS-4</strong>是一种将Unicode字符编码的协定，对每个字符都使用4字节。就空间而言，是非常没有效率的。<br>这种方法有其优点，最重要的一点就是可以在常数时间内定位字符串里的第N个字符，因为第N个字符从第4×Nth个字节开始。虽然每一个码位使用固定长定的字节看似方便，它并不如其它Unicode编码使用得广泛。</p>
+<p>##HTTP中编码相关<br>在HTTP中，与字符集和字符编码相关的消息头是Accept-Charset/Content-Type，另外主区区分Accept-Charset/Accept-Encoding/Accept-Language/Content-Type/Content-Encoding/Content-Language：<br>Accept-Charset：浏览器申明自己接收的字符集，这就是本文前面介绍的各种字符集和字符编码，如gb2312，utf-8（通常我们说Charset包括了相应的字符编码方案）；<br>Accept-Encoding：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate），（注意：这不是只字符编码）；<br>Accept-Language：浏览器申明自己接收的语言。语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；<br>Content-Type：WEB服务器告诉浏览器自己响应的对象的类型和字符集。例如：Content-Type: text/html; charset=’gb2312’（有时候也会写为utf-8字符集）<br>Content-Encoding：WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip<br>Content-Language：WEB服务器告诉浏览器自己响应的对象的语言。</p>
+<p>来源：<a href="http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html" target="_blank" rel="external">http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html</a></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/16/Runtime.getRuntime()/" class="archive-article-date">
-  	<time datetime="2016-12-16T06:50:48.945Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+      <a href="/2016/12/23/字符集和字符编码(Charset & Encoding)/" class="archive-article-date">
+  	<time datetime="2016-12-23T08:14:08.092Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freeMemory/">freeMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maxMemory/">maxMemory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/totalMemory/">totalMemory</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charset/">charset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encoding/">encoding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符集/">字符集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编码/">编码</a></li></ul>
 	</div>
 
       
@@ -907,7 +915,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

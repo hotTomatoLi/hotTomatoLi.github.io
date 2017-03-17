@@ -139,6 +139,210 @@
       <div class="body-wrap">
         
   
+    <article id="post-JAVA基础-IO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/JAVA基础-IO/">JAVA基础-IO</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1><p>IO，输入/输出，是任何编程语言都需要解决的问题。需要考虑的方面有多种：字符读取、字节读取；文件读取、网络读取、内存读取等等。<br>计算机系统中，IO操作往往是最耗时，并且限制了系统的运行速度。<br>输入流可以理解为向内存输入，输出流可以理解为从内存输出。</p>
+<h1 id="JAVA-IO"><a href="#JAVA-IO" class="headerlink" title="JAVA IO"></a>JAVA IO</h1><p>在Java IO中，流是一个核心的概念。流从概念上来说是一个连续的数据流。<br>你既可以从流中读取数据，也可以往流中写数据。流与数据源或者数据流向的媒介相关联。<br>在Java IO中流既可以是字节流(以字节为单位进行读写)，也可以是字符流(以字符为单位进行读写)。</p>
+<ul>
+<li>流式部分――IO的主体部分</li>
+<li>非流式部分――主要包含一些辅助流式部分的类，如：File类、RandomAccessFile类和FileDescriptor等类</li>
+<li>文件读取部分的与安全相关的类，如：SerializablePermission类。以及与本地操作系统相关的文件系统的类，如：FileSystem类和Win32FileSystem类和WinNTFileSystem类<br>JAVA中，inputStream或reader类用于从数据源读取数据，outputStream或writer用于向目标媒介写入数据。<br>流就是一个用来连接输入/输出与当前运行内存的对象，可以通过流从对应的输入（网络、文件、缓存）读取到运行内存，也可以向输出写数据。<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1>流的特点：One dimension，one direction。一维（流只有一个维度），单向（流是单向的，只能一个方向流动）。<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1></li>
+<li>文件访问</li>
+<li>网络访问</li>
+<li>内存缓存访问</li>
+<li>线程内部通信</li>
+<li>缓冲</li>
+<li>过滤</li>
+<li>解析</li>
+<li>读写文本</li>
+<li>读写基本类型</li>
+<li>读写对象<h1 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h1></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Byte Based</th>
+<th style="text-align:center">Byte Based</th>
+<th style="text-align:center">Character Based</th>
+<th style="text-align:center">Character Based</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">input</td>
+<td style="text-align:center">output</td>
+<td style="text-align:center">input</td>
+<td style="text-align:center">output</td>
+</tr>
+<tr>
+<td style="text-align:center">Basic</td>
+<td style="text-align:center">InputStream</td>
+<td style="text-align:center">OutputStream</td>
+<td style="text-align:center">Reader<br>InputStreamReader</td>
+<td style="text-align:center">Writer<br>OutputStreamWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Arrays</td>
+<td style="text-align:center">ByteArrayInputStream</td>
+<td style="text-align:center">ByteArrayOutputStream</td>
+<td style="text-align:center">CharArrayReader</td>
+<td style="text-align:center">CharArrayWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Files</td>
+<td style="text-align:center">FileInputStream<br>RandomAccessFile</td>
+<td style="text-align:center">FileOutputStream<br>RandomAccessFile</td>
+<td style="text-align:center">FileReader</td>
+<td style="text-align:center">FileWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Pipes</td>
+<td style="text-align:center">PipedInputStream</td>
+<td style="text-align:center">PipedOutputStream</td>
+<td style="text-align:center">PipedReader</td>
+<td style="text-align:center">PipedWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Buffering</td>
+<td style="text-align:center">BufferedInputStream</td>
+<td style="text-align:center">BufferedOutputStream</td>
+<td style="text-align:center">BufferedReader</td>
+<td style="text-align:center">BufferedWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Filtering</td>
+<td style="text-align:center">FilterInputStream</td>
+<td style="text-align:center">FilterOutputStream</td>
+<td style="text-align:center">FilterReader</td>
+<td style="text-align:center">FilterWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Parsing</td>
+<td style="text-align:center">PushBackInputStream<br>StreamTokenizer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">PushBackReader<br>LineNumberReader</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Strings</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">StringReader</td>
+<td style="text-align:center">StringWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Data</td>
+<td style="text-align:center">DataInputStream</td>
+<td style="text-align:center">DataOutputStream</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Data-Formatted</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">PrintStream</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">PrintWriter</td>
+</tr>
+<tr>
+<td style="text-align:center">Objects</td>
+<td style="text-align:center">ObjectInputStream</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">ObjectOutpurStream</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Utilities</td>
+<td style="text-align:center">SequenceInputStream</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>其中的四大基本类别为<code>InputStream</code>, <code>OutputStream</code> , <code>Reader</code> 和<code>Writer</code>。</p>
+<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><p>字节流通常以<code>stream</code>命名。除了DataInputStream 和DataOutputStream 还能够读写int, long, float和double类型的值以外，<br>其他流在一个操作时间内只能读取或者写入一个原始字节。</p>
+<h3 id="InputStream"><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h3><p>所有数据输入流都继承自InputStream。<br>通常使用输入流中的read()方法读取数据。read()方法返回一个整数，代表了读取到的字节的内容(0 ~ 255)。<br>当达到流末尾没有更多数据可以读取的时候，read()方法返回-1。<br>在InputStream中，有多个方法，需要子类进行实现。</p>
+<ul>
+<li>read()</li>
+<li>read(byte b[])</li>
+<li>int read(byte b[], int off, int len)</li>
+<li>skip(long n)</li>
+<li>available()</li>
+<li>close()</li>
+<li>mark(int readlimit)</li>
+<li>reset()</li>
+<li>markSupported()</li>
+</ul>
+<p>其中，<code>mark(int readlimit)</code>方法，标记记录当前读取的位置；当调用<code>reset()</code>方法时，当前位置就会恢复到<code>mark</code>方法中记录的值，从而可以重复读取这些数据。<code>readlimit</code>表示可以记录的最长字节数。   </p>
+<p>InputStream中的read方法是抽象方法，由各个子类实现。（FileInputStream会调用<code>private native int read0()</code>）。其操作对象是不同的数据源：文件、管道、序列化的流、字节数组、String对象</p>
+<h3 id="FilterInputStream"><a href="#FilterInputStream" class="headerlink" title="FilterInputStream"></a>FilterInputStream</h3><p>FilterInputStream是实现自定义过滤输入流的基类，基本上它仅仅只是覆盖了InputStream中的所有方法。<br>除了构造函数取一个InputStream变量作为参数之外，我没看到FilterInputStream任何对InputStream新增或者修改的地方。<br>如果你选择继承FilterInputStream实现自定义的类，同样也可以直接继承自InputStream从而避免额外的类层级结构。</p>
+<h3 id="BufferedInputStream"><a href="#BufferedInputStream" class="headerlink" title="BufferedInputStream"></a>BufferedInputStream</h3><p><code>BufferedInputStream</code>，可以一次读取最大值为8192字节的数据，到其内部的<code>byte buf[]</code>。在<code>BufferedInputStream</code>里，<code>mark</code>方法记录了当前位置<code>pos</code>（初始时<code>markpos = -1</code>）。一旦调用了<br><code>mark</code>方法，则<code>markpos = pos;</code>。当调用<code>reset</code>方法，会执行<code>pos = markpos;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public synchronized void mark(int readlimit) &#123;</div><div class="line">    marklimit = readlimit;</div><div class="line">    markpos = pos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>BufferedInputStream</code>中,读取方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public synchronized int read() throws IOException &#123;</div><div class="line">    if (pos &gt;= count) &#123;</div><div class="line">        fill();</div><div class="line">        if (pos &gt;= count)</div><div class="line">            return -1;</div><div class="line">    &#125;</div><div class="line">    return getBufIfOpen()[pos++] &amp; 0xff;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getBufIfOpen()[pos++] &amp; 0xff;</div></pre></td></tr></table></figure>
+<p>返回的是整型数据，因此，最后通过<code>&amp;</code>操作将返回值转成整型。<br>注意：位运算是以二进制位为单位进行的运算，其操作数和运算结果都是整型值。</p>
+<p>而其中的<code>fill()</code>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">private void fill() throws IOException &#123;</div><div class="line">        byte[] buffer = getBufIfOpen();</div><div class="line">        if (markpos &lt; 0)</div><div class="line">            pos = 0;            /* no mark: throw away the buffer 没有标记mark时，只需要pos置为0，重新读取数据*/</div><div class="line">        else if (pos &gt;= buffer.length)  /* no room left in buffer pos最大值应该是buffer.length，大于号何时成立还不知*/</div><div class="line">            if (markpos &gt; 0) &#123;  /* can throw away early part of the buffer markops大于0，将markops到结尾的数据复制到0-sz的位置，然后sz后的数据再重新读取*/</div><div class="line">                int sz = pos - markpos;</div><div class="line">                System.arraycopy(buffer, markpos, buffer, 0, sz);</div><div class="line">                pos = sz;</div><div class="line">                markpos = 0;</div><div class="line">            &#125; else if (buffer.length &gt;= marklimit) &#123; /* markpos=0,marklimit&lt;=buffer.length，由于此时pos已经大于count，markpos = 0，markpos与pos之间的距离已经大于buffer.length，而标记的marklimit又小于它，所以废除mark */</div><div class="line">                markpos = -1;   /* buffer got too big, invalidate mark */</div><div class="line">                pos = 0;        /* drop buffer contents */</div><div class="line">            &#125; else if (buffer.length &gt;= MAX_BUFFER_SIZE) &#123;/*数组过长*/</div><div class="line">                throw new OutOfMemoryError(&quot;Required array size too large&quot;);</div><div class="line">            &#125; else &#123;            /* grow buffer */* pos=buffer.length，markops=0,buffer.length正常，marklimit还允许继续有效，则扩容到marklimit */</div><div class="line">                int nsz = (pos &lt;= MAX_BUFFER_SIZE - pos) ?</div><div class="line">                        pos * 2 : MAX_BUFFER_SIZE;</div><div class="line">                if (nsz &gt; marklimit)</div><div class="line">                    nsz = marklimit;</div><div class="line">                byte nbuf[] = new byte[nsz];</div><div class="line">                System.arraycopy(buffer, 0, nbuf, 0, pos);</div><div class="line">                if (!bufUpdater.compareAndSet(this, buffer, nbuf)) &#123;</div><div class="line">                    // Can&apos;t replace buf if there was an async close.</div><div class="line">                    // Note: This would need to be changed if fill()</div><div class="line">                    // is ever made accessible to multiple threads.</div><div class="line">                    // But for now, the only way CAS can fail is via close.</div><div class="line">                    // assert buf == null;</div><div class="line">                    throw new IOException(&quot;Stream closed&quot;);</div><div class="line">                &#125;</div><div class="line">                buffer = nbuf;</div><div class="line">            &#125;</div><div class="line">        count = pos;</div><div class="line">        int n = getInIfOpen().read(buffer, pos, buffer.length - pos);</div><div class="line">        if (n &gt; 0)</div><div class="line">            count = n + pos;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static void testReturnInt() throws IOException &#123;</div><div class="line">    File file = new File(&quot;E:\\1.txt&quot;);</div><div class="line">    BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file));</div><div class="line"></div><div class="line">    System.out.println(bufferedInputStream.read());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在测试中，BufferedInputStream中的传入的InputStream是FielInputStream。<br>它的构造函数中必须传入InputStream对象，而FileInputStream可以用File创建，其他资源型的Stream都可以用对应的资源创建，才可以将创建好的InputSteam对象赋值给BufferedInputStream。<br>个人理解，只有资源型的Stream真正实现了read方法（FileInputStream里是native方法），其他类型的Stream都是调用资源型的inputStream的read。</p>
+<h3 id="OutputStream"><a href="#OutputStream" class="headerlink" title="OutputStream"></a>OutputStream</h3><p>OutputStream是所有输出流的基类。与InputStream类似，OutputSteam也定义了子类需要实现的方法。</p>
+<ul>
+<li>write(int b)</li>
+<li>write(byte b[])</li>
+<li>write(byte b[], int off, int len)</li>
+<li>flush()</li>
+<li>close()</li>
+</ul>
+<h4 id="BufferedOutputStream"><a href="#BufferedOutputStream" class="headerlink" title="BufferedOutputStream"></a>BufferedOutputStream</h4><p>实际上也是调用了自己内部的OutputStream的方法实现输出数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testBufferedOutputStrean() throws IOException &#123;</div><div class="line">    File file = new File(&quot;E:\\2.txt&quot;);</div><div class="line">    if(!file.exists())&#123;</div><div class="line">        file.createNewFile();</div><div class="line">    &#125;</div><div class="line">    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));</div><div class="line">    bufferedOutputStream.write(46);</div><div class="line">    bufferedOutputStream.write(47);</div><div class="line">    bufferedOutputStream.write(48);</div><div class="line">    bufferedOutputStream.write(49);</div><div class="line">    bufferedOutputStream.flush();</div><div class="line">    bufferedOutputStream.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/02/JAVA基础-IO/" class="archive-article-date">
+  	<time datetime="2017-03-02T00:17:24.043Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-JAVA-面试题（1）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,60 +961,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面/">Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <p>Dataimport界面展示了DataImportHandler (DIH)配置，并且允许你启动、监视由界面上选择的命令的状态，和在配置文件中定义的命令的状态。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-38386fd8f0647357.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Dataimport 界面"></p>
-<p>Dataimport界面也允许你通过调整不同的参数来控制导入到Solr中的数据，也允许你查看控制导入过程的数据导入配置文件。更多关于使用DIH导入数据的信息，请查看章节<strong>Uploading Structured Data Store Data with the Data Import Handler</strong>。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(19)-使用Solr管理交互界面—指定Core的工具—Dataimport 界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:44:31.403Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -876,7 +1026,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

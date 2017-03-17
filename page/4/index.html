@@ -139,6 +139,65 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/">Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>Logging</p>
+</blockquote>
+<p>日志页面展示了Solr日志文件中的信息。<br>当点击”Logging”链接，可以看到一张与下图类似的界面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b083ee95db102e88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志界面，包含了由于客户端传递错误document而产生的错误日志"></p>
+<p>上述例子只是展示了一个core的日志。如果单个实例中有多个Core，每一个都会被展示出来，并有对应的日志级别。</p>
+<h3 id="选取一个日志级别"><a href="#选取一个日志级别" class="headerlink" title="选取一个日志级别"></a>选取一个日志级别</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-18d866086fb9a4c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志级别"></p>
+<p>当点击了左侧<strong>Level</strong>链接，可以看到实例中的classpath和classname的层级。黄色高亮表明该类具有日志能力。点击一个高亮的行，会弹出一个菜单，通过该菜单可以修改日志级别。黑色字段表明该类不会因为root的日志级别改变而改变自己的日志级别。<br>更多细节可以查看<strong>Configuring Logging</strong>章节。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.625Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -801,10 +860,18 @@
 </ol>
 <p>StringBuffer sb = new StringBuffer();<br>//超过120个字符的情况下，不要在括号前换行<br>sb.append(“zi”).append(“xin”)…append<br>    (“huang”);<br>//参数很多的方法调用可能超过120个字符，不要在逗号前换行<br>method(args1, args2, args3, …<br>    , argsX);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7. 【强制】方法参数在定义和传入时，多个参数逗号后边必须加空格。</div><div class="line">正例：下例中实参的&quot;a&quot;,后边必须要有一个空格。</div></pre></td></tr></table></figure></p>
 <p>method(“a”, “b”, “c”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">8. 【强制】IDE的text file encoding设置为UTF-8; IDE中文件的换行符使用Unix格式，不要使用windows格式。</div><div class="line">9. 【推荐】没有必要增加若干空格来使某一行的字符与上一行的相应字符对齐。</div><div class="line">正例：</div></pre></td></tr></table></figure></p>
-<p>int a = 3;<br>long b = 4L;<br>float c = 5F;<br>StringBuffer sb = new StringBuffer();<br><code>``
-说明：增加</code>sb<code>这个变量，如果需要对齐，则给</code>a<code>、</code>b<code>、</code>c`都要增加几个空格，在变量比较多的情况下，是一种累赘的事情。   </p>
+<p>int a = 3;<br>long b = 4L;<br>float c = 5F;<br>StringBuffer sb = new StringBuffer();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">说明：增加`sb`这个变量，如果需要对齐，则给`a`、`b`、`c`都要增加几个空格，在变量比较多的情况下，是一种累赘的事情。   </div><div class="line"></div><div class="line">10. 【推荐】方法体内的执行语句组、变量的定义语句组、不同的业务逻辑之间或者不同的语义之间插入一个空行。相同业务逻辑和语义之间不需要插入空行。    </div><div class="line">说明：没有必要插入多行空格进行隔开。</div><div class="line"></div><div class="line">## OOP规约</div><div class="line">1. 【强制】避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可。</div><div class="line">2. 【强制】所有的覆写方法，必须加`@Override`注解。   </div><div class="line"> 反例：`getObject()`与`get0bject()`的问题。一个是字母的O，一个是数字的0，加`@Override`可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编译报错。</div><div class="line">3. 【强制】相同参数类型，相同业务含义，才可以使用Java的可变参数，避免使用Object。    </div><div class="line"> 说明：可变参数必须放置在参数列表的最后。（提倡同学们尽量不用可变参数编程）    </div><div class="line"> 正例：`public User getUsers(String type, Integer... ids)`</div><div class="line">4. 【强制】对外暴露的接口签名，原则上不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加`@Deprecated`注解，并清晰地说明采用的新接口或者新服务是什么。</div><div class="line">5. 【强制】不能使用过时的类或方法。   </div><div class="line">说明：`java.net.URLDecoder` 中的方法`decode(String encodeStr)` 这个方法已经过时，应该使用双参数`decode(String source, String encode)`。接口提供方既然明确是过时接口，那么有义务同时提供新的接口；作为调用方来说，有义务去考证过时方法的新实现是什么。 </div><div class="line">6. 【强制】`Object`的`equals`方法容易抛空指针异常，应使用常量或确定有值的对象来调用`equals`。    </div><div class="line">正例： `&quot;test&quot;.equals(object);`       </div><div class="line">反例： `object.equals(&quot;test&quot;);`    </div><div class="line">说明：推荐使用`java.util.Objects#equals` （JDK7引入的工具类）</div><div class="line"></div><div class="line">7. 【强制】所有的相同类型的包装类对象之间值的比较，全部使用`equals`方法比较。    </div><div class="line">说明：对于`Integer var=?`在-128至127之间的赋值，`Integer`对象是在`IntegerCache.cache`产生，会复用已有对象，这个区间内的`Integer`值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用`equals`方法进行判断。</div><div class="line"></div><div class="line">8. 【强制】关于基本数据类型与包装数据类型的使用标准如下：    </div><div class="line">1） 所有的POJO类属性必须使用包装数据类型。    </div><div class="line">2） RPC方法的返回值和参数必须使用包装数据类型。    </div><div class="line">3） 所有的局部变量【推荐】使用基本数据类型。    </div><div class="line">说明：POJO类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何NPE问题，或者入库检查，都由使用者来保证。   </div><div class="line">正例：数据库的查询结果可能是`null`，因为自动拆箱，用基本数据类型接收有NPE风险。    </div><div class="line">反例：比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。所以包装数据类型的null值，能够表示额外的信息，如：远程调用失败，异常退出。   </div><div class="line"></div><div class="line">9. 【强制】定义DO/DTO/VO等POJO类时，不要设定任何属性默认值。    </div><div class="line">反例：POJO类的`gmtCreate`默认值为`new Date();`但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</div><div class="line"></div><div class="line">10. 【强制】序列化类新增属性时，请不要修改`serialVersionUID`字段，避免反序列失败；如果完全不兼容升级，避免反序列化混乱，那么请修改`serialVersionUID`值。    </div><div class="line">说明：注意`serialVersionUID`不一致会抛出序列化运行时异常。</div><div class="line"></div><div class="line">11. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在`init`方法中。</div><div class="line"></div><div class="line">12. 【强制】POJO类必须写`toString`方法。使用IDE的中工具：source&gt; generate toString时，如果继承了另一个POJO类，注意在前面加一下`super.toString`。   </div><div class="line">说明：在方法执行抛出异常时，可以直接调用POJO的toString()方法打印其属性值，便于排查问题。</div><div class="line"></div><div class="line">13. 【推荐】使用索引访问用`String`的`split`方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛IndexOutOfBoundsException的风险。   </div><div class="line">说明：</div></pre></td></tr></table></figure></p>
+<p>String str = “a,b,c,,”;<br>String[] ary = str.split(“,”);<br>//预期大于3，结果是3<br>System.out.println(ary.length);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">14. 【推荐】当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读。</div><div class="line"></div><div class="line">15. 【推荐】 类内方法定义顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; getter/setter方法。    </div><div class="line">说明：公有方法是类的调用者和维护者最关心的方法，首屏展示最好；保护方法虽然只是子类关心，也可能是“模板设计模式”下的核心方法；而私有方法外部一般不需要特别关心，是一个黑盒实现；因为方法信息价值较低，所有Service和DAO的getter/setter方法放在类体最后。</div><div class="line"></div><div class="line">16. 【推荐】setter方法中，参数名称与类成员变量名称一致，this.成员名=参数名。在getter/setter方法中，尽量不要增加业务逻辑，增加排查问题的难度。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
+<p>public Integer getData(){<br>    if(true) {<br>        return data + 100;<br>    } else {<br>        return data - 100;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">17. 【推荐】循环体内，字符串的联接方式，使用`StringBuilder`的`append`方法进行扩展。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
+<p>String str = “start”;<br>for(int i=0; i&lt;100; i++){<br>    str = str + “hello”;<br>}<br><code>``
+说明：反编译出的字节码文件显示每次循环都会</code>new<code>出一个</code>StringBuilder<code>对象，然后进行</code>append<code>操作，最后通过</code>toString<code>方法返回</code>String`对象，造成内存资源浪费。</p>
 <ol>
-<li>【推荐】方法体内的执行语句组、变量的定义语句组、不同的业务逻辑之间或者不同的语义之间插入一个空行。相同业务逻辑和语义之间不需要插入空行。<br>说明：没有必要插入多行空格进行隔开。</li>
+<li><p>【推荐】<code>final</code>可提高程序响应效率，声明成<code>final</code>的情况：<br>1） 不需要重新赋值的变量，包括类属性、局部变量。<br>2） 对象参数前加<code>final</code>，表示不允许修改引用的指向。<br>3） 类方法确定不允许被重写。   </p>
+</li>
+<li><p>【推荐】慎用<code>Object</code>的<code>clone</code>方法来拷贝对象。<br>说明：对象的<code>clone</code>方法默认是浅拷贝，若想实现深拷贝需要重写<code>clone</code>方法实现属性对象的拷贝。</p>
+</li>
+<li><p>【推荐】类成员与方法访问控制从严：<br>1） 如果不允许外部直接通过<code>new</code>来创建对象，那么构造方法必须是<code>private</code>。<br>2） 工具类不允许有<code>public</code>或<code>default</code>构造方法。<br>3） 类非<code>static</code>成员变量并且与子类共享，必须是<code>protected</code>。<br>4） 类非<code>static</code>成员变量并且仅在本类使用，必须是<code>private</code>。<br>5） 类<code>static</code>成员变量如果仅在本类使用，必须是<code>private</code>。<br>6） 若是<code>static</code>成员变量，必须考虑是否为<code>final</code>。<br>7） 类成员方法只供类内部调用，必须是<code>private</code>。<br>8） 类成员方法只对继承类公开，那么限制为<code>protected</code>。<br>说明：任何类、方法、参数、变量，严控访问范围。过宽泛的访问范围，不利于模块解耦。<br>思考：如果是一个<code>private</code>的方法，想删除就删除，可是一个<code>public</code>的<code>Service</code>方法，或者一个<code>public</code>的成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大，如果无限制的到处跑，那么你会担心的。</p>
+</li>
 </ol>
 
       
@@ -1222,91 +1289,6 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(5)—开始—运行Solr" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/">Apache Solr(5.5)帮助文档(5)-开始-运行Solr</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Running Solr</p>
-</blockquote>
-<p>本章节介绍了根据示例schema运行Solr，增加document，查询信息。</p>
-<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><p>安装完毕后，可以通过在Solr目录下运行bin/solr来运行Solr。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start</div></pre></td></tr></table></figure></p>
-<p>Windows用户，可以通过运行bin/solr.cmd命令运行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start</div></pre></td></tr></table></figure></p>
-<p>上述命令命令会在后台启动Solr，监听端口号8983。<br>当在后台运行Solr时，启动脚本会确保Solr正确启动，才会返回到命令行。<br> bin/solr 和 bin\solr.cmd脚本运行自定义启动内容。下面来看一些 bin/solr脚本的例子（如果使用的 是Windows平台，使用的是bin\solr.cmd）</p>
-<h4 id="Solr脚本参数"><a href="#Solr脚本参数" class="headerlink" title="Solr脚本参数"></a>Solr脚本参数</h4><p>bin/solr 有如下脚本参数</p>
-<h5 id="脚本Help"><a href="#脚本Help" class="headerlink" title="脚本Help"></a>脚本Help</h5><p>查看使用帮助，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr -help</div></pre></td></tr></table></figure></p>
-<p>如果需要查看start命令的专门的使用说明，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -help</div></pre></td></tr></table></figure></p>
-<h5 id="在前台启动Solr"><a href="#在前台启动Solr" class="headerlink" title="在前台启动Solr"></a>在前台启动Solr</h5><p>Solr是个服务，因此通常会在后台运行，尤其是在Linux/Unix上。但是，如果要在前台启动，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -f</div></pre></td></tr></table></figure></p>
-<p>如果运行的是Windows平台，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin\solr.cmd start -f</div></pre></td></tr></table></figure></p>
-<h5 id="在不同的端口启动"><a href="#在不同的端口启动" class="headerlink" title="在不同的端口启动"></a>在不同的端口启动</h5><p>-p参数可以修改Solr监听的端口，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bin/solr start -p 8984</div></pre></td></tr></table></figure></p>
-<h5 id="停止Solr"><a href="#停止Solr" class="headerlink" title="停止Solr"></a>停止Solr</h5><p>当在前台运行Solr时（用-f参数），可以通过<code>ctrl+c</code>来停止。但是，如果是在后台运行，停止命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bint/solr stop -p 8983</div></pre></td></tr></table></figure></p>
-<p>停止命令需要表明监听的Solr端口。也可以通过<code>-all</code>参数，来停止所有的Solr实例。</p>
-<h5 id="指定启动时的示例配置"><a href="#指定启动时的示例配置" class="headerlink" title="指定启动时的示例配置"></a>指定启动时的示例配置</h5><p>Solr也提供一系列有用的例子来帮助你学习它的主要特点。通过-e 标志可以加载相应的示例。例如，如果要加载”techproducts”例子，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr -e techproducts</div></pre></td></tr></table></figure></p>
-<p>目前已经存在的示例包括：techproducts，dih，schemaless，cloud。如果想要了解关于各个示例的更多细节，可以查看Running with example configurations部分。<br><strong>informations</strong>：开始运行SolrCloud<br>运行cloud示例会在SlorCloud模式下运行Solr。关于更多关于云模式运行的Solr信息，可以查看<strong>开始SolrCloud</strong>。</p>
-<h5 id="检测Solr是否在运行"><a href="#检测Solr是否在运行" class="headerlink" title="检测Solr是否在运行"></a>检测Solr是否在运行</h5><p>如果不确定Solr是否在运行，可以使用状态命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr status</div></pre></td></tr></table></figure></p>
-<p>这个命令将会搜索运行在当前电脑上的所有Solr示例，并将他们的基本信息聚集在一起（例如版本和内存使用等等）。<br>上述内容就可以查看Solr是否在运行，如果需要确认，可以通过Web浏览器查看管理页面。<br>!!!!!Solrweb图<br>如果Solr没有运行，浏览器会报错，错误信息为不能连接到服务器。请检测端口号，然后再重试。</p>
-<h3 id="创建core"><a href="#创建core" class="headerlink" title="创建core"></a>创建core</h3><p>如果没有指定示例配置，需要创建一个core，才能索引和搜索。脚本命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -c &lt;name&gt;</div></pre></td></tr></table></figure></p>
-<p>这样会创建一个core。这个core会使用data-driven schema，将会在你新增documents时判断field type。<br>如果需要查看创建新core时所有的参数，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr create -help</div></pre></td></tr></table></figure></p>
-<h3 id="新增Documents"><a href="#新增Documents" class="headerlink" title="新增Documents"></a>新增Documents</h3><p>Solr的目的是查找符合条件的documents。Solr的schema阐释了它的内容的存储结构，但是没有documents的话，是没有东西来进行搜索的。Solr首先需要有输入内容。<br>在索引你自己需要的内容之前，你可能需要增加一些示例documents。Solr安装程序自带了一些不同类别的示例documents。位置在安装目录下的example子目录下。<br>在bin目录下，是提交脚步。命令行工具可以用来索引不同的documents。现在先不要考虑态度的细节，在Indexing and Basic Data Operations章节，会有关于索引的所有细节。<br><code>-help</code>命令可以查看关于<code>bin/post</code>的更多信息。Windows用户，可以查看Post Tool on Windows章节。<br><code>bin/post</code>可以提交多种形式的内容到Solr上，包括Solr原始的XML文件和JSON格式文件，CSV格式文件，富文档的字典树，甚至一个简短的web crawl。通过在<code>bin/post -help</code>最后不同类别的命令示例，可以轻松的开始提交你自己的内容到Solr上。<br>下面继续将所有的documents按照示例的XML文件格式添加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/solr create -c gettingstarted</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">./bin/post -c gettingstarted example/exampledocs/*.xml</div><div class="line">/usr/local/java/jdk1.8.0_111/bin/java -classpath /home/lienquan/usr/solr-5.5.0/dist/solr-core-5.5.0.jar -Dauto=yes -Dc=gettingstarted -Ddata=files org.apache.solr.util.SimplePostTool example/exampledocs/gb18030-example.xml example/exampledocs/hd.xml example/exampledocs/ipod_other.xml example/exampledocs/ipod_video.xml example/exampledocs/manufacturers.xml example/exampledocs/mem.xml example/exampledocs/money.xml example/exampledocs/monitor2.xml example/exampledocs/monitor.xml example/exampledocs/mp500.xml example/exampledocs/sd500.xml example/exampledocs/solr.xml example/exampledocs/utf8-example.xml example/exampledocs/vidcard.xml</div><div class="line">SimplePostTool version 5.0.0</div><div class="line">Posting files to [base] url http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Entering auto mode. File endings considered are xml,json,jsonl,csv,pdf,doc,docx,ppt,pptx,xls,xlsx,odt,odp,ods,ott,otp,ots,rtf,htm,html,txt,log</div><div class="line">POSTing file gb18030-example.xml (application/xml) to [base]</div><div class="line">POSTing file hd.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_other.xml (application/xml) to [base]</div><div class="line">POSTing file ipod_video.xml (application/xml) to [base]</div><div class="line">POSTing file manufacturers.xml (application/xml) to [base]</div><div class="line">POSTing file mem.xml (application/xml) to [base]</div><div class="line">POSTing file money.xml (application/xml) to [base]</div><div class="line">POSTing file monitor2.xml (application/xml) to [base]</div><div class="line">POSTing file monitor.xml (application/xml) to [base]</div><div class="line">POSTing file mp500.xml (application/xml) to [base]</div><div class="line">POSTing file sd500.xml (application/xml) to [base]</div><div class="line">POSTing file solr.xml (application/xml) to [base]</div><div class="line">POSTing file utf8-example.xml (application/xml) to [base]</div><div class="line">POSTing file vidcard.xml (application/xml) to [base]</div><div class="line">14 files indexed.</div><div class="line">COMMITting Solr index changes to http://localhost:8983/solr/gettingstarted/update...</div><div class="line">Time spent: 0:00:01.243</div></pre></td></tr></table></figure>
-<p>这样，Sol就索引了示例文档。</p>
-<h3 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h3><p>现在你已经获得了索引好的文档，可以进行语句查询了。最简单的方式是拼接带参数的URL，与拼接其他的HTTP URL的方式是一样的。<br>例如，下面的查询在所有的字段搜索”video”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video</div></pre></td></tr></table></figure></p>
-<p>我们注意到URL里包括了主机名称（localhost），服务器监听的端口号（8983），应用名称（solr），查询的请求handler（select），和查询语句（q=video）。<br>上述查询结果包含在一个XML文档中，可以通过直接点击上述URL进行查看。这个XML文档包括两部分，第一部分是响应头（responseHeader），其中包括了响应本身的信息。第二部分是主要的部分，存储在<code>result</code>标签内。<code>result</code>标签里可能包含一个或多个<code>doc</code>标签，每个<code>doc</code>标签里存储了符合查询条件的document的字段。可以通过标准的XML转换技术，将Solr的查询结果转变成适合展示的格式。此外，Solr可以将查询结果按照JSON，PHP，Ruby甚至用户自定义的格式输出。<br>如果万一你在阅读本文档时没有运行Solr，下面的截图展示了一个查询的结果（实际上是下个例子）。浏览器为火狐浏览器。最顶层的节点<code>response</code>包含了一个<code>lst</code>节点（名称属性为“responseHeader”）和一个<code>result</code>节点（名词属性为”response”）。在<code>result</code>节点里，你可以看到表述查询结果的documents。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3f0e753f79b44c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查询结果"></p>
-<p>一旦你掌握了查询的基本概念，你可以很容易的进行查询功能扩展。下面例子的查询与前面的一致，只是结果只包括ID，name，price字段的数据。如果在查询条件中不明确指出需要的字段，所有的字段都会返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=video&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
-<p>下面的例子搜索只在name字段值为”black”的数据。如果在查询时不指定搜索的字段，Solr会搜索默认字段，该字段会在schema里配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=name:black</div></pre></td></tr></table></figure></p>
-<p>也可以指定字段值的范围。下面的查询条件搜索price字段在0到400之间的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price</div></pre></td></tr></table></figure></p>
-<p><strong>Faceted</strong>浏览是Solr的一个核心特征，它允许用户按照对各自应用有用途的方式精简查询结果。例如，一个购物网站可以提供<strong>facets</strong>从而在制造商或是价格方面精简查询结果。<br><strong>Faceting</strong>信息返回时作为Solr查询结果的第三部分。可以通过下面的查询条件来看一下效果。在这个查询中，增加了<code>facet=true</code>和<code>facet.field=cat</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price&amp;facet=true&amp;facet.field=cat</div></pre></td></tr></table></figure></p>
-<p>在查询结果中，除了熟悉的<code>responseHeader</code>节点和<code>response</code>节点，还有一个<code>facet_counts</code>节点。下面的XML文档将<code>responseHeader</code>节点和<code>response</code>节点收缩了，我们可以更清晰的看到<strong>faceting</strong>信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;response&gt;</div><div class="line">&lt;lst name=&quot;responseHeader&quot;&gt;</div><div class="line">&lt;int name=&quot;status&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;QTime&quot;&gt;205&lt;/int&gt;</div><div class="line">&lt;lst name=&quot;params&quot;&gt;...&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;result name=&quot;response&quot; numFound=&quot;13&quot; start=&quot;0&quot;&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;doc&gt;...&lt;/doc&gt;</div><div class="line">&lt;/result&gt;</div><div class="line">&lt;lst name=&quot;facet_counts&quot;&gt;</div><div class="line">&lt;lst name=&quot;facet_queries&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_fields&quot;&gt;</div><div class="line">&lt;lst name=&quot;cat&quot;&gt;</div><div class="line">&lt;int name=&quot;electronics&quot;&gt;9&lt;/int&gt;</div><div class="line">&lt;int name=&quot;connector&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;hard drive&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;memory&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;search&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;software&quot;&gt;2&lt;/int&gt;</div><div class="line">&lt;int name=&quot;camera&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;copier&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and stuff2&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;multifunction printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;music&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;printer&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;scanner&quot;&gt;1&lt;/int&gt;</div><div class="line">&lt;int name=&quot;currency&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;electronics and computer1&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;int name=&quot;graphics card&quot;&gt;0&lt;/int&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;lst name=&quot;facet_dates&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_ranges&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_intervals&quot;/&gt;</div><div class="line">&lt;lst name=&quot;facet_heatmaps&quot;/&gt;</div><div class="line">&lt;/lst&gt;</div><div class="line">&lt;/response&gt;</div></pre></td></tr></table></figure></p>
-<p>在<strong>faceting</strong>结果中，统计了每种cat字段值符合查询条件的数字。可以轻松的根据上述信息为用户提供更加便捷的方式来精简查询结果。可以在Solr请求中增加更多的过滤查询。下面的查询增加了software的策略，来限制查询结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8983/solr/gettingstarted/select?q=price:[0%20TO%20400]&amp;fl=id,name,price,cat&amp;facet=true&amp;facet.field=cat&amp;fq=cat:software</div></pre></td></tr></table></figure></p>
-<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p><code>facet=true</code>开启了<strong>facet</strong>查询，<code>facet.field</code>指定了<strong>facet</strong>的字段，上述例子中，<code>facet.field=cat</code>，说明，首先统计所有的cat字段的值，得到cat值字段的分类，在符合查询条件的数据中，统计每种cat值分类的个数。<code>fa=cat:software</code>貌似是不显示cat值为software的统计。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/10/Apache Solr(5.5)帮助文档(5)—开始—运行Solr/" class="archive-article-date">
-  	<time datetime="2017-02-10T00:17:03.879Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-10</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1372,7 +1354,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     
