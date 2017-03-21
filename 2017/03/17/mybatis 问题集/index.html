@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Mybatis 使用 | li</title>
+  <title>Mybatis问题集 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mybatis使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column=&amp;quot;T1_ID&amp;quot; p">
+  <meta name="description" content="介绍用于记录实际开发中Mybatis使用的一些问题。
+使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis 使用">
-<meta property="og:url" content="http://yoursite.com/2016/12/23/mybatis 使用/index.html">
+<meta property="og:title" content="Mybatis问题集">
+<meta property="og:url" content="http://yoursite.com/2017/03/17/mybatis 问题集/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="Mybatis使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column=&amp;quot;T1_ID&amp;quot; p">
-<meta property="og:updated_time" content="2017-02-24T06:28:22.527Z">
+<meta property="og:description" content="介绍用于记录实际开发中Mybatis使用的一些问题。
+使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column">
+<meta property="og:updated_time" content="2017-03-17T07:54:38.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mybatis 使用">
-<meta name="twitter:description" content="Mybatis使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column=&amp;quot;T1_ID&amp;quot; p">
+<meta name="twitter:title" content="Mybatis问题集">
+<meta name="twitter:description" content="介绍用于记录实际开发中Mybatis使用的一些问题。
+使用问题查询结果集为队列，返回值只有最后一条这是在Mybatis版本为3.2.1里发现的。具体情境如下：在mapper配置里，有如下的数据配置123456789101112&amp;lt;resultMap id=&amp;quot;map1&amp;quot; type=&amp;quot;cn.com.XXX&amp;quot; &amp;gt;    &amp;lt;result column">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -141,7 +144,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-mybatis 使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-mybatis 问题集" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -151,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mybatis 使用
+      Mybatis问题集
     </h1>
   
 
@@ -163,10 +166,11 @@
 		
 		<div id="toc" class="toc-article">
 		<strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis"><span class="toc-number">1.</span> <span class="toc-text">Mybatis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用问题"><span class="toc-number">2.</span> <span class="toc-text">使用问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询结果集为队列，返回值只有最后一条"><span class="toc-number">2.1.</span> <span class="toc-text">查询结果集为队列，返回值只有最后一条</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用问题"><span class="toc-number">2.</span> <span class="toc-text">使用问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查询结果集为队列，返回值只有最后一条"><span class="toc-number">2.1.</span> <span class="toc-text">查询结果集为队列，返回值只有最后一条</span></a></li></ol></li></ol>
 		</div>
 		
-        <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><h2 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h2><h3 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h3><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>用于记录实际开发中Mybatis使用的一些问题。</p>
+<h1 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h1><h2 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h2><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
 <p>在返回值中（调用page分页查询，数据集结果大于1），发现最终的List中只有一条记录，和SQL单独执行时的结果集相比，改记录为最后一条记录。于是跟踪代码，直到<code>FastResultSetHandler.handleRowValues</code>中，发现被<br><code>NestedResultSetHandler</code>类覆盖，而在<code>NestedResultSetHandler</code>类中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protected void handleRowValues(ResultSet rs, ResultMap resultMap, ResultHandler resultHandler, RowBounds rowBounds, ResultColumnCache resultColumnCache) throws SQLException &#123;</div><div class="line">   final DefaultResultContext resultContext = new DefaultResultContext();</div><div class="line">   skipRows(rs, rowBounds);</div><div class="line">   Object rowValue = null;</div><div class="line">   while (shouldProcessMoreRows(rs, resultContext, rowBounds)) &#123;</div><div class="line">     final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(rs, resultMap, null);</div><div class="line">     final CacheKey rowKey = createRowKey(discriminatedResultMap, rs, null, resultColumnCache);</div><div class="line">     Object partialObject = objectCache.get(rowKey);</div><div class="line">     if (partialObject == null &amp;&amp; rowValue != null) &#123; // issue #542 delay calling ResultHandler until object ends</div><div class="line">       if (mappedStatement.isResultOrdered()) objectCache.clear(); // issue #577 clear memory if ordered</div><div class="line">       callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line">     &#125; </div><div class="line">     rowValue = getRowValue(rs, discriminatedResultMap, rowKey, rowKey, null, resultColumnCache, partialObject);</div><div class="line">   &#125;</div><div class="line">   if (rowValue != null) callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <p>发现，rowValue被不断地覆盖。</p>
 <p>具体bug<a href="https://github.com/mybatis/mybatis-3/issues/39" target="_blank" rel="external">这里</a><br>如果增加了一个id，则返回正常。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;id column=&quot;ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
@@ -175,8 +179,8 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/23/mybatis 使用/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:25.878Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
+      <a href="/2017/03/17/mybatis 问题集/" class="archive-article-date">
+  	<time datetime="2017-03-17T07:53:40.342Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-17</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -194,18 +198,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/26/ELE_SHOP开发过程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/21/web开发-火狐浏览器端请求取消-ajax的error回调/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ELE_SHOP开发
+          web开发-火狐浏览器端请求取消-ajax的error回调
         
       </div>
     </a>
   
   
-    <a href="/2016/12/23/字符集和字符编码(Charset & Encoding)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符集和字符编码</div>
+    <a href="/2017/03/17/算法学习-最小可用ID/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法学习-最小可用ID</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -298,7 +302,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

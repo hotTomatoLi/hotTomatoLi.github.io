@@ -139,6 +139,118 @@
       <div class="body-wrap">
         
   
+    <article id="post-web开发-火狐浏览器端请求取消-ajax的error回调" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/web开发-火狐浏览器端请求取消-ajax的error回调/">web开发-火狐浏览器端请求取消-ajax的error回调</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在使用jquery(1.12)进行ajax请求数据时，在火狐浏览器下发生了下面的现象。<br>ajax请求数据时，后台数据还未返回时，此时点击其他页面链接，在火狐下，ajax的error回调函数会执行，在回调中有一个弹出框提示请求数据出错；而在chrome下则正常跳转；<br>其实，如果不停的刷新该页面，也会产生这种问题。<br>究其原因，就是jquery的ajax函数，将浏览器端的取消，也当做是错误；但是这种明显是用户取消的行为不应该作为错误处理。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/w1057742284/article/details/52166917" target="_blank" rel="external">和浏览器异步请求取消相关的那些事</a><br><a href="http://ilikestuffblog.com/2009/11/30/how-to-distinguish-a-user-aborted-ajax-call-from-an-error/" target="_blank" rel="external">How to Distinguish a User-Aborted AJAX Call from an Error</a><br><a href="http://stackoverflow.com/questions/699941/handle-ajax-error-when-a-user-clicks-refresh/18170879#18170879" target="_blank" rel="external">handle ajax error when a user clicks refresh</a></p>
+<h1 id="实际解决"><a href="#实际解决" class="headerlink" title="实际解决"></a>实际解决</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>参考了上述文献，发现无论是服务器错误或是页面刷新，ajax的<code>error</code>函数里的<code>textStatus</code>都是<code>error</code>，也没有尝试其他的参数值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">error: function ( jqXHR, textStatus, errorThrown) &#123;</div><div class="line">               </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h2><p>如果ajax请求为同步，那就不会允许在请求数据时在浏览器点击事件，也就不会有这种问题。即添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">async:false</div></pre></td></tr></table></figure></p>
+<h2 id="监听beforeunload"><a href="#监听beforeunload" class="headerlink" title="监听beforeunload"></a>监听<code>beforeunload</code></h2><p>监听window对象的<code>beforeunload</code>事件，增加一个标志flag。当页面跳转、刷新时，<code>flag=true</code>,在<code>error</code>事件中，如果<code>flag==true</code>，则不执行相关提示。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/21/web开发-火狐浏览器端请求取消-ajax的error回调/" class="archive-article-date">
+  	<time datetime="2017-03-21T05:39:49.648Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web开发/">web开发</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mybatis 问题集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/mybatis 问题集/">Mybatis问题集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>用于记录实际开发中Mybatis使用的一些问题。</p>
+<h1 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h1><h2 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h2><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
+<p>在返回值中（调用page分页查询，数据集结果大于1），发现最终的List中只有一条记录，和SQL单独执行时的结果集相比，改记录为最后一条记录。于是跟踪代码，直到<code>FastResultSetHandler.handleRowValues</code>中，发现被<br><code>NestedResultSetHandler</code>类覆盖，而在<code>NestedResultSetHandler</code>类中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protected void handleRowValues(ResultSet rs, ResultMap resultMap, ResultHandler resultHandler, RowBounds rowBounds, ResultColumnCache resultColumnCache) throws SQLException &#123;</div><div class="line">   final DefaultResultContext resultContext = new DefaultResultContext();</div><div class="line">   skipRows(rs, rowBounds);</div><div class="line">   Object rowValue = null;</div><div class="line">   while (shouldProcessMoreRows(rs, resultContext, rowBounds)) &#123;</div><div class="line">     final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(rs, resultMap, null);</div><div class="line">     final CacheKey rowKey = createRowKey(discriminatedResultMap, rs, null, resultColumnCache);</div><div class="line">     Object partialObject = objectCache.get(rowKey);</div><div class="line">     if (partialObject == null &amp;&amp; rowValue != null) &#123; // issue #542 delay calling ResultHandler until object ends</div><div class="line">       if (mappedStatement.isResultOrdered()) objectCache.clear(); // issue #577 clear memory if ordered</div><div class="line">       callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line">     &#125; </div><div class="line">     rowValue = getRowValue(rs, discriminatedResultMap, rowKey, rowKey, null, resultColumnCache, partialObject);</div><div class="line">   &#125;</div><div class="line">   if (rowValue != null) callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>发现，rowValue被不断地覆盖。</p>
+<p>具体bug<a href="https://github.com/mybatis/mybatis-3/issues/39" target="_blank" rel="external">这里</a><br>如果增加了一个id，则返回正常。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;id column=&quot;ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/17/mybatis 问题集/" class="archive-article-date">
+  	<time datetime="2017-03-17T07:53:40.342Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-17</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-算法学习-最小可用ID" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -446,7 +558,7 @@
 <li>vuejs + webpack</li>
 <li></li>
 </ul>
-<h1 id="spring-boot项目搭建"><a href="#spring-boot项目搭建" class="headerlink" title="spring boot项目搭建"></a>spring boot项目搭建</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建springboot项目</p>
+<p># </p>
 
       
     </div>
@@ -681,138 +793,6 @@
 
 
   
-    <article id="post-spring-boot-vue-webpack开发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/06/spring-boot-vue-webpack开发/">spring-boot-vue-webpack开发项目搭建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h1 id="采用技术"><a href="#采用技术" class="headerlink" title="采用技术"></a>采用技术</h1><ul>
-<li>springboot</li>
-<li>vuejs</li>
-<li>gradle</li>
-<li>webpack</li>
-<li>idea + sublime<br>最终得到springboot作为restful的服务端，vuejs作为展示端的项目，并以此为基础，进行项目开发。开发工具采用gradle作为<br>构建工具，idea作为java端开发工具，sublime作为展示端开发工具。<br>注：其实项目结构这样建立最终效果是：</li>
-<li>开发时，利用node的web功能进行热部署开发，同时启动springboot项目接受node端的请求；</li>
-<li>部署时，通过gradle的打包命令，将node编译生成的结果放到了spring项目中，作为静态文件目录，不再需要node的运行环境，利用spring的web功能；</li>
-</ul>
-<h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><h2 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h2><h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><p>idea下新建springboot项目。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-448cdf0c600a47e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="springboot项目"></p>
-<h3 id="增加子项目"><a href="#增加子项目" class="headerlink" title="增加子项目"></a>增加子项目</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-182f467e5dd1fdb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="项目结构"><br>根目录下的setting.gradle中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rootProject.name = &apos;spring-boot-webpack-vue&apos;</div><div class="line">include &apos;server&apos;</div><div class="line">include &apos;app&apos;</div></pre></td></tr></table></figure></p>
-<p>根目录下的build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">buildscript&#123;</div><div class="line">    repositories &#123;</div><div class="line">        mavenCentral()</div><div class="line">        maven &#123;</div><div class="line">            url &apos;https://plugins.gradle.org/m2/&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE&apos;</div><div class="line">        classpath &apos;com.moowork.gradle:gradle-node-plugin:0.13&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">allprojects &#123;</div><div class="line"></div><div class="line">    group &apos;com&apos;</div><div class="line">    version &apos;1.0-SNAPSHOT&apos;</div><div class="line"></div><div class="line">    apply plugin: &apos;java&apos;</div><div class="line">    apply plugin: &apos;idea&apos;</div><div class="line"></div><div class="line">    sourceCompatibility = 1.8</div><div class="line"></div><div class="line">    repositories &#123;</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="spring-boot项目"><a href="#spring-boot项目" class="headerlink" title="spring boot项目"></a>spring boot项目</h3><p>结构</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-abb846320b1830b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="spring boot项目"></p>
-<p>build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">project(&apos;:server&apos;) &#123;</div><div class="line"></div><div class="line">    apply plugin: &apos;spring-boot&apos;</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        compile project(&apos;:app&apos;)</div><div class="line">        compile &apos;org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>WebConfiguartion.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">@RestController</div><div class="line">public class WebConfiguration extends WebMvcConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    @Value(&quot;classpath:/app/index.html&quot;)</div><div class="line">    private Resource indexHtml;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    @Order(Ordered.HIGHEST_PRECEDENCE)</div><div class="line">    public CharacterEncodingFilter characterEncodingFilter() &#123;</div><div class="line">        CharacterEncodingFilter filter = new CharacterEncodingFilter(&quot;UTF-8&quot;, true);</div><div class="line">        return filter;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</div><div class="line">        registry.addResourceHandler(&quot;/**&quot;).addResourceLocations(&quot;classpath:/app/&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public ServletRegistrationBean apiV1ServletBean(WebApplicationContext wac) &#123;</div><div class="line">        DispatcherServlet servlet = new DispatcherServlet(wac);</div><div class="line">        ServletRegistrationBean bean = new ServletRegistrationBean(servlet, &quot;/api/v1/*&quot;);</div><div class="line">        bean.setName(&quot;api-v1&quot;);</div><div class="line">        return bean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(&quot;/&quot;)</div><div class="line">    public Object index() &#123;</div><div class="line">        return ResponseEntity.ok().body(indexHtml);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>SampleController.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@SpringBootApplication</div><div class="line">@EnableAutoConfiguration</div><div class="line">public class SampleController &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line">//        SpringApplication.run(SampleController.class, args);</div><div class="line">        new SpringApplication(SampleController.class).run(args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>运行，即可启动。</p>
-<h3 id="展示端项目"><a href="#展示端项目" class="headerlink" title="展示端项目"></a>展示端项目</h3><p>展示端项目需要安装nodejs，以及webpack。<br>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spring-boot-webpack-vue&gt;vue init webpack app</div></pre></td></tr></table></figure></p>
-<p>然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spring-boot-webpack-vue\app&gt;cnpm install</div></pre></td></tr></table></figure></p>
-<p>安装完后，需要进行以下修改，主要目的是可以利用gradle命令将展示端脚步发布到spring项目目录下。</p>
-<h4 id="修改build目录"><a href="#修改build目录" class="headerlink" title="修改build目录"></a>修改build目录</h4><p>将build目录重命名为build-scripts，同时修改app目录下package.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;dev&quot;: &quot;node build/dev-server.js&quot;,</div><div class="line">  &quot;build&quot;: &quot;node build/build.js&quot;,</div><div class="line">  &quot;unit&quot;: &quot;cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run&quot;,</div><div class="line">  &quot;e2e&quot;: &quot;node test/e2e/runner.js&quot;,</div><div class="line">  &quot;test&quot;: &quot;npm run unit &amp;&amp; npm run e2e&quot;,</div><div class="line">  &quot;lint&quot;: &quot;eslint --ext .js,.vue src test/unit/specs test/e2e/specs&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<p>修改后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;dev&quot;: &quot;node build-scripts/dev-server.js&quot;,</div><div class="line">  &quot;build&quot;: &quot;node build-scripts/build.js&quot;,</div><div class="line">  &quot;unit&quot;: &quot;cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run&quot;,</div><div class="line">  &quot;e2e&quot;: &quot;node test/e2e/runner.js&quot;,</div><div class="line">  &quot;test&quot;: &quot;npm run unit &amp;&amp; npm run e2e&quot;,</div><div class="line">  &quot;lint&quot;: &quot;eslint --ext .js,.vue src test/unit/specs test/e2e/specs&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<p>修改app\build-scripts目录下webpack.dev.conf.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Object.keys(baseWebpackConfig.entry).forEach(function (name) &#123;</div><div class="line">  baseWebpackConfig.entry[name] = [&apos;./build/dev-client&apos;].concat(baseWebpackConfig.entry[name])</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>修改后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Object.keys(baseWebpackConfig.entry).forEach(function (name) &#123;</div><div class="line">  baseWebpackConfig.entry[name] = [&apos;./build-scripts/dev-client&apos;].concat(baseWebpackConfig.entry[name])</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h4 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">project(&apos;:app&apos;) &#123;</div><div class="line"></div><div class="line">  apply plugin: &apos;com.moowork.node&apos;</div><div class="line"></div><div class="line">  task cnpmInstall(type: NpmTask) &#123;</div><div class="line">    group = &apos;node&apos;</div><div class="line">    args = [&apos;install&apos;, &apos;--registry=http://registry.cnpmjs.org&apos;]</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  task buildUI(type: NpmTask, dependsOn: cnpmInstall) &#123;</div><div class="line">    group = &apos;node&apos;</div><div class="line">    args = [&apos;run&apos;, &apos;build&apos;]</div><div class="line">  &#125;</div><div class="line">  jar.dependsOn buildUI</div><div class="line"></div><div class="line">  task runDev(type: NpmTask, dependsOn: cnpmInstall) &#123;</div><div class="line">    group = &apos;node&apos;</div><div class="line">    args = [&apos;run&apos;, &apos;dev&apos;]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h4><p>修改app\config目录下的index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">// see http://vuejs-templates.github.io/webpack for documentation.</div><div class="line">var path = require(&apos;path&apos;)</div><div class="line"></div><div class="line">var assetsRoot = path.resolve(__dirname, &apos;../build/resources/main/app&apos;)</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">  build: &#123;</div><div class="line">    env: require(&apos;./prod.env&apos;),</div><div class="line">    index: path.resolve(assetsRoot, &apos;index.html&apos;),</div><div class="line">    assetsRoot: assetsRoot,</div><div class="line">    assetsSubDirectory: &apos;static&apos;,</div><div class="line">    assetsPublicPath: &apos;/&apos;,</div><div class="line">    productionSourceMap: true,</div><div class="line">    // Gzip off by default as many popular static hosts such as</div><div class="line">    // Surge or Netlify already gzip all static assets for you.</div><div class="line">    // Before setting to `true`, make sure to:</div><div class="line">    // npm install --save-dev compression-webpack-plugin</div><div class="line">    productionGzip: false,</div><div class="line">    productionGzipExtensions: [&apos;js&apos;, &apos;css&apos;],</div><div class="line">    // Run the build command with an extra argument to</div><div class="line">    // View the bundle analyzer report after build finishes:</div><div class="line">    // `npm run build --report`</div><div class="line">    // Set to `true` or `false` to always turn it on or off</div><div class="line">    bundleAnalyzerReport: process.env.npm_config_report</div><div class="line">  &#125;,</div><div class="line">  dev: &#123;</div><div class="line">    env: require(&apos;./dev.env&apos;),</div><div class="line">    port: 3000,</div><div class="line">    autoOpenBrowser: true,</div><div class="line">    assetsSubDirectory: &apos;static&apos;,</div><div class="line">    assetsPublicPath: &apos;/&apos;,</div><div class="line">    proxyTable: &#123;</div><div class="line">      &apos;/api/**&apos;: &apos;http://localhost:8080&apos;</div><div class="line">    &#125;,</div><div class="line">    // CSS Sourcemaps off by default because relative paths are &quot;buggy&quot;</div><div class="line">    // with this option, according to the CSS-Loader README</div><div class="line">    // (https://github.com/webpack/css-loader#sourcemaps)</div><div class="line">    // In our experience, they generally work as expected,</div><div class="line">    // just be aware of this issue when enabling this option.</div><div class="line">    cssSourceMap: false</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>在app目录下执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在idea中，如果安装node_modules到app目录下，会造成idea索引过多导致程序内存不足卡死状态。<br>因此，考虑在其他的位置安装node_modules。<br>貌似没有方法在改目录下直接将package.json中的依赖下载到全局的命令，要么写个脚本解析package.json，然后依次下载，要么在别的地方执行node开发，最终提交代码而已。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/06/spring-boot-vue-webpack开发/" class="archive-article-date">
-  	<time datetime="2017-03-06T06:04:55.137Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-06</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot-vue-webpack/">springboot-vue-webpack</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA基础-NIO" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/03/JAVA基础-NIO/">JAVA基础-NIO</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/03/JAVA基础-NIO/" class="archive-article-date">
-  	<time datetime="2017-03-03T00:41:54.382Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -878,7 +858,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

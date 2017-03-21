@@ -139,6 +139,124 @@
       <div class="body-wrap">
         
   
+    <article id="post-Apache Solr(5.5)帮助文档(6)—开始—快速预览" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/">Apache Solr(5.5)帮助文档(6)-开始-快速预览</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <blockquote>
+<p>A Quick Overview</p>
+</blockquote>
+<p>从前面的内容以及体会到Solr的一些乐趣了，那么下面你将会学习Solr能够做到的所有有趣的事情。<br>下面是Solr与应用交互的示例图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1213316-1ae194417412dd40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Solr 交互示例图"><br>在上面的情景中，Solr与其他的系统应用分开运行。例如，一个在线商城应用，会为终端用户提供用户交互界面，购物车以及购买下单的方式；同时，库存管理系统应用，会允许雇员修改商品信息。商品的元数据会并行保存在数据库和Solr中。<br>按照下面的步骤，可以轻松的在在线商城增加搜索的能力：</p>
+<ul>
+<li>1.定义schema。schema会告知Solr数据如何被索引。在在线商城示例中，schema会定义产品名称，描述，价格，制造商等等字段。在Solr中，schema是一个有力的且灵活的，允许你调整在你自己应用中的Solr的行为。更多信息，请查看Documents,Fields,and Schema Design章节。</li>
+<li>2.在应用服务器上部署Solr。</li>
+<li>3.填充用户需要搜索的document.</li>
+<li>4.在你的应用中提供搜索功能。</li>
+</ul>
+<p>正因为Solr基于开源的标准，它是高度可扩展的。Solr查询是RESTful类别的，就是说，Solr的查询仅仅是一个Http请求的URL，响应是结构化的文档：主要是XML文档，但是也可以是JSON，CSV，或是其他的格式。这就意味着广泛的客户端可以使用Solr，从其他的web应用到浏览器客户端，富客户端应用，移动断应用。任何可以使用HTTP协议的平台，可以使用Solr。更多细节可以查看Client APIS章节。</p>
+<p>Solr基于Apache Lucene项目（高性能，功能全面的搜索引擎），它提供了从简单的关键字搜索到复杂的复合字段和<strong>faceted</strong>搜索。更多的信息，可以查看Seaching章节。<br>如果在你看来，Solr的能力还不是很印象深刻，那么它在大数据容量的应用上的处理能力，将会令你印象深刻。<br>一个相对常见的场景是，你有很多的数据，或是大量的查询，单个Solr服务不能处理你整个数据量。在这种情况下，你可以通过使用SolrCloud来升级你的应用，从而更好的在多个服务器发布数据，处理请求。根据你的应用需要的扩展类别，可以对多个选项可以混合和匹配。<br>例如，“Sharding”是一种扩展技术，该技术可以将一个集合，划分成多个叫做”shards”的逻辑片段，从而是集合中的documents的数量高于在一个物理服务器上的数量。输入的查询语句会被分配到集合中的每一个shard，并且将响应结果进行合并。另一项可用的技术是提升当前集合的”复制因子”，意味着，允许将当前集合的复制到其他的服务器上，通过将请求在这些服务器上进行分发，获得更高的并发查询能力。“Sharding”和“Replication”不是互斥的，可以在一起使用来是Solr变成更有力的和可扩展的平台。<br>当前关于高容量应用的话题并不是假设，某些有名的互联网网站包括：Macy’s，EBay，Zappo’s。<br>更多信息可以查看<a href="https://wiki.apache.org/solr/PublicServers。" target="_blank" rel="external">https://wiki.apache.org/solr/PublicServers。</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/13/Apache Solr(5.5)帮助文档(6)—开始—快速预览/" class="archive-article-date">
+  	<time datetime="2017-02-13T00:39:05.873Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hexo-增加目录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/hexo-增加目录/">hexo-增加目录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p>本文主要是针对yilia主题增加目录显示，其他主题未测，参考地址<a href="http://www.jianshu.com/p/ac853e1afedb" target="_blank" rel="external">这里</a></p>
+<h3 id="修改文章显模板"><a href="#修改文章显模板" class="headerlink" title="修改文章显模板"></a>修改文章显模板</h3><p>文件地址themes\yilia\layout_partial\article.ejs。<br>在<code>&lt;%- post.content %&gt;</code>前增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;% if (!index &amp;&amp; post.toc)&#123; %&gt;</div><div class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</div><div class="line">&lt;strong class=&quot;toc-title&quot;&gt;文章目录&lt;/strong&gt;</div><div class="line">	&lt;%- toc(post.content) %&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="修改md文件"><a href="#修改md文件" class="headerlink" title="修改md文件"></a>修改md文件</h3><p>在每个md文件头，增加<code>toc: true</code>值即可。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/10/hexo-增加目录/" class="archive-article-date">
+  	<time datetime="2017-02-10T00:38:45.094Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Apache Solr(5.5)帮助文档(5)—开始—运行Solr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -639,7 +757,7 @@
 
 
   
-    <article id="post-mybatis 使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mybatis使用1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -649,7 +767,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/mybatis 使用/">Mybatis 使用</a>
+      <a class="article-title" href="/2016/12/23/mybatis使用1/">Mybatis使用（一）</a>
     </h1>
   
 
@@ -659,178 +777,40 @@
       
 	  <!-- Table of Contents -->
 		
-        <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><h2 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h2><h3 id="查询结果集为队列，返回值只有最后一条"><a href="#查询结果集为队列，返回值只有最后一条" class="headerlink" title="查询结果集为队列，返回值只有最后一条"></a>查询结果集为队列，返回值只有最后一条</h3><p>这是在Mybatis版本为3.2.1里发现的。具体情境如下：<br>在mapper配置里，有如下的数据配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;map2&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map1&quot;/&gt;</div><div class="line">    &lt;association property=&quot;XX&quot;  javaType=&quot;cn.com.XXX&quot; resultMap=&quot;map2&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
-<p>在返回值中（调用page分页查询，数据集结果大于1），发现最终的List中只有一条记录，和SQL单独执行时的结果集相比，改记录为最后一条记录。于是跟踪代码，直到<code>FastResultSetHandler.handleRowValues</code>中，发现被<br><code>NestedResultSetHandler</code>类覆盖，而在<code>NestedResultSetHandler</code>类中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protected void handleRowValues(ResultSet rs, ResultMap resultMap, ResultHandler resultHandler, RowBounds rowBounds, ResultColumnCache resultColumnCache) throws SQLException &#123;</div><div class="line">   final DefaultResultContext resultContext = new DefaultResultContext();</div><div class="line">   skipRows(rs, rowBounds);</div><div class="line">   Object rowValue = null;</div><div class="line">   while (shouldProcessMoreRows(rs, resultContext, rowBounds)) &#123;</div><div class="line">     final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(rs, resultMap, null);</div><div class="line">     final CacheKey rowKey = createRowKey(discriminatedResultMap, rs, null, resultColumnCache);</div><div class="line">     Object partialObject = objectCache.get(rowKey);</div><div class="line">     if (partialObject == null &amp;&amp; rowValue != null) &#123; // issue #542 delay calling ResultHandler until object ends</div><div class="line">       if (mappedStatement.isResultOrdered()) objectCache.clear(); // issue #577 clear memory if ordered</div><div class="line">       callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line">     &#125; </div><div class="line">     rowValue = getRowValue(rs, discriminatedResultMap, rowKey, rowKey, null, resultColumnCache, partialObject);</div><div class="line">   &#125;</div><div class="line">   if (rowValue != null) callResultHandler(resultHandler, resultContext, rowValue);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>发现，rowValue被不断地覆盖。</p>
-<p>具体bug<a href="https://github.com/mybatis/mybatis-3/issues/39" target="_blank" rel="external">这里</a><br>如果增加了一个id，则返回正常。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id=&quot;map1&quot; type=&quot;cn.com.XXX&quot; &gt;</div><div class="line">    &lt;id column=&quot;ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">    &lt;result column=&quot;T1_ID&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">     &lt;result column=&quot;XX&quot; property=&quot;XX&quot; jdbcType=&quot;INTEGER&quot;/&gt;</div><div class="line">&lt;/resultMap&gt;</div></pre></td></tr></table></figure></p>
+        <h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>Mybatis是一个ORM框架，目的是减少繁琐的数据库连接代码的编写，同时将SQL语句从代码中分离出来。其中，核心的几个类为</p>
+<ul>
+<li>SqlSessionFactory</li>
+<li>SqlSession</li>
+<li>XXXMapper.java（或XXXDao.java），均为接口</li>
+<li>XXXmapper.xml</li>
+</ul>
+<p>大概描述一下Mybatis的流程</p>
+<ul>
+<li>编写mapper.xml文件，编写sql语句，指定关联的mapper.java</li>
+<li>建立SqlSessionFactory（加载配置文件，配置文件里指定mapper.xml的位置）</li>
+<li>SqlSessionFactory生成SqlSession</li>
+<li>SqlSession生成Mapper.java的实例，执行对应的方法，从而执行相应的sql脚本</li>
+</ul>
+<h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>在Maven项目中，引入对应的jar。当然，也可以替换成源码模式，只需要将Mybatis源码中依赖引入即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;3.4.2&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><p>配置数据库文件conf.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">driver=com.mysql.jdbc.Driver</div><div class="line">url=jdbc:mysql://localhost:3306/leegebe</div><div class="line">username=root</div><div class="line">password=XXX</div></pre></td></tr></table></figure></p>
+<h2 id="mybatis配置文件"><a href="#mybatis配置文件" class="headerlink" title="mybatis配置文件"></a>mybatis配置文件</h2><p>配置mybatis的数据库连接、mapper文件等等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line"></div><div class="line">    &lt;properties resource=&quot;conf.properties&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;typeAliases&gt;</div><div class="line">        &lt;typeAlias type=&quot;com.leegebe.mybatis.model.User&quot; alias=&quot;user&quot; /&gt;</div><div class="line">    &lt;/typeAliases&gt;</div><div class="line"></div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line"></div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mappers/UserMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><p>编写UserMapper.xml文件，在其中编写实际的sql。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE mapper</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</div><div class="line">&lt;mapper namespace=&quot;com.leegebe.mybatis.mapper.UserMapper&quot;&gt;</div><div class="line">    &lt;resultMap id=&quot;baseResultMap&quot; type=&quot;user&quot;&gt;</div><div class="line">        &lt;id column=&quot;USER_ID&quot; property=&quot;userId&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;ID&quot; property=&quot;id&quot; javaType=&quot;int&quot; jdbcType=&quot;INTEGER&quot; /&gt;</div><div class="line">        &lt;result column=&quot;USER_NAME&quot; property=&quot;userName&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;LOGIN_NAME&quot; property=&quot;loginName&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;PASSWORD&quot; property=&quot;password&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;CREATE_TIME&quot; property=&quot;createTime&quot; javaType=&quot;long&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">        &lt;result column=&quot;UPDATE_TIME&quot; property=&quot;updateTime&quot; javaType=&quot;long&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;/resultMap&gt;</div><div class="line"></div><div class="line">    &lt;select id=&quot;selectUser&quot; resultMap=&quot;baseResultMap&quot;&gt;</div><div class="line">        select * from USER where USER_ID = #&#123;userId&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">    &lt;insert id=&quot;insertUser&quot;&gt;</div><div class="line">        INSERT INTO USER(USER_ID,USER_NAME,LOGIN_NAME,PASSWORD,CREATE_TIME,UPDATE_TIME)</div><div class="line">        VALUES(#&#123;userId&#125;,#&#123;userName&#125;,#&#123;loginName&#125;,#&#123;password&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;)</div><div class="line">    &lt;/insert&gt;</div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="数据模型User"><a href="#数据模型User" class="headerlink" title="数据模型User"></a>数据模型User</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class User &#123;</div><div class="line"></div><div class="line">    private int id;</div><div class="line"></div><div class="line">    private String userId;</div><div class="line"></div><div class="line">    private String userName;</div><div class="line"></div><div class="line">    private String loginName;</div><div class="line"></div><div class="line">    private String password;</div><div class="line"></div><div class="line">    private long createTime;</div><div class="line"></div><div class="line">    private long updateTime;</div><div class="line"></div><div class="line">    private int validated;</div><div class="line"></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Mapper-java"><a href="#Mapper-java" class="headerlink" title="Mapper.java"></a>Mapper.java</h2><p>编写UserMapper接口，方法名与UserMapper.xml中的id一致。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * User对象的数据接口</div><div class="line"> */</div><div class="line">public interface UserMapper &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 根据userId查询User对象</div><div class="line">     * @param userId</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    User selectUser(String userId);</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 新增一个用户对象</div><div class="line">     * @param user</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    Integer insertUser(User user);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="SqlSessionFactoryManager"><a href="#SqlSessionFactoryManager" class="headerlink" title="SqlSessionFactoryManager"></a>SqlSessionFactoryManager</h2><p>用于提供SqlSessionFactory的类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class SqlSessionFactoryManager &#123;</div><div class="line"></div><div class="line">    private static SqlSessionFactory factory = null;</div><div class="line"></div><div class="line">    private static String fileName = &quot;mybatis-config.xml&quot;;</div><div class="line"></div><div class="line">    private SqlSessionFactoryManager()&#123;&#125;</div><div class="line"></div><div class="line">    public static void initMapper(String sqlMapperFileName)&#123;</div><div class="line">        fileName = sqlMapperFileName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static SqlSessionFactory getFactory() &#123;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            if(factory == null) &#123;</div><div class="line">                Reader reader = Resources.getResourceAsReader(fileName);</div><div class="line">                SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();</div><div class="line">                factory = builder.build(reader);</div><div class="line">                builder = null;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return factory;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Service中调用"><a href="#Service中调用" class="headerlink" title="Service中调用"></a>Service中调用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class UserService &#123;</div><div class="line"></div><div class="line">    UserMapper userMapper;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 新增User对象</div><div class="line">     * @param user</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public User addUser(User user)&#123;</div><div class="line">        SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();</div><div class="line">        SqlSession sqlSession = factory.openSession(true);</div><div class="line">        userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line">        userMapper.insertUser(user);</div><div class="line">        return user;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 根据UserId查询一个对象</div><div class="line">     * @param userId</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public User selectUser(String userId)&#123;</div><div class="line">        SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();</div><div class="line">        SqlSession sqlSession = factory.openSession(true);</div><div class="line">        userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line">        return userMapper.selectUser(userId);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/23/mybatis 使用/" class="archive-article-date">
+      <a href="/2016/12/23/mybatis使用1/" class="archive-article-date">
   	<time datetime="2016-12-23T08:14:25.878Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-字符集和字符编码(Charset &amp; Encoding)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/字符集和字符编码(Charset & Encoding)/">字符集和字符编码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>###基本<br>在计算机中，所有的数据都是以二进制的形式表示的。屏幕上显示的文本、浏览器中显示的信息，最终都是以01的格式保存在计算机中，<br>我们看到的都是上述内容经过计算机转换后的结果。</p>
-<p>###编码和解码<br>编码是<strong>信息</strong>从一种形式或格式转换为另一种形式的过程。在计算机中，一个字母、汉字等都会按照规则转成二进制数存储。<br>解码是编码的逆过程，解码需要知道编码的规则，如果规则使用错误，就会产生乱码。</p>
-<p>###字符集和字符编码</p>
-<p>####字符集<br>字符集(Charset)：是一个系统支持的所有抽象字符的集合。字符是各种文字和符号的总称，包括各国文字、标点符号、图形符号、数字等。</p>
-<p>####字符编码<br>字符编码（Character Encoding）：是一套法则，使用该法则能够对自然语言的字符的一个集合（如字母表或音节表），<br>与其他东西的一个集合（如号码或电脉冲）进行配对。即在符号集合与数字系统之间建立对应关系，它是信息处理的一项基本技术。<br>通常人们用符号集合（一般情况下就是文字）来表达信息。而以计算机为基础的信息处理系统则是利用元件（硬件）不同状态的组合来存储和处理信息的。<br>元件不同状态的组合能代表数字系统的数字，因此字符编码就是将符号转换为计算机可以接受的数字系统的数，称为数字代码。</p>
-<p>####常用的字符集和字符编码<br>常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、GB18030字符集、Unicode字符集等。<br>计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</p>
-<p>##ASCII<br>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）<br>是基于拉丁字母的一套电脑编码系统。它主要用于显示现代英语，而其扩展版本EASCII则可以勉强显示其他西欧语言。<br>它是现今最通用的单字节编码系统（但是有被Unicode追上的迹象），并等同于国际标准ISO/IEC 646。</p>
-<p><strong>ASCII字符集</strong>：主要包括控制字符（回车键、退格、换行键等）；可显示字符（英文大小写字符、阿拉伯数字和西文符号）。<br><strong>ASCII编码</strong>：将ASCII字符集转换为计算机可以接受的数字系统的数的规则。使用7位（bits）表示一个字符，共128字符；<br>但是7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，<br>ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。ASCII字符集映射到数字编码规则如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1213316-3a2778158b42df56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII 字符代码表一"><br><img src="http://upload-images.jianshu.io/upload_images/1213316-9671ea573f094c83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII字符代码表二"></p>
-<p>ASCII的最大缺点是只能显示26个基本拉丁字母、阿拉伯数目字和英式标点符号，因此只能用于显示现代美国英语<br>（而且在处理英语当中的外来词如naïve、café、élite等等时，所有重音符号都不得不去掉，即使这样做会违反拼写规则）。<br>而EASCII虽然解决了部份西欧语言的显示问题，但对更多其他语言依然无能为力。因此现在的苹果电脑已经抛弃ASCII而转用Unicode。</p>
-<p>##GB编码<br>为了将汉字转换成计算机识别的格式，出现了GB编码。<br>127号之后的奇异符号们（即EASCII）取消掉，规定：一个小于127的字符的意义与原来相同，但<strong>两个大于127的字符连在一起时，就表示一个汉字</strong>，<br>前面的一个字节（他称之为高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。<br>在这些编码里，还把数学符号、罗马希腊的 字母、日文的假名们都编进去了，连在ASCII里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，<br>这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。<br>上述编码规则就是GB2312。GB2312或GB2312-80是中国国家标准简体中文字符集，全称《信息交换用汉字编码字符集·基本集》，又称GB0，<br>由中国国家标准总局发布，1981年5月1日实施。GB2312编码通行于中国大陆；新加坡等地也采用此编码。<br>中国大陆几乎所有的中文系统和国际化的软件都支持GB2312。GB2312的出现，基本满足了汉字的计算机处理需要，<br>它所收录的汉字已经覆盖中国大陆99.75%的使用频率。对于人名、古汉语等方面出现的罕用字，GB2312不能处理，<br>这导致了后来GBK及GB 18030汉字字符集的出现。</p>
-<p>于是厂商微软利用GB 2312-80未使用的编码空间，收录GB 13000.1-93全部字符制定了GBK编码。根据微软资料，GBK是对GB2312-80的扩展，也就是CP936字码表 (Code Page 936)的扩展（之前CP936和GB 2312-80一模一样），最早实现于Windows 95简体中文版。虽然GBK收录GB 13000.1-93的全部字符，但编码方式并不相同。GBK自身并非国家标准，只是曾由国家技术监督局标准化司、电子工业部科技与质量监督司公布为”技术规范指导性文件”。原始GB13000一直未被业界采用，后续国家标准GB18030技术上兼容GBK而非GB13000。</p>
-<p>GB 18030，全称：国家标准GB 18030-2005《信息技术 中文编码字符集》，是中华人民共和国现时最新的内码字集，是GB 18030-2000《信息技术 信息交换用汉字编码字符集 基本集的扩充》的修订版。与GB 2312-1980完全兼容，与GBK基本兼容，支持GB 13000及Unicode的全部统一汉字，共收录汉字70244个。GB 18030主要有以下特点：<br>与UTF-8相同，采用多字节编码，每个字可以由1个、2个或4个字节组成。<br>编码空间庞大，最多可定义161万个字符。<br>支持中国国内少数民族的文字，不需要动用造字区。<br>汉字收录范围包含繁体汉字以及日韩汉字。</p>
-<p>##BIG5码<br>Big5，又称为大五码或五大码，是使用繁体中文（正体中文）社区中最常用的电脑汉字字符集标准，共收录13,060个汉字。中文码分为内码及交换码两类，Big5属中文内码，知名的中文交换码有CCCII、CNS11643。Big5虽普及于台湾、香港与澳门等繁体中文通行区，但长期以来并非当地的国家标准，而只是业界标准。倚天中文系统、Windows等主要系统的字符集都是以Big5为基准，但厂商又各自增加不同的造字与造字区，派生成多种不同版本。2003年，Big5被收录到CNS11643中文标准交换码的附录当中，取得了较正式的地位。这个最新版本被称为Big5-2003。</p>
-<p>##Unicode字符集&amp;UTF编码<br>Unicode编码系统为表达任意语言的任意字符而设计。它使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)。每个数字代表唯一的至少在某种语言中使用的符号。<br>在计算机科学领域中，Unicode（统一码、万国码、单一码、标准万国码）是业界的一种标准，它可以使电脑得以体现世界上数十种文字的系统。Unicode 是基于通用字符集（Universal Character Set）的标准来发展，并且同时也以书本的形式对外发表。Unicode 还不断在扩增， 每个新版本插入更多新的字符。直至目前为止的第六版，Unicode 就已经包含了超过十万个字符（在2005年，Unicode 的第十万个字符被采纳且认可成为标准之一）、一组可用以作为视觉参考的代码图表、一套编码方法与一组标准字符编码、一套包含了上标字、下标字等字符特性的枚举等。Unicode 组织（The Unicode Consortium）是由一个非营利性的机构所运作，并主导 Unicode 的后续发展，其目标在于：将既有的字符编码方案以Unicode 编码方案来加以取代，特别是既有的方案在多语环境下，皆仅有有限的空间以及不兼容的问题。<br>（<strong>可以这样理解：Unicode是字符集，UTF-32/ UTF-16/ UTF-8是三种字符编码方案。有的时候也会用UTF-8表示字符集</strong>）</p>
-<p>###UTF-8<br>UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码（定长码），也是一种前缀码。它可以用来表示Unicode标准中的任何字符，且其编码中的第一个字节仍与ASCII兼容，这使得原来处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。因此，它逐渐成为电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。互联网工程工作小组（IETF）要求所有互联网协议都必须支持UTF-8编码。<br>UTF-8使用一至四个字节为每个字符编码：</p>
-<ol>
-<li>128个US-ASCII字符只需一个字节编码（Unicode范围由U+0000至U+007F）。</li>
-<li>带有附加符号的拉丁文、希腊文、西里尔字母、亚美尼亚语、希伯来文、阿拉伯文、叙利亚文及它拿字母则需要二个字节编码（Unicode范围由U+0080至U+07FF）。</li>
-<li>其他基本多文种平面（BMP）中的字符（这包含了大部分常用字）使用三个字节编码。</li>
-<li>其他极少使用的Unicode辅助平面的字符使用四字节编码。<br>在处理经常会用到的ASCII字符方面非常有效。在处理扩展的拉丁字符集方面也不比UTF-16差。对于中文字符来说，比UTF-32要好。同时，（在这一条上你得相信我，因为我不打算给你展示它的数学原理。）由位操作的天性使然，使用UTF-8不再存在字节顺序的问题了。一份以utf-8编码的文档在不同的计算机之间是一样的比特流。<br>总体来说，在Unicode字符串中不可能由码点数量决定显示它所需要的长度，或者显示字符串之后在文本缓冲区中光标应该放置的位置；组合字符、变宽字体、不可打印字符和从右至左的文字都是其归因。所以尽管在UTF-8字符串中字符数量与码点数量的关系比UTF-32更为复杂，在实际中很少会遇到有不同的情形。<br><strong>优点</strong><br><strong>UTF-8是ASCII的一个超集</strong>。因为一个纯ASCII字符串也是一个合法的UTF-8字符串，所以现存的ASCII文本不需要转换。为传统的扩展ASCII字符集设计的软件通常可以不经修改或很少修改就能与UTF-8一起使用。<br>使用标准的面向字节的排序例程对UTF-8排序将产生与基于Unicode代码点排序相同的结果。（尽管这只有有限的有用性，因为在任何特定语言或文化下都不太可能有仍可接受的文字排列顺序。）<br>UTF-8和UTF-16都是可扩展标记语言文档的标准编码。所有其它编码都必须通过显式或文本声明来指定。<br>任何面向字节的字符串搜索算法都可以用于UTF-8的数据（只要输入仅由完整的UTF-8字符组成）。但是，对于包含字符记数的正则表达式或其它结构必须小心。<br>UTF-8字符串可以由一个简单的算法可靠地识别出来。就是，一个字符串在任何其它编码中表现为合法的UTF-8的可能性很低，并随字符串长度增长而减小。举例说，字符值C0,C1,F5至FF从来没有出现。为了更好的可靠性，可以使用正则表达式来统计非法过长和替代值（可以查看<a href="http://www.w3.org/International/questions/qa-forms-utf-8" target="_blank" rel="external">W3 FAQ: Multilingual Forms</a>上的验证UTF-8字符串的正则表达式）。</li>
-</ol>
-<p><strong>缺点</strong><br>因为每个字符使用不同数量的字节编码，所以寻找串中第N个字符是一个O(N)复杂度的操作 — 即，串越长，则需要更多的时间来定位特定的字符。同时，还需要位变换来把字符编码成字节，把字节解码成字符。</p>
-<p>###UTF-16<br>尽管有Unicode字符非常多，但是实际上大多数人不会用到超过前65535个以外的字符。因此，就有了另外一种Unicode编码方式，叫做UTF-16(因为16位 = 2字节)。UTF-16将0–65535范围内的字符编码成2个字节，如果真的需要表达那些很少使用的”星芒层(astral plane)”内超过这65535范围的Unicode字符，则需要使用一些诡异的技巧来实现。UTF-16编码最明显的优点是它在空间效率上比UTF-32高两倍，因为每个字符只需要2个字节来存储（除去65535范围以外的），而不是UTF-32中的4个字节。并且，如果我们假设某个字符串不包含任何星芒层中的字符，那么我们依然可以在常数时间内找到其中的第N个字符，直到它不成立为止这总是一个不错的推断。其编码方法是：<br>如果字符编码U小于0x10000，也就是十进制的0到65535之内，则直接使用两字节表示；<br>如果字符编码U大于0x10000，由于UNICODE编码范围最大为0x10FFFF，从0x10000到0x10FFFF之间 共有0xFFFFF个编码，也就是需要20个bit就可以标示这些编码。用U’表示从0-0xFFFFF之间的值，将其前 10 bit作为高位和16 bit的数值0xD800进行 逻辑or 操作，将后10 bit作为低位和0xDC00做 逻辑or 操作，这样组成的 4个byte就构成了U的编码。</p>
-<p>对于UTF-32和UTF-16编码方式还有一些其他不明显的缺点。不同的计算机系统会以不同的顺序保存字节。这意味着字符U+4E2D在UTF-16编码方式下可能被保存为4E 2D或者2D 4E，这取决于该系统使用的是大尾端(big-endian)还是小尾端(little-endian)。（对于UTF-32编码方式，则有更多种可能的字节排列。）只要文档没有离开你的计算机，它还是安全的——同一台电脑上的不同程序使用相同的字节顺序(byte order)。但是当我们需要在系统之间传输这个文档的时候，也许在万维网中，我们就需要一种方法来指示当前我们的字节是怎样存储的。不然的话，接收文档的计算机就无法知道这两个字节4E 2D表达的到底是U+4E2D还是U+2D4E。<br>为了解决这个问题，多字节的Unicode编码方式定义了一个”字节顺序标记(Byte Order Mark)”，它是一个特殊的非打印字符，你可以把它包含在文档的开头来指示你所使用的字节顺序。对于UTF-16，字节顺序标记是U+FEFF。如果收到一个以字节FF FE开头的UTF-16编码的文档，你就能确定它的字节顺序是单向的(one way)的了；如果它以FE FF开头，则可以确定字节顺序反向了。</p>
-<p>###UTF-32<br>上述使用4字节的数字来表达每个字母、符号，或者表意文字(ideograph)，每个数字代表唯一的至少在某种语言中使用的符号的编码方案，称为UTF-32。UTF-32又称<strong>UCS-4</strong>是一种将Unicode字符编码的协定，对每个字符都使用4字节。就空间而言，是非常没有效率的。<br>这种方法有其优点，最重要的一点就是可以在常数时间内定位字符串里的第N个字符，因为第N个字符从第4×Nth个字节开始。虽然每一个码位使用固定长定的字节看似方便，它并不如其它Unicode编码使用得广泛。</p>
-<p>##HTTP中编码相关<br>在HTTP中，与字符集和字符编码相关的消息头是Accept-Charset/Content-Type，另外主区区分Accept-Charset/Accept-Encoding/Accept-Language/Content-Type/Content-Encoding/Content-Language：<br>Accept-Charset：浏览器申明自己接收的字符集，这就是本文前面介绍的各种字符集和字符编码，如gb2312，utf-8（通常我们说Charset包括了相应的字符编码方案）；<br>Accept-Encoding：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate），（注意：这不是只字符编码）；<br>Accept-Language：浏览器申明自己接收的语言。语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；<br>Content-Type：WEB服务器告诉浏览器自己响应的对象的类型和字符集。例如：Content-Type: text/html; charset=’gb2312’（有时候也会写为utf-8字符集）<br>Content-Encoding：WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip<br>Content-Language：WEB服务器告诉浏览器自己响应的对象的语言。</p>
-<p>来源：<a href="http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html" target="_blank" rel="external">http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html</a></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/23/字符集和字符编码(Charset & Encoding)/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:08.092Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/charset/">charset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encoding/">encoding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符集/">字符集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编码/">编码</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java代理实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/23/java代理实现/">JAVA 代理模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>代理，Proxy，在程序开发中有非常重要的作用。在Spring中，使用广泛的AOP，就是利用动态代理实现的。此为，Mybatis中，mapper类文件，也是通过动态代理，<br>生成MybatisFactoryBean。</p>
-<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>静态代理，原理上是：</p>
-<ul>
-<li>借口I，它的实现类Impl(实现类是要被代理的类)</li>
-<li>我们想要在Impl中的某个方法action()调用（或是全部方法调用）前（或后），添加一些其他的方法doBefor()/doAfter()，这时我们<br>需要有代理类ProxyImpl；</li>
-<li>代理类需要实现接口I，同时，代理类的成员变量里，有Impl类的变量impl；</li>
-<li>重写ProxyImpl类中的action()方法，调用doBefore()，然后调用impl的action，然后调用impl的doAfter()方法；</li>
-<li>实际使用中，实例化ProxyImpl变量proxyImpl，调用proxyImpl的action()方法，即实现了代理的调用。</li>
-</ul>
-<p>静态代理的一个问题就是，一般必须对每个实现类都生成一个代理类，才能达到我们需要的效果。</p>
-<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理的机制是，在程序运行时，利用反射生成动态代理的字节码，spring中AOP的实现，都是在spring初始化的时候，生成代理对象。</p>
-<h4 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h4><h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>在JDK提供里，java.lang.reflect 包中的Proxy类和InvocationHandler 接口提供了生成动态代理类的能力。</p>
-<ul>
-<li><p>接口Hello.java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author  leegebe</div><div class="line"> *</div><div class="line"> */</div><div class="line">public interface Hello &#123;</div><div class="line"></div><div class="line">    void sayHello();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>实现类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author  leegebe</div><div class="line"> *</div><div class="line"> */</div><div class="line">public class HelloImpl implements Hello &#123;</div><div class="line"></div><div class="line">    public void sayHello() &#123;</div><div class="line">        System.out.println(&quot;一个普通的实现类&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>代理类<br>代理类需要实现<code>InvocationHandler.java</code>接口，然后调用Proxy.newProxyInstance方法，其中，参数为</p>
-</li>
-<li>ClasserLoader</li>
-<li>实现类的所有接口类</li>
-<li>动态代理对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">package com.leegebe.proxy;</div><div class="line"></div><div class="line">import java.lang.reflect.InvocationHandler;</div><div class="line">import java.lang.reflect.Method;</div><div class="line">import java.lang.reflect.Proxy;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @author leegebe</div><div class="line"> * JDK的动态代理</div><div class="line"> */</div><div class="line">public class JdkProxy implements InvocationHandler &#123;</div><div class="line"></div><div class="line">    private Object target;</div><div class="line"></div><div class="line">    public JdkProxy(Object target)&#123;</div><div class="line">        this.target = target;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void before()&#123;</div><div class="line">        System.out.println(&quot;before方法&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void after()&#123;</div><div class="line">        System.out.println(&quot;after方法&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</div><div class="line">        before();</div><div class="line">        Object result = method.invoke(target,args);</div><div class="line">        after();</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        System.getProperties().put(&quot;sun.misc.ProxyGenerator.saveGeneratedFiles&quot;, &quot;true&quot;);</div><div class="line">        Hello hello = new HelloImpl();</div><div class="line">        JdkProxy jdkProxy = new JdkProxy(hello);</div><div class="line">        Hello proxyed = (Hello) Proxy.newProxyInstance(hello.getClass().getClassLoader(),hello.getClass().getInterfaces(),jdkProxy);</div><div class="line">        proxyed.sayHello();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p>JDK动态代理，我们可以看到其调用过程。<br>jdkProxy.main()-&gt;Proxy.newProxyInstance()-&gt;Proxy.getProxyClass0()-&gt;WeakCache.get()-&gt;<br>Factory.get()-&gt;Proxy.apply()-&gt;ProxyGenerator.generateProxyClass()</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/23/java代理实现/" class="archive-article-date">
-  	<time datetime="2016-12-23T08:14:08.092Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理/">代理</a></li></ul>
 	</div>
 
       
@@ -915,7 +895,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 12.5px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
     			</div>
     	</section>
     

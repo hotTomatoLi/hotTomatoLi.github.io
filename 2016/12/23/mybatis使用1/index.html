@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>Mybatis使用（一） | li</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MybatisMybatis是一个ORM框架，目的是减少繁琐的数据库连接代码的编写，同时将SQL语句从代码中分离出来。其中，核心的几个类为
+
+SqlSessionFactory
+SqlSession
+XXXMapper.java（或XXXDao.java），均为接口
+XXXmapper.xml
+
+大概描述一下Mybatis的流程
+
+编写mapper.xml文件，编写sql语句，指定关联的mappe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis使用（一）">
+<meta property="og:url" content="http://yoursite.com/2016/12/23/mybatis使用1/index.html">
+<meta property="og:site_name" content="li">
+<meta property="og:description" content="MybatisMybatis是一个ORM框架，目的是减少繁琐的数据库连接代码的编写，同时将SQL语句从代码中分离出来。其中，核心的几个类为
+
+SqlSessionFactory
+SqlSession
+XXXMapper.java（或XXXDao.java），均为接口
+XXXmapper.xml
+
+大概描述一下Mybatis的流程
+
+编写mapper.xml文件，编写sql语句，指定关联的mappe">
+<meta property="og:updated_time" content="2017-03-17T07:55:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mybatis使用（一）">
+<meta name="twitter:description" content="MybatisMybatis是一个ORM框架，目的是减少繁琐的数据库连接代码的编写，同时将SQL语句从代码中分离出来。其中，核心的几个类为
+
+SqlSessionFactory
+SqlSession
+XXXMapper.java（或XXXDao.java），均为接口
+XXXmapper.xml
+
+大概描述一下Mybatis的流程
+
+编写mapper.xml文件，编写sql语句，指定关联的mappe">
+  
+    <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">hotTomatoLi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">hotTomatoLi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">hotTomatoLi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-mybatis使用1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mybatis使用（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mybatis"><span class="toc-number">1.</span> <span class="toc-text">Mybatis</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建"><span class="toc-number">2.</span> <span class="toc-text">搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖"><span class="toc-number">2.1.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库配置"><span class="toc-number">2.2.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis配置文件"><span class="toc-number">2.3.</span> <span class="toc-text">mybatis配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-xml"><span class="toc-number">2.4.</span> <span class="toc-text">mapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型User"><span class="toc-number">2.5.</span> <span class="toc-text">数据模型User</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mapper-java"><span class="toc-number">2.6.</span> <span class="toc-text">Mapper.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SqlSessionFactoryManager"><span class="toc-number">2.7.</span> <span class="toc-text">SqlSessionFactoryManager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service中调用"><span class="toc-number">2.8.</span> <span class="toc-text">Service中调用</span></a></li></ol></li></ol>
+		</div>
+		
+        <h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>Mybatis是一个ORM框架，目的是减少繁琐的数据库连接代码的编写，同时将SQL语句从代码中分离出来。其中，核心的几个类为</p>
+<ul>
+<li>SqlSessionFactory</li>
+<li>SqlSession</li>
+<li>XXXMapper.java（或XXXDao.java），均为接口</li>
+<li>XXXmapper.xml</li>
+</ul>
+<p>大概描述一下Mybatis的流程</p>
+<ul>
+<li>编写mapper.xml文件，编写sql语句，指定关联的mapper.java</li>
+<li>建立SqlSessionFactory（加载配置文件，配置文件里指定mapper.xml的位置）</li>
+<li>SqlSessionFactory生成SqlSession</li>
+<li>SqlSession生成Mapper.java的实例，执行对应的方法，从而执行相应的sql脚本</li>
+</ul>
+<h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>在Maven项目中，引入对应的jar。当然，也可以替换成源码模式，只需要将Mybatis源码中依赖引入即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;3.4.2&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><p>配置数据库文件conf.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">driver=com.mysql.jdbc.Driver</div><div class="line">url=jdbc:mysql://localhost:3306/leegebe</div><div class="line">username=root</div><div class="line">password=XXX</div></pre></td></tr></table></figure></p>
+<h2 id="mybatis配置文件"><a href="#mybatis配置文件" class="headerlink" title="mybatis配置文件"></a>mybatis配置文件</h2><p>配置mybatis的数据库连接、mapper文件等等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE configuration</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line"></div><div class="line">    &lt;properties resource=&quot;conf.properties&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;typeAliases&gt;</div><div class="line">        &lt;typeAlias type=&quot;com.leegebe.mybatis.model.User&quot; alias=&quot;user&quot; /&gt;</div><div class="line">    &lt;/typeAliases&gt;</div><div class="line"></div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line"></div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mappers/UserMapper.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><p>编写UserMapper.xml文件，在其中编写实际的sql。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE mapper</div><div class="line">        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</div><div class="line">        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</div><div class="line">&lt;mapper namespace=&quot;com.leegebe.mybatis.mapper.UserMapper&quot;&gt;</div><div class="line">    &lt;resultMap id=&quot;baseResultMap&quot; type=&quot;user&quot;&gt;</div><div class="line">        &lt;id column=&quot;USER_ID&quot; property=&quot;userId&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;ID&quot; property=&quot;id&quot; javaType=&quot;int&quot; jdbcType=&quot;INTEGER&quot; /&gt;</div><div class="line">        &lt;result column=&quot;USER_NAME&quot; property=&quot;userName&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;LOGIN_NAME&quot; property=&quot;loginName&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;PASSWORD&quot; property=&quot;password&quot; javaType=&quot;String&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">        &lt;result column=&quot;CREATE_TIME&quot; property=&quot;createTime&quot; javaType=&quot;long&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">        &lt;result column=&quot;UPDATE_TIME&quot; property=&quot;updateTime&quot; javaType=&quot;long&quot; jdbcType=&quot;BIGINT&quot; /&gt;</div><div class="line">    &lt;/resultMap&gt;</div><div class="line"></div><div class="line">    &lt;select id=&quot;selectUser&quot; resultMap=&quot;baseResultMap&quot;&gt;</div><div class="line">        select * from USER where USER_ID = #&#123;userId&#125;</div><div class="line">    &lt;/select&gt;</div><div class="line"></div><div class="line">    &lt;insert id=&quot;insertUser&quot;&gt;</div><div class="line">        INSERT INTO USER(USER_ID,USER_NAME,LOGIN_NAME,PASSWORD,CREATE_TIME,UPDATE_TIME)</div><div class="line">        VALUES(#&#123;userId&#125;,#&#123;userName&#125;,#&#123;loginName&#125;,#&#123;password&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;)</div><div class="line">    &lt;/insert&gt;</div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="数据模型User"><a href="#数据模型User" class="headerlink" title="数据模型User"></a>数据模型User</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class User &#123;</div><div class="line"></div><div class="line">    private int id;</div><div class="line"></div><div class="line">    private String userId;</div><div class="line"></div><div class="line">    private String userName;</div><div class="line"></div><div class="line">    private String loginName;</div><div class="line"></div><div class="line">    private String password;</div><div class="line"></div><div class="line">    private long createTime;</div><div class="line"></div><div class="line">    private long updateTime;</div><div class="line"></div><div class="line">    private int validated;</div><div class="line"></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Mapper-java"><a href="#Mapper-java" class="headerlink" title="Mapper.java"></a>Mapper.java</h2><p>编写UserMapper接口，方法名与UserMapper.xml中的id一致。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * User对象的数据接口</div><div class="line"> */</div><div class="line">public interface UserMapper &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 根据userId查询User对象</div><div class="line">     * @param userId</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    User selectUser(String userId);</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 新增一个用户对象</div><div class="line">     * @param user</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    Integer insertUser(User user);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="SqlSessionFactoryManager"><a href="#SqlSessionFactoryManager" class="headerlink" title="SqlSessionFactoryManager"></a>SqlSessionFactoryManager</h2><p>用于提供SqlSessionFactory的类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class SqlSessionFactoryManager &#123;</div><div class="line"></div><div class="line">    private static SqlSessionFactory factory = null;</div><div class="line"></div><div class="line">    private static String fileName = &quot;mybatis-config.xml&quot;;</div><div class="line"></div><div class="line">    private SqlSessionFactoryManager()&#123;&#125;</div><div class="line"></div><div class="line">    public static void initMapper(String sqlMapperFileName)&#123;</div><div class="line">        fileName = sqlMapperFileName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static SqlSessionFactory getFactory() &#123;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            if(factory == null) &#123;</div><div class="line">                Reader reader = Resources.getResourceAsReader(fileName);</div><div class="line">                SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();</div><div class="line">                factory = builder.build(reader);</div><div class="line">                builder = null;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return factory;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Service中调用"><a href="#Service中调用" class="headerlink" title="Service中调用"></a>Service中调用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class UserService &#123;</div><div class="line"></div><div class="line">    UserMapper userMapper;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 新增User对象</div><div class="line">     * @param user</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public User addUser(User user)&#123;</div><div class="line">        SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();</div><div class="line">        SqlSession sqlSession = factory.openSession(true);</div><div class="line">        userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line">        userMapper.insertUser(user);</div><div class="line">        return user;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 根据UserId查询一个对象</div><div class="line">     * @param userId</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public User selectUser(String userId)&#123;</div><div class="line">        SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();</div><div class="line">        SqlSession sqlSession = factory.openSession(true);</div><div class="line">        userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line">        return userMapper.selectUser(userId);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/23/mybatis使用1/" class="archive-article-date">
+  	<time datetime="2016-12-23T08:14:25.878Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/26/ELE_SHOP开发过程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ELE_SHOP开发
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/23/字符集和字符编码(Charset & Encoding)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符集和字符编码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 hotTomatoLi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">从小听过了很多大道理&lt;br&gt;&lt;br&gt;却依旧过不好这一生</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
