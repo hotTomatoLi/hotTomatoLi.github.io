@@ -139,6 +139,142 @@
       <div class="body-wrap">
         
   
+    <article id="post-JAVA基础-事务-spring事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/JAVA基础-事务-spring事务/">JAVA基础-事务-spring事务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <p># </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/07/JAVA基础-事务-spring事务/" class="archive-article-date">
+  	<time datetime="2017-03-07T00:12:21.731Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事务/">事务</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA基础-事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/JAVA基础-事务/">JAVA基础-事务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>事务是一步或多步组成操作序列组成的逻辑执行单元，这个序列要么全部执行，要么则全部放弃执行。<br>事务的四个特性</p>
+<ul>
+<li>原子性 Atomicity</li>
+<li>一致性 Consistency</li>
+<li>隔离性 IsoIation</li>
+<li>持续性 Durability</li>
+</ul>
+<p>原子性（Atomicity）：事务应用最小的执行单元，不可再分。是事务中不可再分的最小逻辑执行体。<br>一致性（Consistency）：事务的执行结果，必须使数据库的从一个一致性的状态变到另一个一致性的状态。<br>隔离线（IsoIation）：各个事务的执行互不干扰，任意一个事务的内部操作对其他并发的事务，都是隔离的。也就是：并发执行的事务之间不能看到对方的中间状态，并发执行的事务之间不能互相影响。<br>持续性（Durability）：持续性也称为持久性（Persistence），指事务一旦提交，对数据所做的任何改变，都要记录到永久存储器中，通常就是保存在物理数据库中。</p>
+<h2 id="事务并发的问题"><a href="#事务并发的问题" class="headerlink" title="事务并发的问题"></a>事务并发的问题</h2><ul>
+<li>脏读 dirty read</li>
+<li>不可重复读 non-repeatable read</li>
+<li>幻读 phantom read</li>
+</ul>
+<p>脏读（dirty read）：一个事务读取了另一个事务尚未提交的数据，而这个数据是有可能回滚。   </p>
+<p>不可重复读（non-repeatable read）：一个事务的操作导致另一个事务前后两次读到不同的数据。不可重复读意味着，<br>在数据库访问中，一个事务范围内两个相同的查询却返回了不同数据。这是由于查询时系统中其他事务修改的提交而引起的。   </p>
+<p>幻读（phantom read）：一个事务的操作导致另一个事务前后两次查询的结果数据量不同。幻读,是指当事务不是独立执行时发生<br>的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。<br>同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，<br>以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样.。   </p>
+<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p>在数据库系统中，事务的隔离级别（Isolation ）决定了该事务的完整性，低级别的事务隔离级别增强了多用户同时访问数据的能力，<br>但是也加大了并发产生负面影响的可能性（脏读，丢失更新等等）。<br>标准的事务隔离级别定义如下：</p>
+<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p>最高的隔离级别，在基于锁机制的并发控制的数据库系统中，Serializable要求在选中数据上的读锁和写锁在事务结束时才释放。<br>在不基于锁的并发控制机制中，系统检测到事务有写冲突时，只有一个事务能够提交。</p>
+<h3 id="Repeatable-reads"><a href="#Repeatable-reads" class="headerlink" title="Repeatable reads"></a>Repeatable reads</h3><p>基于锁的并发控制中，会对选定的对象进行读锁和写锁，但没有范围锁，因此会有幻读。</p>
+<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>基于锁的并发控制中，选中对象的写锁会一直保持到事务结束，但是读锁在SELECT语句后会立即释放，会产出不可重复读。</p>
+<h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>最低级别的隔离级别，允许脏读，其他事务可以看到当前事务未提交的修改。</p>
+<h1 id="Java-JDBC事务机制"><a href="#Java-JDBC事务机制" class="headerlink" title="Java JDBC事务机制"></a>Java JDBC事务机制</h1><p>JDBC的事务基于Connection，通过Connection对象对事务进行管理。<code>setAutoCommit</code>、<code>commit</code>、<code>rollback</code>等。</p>
+<ul>
+<li>自动提交模式 auto-commit mode，auto-commit 为true</li>
+<li>auto-commit为false，每个事务都必须显示调用commit方法进行提交，或者显示调用rollback方法进行回滚</li>
+</ul>
+<h2 id="事务隔离级别（Transaction-Isolation-Levels）"><a href="#事务隔离级别（Transaction-Isolation-Levels）" class="headerlink" title="事务隔离级别（Transaction Isolation Levels）"></a>事务隔离级别（Transaction Isolation Levels）</h2><ul>
+<li>TRANSACTION_NONE JDBC驱动不支持事务</li>
+<li>TRANSACTION_READ_UNCOMMITTED 允许脏读、不可重复读和幻读</li>
+<li>TRANSACTION_READ_COMMITTED 禁止脏读，但允许不可重复读和幻读</li>
+<li>TRANSACTION_REPEATABLE_READ 禁止脏读和不可重复读，允许幻读</li>
+<li>TRANSACTION_SERIALIZABLE 禁止脏读、不可重复读和幻读</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/06/JAVA基础-事务/" class="archive-article-date">
+  	<time datetime="2017-03-06T08:54:09.645Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事务/">事务</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-spring-boot-vue-webpack开发" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -240,7 +376,31 @@
       
 	  <!-- Table of Contents -->
 		
-        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1>
+        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1><p>IO，指的是计算机与外部世界或者一个程序与计算机的其余部分的之间的接口。<br>JAVA中，传统IO使用流的方式来完成IO。IO都视为单个字节的移动，通过Stream对象一次一个字节（即使是字符流，也是依赖字节流）。<br>NIO创建的目的是为了实现高速IO，无需编写自定义的本机代码，将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。</p>
+<h1 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h1><p>原来的I/O库(在<code>java.io.*</code>中)与NIO最重要的区别是数据打包和传输的方式。正如前面提到的，原来的I/O以流的方式处理数据，而NIO以块的方式处理数据。<br>面向流的I/O系统一次一个字节地处理数据。一个输入流产生一个字节的数据，一个输出流消费一个字节的数据。为流式数据创建过滤器非常容易。链接几个过滤器，以便每个过滤器只负责单个复杂处理机制的一部分，这样也是相对简单的。不利的一面是，面向流的I/O通常相当慢。<br>一个面向块的I/O系统以块的形式处理数据。每一个操作都在一步中产生或者消费一个数据块。按块处理数据比按(流式的)字节处理数据要快得多。但是面向块的I/O缺少一些面向流的I/O所具有的优雅性和简单性。</p>
+<ul>
+<li>在JDK1.4中原来的I/O包和NIO已经很好地集成了。 <code>java.io.*</code>已经以NIO为基础重新实现了，所以现在它可以利用NIO的一些特性。例如，<code>java.io.*</code>包中的一些类包含以块的形式读写数据的方法，这使得即使在更面向流的系统中，处理速度也会更快。</li>
+<li>也可以用NIO库实现标准I/O功能。例如，可以容易地使用块I/O一次一个字节地移动数据。</li>
+</ul>
+<h1 id="通道Channels和缓冲区Buffers"><a href="#通道Channels和缓冲区Buffers" class="headerlink" title="通道Channels和缓冲区Buffers"></a>通道<code>Channels</code>和缓冲区<code>Buffers</code></h1><p>NIO中的核心就是<code>Channels</code>和<code>Buffers</code>。<code>Channels</code>模拟的是原IO中的流的概念，到任何目的地或是来自任何地方的所有数据都必须通过一个<code>Channels</code>对象。<code>Buffers</code>对象实际上作为一个容器，所有发送到<code>Channels</code>的数据必须先放到<code>Buffers</code>，所有从<code>Channels</code>中读取的数据必须首先存储到<code>Buffers</code>。</p>
+<h2 id="缓冲区Buffers"><a href="#缓冲区Buffers" class="headerlink" title="缓冲区Buffers"></a>缓冲区<code>Buffers</code></h2><p><code>Buffers</code>是一个对象，包含要写入或读出的数据。在原IO中，数据是直接写入Stream或从Stream中读取，而在NIO中，所有数据都必须经过<code>Buffers</code>。</p>
+<ul>
+<li>读取数据，是从缓冲区<code>Buffers</code>对象中读取数据；</li>
+<li>写入数据，是将数据写入到缓冲区<code>Buffers</code>对象中；</li>
+</ul>
+<p>缓冲区的本质是数组，但是提供了额外功能：对数据的结构化访问，跟踪读写进程。</p>
+<h3 id="缓冲区Buffers类型"><a href="#缓冲区Buffers类型" class="headerlink" title="缓冲区Buffers类型"></a>缓冲区<code>Buffers</code>类型</h3><ul>
+<li>ByteBuffer（最常用）</li>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer</li>
+</ul>
+<p>每一个 Buffer 类都是 Buffer 接口的一个实例。 除了 ByteBuffer，每一个 Buffer 类都有完全一样的操作，只是它们所处理的数据类型不一样。</p>
+<h2 id="通道Channels"><a href="#通道Channels" class="headerlink" title="通道Channels"></a>通道<code>Channels</code></h2><p>通道类似原IO中的流的概念，可以使用<code>Channel</code>来写入或读取数据，但是通道是双向的（可同时用于读或写），流是单向的。<br>一个或多个字节写入到缓冲区然后在写入到通道，或是从通道中读取一个或多个字节到缓冲区。</p>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -444,7 +604,9 @@
 <li>close()</li>
 </ul>
 <h4 id="BufferedOutputStream"><a href="#BufferedOutputStream" class="headerlink" title="BufferedOutputStream"></a>BufferedOutputStream</h4><p>实际上也是调用了自己内部的OutputStream的方法实现输出数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testBufferedOutputStrean() throws IOException &#123;</div><div class="line">    File file = new File(&quot;E:\\2.txt&quot;);</div><div class="line">    if(!file.exists())&#123;</div><div class="line">        file.createNewFile();</div><div class="line">    &#125;</div><div class="line">    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));</div><div class="line">    bufferedOutputStream.write(46);</div><div class="line">    bufferedOutputStream.write(47);</div><div class="line">    bufferedOutputStream.write(48);</div><div class="line">    bufferedOutputStream.write(49);</div><div class="line">    bufferedOutputStream.flush();</div><div class="line">    bufferedOutputStream.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2>
+<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><p>在JAVA程序中，一个字符为16位，提供了Reader和Writer用于操作字符流。</p>
+<h3 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h3><p>读取字符流的抽象类，需要子类必须实现的方法有<code>read(char[], int, int)</code> 和 <code>close()</code>。但是子类也会实现其他方法，以提高效率或是增强功能。<br>实际上，在Reader的具体实现类中，往往依赖InputStream。在<code>InputStreamReader</code>中，需要给定输入流<code>InputStream</code>。</p>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -532,7 +694,7 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JAVA基础—volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -542,7 +704,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/">Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面</a>
+      <a class="article-title" href="/2017/02/20/JAVA基础—volatile关键字/">JAVA基础—volatile关键字</a>
     </h1>
   
 
@@ -552,40 +714,81 @@
       
 	  <!-- Table of Contents -->
 		
-        <p>Documents界面提供了一个简单的表单组件，该组件允许你通过浏览器，使用不同的格式执行索引相关的命令。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3fae3b5549040297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Documents界面"></p>
-<p>在该界面可以执行以下操作：</p>
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>volatile</code>关键字可以用来修饰变量，是JAVA提供的轻量级的同步机制。</p>
+<p>##特性</p>
+<h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>“可见性”指的是<code>volatile</code>变量的读取。<code>volatile</code>变量对于所有的线程可见，字面含义是，如果一个线程修改了该变量值，其他的线程可以立即查看到变化，可以看到<br>该变量最后写入的值。</p>
+<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>对单个<code>volatile</code>变量的读/写具有原子性。</p>
+<h2 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h2><p><code>volatile</code>具有可见性，但并不代表其实并发安全的。考虑多个线程，每个线程都读取<code>volatile</code>变量到线程工作空间，此时各个线程认为自己得到的是最新的数据，<br>操作（自增等），数据同步回主内存时，会有部分线程的数据被覆盖掉。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/JAVA基础—volatile关键字/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-软件架构-MVC,MVP,MVVM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/软件架构-MVC,MVP,MVVM/">软件架构—MVC,MVP,MVVM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>主要探讨当前热门的<strong>MVC</strong>,<strong>MVP</strong>,<strong>MVVM</strong>的含义，主要参考<a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">阮一峰的MVC，MVP 和 MVVM 的图示</a>。</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC，Model-View-Controller。</p>
 <ul>
-<li>以JSON、CSV或XML格式复制documents，并且提交到索引；</li>
-<li>上传documents（JSON、CSV和XML格式）文件；</li>
-<li>通过选取fields和fields值构建documents；</li>
-</ul>
-<p>首先定义使用的RequestHandler（也就是’qt’）。默认使用的是<code>/update</code>。如果要换成其他的Handler，例如使用Solr Cell，改变request handler为<code>/update/extract</code>。</p>
-<p>然后选择Document类别，来定义载入的document的类别。剩下的参数会根据选取的document type不同而有所不同。</p>
-<p>###JSON<br>使用JSON的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足JSON格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）；以及if a document boost should be applied。</p>
-<p>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
-<h3 id="CSV"><a href="#CSV" class="headerlink" title="CSV"></a>CSV</h3><p>使用CSV的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足CSV格式。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
-<h3 id="Document-Builder"><a href="#Document-Builder" class="headerlink" title="Document Builder"></a>Document Builder</h3><p>Document Builder选项提供了一个向导界面来输入一个document的field。</p>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>文件上传选项允许选择一个准备好的文件并上传。如果在Request Handler选项中选择<code>/update</code>，文件格式将被限制在XML、CSV和JSON中。<br>此外，如果要使用ExtractingRequestHandler（也就是Solr Cell），可以将选项值改为<code>/update/extract</code>。必须在solrconfig.xml中定义这个handler，定义好期望的默认值。同时需要更新的是ExtractingRequestHandler参数中的&amp;literal.id，这样选择的文件才能指定唯一ID。</p>
-<p>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。</p>
-<h3 id="Solr-Command"><a href="#Solr-Command" class="headerlink" title="Solr Command"></a>Solr Command</h3><p>Solr Command选项允许你通过XML或JSON在documents上执行特殊的操作，例如决定document是否新增或是删除，更新documents的特定fields，或是在索引上执行和优化命令。<br>如果在命令行选择<code>/uppdate</code>选项，document需要按照规则组织。</p>
-<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>使用XML的document类别的功效与在命令行使用requestHandler时一样的。这些数据可以放在一个Document输入框中，而无须放到一个curl命令中。这些document数据的需要满足XML格式，每个document之间用<code>&lt;doc&gt;</code>标签分隔，并且每个field都已经定义。<br>输入完后，可以决定何时将document加入到索引；是否输入同样ID的document时，已经存在的数据会被覆盖（如果否，输入的数据会被丢弃）。<br>这些选项只能够新增索引，或是覆盖现有document；如果需要更新操作，请查看Solr Command 选项。</p>
-<h3 id="相关的主题"><a href="#相关的主题" class="headerlink" title="相关的主题"></a>相关的主题</h3><ul>
-<li>Uploading Data with Index Handlers</li>
-<li>Uploading Data with Solr Cell using Apache Tika</li>
+<li>View，视图层，主要指用户界面</li>
+<li>Model，数据模型层，指的是交互的数据模型</li>
+<li>Controller，控制层，主要是接受View层的请求，处理执行逻辑，得到数据模型Model，讲数据模型传递给View层。</li>
 </ul>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(20)-使用Solr管理交互界面—指定Core的工具—Documents界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:55:56.345Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+      <a href="/2017/02/20/软件架构-MVC,MVP,MVVM/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.630Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件架构/">软件架构</a></li></ul>
 	</div>
 
       
@@ -605,7 +808,7 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JAVA中级-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -615,7 +818,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/">Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info</a>
+      <a class="article-title" href="/2017/02/20/JAVA中级-内存模型/">JAVA中级—内存模型</a>
     </h1>
   
 
@@ -625,22 +828,21 @@
       
 	  <!-- Table of Contents -->
 		
-        <blockquote>
-<p>Segments Info</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9ed8d71431a91465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Segments Info"><br>Segments 信息界面提供了在lucene中索引的不同的片段的可视化界面，包括了每个片段的大小（字节信息和document的数量）、片段的基本元数据、以及删除了的document的个数。<br>上面的信息可以帮助人们对他们的数据的最优合并配置做出更好的决策。</p>
+        <p>注意：个人学习总结</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>并发程序的出现，由于计算机的运算速度与其通信子系统的速度的过大的差距。IO、数据库访问等操作耗费了大量的时间。<br>等待上述操作同时，可以利用处理器进行其他的工作。<br>并发的一个常见的例子就是服务器同时响应多个客户端的请求（每秒事务处理数，Transactions Per Second，TPS）。</p>
+<h2 id="硬件的效率与一致性"><a href="#硬件的效率与一致性" class="headerlink" title="硬件的效率与一致性"></a>硬件的效率与一致性</h2><p>计算机的存储设备（内存、硬盘）与处理器的运算速度差距为几个数量级，因此加入高速缓存（Cache，L1，L2，价格昂贵）。<br>运算数据从内存复制到缓存中，数据经处理器处理完毕后，由缓存同步会内存。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(27)-使用Solr管理交互界面—指定Core的工具—Segments Info/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:51:02.312Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+      <a href="/2017/02/20/JAVA中级-内存模型/" class="archive-article-date">
+  	<time datetime="2017-02-20T08:55:52.629Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA中级/">JAVA中级</a></li></ul>
 	</div>
 
       
@@ -660,7 +862,7 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JAVA基础-开发规范" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -670,7 +872,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面/">Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面</a>
+      <a class="article-title" href="/2017/02/14/JAVA基础-开发规范/">JAVA基础-开发规范（阿里巴巴）</a>
     </h1>
   
 
@@ -680,276 +882,80 @@
       
 	  <!-- Table of Contents -->
 		
-        <blockquote>
-<p>Schema Browser Screen</p>
-</blockquote>
-<p>Schema浏览界面通过浏览器窗口查看schema的数据。如果你是从Analysis界面跳转到Schema浏览界面，它会打开指定的field、dynamic field rule或是field type的界面。如果没有选中任何值，可以通过下拉菜单来选中一个field或是field type。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3e94b73a77168b3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Schema Browser Screen"></p>
-<p>Schema浏览界面对每一个field都提供了大量的有用信息。在上面的例子中，我们选中了<code>text</code> field。在中间窗口的右侧，展示了field名称，以及一系列构成<code>text</code>field的其他field。根据定义，这些field会被复制到<code>text</code>field。点击这些field中的一个，可以看到该field的定义信息。也可以看到field type，当然也可以查看对应的field type的定义信息。</p>
-<p>在中间窗口的左侧，可以看到field type，以及field的定义信息。也可以查看到具有这个field的document数量。还有用于索引和查询的analyzer。点击这些内容左侧的图标，可以查看正在使用的tokenizer和filter的定义信息。当前看到的这些处理过程的输出结果就是在<strong>Analysis Screen</strong>界面测试某个指定的field的内容如何被处理时的看到的信息。<br>在analyzer信息下面，有一个<strong>Load Term Info</strong>按钮。点击这个按钮可以查看当前这个field中索引的前N个单词（terms）。点击任意一个单词（terms），将会前往<strong>Query Screen</strong>界面，查看该field值为这个单词（terms）的查询结果。如果想要每次都看到这些单词（term）统计结果，选中<strong>Autoload</strong>选择框，如果对应的field中有单词（term），这些信息就会展示出来。边上的直方图按照给定的频率大小展示对应的单词（terms）数量统计。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(26)-使用Solr管理交互界面—指定Core的工具—Schema浏览界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:50:11.899Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面/">Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Replication Screen</p>
-</blockquote>
-<p>Replication界面展示了指定名字的Core的副本状态。SolrCloud已经取代了本界面的大部分功能，但如果你仍在用主-从索引机制，你可以在本界面进行如下操作：</p>
-<ol>
-<li>View the replicatable index state. (on a master node)</li>
-<li>View the current replication status (on a slave node)</li>
-<li>Disable replication. (on a master node)</li>
+        <h1 id="编程规约"><a href="#编程规约" class="headerlink" title="编程规约"></a>编程规约</h1><h2 id="命名规约"><a href="#命名规约" class="headerlink" title="命名规约"></a>命名规约</h2><ol>
+<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例：<code>_name</code> / <code>__name</code> / <code>$Object</code> / <code>name_</code> / <code>name$</code> / <code>Object$</code></li>
+<li>【强制】 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。<br>说明： 正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用。<br>反例： DaZhePromotion [打折] / getPingfenByName() [评分] / int 某变量 = 3<br>正例： alibaba / taobao / youku / hangzhou 等国际通用的名称， 可视同英文。</li>
+<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外： （ 领域模型的相关命名） DO / BO / DTO / VO 等。<br>正例： <code>MarcoPolo</code> / <code>UserDO</code> / <code>XmlService</code> / <code>TcpUdpDeal</code> / <code>TaPromotion</code><br>反例： <code>macroPolo</code> / <code>UserDo</code> / <code>XMLService</code> / <code>TCPUDPDeal</code> / <code>TAPromotion</code>   </li>
+<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>正例： <code>localValue</code> / <code>getHttpMessage()</code> / <code>inputUserId</code>   </li>
+<li>【 强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>正例： <code>MAX_STOCK_COUNT</code><br>反例： <code>MAX_COUNT</code>   </li>
+<li>【强制】抽象类命名使用 <code>Abstract</code> 或 <code>Base</code> 开头； 异常类命名使用 <code>Exception</code> 结尾； 测试类命名以它要测试的类的名称开始，以 <code>Test</code> 结尾。   </li>
+<li>【强制】中括号是数组类型的一部分，数组定义如下： <code>String[] args;</code><br>反例： 请勿使用 <code>String args[]</code> 的方式来定义。   </li>
+<li>【强制】 POJO 类中布尔类型的变量，都不要加 <code>is</code> ，否则部分框架解析会引起序列化错误。<br>反例： 定义为基本数据类型 <code>boolean isSuccess;</code> 的属性，它的方法也是 <code>isSuccess()</code>， RPC框架在反向解析的时候， “以为”对应的属性名称是 <code>success</code> ，导致属性获取不到，进而抛出异常。   </li>
+<li>【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>正例： 应用工具类包名为 <code>com.alibaba.open.util</code>、类名为 <code>MessageUtils</code> （ 此规则参考spring 的框架结构）   </li>
+<li>【强制】杜绝完全不规范的缩写， 避免望文不知义。<br>反例： <code>AbstractClass</code> “缩写” 命名成 <code>AbsClass</code> ； <code>condition</code>“缩写” 命名成 <code>condi</code>，此类随意缩写严重降低了代码的可阅读性。 </li>
+<li>【推荐】如果使用到了设计模式，建议在类名中体现出具体模式。<br>说明： 将设计模式体现在名字中，有利于阅读者快速理解架构设计思想。<br>正例：<br><code>public class OrderFactory;</code><br><code>public class LoginProxy;</code><br><code>public class ResourceObserver;</code>   </li>
+<li>【推荐】接口类中的方法和属性不要加任何修饰符号（ <code>public</code> 也不要加） ，保持代码的简洁性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。<br>正例： 接口方法签名： <code>void f();</code><br>接口基础常量表示： <code>String COMPANY = &quot;alibaba&quot;;</code><br>反例： 接口方法定义： <code>public abstract void f();</code><br>说明： JDK8 中接口允许有默认实现，那么这个 <code>default</code> 方法，是对所有实现类都有价值的默认实现。</li>
+<li>接口和实现类的命名有两套规则：<br>1） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部的实现类用 Impl 的后缀与接口区别。<br>正例： <code>CacheServiceImpl</code> 实现 <code>CacheService</code> 接口。<br>2）【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是–able 的形式）。<br>正例： <code>AbstractTranslator</code> 实现 <code>Translatable</code>。   </li>
+<li>【参考】枚举类名建议带上 <code>Enum</code> 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>说明： 枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>正例： 枚举名字： <code>DealStatusEnum</code>， 成员名称： <code>SUCCESS</code> / <code>UNKOWN_REASON</code>。    </li>
+<li>【参考】各层命名规约：<br>A) Service/DAO 层方法命名规约<br>　1） 获取单个对象的方法用 <code>get</code> 做前缀。<br>　2） 获取多个对象的方法用 <code>list</code> 做前缀。<br>　3） 获取统计值的方法用 <code>count</code> 做前缀。<br>　4） 插入的方法用 <code>save</code>（ 推荐） 或 <code>insert</code> 做前缀。<br>　5） 删除的方法用 <code>remove</code>（ 推荐） 或 <code>delete</code> 做前缀。<br>　6） 修改的方法用 <code>update</code> 做前缀。<br>B) 领域模型命名规约<br>　1） 数据对象： xxxDO， xxx 即为数据表名。<br>　2） 数据传输对象： xxxDTO， xxx 为业务领域相关的名称。<br>　3） 展示对象： xxxVO， xxx 一般为网页名称。<br>　4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。   </li>
 </ol>
-<p>注意：当使用SolrCloud时需要注意<br>When using SolrCloud, do not attempt to disable replication via this screen.</p>
-<p>更多关于如何配置replication的内容在<strong>Index Replication</strong>章节</p>
+<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><ol>
+<li>【强制】不允许出现任何魔法值（ 即未经定义的常量） 直接出现在代码中。<br>反例：<code>String key=&quot;Id#taobao_&quot;+tradeId;</code><br>　　　<code>cache.put(key, value);</code></li>
+<li>【强制】 <code>long</code> 或者 <code>Long</code> 初始赋值时，必须使用大写的 <code>L</code>，不能是小写的 <code>l</code>，小写容易跟数字<code>1</code> 混淆，造成误解。<br>说明： <code>Long a = 2l</code>; 写的是数字的 21，还是 Long 型的 2?   </li>
+<li>【推荐】不要使用一个常量类维护所有常量，应该按常量功能进行归类，分开维护。如：缓存相关的常量放在类： <code>CacheConsts</code> 下； 系统配置相关的常量放在类： <code>ConfigConsts</code> 下。<br>说明： 大而全的常量类，非得使用查找功能才能定位到修改的常量，不利于理解和维护。   </li>
+<li>【推荐】常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量。<br>1） 跨应用共享常量：放置在二方库中，通常是 client.jar 中的 constant 目录下。<br>2） 应用内共享常量：放置在一方库的 modules 中的 constant 目录下。<br>反例： 易懂变量也要统一定义成应用内共享常量，两位攻城师在两个类中分别定义了表示“是”的变量：<br>　　类 A 中： <code>public static final String YES = &quot;yes&quot;;</code><br>　　类 B 中： <code>public static final String YES = &quot;y&quot;;</code><br>　　<code>A.YES.equals(B.YES)</code>，预期是 <code>true</code>，但实际返回为 <code>false</code>，导致产生线上问题。<br>3） 子工程内部共享常量：即在当前子工程的 constant 目录下。<br>4） 包内共享常量：即在当前包下单独的 <code>constant</code> 目录下。<br>5） 类内共享常量：直接在类内部 <code>private static final</code> 定义。   </li>
+<li>【推荐】如果变量值仅在一个范围内变化用 <code>Enum</code> 类。如果还带有名称之外的延伸属性，必须使用 <code>Enum</code> 类，下面正例中的数字就是延伸信息，表示星期几。<br>正例： <code>public Enum{ MONDAY(1), TUESDAY(2), WEDNESDAY(3), THURSDAY(4), FRIDAY(5),SATURDAY(6), SUNDAY(7);}</code></li>
+</ol>
+<h2 id="格式规约"><a href="#格式规约" class="headerlink" title="格式规约"></a>格式规约</h2><ol>
+<li>【强制】大括号的使用约定。如果是大括号内为空，则简洁地写成<code>{}</code>即可，不需要换行；如果是非空代码块则：<br> 1） 左大括号前不不换行。<br> 2） 左大括号后换行。<br> 3） 右大括号前换行。<br> 4） 右大括号后还有<code>else</code>等代码则不换行；表示终止右大括号后必须换行。   </li>
+<li>【强制】 左括号和后一个字符之间不出现空格；同样，右括号和前一个字符之间也不出现空格。详见第5条下方正例提示。</li>
+<li>【强制】<code>if</code>/<code>for</code>/<code>while</code>/<code>switch</code>/<code>do</code>等保留字与左右括号之间都必须加空格。</li>
+<li>【强制】任何运算符左右必须加一个空格。<br>说明：运算符包括赋值运算符=、逻辑运算符&amp;&amp;、加减乘除符号、三目运行符等。   </li>
+<li><p>【强制】缩进采用4个空格，禁止使用tab字符。<br>说明： 如果使用tab缩进，必须设置1个tab为4个空格。IDEA设置tab为4个空格时，请勿勾选Use tab character；而在eclipse中，必须勾选insert spaces for tabs。<br>正例： （涉及1-5点）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public static void main(String args[]) &#123;</div><div class="line">    // 缩进4个空格</div><div class="line">    String say = &quot;hello&quot;;</div><div class="line">    // 运算符的左右必须有一个空格</div><div class="line">    int flag = 0;</div><div class="line">    // 关键词if与括号之间必须有一个空格，括号内的f与左括号，0与右括号不需要空格</div><div class="line">    if (flag == 0) &#123;</div><div class="line">        System.out.println(say);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 左大括号前加空格且不换行；左大括号后换行</div><div class="line">    if (flag == 1) &#123;</div><div class="line">        System.out.println(&quot;world&quot;);</div><div class="line">    // 右大括号前换行，右大括号后有else，不用换行</div><div class="line">    &#125; else &#123;</div><div class="line">        System.out.println(&quot;ok&quot;);</div><div class="line">        // 在右大括号后直接结束，则必须换行</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>【强制】单行字符数限不超过 120 个，超出需要换行时，换行时遵循如下原则：<br> 1） 第二行相对一缩进 4个空格，从第三行开始不再继续缩进参考示例。<br> 2） 运算符与下文一起换行。<br> 3） 方法调用的点符号与下文一起换行。<br> 4） 在多个参数超长，逗号后进行换行。<br> 5） 在括号前不要换行，见反例。<br>正例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">StringBuffer sb = new StringBuffer();</div><div class="line">//超过120个字符的情况下，换行缩进4个空格，并且方法前的点符号一起换行</div><div class="line">sb.append(&quot;zi&quot;).append(&quot;xin&quot;)...</div><div class="line">    .append(&quot;huang&quot;)...</div><div class="line">    .append(&quot;huang&quot;)...</div><div class="line">    .append(&quot;huang&quot;);</div><div class="line">```  </div><div class="line"></div><div class="line">反例：</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>StringBuffer sb = new StringBuffer();<br>//超过120个字符的情况下，不要在括号前换行<br>sb.append(“zi”).append(“xin”)…append<br>    (“huang”);<br>//参数很多的方法调用可能超过120个字符，不要在逗号前换行<br>method(args1, args2, args3, …<br>    , argsX);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">7. 【强制】方法参数在定义和传入时，多个参数逗号后边必须加空格。</div><div class="line">正例：下例中实参的&quot;a&quot;,后边必须要有一个空格。</div></pre></td></tr></table></figure></p>
+<p>method(“a”, “b”, “c”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">8. 【强制】IDE的text file encoding设置为UTF-8; IDE中文件的换行符使用Unix格式，不要使用windows格式。</div><div class="line">9. 【推荐】没有必要增加若干空格来使某一行的字符与上一行的相应字符对齐。</div><div class="line">正例：</div></pre></td></tr></table></figure></p>
+<p>int a = 3;<br>long b = 4L;<br>float c = 5F;<br>StringBuffer sb = new StringBuffer();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">说明：增加`sb`这个变量，如果需要对齐，则给`a`、`b`、`c`都要增加几个空格，在变量比较多的情况下，是一种累赘的事情。   </div><div class="line"></div><div class="line">10. 【推荐】方法体内的执行语句组、变量的定义语句组、不同的业务逻辑之间或者不同的语义之间插入一个空行。相同业务逻辑和语义之间不需要插入空行。    </div><div class="line">说明：没有必要插入多行空格进行隔开。</div><div class="line"></div><div class="line">## OOP规约</div><div class="line">1. 【强制】避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可。</div><div class="line">2. 【强制】所有的覆写方法，必须加`@Override`注解。   </div><div class="line"> 反例：`getObject()`与`get0bject()`的问题。一个是字母的O，一个是数字的0，加`@Override`可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编译报错。</div><div class="line">3. 【强制】相同参数类型，相同业务含义，才可以使用Java的可变参数，避免使用Object。    </div><div class="line"> 说明：可变参数必须放置在参数列表的最后。（提倡同学们尽量不用可变参数编程）    </div><div class="line"> 正例：`public User getUsers(String type, Integer... ids)`</div><div class="line">4. 【强制】对外暴露的接口签名，原则上不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加`@Deprecated`注解，并清晰地说明采用的新接口或者新服务是什么。</div><div class="line">5. 【强制】不能使用过时的类或方法。   </div><div class="line">说明：`java.net.URLDecoder` 中的方法`decode(String encodeStr)` 这个方法已经过时，应该使用双参数`decode(String source, String encode)`。接口提供方既然明确是过时接口，那么有义务同时提供新的接口；作为调用方来说，有义务去考证过时方法的新实现是什么。 </div><div class="line">6. 【强制】`Object`的`equals`方法容易抛空指针异常，应使用常量或确定有值的对象来调用`equals`。    </div><div class="line">正例： `&quot;test&quot;.equals(object);`       </div><div class="line">反例： `object.equals(&quot;test&quot;);`    </div><div class="line">说明：推荐使用`java.util.Objects#equals` （JDK7引入的工具类）</div><div class="line"></div><div class="line">7. 【强制】所有的相同类型的包装类对象之间值的比较，全部使用`equals`方法比较。    </div><div class="line">说明：对于`Integer var=?`在-128至127之间的赋值，`Integer`对象是在`IntegerCache.cache`产生，会复用已有对象，这个区间内的`Integer`值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用`equals`方法进行判断。</div><div class="line"></div><div class="line">8. 【强制】关于基本数据类型与包装数据类型的使用标准如下：    </div><div class="line">1） 所有的POJO类属性必须使用包装数据类型。    </div><div class="line">2） RPC方法的返回值和参数必须使用包装数据类型。    </div><div class="line">3） 所有的局部变量【推荐】使用基本数据类型。    </div><div class="line">说明：POJO类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何NPE问题，或者入库检查，都由使用者来保证。   </div><div class="line">正例：数据库的查询结果可能是`null`，因为自动拆箱，用基本数据类型接收有NPE风险。    </div><div class="line">反例：比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。所以包装数据类型的null值，能够表示额外的信息，如：远程调用失败，异常退出。   </div><div class="line"></div><div class="line">9. 【强制】定义DO/DTO/VO等POJO类时，不要设定任何属性默认值。    </div><div class="line">反例：POJO类的`gmtCreate`默认值为`new Date();`但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</div><div class="line"></div><div class="line">10. 【强制】序列化类新增属性时，请不要修改`serialVersionUID`字段，避免反序列失败；如果完全不兼容升级，避免反序列化混乱，那么请修改`serialVersionUID`值。    </div><div class="line">说明：注意`serialVersionUID`不一致会抛出序列化运行时异常。</div><div class="line"></div><div class="line">11. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在`init`方法中。</div><div class="line"></div><div class="line">12. 【强制】POJO类必须写`toString`方法。使用IDE的中工具：source&gt; generate toString时，如果继承了另一个POJO类，注意在前面加一下`super.toString`。   </div><div class="line">说明：在方法执行抛出异常时，可以直接调用POJO的toString()方法打印其属性值，便于排查问题。</div><div class="line"></div><div class="line">13. 【推荐】使用索引访问用`String`的`split`方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛IndexOutOfBoundsException的风险。   </div><div class="line">说明：</div></pre></td></tr></table></figure></p>
+<p>String str = “a,b,c,,”;<br>String[] ary = str.split(“,”);<br>//预期大于3，结果是3<br>System.out.println(ary.length);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">14. 【推荐】当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读。</div><div class="line"></div><div class="line">15. 【推荐】 类内方法定义顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; getter/setter方法。    </div><div class="line">说明：公有方法是类的调用者和维护者最关心的方法，首屏展示最好；保护方法虽然只是子类关心，也可能是“模板设计模式”下的核心方法；而私有方法外部一般不需要特别关心，是一个黑盒实现；因为方法信息价值较低，所有Service和DAO的getter/setter方法放在类体最后。</div><div class="line"></div><div class="line">16. 【推荐】setter方法中，参数名称与类成员变量名称一致，this.成员名=参数名。在getter/setter方法中，尽量不要增加业务逻辑，增加排查问题的难度。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
+<p>public Integer getData(){<br>    if(true) {<br>        return data + 100;<br>    } else {<br>        return data - 100;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">17. 【推荐】循环体内，字符串的联接方式，使用`StringBuilder`的`append`方法进行扩展。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
+<p>String str = “start”;<br>for(int i=0; i<100; i++){="" str="str" +="" "hello";="" }="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">说明：反编译出的字节码文件显示每次循环都会`new`出一个`StringBuilder`对象，然后进行`append`操作，最后通过`toString`方法返回`String`对象，造成内存资源浪费。</div><div class="line"></div><div class="line">18. 【推荐】`final`可提高程序响应效率，声明成`final`的情况：    </div><div class="line">1） 不需要重新赋值的变量，包括类属性、局部变量。    </div><div class="line">2） 对象参数前加`final`，表示不允许修改引用的指向。   </div><div class="line">3） 类方法确定不允许被重写。   </div><div class="line"></div><div class="line">19. 【推荐】慎用`Object`的`clone`方法来拷贝对象。    </div><div class="line">说明：对象的`clone`方法默认是浅拷贝，若想实现深拷贝需要重写`clone`方法实现属性对象的拷贝。</div><div class="line"></div><div class="line">20. 【推荐】类成员与方法访问控制从严： </div><div class="line">1） 如果不允许外部直接通过`new`来创建对象，那么构造方法必须是`private`。    </div><div class="line">2） 工具类不允许有`public`或`default`构造方法。    </div><div class="line">3） 类非`static`成员变量并且与子类共享，必须是`protected`。    </div><div class="line">4） 类非`static`成员变量并且仅在本类使用，必须是`private`。    </div><div class="line">5） 类`static`成员变量如果仅在本类使用，必须是`private`。   </div><div class="line">6） 若是`static`成员变量，必须考虑是否为`final`。    </div><div class="line">7） 类成员方法只供类内部调用，必须是`private`。    </div><div class="line">8） 类成员方法只对继承类公开，那么限制为`protected`。   </div><div class="line">说明：任何类、方法、参数、变量，严控访问范围。过宽泛的访问范围，不利于模块解耦。   </div><div class="line">思考：如果是一个`private`的方法，想删除就删除，可是一个`public`的`Service`方法，或者一个`public`的成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大，如果无限制的到处跑，那么你会担心的。</div><div class="line"></div><div class="line">## 集合处理</div><div class="line">1. 【强制】关于`hashCode`和`equals`的处理，遵循如下规则：   </div><div class="line">1） 只要重写`equals`，就必须重写`hashCode`。    </div><div class="line">2） 因为`Set`存储的是不重复的对象，依据`hashCode`和`equals`进行判断，所以`Set`存储的对象必须重写这两个方法。    </div><div class="line">3） 如果自定义对象做为`Map`的键，那么必须重写`hashCode`和`equals`。 说明：`String`重写了`hashCode`和`equals`方法，</div><div class="line">所以我们可以非常愉快地使用`String`对象作为`key`来使用。</div><div class="line"></div><div class="line">2. 【强制】 `ArrayList`的`subList`结果不可强转成`ArrayList`，否则会抛出`ClassCastException`   </div><div class="line">异常：`java.util.RandomAccessSubList cannot be cast to java.util.ArrayList` ;   </div><div class="line">说明：`subList` 返回的是 `ArrayList` 的内部类 `SubList`，并不是 `ArrayList` ，   </div><div class="line">而是 `ArrayList` 的一个视图，对于`SubList`子列表的所有操作最终会反映到原列表上。</div><div class="line"></div><div class="line">3. 【强制】 在`subList`场景中，高度注意对原集合元素个数的修改，</div><div class="line">会导致子列表的遍历、增加、删除均产生`ConcurrentModificationException` 异常。</div><div class="line"></div><div class="line">4. 【强制】使用集合转数组的方法，必须使用集合的`toArray(T[] array)`，传入的是类型完全一样的数组，大小就是`list.size()`。   </div><div class="line">说明：使用`toArray`带参方法，入参分配的数组空间不够大时，`toArray`方法内部将重新分配内存空间，并返回新数组地址；</div><div class="line">如果数组元素大于实际所需，下标为[`list.size()`]的数组元素将被置为`null`，其它数组元素保持原值，</div><div class="line">因此最好将方法入参数组大小定义与集合元素个数一致。   </div><div class="line">正例：</div></pre></td></tr></table></100;></p>
+<p>List<string> list = new ArrayList<string>(2);<br>list.add(“guan”);<br>list.add(“bao”);<br>String[] array = new String[list.size()];<br>array = list.toArray(array);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">反例：直接使用`toArray`无参方法存在问题，此方法返回值只能是`Object[]`类，若强转其它类型数组将出现`ClassCastException`错误。</div><div class="line"></div><div class="line">5. 【强制】使用工具类`Arrays.asList()`把数组转换成集合时，不能使用其修改集合相关的方法，</div><div class="line">它的`add/remove/clear`方法会抛出`UnsupportedOperationException`异常。</div><div class="line">说明：`asList`的返回对象是一个`Arrays`内部类，并没有实现集合的修改方法。`Arrays.asList`体现的是适配器模式，只是转换接口，</div><div class="line">后台的数据仍是数组。</div></pre></td></tr></table></figure></string></string></p>
+<p>String[] str = new String[] { “a”, “b” };<br>List list = Arrays.asList(str);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">第一种情况：`list.add(&quot;c&quot;);` 运行时异常。    </div><div class="line">第二种情况：`str[0] = &quot;gujin&quot;;` 那么`list.get(0)`也会随之修改。</div><div class="line"></div><div class="line">6. 【强制】泛型通配符`&lt;? extends T&gt;`来接收返回的数据，此写法的泛型集合不能使用`add`方法，而`&lt;? super T&gt;`不能使用`get`方法，</div><div class="line">做为接口调用赋值时易出错。    </div><div class="line">说明：扩展说一下`PECS(Producer Extends Consumer Super)`原则：</div><div class="line">1）频繁往外读取内容的，适合用上界`Extends`。</div><div class="line">2）经常往里插入的，适合用下界`Super`。</div><div class="line"></div><div class="line">7. 【强制】不要在`foreach`循环里进行元素的`remove/add`操作。`remove`元素请使用`Iterator`方式，如果并发操作，需要对`Iterator`对象加锁。</div><div class="line">反例：</div></pre></td></tr></table></figure></p>
+<p>List<string> a = new ArrayList<string>();<br>a.add(“1”);<br>a.add(“2”);<br>for (String temp : a) {<br>    if (“1”.equals(temp)) {<br>        a.remove(temp);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">说明：以上代码的执行结果肯定会出乎大家的意料，那么试一下把“1”换成“2”，会是同样的结果吗？</div><div class="line">正例：</div></pre></td></tr></table></figure></string></string></p>
+<p>Iterator<string> it = a.iterator();<br>while (it.hasNext()) {<br>String temp = it.next();<br>if (删除元素的条件) {<br>    it.remove();<br>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">8. 【强制】 在JDK7版本及以上，`Comparator`要满足如下三个条件，不然`Arrays.sort`，`Collections.sort`会报`IllegalArgumentException`异常。</div><div class="line">说明：   </div><div class="line">1） x，y的比较结果和y，x的比较结果相反。    </div><div class="line">2） x&gt;y，y&gt;z，则x&gt;z。    </div><div class="line">3） x=y，则x，z比较结果和y，z比较结果相同。   </div><div class="line">反例：下例中没有处理相等的情况，实际使用中可能会出现异常：</div></pre></td></tr></table></figure></string></p>
+<p>new Comparator<student>() {<br>@Override<br>public int compare(Student o1, Student o2) {<br>    return o1.getId() &gt; o2.getId() ? 1 : -1;<br>}<br>}<br>```</student></p>
+<ol>
+<li><p>【推荐】集合初始化时，尽量指定集合初始值大小。<br>说明：<code>ArrayList</code>尽量使用<code>ArrayList(int initialCapacity)</code> 初始化。</p>
+</li>
+<li><p>【推荐】使用<code>entrySet</code>遍历<code>Map</code>类集合KV，而不是<code>keySet</code>方式进行遍历。<br>说明：<code>keySet</code>其实是遍历了2次，一次是转为<code>Iterator</code>对象，另一次是从<code>hashMap</code>中取出<code>key</code>所对应的<code>value</code>。<br>而<code>entrySet</code>只是遍历了一次就把<code>key</code>和<code>value</code>都放到了<code>entry</code>中，效率更高。如果是JDK8，使用<code>Map.foreach</code>方法。<br>正例：<code>values()</code>返回的是V值集合，是一个<code>list</code>集合对象；<code>keySet()</code>返回的是K值集合，是一个<code>Set</code>集合对象；<code>entrySet()</code>返回的是K-V值组合集合。</p>
+</li>
+<li><p>【推荐】高度注意<code>Map</code>类集合K/V能不能存储null值的情况，如下表格：<br>|集合类|<code>Key</code>|<code>Value</code>|<code>Super</code>|说明|<br>|:—:|:–:|:–:|:–:|:–:|<br>|<code>Hashtable</code>|不允许为<code>null</code>|不允许为<code>null</code>|<code>Dictionary</code>|线程安全|<br>|<code>ConcurrentHashMap</code>|不允许为<code>null</code>|不允许为<code>null</code>|<code>AbstractMap</code>|分段锁技术|<br>|<code>TreeMap</code>|不允许为<code>null</code>|允许为<code>null</code>|<code>AbstractMap</code>|线程不安全|<br>|<code>HashMap</code>|允许为<code>null</code>|允许为<code>null</code>|<code>AbstractMap</code>|线程不安全|</p>
+</li>
+</ol>
+<p>反例： 由于<code>HashMap</code>的干扰，很多人认为<code>ConcurrentHashMap</code>是可以置入<code>null</code>值，注意存储<code>null</code>值时会抛出NPE异常。</p>
+<ol>
+<li><p>【参考】合理利用好集合的有序性(sort)和稳定性(order)，避免集合的无序性(unsort)和不稳定性(unorder)带来的负面影响。<br>说明：有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次序是一定的。<br>如：<code>ArrayList</code>是order/unsort；<code>HashMap</code>是unorder/unsort；<code>TreeSet</code>是order/sort。</p>
+</li>
+<li><p>【参考】利用<code>Set</code>元素唯一的特性，可以快速对一个集合进行去重操作，避免使用<code>List</code>的<code>contains</code>方法进行遍历、对比、去重操作。</p>
+</li>
+</ol>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(25)-使用Solr管理交互界面—指定Core的工具—Replication界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:49:11.061Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+      <a href="/2017/02/14/JAVA基础-开发规范/" class="archive-article-date">
+  	<time datetime="2017-02-14T06:27:40.219Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/">Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Query Screen</p>
-</blockquote>
-<p>你可以通过在每个Core下的<strong>Query</strong>，向Solr服务器提交查询请求，并分析结果。在示例中的截屏中，已经提交了查询，屏幕内容展示了发送回浏览器的查询结果（JSON格式）。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b0c001ef819e16d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Query Screen"></p>
-<p>查询的Core的名称是”techproducts”，使用的查询语句是默认的查询语句（在solrconfig.xml中定义的）”<em>:</em>“。这个查询命令会查询在这个Core中索引的所有记录。我们暂时先保持其他的参数为默认值，下面的表格解释了这些参数的含义，在本文档中的后续部分中，也介绍了这些参数的细节信息。</p>
-<p>查询请求的响应在表单的右边展示。对Solr发起的请求时普通的HTTP请求，查询请求的内容在查询结果上方，以灰色字体展示。如果点击该内容，浏览器会打开一个新窗口，仅仅展示查询请求和响应内容（不包括Solr管理交互界面的其他内容）。响应的内容是以JSON格式展示，格式设置是请求的一部分（可以查看在请求结尾的<code>wt=json</code>参数）。</p>
-<p>查询响应至少包含两部分数据，根据选择的参数不同，可能会包含更多的部分。肯定包含的两部分是响应头和响应内容。响应头里包括了查询状态（status）、查询时间（QTime）、发起查询时传递的参数（params）。</p>
-<p>本界面运行你通过尝试不同的查询参数，观察索引的document。在表单下面可使用的查询参数是大多数用户可用的基本参数，此外，也有很多参数可以通过手动加入到查询请求中（在浏览器打开）。下面的表格列出了可用的参数：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字段</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Request-handler(qt)</td>
-<td style="text-align:center">指定查询请求使用的查询handler。如果没有明确指定查询handler，那么Solr会使用标准查询handler来执行查询。</td>
-</tr>
-<tr>
-<td style="text-align:center">q</td>
-<td style="text-align:center">查询事件。请在<strong>Searching</strong>章节查看关于此参数的解释。</td>
-</tr>
-<tr>
-<td style="text-align:center">fq</td>
-<td style="text-align:center">过滤查询，请在<strong>Common Query Parameters</strong>章节查看关于此参数的更多信息。</td>
-</tr>
-<tr>
-<td style="text-align:center">sort</td>
-<td style="text-align:center">根据响应的结果的score或是其他的指定的字段，将查询响应排序（升序或降序）</td>
-</tr>
-<tr>
-<td style="text-align:center">start, rows</td>
-<td style="text-align:center">start是只查询偏移量，查询返回的数据从该位置的document开始，默认值为0，意思是查询结果将会从匹配查询条件的第一个document开始返回。该字段也可以输入符合开始查询参数语法的内容（在<strong>Searching</strong>章节介绍）。row是指需要返回的行数</td>
-</tr>
-<tr>
-<td style="text-align:center">fl</td>
-<td style="text-align:center">定义每个document返回的field。可以明确的列出你想要Solr返回的内容，包括存储的field、function、doc transformers，通过空格或是逗号进行分隔</td>
-</tr>
-<tr>
-<td style="text-align:center">wt</td>
-<td style="text-align:center">指定用于格式化查询结果的响应Writer。未明确定义，采用的是XML格式</td>
-</tr>
-<tr>
-<td style="text-align:center">indent</td>
-<td style="text-align:center">勾选这个选项后，响应Writer 会将响应内容进行压缩，使其可读性更高</td>
-</tr>
-<tr>
-<td style="text-align:center">debugQuery</td>
-<td style="text-align:center">勾选这个选项会要求查询结果带有调试信息，包括每个document返回的”explain info”。这些调试信息主要是为管理人员或是程序员准备的</td>
-</tr>
-<tr>
-<td style="text-align:center">dismax</td>
-<td style="text-align:center">勾选这个选项，会启用Dismax查询解析器。更多信息请查阅<strong>The DisMax Query Parser</strong>章节</td>
-</tr>
-<tr>
-<td style="text-align:center">edismax</td>
-<td style="text-align:center">勾选这个选项会启动Extended查询解析器。更多信息请查阅<strong>The Extended DisMax QueryParser</strong>章节</td>
-</tr>
-<tr>
-<td style="text-align:center">hl</td>
-<td style="text-align:center">勾选这个选项后，会启用查询响应中高亮功能。更多信息请查阅<strong>Highlighting</strong>章节</td>
-</tr>
-<tr>
-<td style="text-align:center">facet</td>
-<td style="text-align:center">启动faceting功能，会将查询结果根据索引的字段进行归类。更多信息请查阅<strong>Faceting</strong>章节</td>
-</tr>
-<tr>
-<td style="text-align:center">spatial</td>
-<td style="text-align:center">勾选该按钮，会允许使用本地数据，主要应用于物理空间搜索。Click to enable using location data for use in spatial or geospatial searches.更多信息请查阅<strong> Spatial Search </strong>章节。</td>
-</tr>
-<tr>
-<td style="text-align:center">spellcheck</td>
-<td style="text-align:center">勾选该按钮会启动Spellchecker，会基于其他类似的单词提供内联查询建议。更多信息请查阅<strong>Spell Checking </strong>章节。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="相关主题"><a href="#相关主题" class="headerlink" title="相关主题"></a>相关主题</h3><p><strong>Searching</strong></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(24)-使用Solr管理交互界面—指定Core的工具—查询界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:48:17.375Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面/">Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Plugins &amp; Stats Screen</p>
-</blockquote>
-<p>插件界面展示了Solr运行状态和性能的信息以及数据统计。从中可以看到Solr缓存性能信息、Solr搜索的状态、searchHandler和requesthandler的配置。</p>
-<p>在右侧出现的面板中，选择感兴趣的菜单，然后在屏幕中央面板上出现的名字中，点击任意一个，可以看到更多详细信息。在本例中，选择查看对应Core的搜索器的状态</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-6e9c73e3ed97fb13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Searcher Statistics"></p>
-<p>页面上展示的内容是在页面加载时得到的快照，可以通过选择点击<strong>Watch Changes</strong> 或是 <strong>Refresh Values</strong>来更新数据状态。<strong>Watch Changes</strong>会将变更的区域高亮展示，<strong>Refresh Values</strong>会重新加载页面获得最新的信息。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/27/Apache Solr(5.5)帮助文档(23)-使用Solr管理交互界面—指定Core的工具—插件和状态界面/" class="archive-article-date">
-  	<time datetime="2017-02-27T00:47:25.311Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发规范/">开发规范</a></li></ul>
 	</div>
 
       
@@ -971,7 +977,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1034,7 +1040,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 20px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 16.67px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 16.67px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 16.67px;">项目实践</a>
     			</div>
     	</section>
     

@@ -8,16 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JAVA基础-NIO | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="含义">
+  <meta name="description" content="含义IO，指的是计算机与外部世界或者一个程序与计算机的其余部分的之间的接口。JAVA中，传统IO使用流的方式来完成IO。IO都视为单个字节的移动，通过Stream对象一次一个字节（即使是字符流，也是依赖字节流）。NIO创建的目的是为了实现高速IO，无需编写自定义的本机代码，将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。
+比较原来的I/O库(在java.io.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA基础-NIO">
 <meta property="og:url" content="http://yoursite.com/2017/03/03/JAVA基础-NIO/index.html">
 <meta property="og:site_name" content="li">
-<meta property="og:description" content="含义">
-<meta property="og:updated_time" content="2017-03-03T00:42:16.913Z">
+<meta property="og:description" content="含义IO，指的是计算机与外部世界或者一个程序与计算机的其余部分的之间的接口。JAVA中，传统IO使用流的方式来完成IO。IO都视为单个字节的移动，通过Stream对象一次一个字节（即使是字符流，也是依赖字节流）。NIO创建的目的是为了实现高速IO，无需编写自定义的本机代码，将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。
+比较原来的I/O库(在java.io.">
+<meta property="og:updated_time" content="2017-03-29T00:28:36.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础-NIO">
-<meta name="twitter:description" content="含义">
+<meta name="twitter:description" content="含义IO，指的是计算机与外部世界或者一个程序与计算机的其余部分的之间的接口。JAVA中，传统IO使用流的方式来完成IO。IO都视为单个字节的移动，通过Stream对象一次一个字节（即使是字符流，也是依赖字节流）。NIO创建的目的是为了实现高速IO，无需编写自定义的本机代码，将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。
+比较原来的I/O库(在java.io.">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -163,10 +166,34 @@
 		
 		<div id="toc" class="toc-article">
 		<strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#含义"><span class="toc-number">1.</span> <span class="toc-text">含义</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#含义"><span class="toc-number">1.</span> <span class="toc-text">含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#比较"><span class="toc-number">2.</span> <span class="toc-text">比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通道Channels和缓冲区Buffers"><span class="toc-number">3.</span> <span class="toc-text">通道Channels和缓冲区Buffers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区Buffers"><span class="toc-number">3.1.</span> <span class="toc-text">缓冲区Buffers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲区Buffers类型"><span class="toc-number">3.1.1.</span> <span class="toc-text">缓冲区Buffers类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通道Channels"><span class="toc-number">3.2.</span> <span class="toc-text">通道Channels</span></a></li></ol></li></ol>
 		</div>
 		
-        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1>
+        <h1 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h1><p>IO，指的是计算机与外部世界或者一个程序与计算机的其余部分的之间的接口。<br>JAVA中，传统IO使用流的方式来完成IO。IO都视为单个字节的移动，通过Stream对象一次一个字节（即使是字符流，也是依赖字节流）。<br>NIO创建的目的是为了实现高速IO，无需编写自定义的本机代码，将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度。</p>
+<h1 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h1><p>原来的I/O库(在<code>java.io.*</code>中)与NIO最重要的区别是数据打包和传输的方式。正如前面提到的，原来的I/O以流的方式处理数据，而NIO以块的方式处理数据。<br>面向流的I/O系统一次一个字节地处理数据。一个输入流产生一个字节的数据，一个输出流消费一个字节的数据。为流式数据创建过滤器非常容易。链接几个过滤器，以便每个过滤器只负责单个复杂处理机制的一部分，这样也是相对简单的。不利的一面是，面向流的I/O通常相当慢。<br>一个面向块的I/O系统以块的形式处理数据。每一个操作都在一步中产生或者消费一个数据块。按块处理数据比按(流式的)字节处理数据要快得多。但是面向块的I/O缺少一些面向流的I/O所具有的优雅性和简单性。</p>
+<ul>
+<li>在JDK1.4中原来的I/O包和NIO已经很好地集成了。 <code>java.io.*</code>已经以NIO为基础重新实现了，所以现在它可以利用NIO的一些特性。例如，<code>java.io.*</code>包中的一些类包含以块的形式读写数据的方法，这使得即使在更面向流的系统中，处理速度也会更快。</li>
+<li>也可以用NIO库实现标准I/O功能。例如，可以容易地使用块I/O一次一个字节地移动数据。</li>
+</ul>
+<h1 id="通道Channels和缓冲区Buffers"><a href="#通道Channels和缓冲区Buffers" class="headerlink" title="通道Channels和缓冲区Buffers"></a>通道<code>Channels</code>和缓冲区<code>Buffers</code></h1><p>NIO中的核心就是<code>Channels</code>和<code>Buffers</code>。<code>Channels</code>模拟的是原IO中的流的概念，到任何目的地或是来自任何地方的所有数据都必须通过一个<code>Channels</code>对象。<code>Buffers</code>对象实际上作为一个容器，所有发送到<code>Channels</code>的数据必须先放到<code>Buffers</code>，所有从<code>Channels</code>中读取的数据必须首先存储到<code>Buffers</code>。</p>
+<h2 id="缓冲区Buffers"><a href="#缓冲区Buffers" class="headerlink" title="缓冲区Buffers"></a>缓冲区<code>Buffers</code></h2><p><code>Buffers</code>是一个对象，包含要写入或读出的数据。在原IO中，数据是直接写入Stream或从Stream中读取，而在NIO中，所有数据都必须经过<code>Buffers</code>。</p>
+<ul>
+<li>读取数据，是从缓冲区<code>Buffers</code>对象中读取数据；</li>
+<li>写入数据，是将数据写入到缓冲区<code>Buffers</code>对象中；</li>
+</ul>
+<p>缓冲区的本质是数组，但是提供了额外功能：对数据的结构化访问，跟踪读写进程。</p>
+<h3 id="缓冲区Buffers类型"><a href="#缓冲区Buffers类型" class="headerlink" title="缓冲区Buffers类型"></a>缓冲区<code>Buffers</code>类型</h3><ul>
+<li>ByteBuffer（最常用）</li>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer</li>
+</ul>
+<p>每一个 Buffer 类都是 Buffer 接口的一个实例。 除了 ByteBuffer，每一个 Buffer 类都有完全一样的操作，只是它们所处理的数据类型不一样。</p>
+<h2 id="通道Channels"><a href="#通道Channels" class="headerlink" title="通道Channels"></a>通道<code>Channels</code></h2><p>通道类似原IO中的流的概念，可以使用<code>Channel</code>来写入或读取数据，但是通道是双向的（可同时用于读或写），流是单向的。<br>一个或多个字节写入到缓冲区然后在写入到通道，或是从通道中读取一个或多个字节到缓冲区。</p>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -294,7 +321,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 20px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 16.67px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 16.67px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 16.67px;">项目实践</a>
     			</div>
     	</section>
     

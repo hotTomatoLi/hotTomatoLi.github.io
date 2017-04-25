@@ -139,6 +139,126 @@
       <div class="body-wrap">
         
   
+    <article id="post-工具使用-IDEA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/工具使用-IDEA/">工具使用-IDEA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="自定义live-template"><a href="#自定义live-template" class="headerlink" title="自定义live template"></a>自定义live template</h1><h2 id="logger"><a href="#logger" class="headerlink" title="logger"></a>logger</h2><p>快速生成logger，在File-&gt;Setting-&gt;Editor-&gt;Live Templates中，选择JAVA，点击右侧绿色加号添加，内容如下：</p>
+<ul>
+<li>Abbreviation:<log></log></li>
+<li>Desciption:日志生成</li>
+<li>Template text<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** logger */</div><div class="line">private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>同时，点击Edit variables按钮，对于上述代码中的<code>$CLASS$</code>变量指定值，<code>Expression</code>中选取<code>className()</code>，同时勾选<code>Skip if defined</code>。<br>当前会提示No applicable contexts。点击<code>Define</code>，勾选<code>EveryWhere</code>下的<code>JAVA</code>中的相应内容。<br>这样，在代码中输入<code>&lt;log&gt;</code>后，按<code>Tab</code>就可以快速生成当前类的日志，当然还需要自行引包。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/28/工具使用-IDEA/" class="archive-article-date">
+  	<time datetime="2017-03-28T00:42:00.907Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具使用/">工具使用</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JAVA基础-嵌套接口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/JAVA基础-嵌套接口/">JAVA基础-嵌套接口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>代码中经常有一些类或接口中的嵌套接口。</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public interface Map&lt;K,V&gt; &#123;</div><div class="line">    </div><div class="line">    interface Entry&lt;K,V&gt; &#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>嵌套接口(nested interface)，本身就是<code>static</code>的，无论是否有<code>static</code>修饰。<br>嵌套接口的用途：</p>
+<ul>
+<li><p>如果一个接口，只需要在outer的类中使用，那么嵌套接口就可以不用再新建一个文件（可能在事件监听方面用的较多，java awt或是Android）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 嵌套接口</div><div class="line"> */</div><div class="line">public class NestedInterface &#123;</div><div class="line"></div><div class="line">    interface Inner&#123;</div><div class="line">        void handler();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void registerCallback(Inner inner)&#123;</div><div class="line">        inner.handler();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        NestedInterface nestedInterface = new NestedInterface();</div><div class="line">        nestedInterface.registerCallback(new Inner() &#123;</div><div class="line">            public void handler() &#123;</div><div class="line">                System.out.println(&quot;&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>也提供了一些封装特性，就像是一个命名空间的作用</p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/22/JAVA基础-嵌套接口/" class="archive-article-date">
+  	<time datetime="2017-03-22T01:15:23.618Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-web开发-火狐浏览器端请求取消-ajax的error回调" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -159,11 +279,12 @@
       
 	  <!-- Table of Contents -->
 		
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在使用jquery(1.12)进行ajax请求数据时，在火狐浏览器下发生了下面的现象。<br>ajax请求数据时，后台数据还未返回时，此时点击其他页面链接，在火狐下，ajax的error回调函数会执行，在回调中有一个弹出框提示请求数据出错；而在chrome下则正常跳转；<br>其实，如果不停的刷新该页面，也会产生这种问题。<br>究其原因，就是jquery的ajax函数，将浏览器端的取消，也当做是错误；但是这种明显是用户取消的行为不应该作为错误处理。</p>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在使用jquery(1.12)进行ajax请求数据时，在火狐浏览器下发生了下面的现象。<br>ajax请求数据时，后台数据还未返回时，此时点击其他页面链接，在火狐下，ajax的error回调函数会执行，在回调中有一个弹出框提示请求数据出错；而在chrome下则正常跳转；<br>其实，如果不停的刷新该页面，也会产生这种问题。<br>究其原因，就是jquery的ajax函数，将浏览器端的取消，也当做是错误；但是这种明显是用户取消的行为不应该作为错误处理。<br>此时，服务器端的会有提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.connector.ClientAbortException: java.io.IOException</div></pre></td></tr></table></figure></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/w1057742284/article/details/52166917" target="_blank" rel="external">和浏览器异步请求取消相关的那些事</a><br><a href="http://ilikestuffblog.com/2009/11/30/how-to-distinguish-a-user-aborted-ajax-call-from-an-error/" target="_blank" rel="external">How to Distinguish a User-Aborted AJAX Call from an Error</a><br><a href="http://stackoverflow.com/questions/699941/handle-ajax-error-when-a-user-clicks-refresh/18170879#18170879" target="_blank" rel="external">handle ajax error when a user clicks refresh</a></p>
 <h1 id="实际解决"><a href="#实际解决" class="headerlink" title="实际解决"></a>实际解决</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>参考了上述文献，发现无论是服务器错误或是页面刷新，ajax的<code>error</code>函数里的<code>textStatus</code>都是<code>error</code>，也没有尝试其他的参数值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">error: function ( jqXHR, textStatus, errorThrown) &#123;</div><div class="line">               </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h2><p>如果ajax请求为同步，那就不会允许在请求数据时在浏览器点击事件，也就不会有这种问题。即添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">async:false</div></pre></td></tr></table></figure></p>
-<h2 id="监听beforeunload"><a href="#监听beforeunload" class="headerlink" title="监听beforeunload"></a>监听<code>beforeunload</code></h2><p>监听window对象的<code>beforeunload</code>事件，增加一个标志flag。当页面跳转、刷新时，<code>flag=true</code>,在<code>error</code>事件中，如果<code>flag==true</code>，则不执行相关提示。</p>
+<h2 id="监听beforeunload"><a href="#监听beforeunload" class="headerlink" title="监听beforeunload"></a>监听<code>beforeunload</code></h2><p>监听window对象的<code>beforeunload</code>事件，增加一个标志flag。当页面跳转、刷新时，<code>flag=true</code>,在<code>error</code>事件中，如果<code>flag==true</code>，则不执行相关提示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var globalVars = window.globalVars || &#123; &#125;;</div><div class="line"></div><div class="line">globalVars = &#123;unloaded:false&#125;;</div><div class="line">$(window).bind(&apos;beforeunload&apos;, function()&#123;</div><div class="line">    globalVars.unloaded = true;</div><div class="line">&#125;);</div><div class="line">window.globalVars = globalVars;</div></pre></td></tr></table></figure></p>
+<h2 id="服务器端解决"><a href="#服务器端解决" class="headerlink" title="服务器端解决"></a>服务器端解决</h2><p>能够想到的就是在发生<code>ClientAbortException</code>异常时，进行过滤，但是浏览器能否接受到该信息，未测试过。可以考虑写一个ExceltionHandler。</p>
 
       
     </div>
@@ -277,6 +398,12 @@
 <p>[18, 4, 8, 9, 16, 1, 14, 7, 19, 3, 0, 5, 2, 11, 6]</p>
 </blockquote>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="普通解法"><a href="#普通解法" class="headerlink" title="普通解法"></a>普通解法</h2><p>普通解法（暴力破解法），描述如下（data表示数组集合）：<br>对num=1开始的数据进行循环，判断num是否在data中，如果在，num++，继续循环；不在，则返回num的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 普通算法</div><div class="line"> * 对num=1开始的数据进行循环，判断num是否在data中，</div><div class="line"> * 如果在，num++，继续循环；</div><div class="line"> * 不在，则返回num的值。</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">public static int ordinaryAlgorithms()&#123;</div><div class="line">    int num = 1;</div><div class="line">    while (true)&#123;</div><div class="line">       boolean hasFlag = false;</div><div class="line">       for(int i = 0; i &lt; data.length; i++)&#123;</div><div class="line">           if(data[i] == num)&#123;</div><div class="line">               hasFlag = true;</div><div class="line">               break;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       if(!hasFlag)&#123;</div><div class="line">           break;</div><div class="line">       &#125;else&#123;</div><div class="line">           num ++;</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">    return num;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="改进算法"><a href="#改进算法" class="headerlink" title="改进算法"></a>改进算法</h2><p>考虑到以下事实：<br>对于[x1,x2,…,xn]n个非负整数data</p>
+<ul>
+<li>如果为[0,n-1]，那么最小可用数为n </li>
+<li>如果数组中有任意一个数大于n，那么相应的最小可用数必然小于n<br>则最小可用数<code>result &lt;= n</code>。<br>这样，我们设定一个boolean flag[n+1]，默认值全为false。<br>遍历data，对于每个元素x，如果<code>x&lt;n</code>，那么我们可以在flag中找到对应的flag[x]，设置<code>flag[x] = true</code>，表明data数组中，存在x。<br>最终，得到flag[]数组，在data中存在的数据x对应flag[x]已经为true，只需要找到最小的<code>flag[n]==false</code>即可。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">    * 改进算法</div><div class="line">    * 基于以下事实：</div><div class="line">    * 如果[x1,x2,...,xn]n个非负整数data，如果为[0,n-1]，那么最小可用数为n；如果数组中有任意一个数大于n，那么相应的最小可用数必然小于n，即</div><div class="line">    * result &lt;= n</div><div class="line">    * 这样，定义一个n+1长度的布尔值元素flag[]，默认值均为false；</div><div class="line">    * 遍历data，如果data[i] &lt; n，那么对应的flag[data[i]]=true</div><div class="line">    * 最后遍历flag[]，找到第一个false的位置index，index即为所求的</div><div class="line">    * 最后，如果data为[0,1,2,...,n-1]，那么只有flag[n]为false，最终的值也就为n</div><div class="line">    * @return</div><div class="line">    */</div><div class="line">   public static int improvement_one()&#123;</div><div class="line">       boolean[] flag = new boolean[data.length+1];</div><div class="line">       for(int i = 0; i &lt; flag.length; i++)&#123;</div><div class="line">           flag[i] = false;</div><div class="line">       &#125;</div><div class="line">       for(int i = 0; i &lt; data.length; i++)&#123;</div><div class="line">           int dataEle = data[i];</div><div class="line">           if(dataEle &lt; data.length)&#123;</div><div class="line">               flag[dataEle] = true;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       for(int i = 0; i &lt; flag.length; i++)&#123;</div><div class="line">           if(flag[i] == false)&#123;</div><div class="line">               return i;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       throw new RuntimeException(&quot;没有找到数据&quot;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -657,145 +784,9 @@
 
 
   
-    <article id="post-JAVA基础-事务-spring事务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/JAVA基础-事务-spring事务/">JAVA基础-事务-spring事务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <p># </p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/07/JAVA基础-事务-spring事务/" class="archive-article-date">
-  	<time datetime="2017-03-07T00:12:21.731Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-07</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事务/">事务</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA基础-事务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/06/JAVA基础-事务/">JAVA基础-事务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>事务是一步或多步组成操作序列组成的逻辑执行单元，这个序列要么全部执行，要么则全部放弃执行。<br>事务的四个特性</p>
-<ul>
-<li>原子性 Atomicity</li>
-<li>一致性 Consistency</li>
-<li>隔离性 IsoIation</li>
-<li>持续性 Durability</li>
-</ul>
-<p>原子性（Atomicity）：事务应用最小的执行单元，不可再分。是事务中不可再分的最小逻辑执行体。<br>一致性（Consistency）：事务的执行结果，必须使数据库的从一个一致性的状态变到另一个一致性的状态。<br>隔离线（IsoIation）：各个事务的执行互不干扰，任意一个事务的内部操作对其他并发的事务，都是隔离的。也就是：并发执行的事务之间不能看到对方的中间状态，并发执行的事务之间不能互相影响。<br>持续性（Durability）：持续性也称为持久性（Persistence），指事务一旦提交，对数据所做的任何改变，都要记录到永久存储器中，通常就是保存在物理数据库中。</p>
-<h2 id="事务并发的问题"><a href="#事务并发的问题" class="headerlink" title="事务并发的问题"></a>事务并发的问题</h2><ul>
-<li>脏读 dirty read</li>
-<li>不可重复读 non-repeatable read</li>
-<li>幻读 phantom read</li>
-</ul>
-<p>脏读（dirty read）：一个事务读取了另一个事务尚未提交的数据，而这个数据是有可能回滚。   </p>
-<p>不可重复读（non-repeatable read）：一个事务的操作导致另一个事务前后两次读到不同的数据。不可重复读意味着，<br>在数据库访问中，一个事务范围内两个相同的查询却返回了不同数据。这是由于查询时系统中其他事务修改的提交而引起的。   </p>
-<p>幻读（phantom read）：一个事务的操作导致另一个事务前后两次查询的结果数据量不同。幻读,是指当事务不是独立执行时发生<br>的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。<br>同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，<br>以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样.。   </p>
-<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p>在数据库系统中，事务的隔离级别（Isolation ）决定了该事务的完整性，低级别的事务隔离级别增强了多用户同时访问数据的能力，<br>但是也加大了并发产生负面影响的可能性（脏读，丢失更新等等）。<br>标准的事务隔离级别定义如下：</p>
-<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p>最高的隔离级别，在基于锁机制的并发控制的数据库系统中，Serializable要求在选中数据上的读锁和写锁在事务结束时才释放。<br>在不基于锁的并发控制机制中，系统检测到事务有写冲突时，只有一个事务能够提交。</p>
-<h3 id="Repeatable-reads"><a href="#Repeatable-reads" class="headerlink" title="Repeatable reads"></a>Repeatable reads</h3><p>基于锁的并发控制中，会对选定的对象进行读锁和写锁，但没有范围锁，因此会有幻读。</p>
-<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>基于锁的并发控制中，选中对象的写锁会一直保持到事务结束，但是读锁在SELECT语句后会立即释放，会产出不可重复读。</p>
-<h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>最低级别的隔离级别，允许脏读，其他事务可以看到当前事务未提交的修改。</p>
-<h1 id="Java-JDBC事务机制"><a href="#Java-JDBC事务机制" class="headerlink" title="Java JDBC事务机制"></a>Java JDBC事务机制</h1><p>JDBC的事务基于Connection，通过Connection对象对事务进行管理。<code>setAutoCommit</code>、<code>commit</code>、<code>rollback</code>等。</p>
-<ul>
-<li>自动提交模式 auto-commit mode，auto-commit 为true</li>
-<li>auto-commit为false，每个事务都必须显示调用commit方法进行提交，或者显示调用rollback方法进行回滚</li>
-</ul>
-<h2 id="事务隔离级别（Transaction-Isolation-Levels）"><a href="#事务隔离级别（Transaction-Isolation-Levels）" class="headerlink" title="事务隔离级别（Transaction Isolation Levels）"></a>事务隔离级别（Transaction Isolation Levels）</h2><ul>
-<li>TRANSACTION_NONE JDBC驱动不支持事务</li>
-<li>TRANSACTION_READ_UNCOMMITTED 允许脏读、不可重复读和幻读</li>
-<li>TRANSACTION_READ_COMMITTED 禁止脏读，但允许不可重复读和幻读</li>
-<li>TRANSACTION_REPEATABLE_READ 禁止脏读和不可重复读，允许幻读</li>
-<li>TRANSACTION_SERIALIZABLE 禁止脏读、不可重复读和幻读</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/06/JAVA基础-事务/" class="archive-article-date">
-  	<time datetime="2017-03-06T08:54:09.645Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-06</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事务/">事务</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -858,7 +849,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 20px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 16.67px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 16.67px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 16.67px;">项目实践</a>
     			</div>
     	</section>
     

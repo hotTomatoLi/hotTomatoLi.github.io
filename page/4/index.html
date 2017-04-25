@@ -139,7 +139,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Mysql 特殊字符处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -149,7 +149,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理/">Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理</a>
+      <a class="article-title" href="/2016/12/09/Mysql 特殊字符处理/">Mysql 特殊字符过滤</a>
     </h1>
   
 
@@ -159,232 +159,133 @@
       
 	  <!-- Table of Contents -->
 		
-        <blockquote>
-<p>Core Admin</p>
-</blockquote>
-<p>Core管理页面运行你管理所有的Cores。<br>顶部的按钮功能是新增一个Core，卸载展示的Core，重命名当前选中的Core，将存在的Core与在下拉菜单中选择的Core进行交换，重新加载当前Core，优化当前Core。<br>Core 管理页面中的主要行为与使用CoreAdminHandler的命名是一致的，仅仅提供了管理Core的另一种形式。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-521bf185cdfded12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Core Admin"></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(14)-使用Solr管理交互界面—Core管理/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.627Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面/">Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Cloud Screens</p>
-</blockquote>
-<p>当运行在SolrCloud模式下，在交互界面中，<strong>日志</strong>和<strong>Core管理</strong>之间会增加一个选项。现阶段，通过交互界面管理SolrCloud集群是不可行的。但是可以通过交互界面查看集群，并打开每个节点来查看节点的状态和统计数据，以及每一个节点上的每一个Core。</p>
-<p>注意：当使用SolrCloud时是只读的<br>“Cloud”菜单只在Solr实例运行在SolrCloud模式下才有效。单个节点或是主节点都不会展示这个选项。<br>点击左侧导航的Cloud选项，一个由”Tree”、”Graph”、”Graph (Radial)” 和 “Dump”组成的菜单会展示出来。默认视图”Graph”展示了每一个collection的图形，包括构成这些collection的shards，以及每一个shard的每个replica的地址。下面的图片展示了可以通过运行<code>bin/solr -e cloud</code>脚本启动示例的图形，包括两个节点，两个shard，两个cluster的集群。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-4d1a4cbe6632b81b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="集群示例.png"></p>
-<p> “Graph (Radial)” 选项从另一个角度来展示每个节点。同样的例子，”radial graph”的结果如下</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-3351e05e5da94982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Graph (Radial)集群"></p>
-<p> “Tree” 选项展示了ZooKeeper下的目录结构，包括clusterstate.json，配置文件，和其他的状态信息文件。下图中，我们展示了”gettingstarted”collection中”shard1”中的leader定义。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-9a0d8d3c476fba9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Tree"></p>
-<p>最后的选项为”Dump”，会让你下载一个包含所有ZooKeeper的配置信息的XML文件。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(13)-使用Solr管理交互界面—Cloud页面/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.626Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/">Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Logging</p>
-</blockquote>
-<p>日志页面展示了Solr日志文件中的信息。<br>当点击”Logging”链接，可以看到一张与下图类似的界面</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-b083ee95db102e88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志界面，包含了由于客户端传递错误document而产生的错误日志"></p>
-<p>上述例子只是展示了一个core的日志。如果单个实例中有多个Core，每一个都会被展示出来，并有对应的日志级别。</p>
-<h3 id="选取一个日志级别"><a href="#选取一个日志级别" class="headerlink" title="选取一个日志级别"></a>选取一个日志级别</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-18d866086fb9a4c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="日志级别"></p>
-<p>当点击了左侧<strong>Level</strong>链接，可以看到实例中的classpath和classname的层级。黄色高亮表明该类具有日志能力。点击一个高亮的行，会弹出一个菜单，通过该菜单可以修改日志级别。黑色字段表明该类不会因为root的日志级别改变而改变自己的日志级别。<br>更多细节可以查看<strong>Configuring Logging</strong>章节。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(12)-使用Solr管理交互界面—日志/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.625Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助/">Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Getting Assistance</p>
-</blockquote>
-<p>在每个页面的底部，都有一系列帮助链接。通过这些链接，可以获得关于配置和使用Solr的更多帮助。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-d82aa7b93ed9cbf8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="帮助链接图标"></p>
-<p>上述链接图标包含的链接内容如下。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于推送的数据不规范，接口上也没有进行数据格式校验，导致数据库中的字段存在了莫名的数据（业务端明显错误的数据），需要统计处理一下，</p>
+<h2 id="正则过滤"><a href="#正则过滤" class="headerlink" title="正则过滤"></a>正则过滤</h2><p>首先采用正则表达式进行过滤。Mysql中的正则表达式书写如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM 表名 WHERE 列名  REGEXP &apos;[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]&#123;1,&#125;&apos;</div></pre></td></tr></table></figure></p>
+<p>其中<code>[^0-9a-zA-Z\\.[:blank:][:space:]\\/\\-]{1,}</code>为正则表达式。</p>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td style="text-align:center">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘\n’ 或 ‘\r’ 之后的位置。</td>
+</tr>
+<tr>
+<td>$</td>
+<td style="text-align:center">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 ‘\n’ 或 ‘\r’ 之前的位置。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td style="text-align:center">字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’。</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td style="text-align:center">负值字符集合。匹配未包含的任意字符。例如， ‘[^abc]’ 可以匹配 “plain” 中的’p’。</td>
+</tr>
+<tr>
+<td>p1</td>
+<td style="text-align:center">p2</td>
+<td>p3</td>
+<td>匹配 p1 或 p2 或 p3。例如，’z</td>
+<td>food’ 能匹配 “z” 或 “food”。’(z</td>
+<td>f)ood’ 则匹配 “zood” 或 “food”。</td>
+</tr>
+<tr>
+<td>*</td>
+<td style="text-align:center">匹配前面的子表达式零次或多次。例如，zo<em> 能匹配 “z” 以及 “zoo”。</em> 等价于{0,}。</td>
+</tr>
+<tr>
+<td>+</td>
+<td style="text-align:center">匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td style="text-align:center">n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td style="text-align:center">m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p><code>\\</code>是转义字符，如果需要匹配特殊字符需要加上转义字符。<br>| 模式        | 描述           |<br>| ————- |:————-:|<br>| \f        | 换页           |<br>| \n         | 换行           |<br>| \r        | 回车           |<br>| \t        | 制表           |<br>| \v       | 纵向制表        |</p>
+<p>一些特殊的匹配规则如下</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">链接</th>
+<th>模式</th>
 <th style="text-align:center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Documentation</td>
-<td style="text-align:center">导航到Apache Solr的文档<a href="http://lucene.apache.org/solr/" target="_blank" rel="external">http://lucene.apache.org/solr/</a>.</td>
+<td>[:alnum:]</td>
+<td style="text-align:center">文字数字字符</td>
 </tr>
 <tr>
-<td style="text-align:center">Issue Tracker</td>
-<td style="text-align:center">导航到Apache Solr项目的JIRA问题追踪系统。地址为<a href="http://issues.apache.org/jira/browse/SOLR" target="_blank" rel="external">http://issues.apache.org/jira/browse/SOLR</a>.</td>
+<td>[:alpha:]</td>
+<td style="text-align:center">文字字符</td>
 </tr>
 <tr>
-<td style="text-align:center">IRC Channel</td>
-<td style="text-align:center">导航到如何加入Solr在线聊天室的Apache维基百科。</td>
+<td>[:blank:]</td>
+<td style="text-align:center">空白字符</td>
 </tr>
 <tr>
-<td style="text-align:center">Community forum</td>
-<td style="text-align:center">导航到Apache Solr Web 页面<a href="http://lucene.apache.org/solr/resources.html#community，该页面有参加方式的更多信息。" target="_blank" rel="external">http://lucene.apache.org/solr/resources.html#community，该页面有参加方式的更多信息。</a></td>
+<td>[:cntrl:]</td>
+<td style="text-align:center">控制字符</td>
 </tr>
 <tr>
-<td style="text-align:center">Solr Query Syntax</td>
-<td style="text-align:center">导航到帮助文档中Query Syntax and Parsing区域</td>
+<td>[:digit:]</td>
+<td style="text-align:center">数字字符</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td style="text-align:center">图形字符</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td style="text-align:center">小写文字字符</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td style="text-align:center">图形或空格字符</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td style="text-align:center">标点字符</td>
+</tr>
+<tr>
+<td>[space:]</td>
+<td style="text-align:center">包括空格在内的任意空白字符（同 [\f\n\t\r\v]）</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td style="text-align:center">大写文字字符</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td style="text-align:center">任意十六进制数字（同 [a-fA-F0-9]）</td>
 </tr>
 </tbody>
 </table>
-<p>上述链接可以通过编辑包含管理界面文件的solr.war中的admin.html中修改。</p>
+<h2 id="AscII查看"><a href="#AscII查看" class="headerlink" title="AscII查看"></a>AscII查看</h2><p>当发现特殊字符的时候，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT ASCII(&quot; &quot;)</div></pre></td></tr></table></figure></p>
+<p>获得对应的ASCII码。<br>至于获得Unicode码的方式，还没有找到</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(11)-使用Solr管理交互界面—获得帮助/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.624Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+      <a href="/2016/12/09/Mysql 特殊字符处理/" class="archive-article-date">
+  	<time datetime="2016-12-09T00:29:50.803Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特殊字符/">特殊字符</a></li></ul>
 	</div>
 
       
@@ -404,7 +305,7 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-POI 使用列值设置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -414,7 +315,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述/">Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面—Solr管理交互界面概述</a>
+      <a class="article-title" href="/2016/12/01/POI 使用列值设置/">POI使用—列值设定</a>
     </h1>
   
 
@@ -424,31 +325,21 @@
       
 	  <!-- Table of Contents -->
 		
-        <blockquote>
-<p>Overview of the Solr Admin UI</p>
-</blockquote>
-<p>Solr提供了一个Web接口，使Solr管理员和开发人员更容易的使用查看Solr配置信息，通过查询和分析document的field调整Solr配置，获取在线documentation和其他帮助。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-52b73bc63c2bfba5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Solr管理交互界面"></p>
-<p>访问<code>http://localhost:8983/solr/</code>可以查看主面板，面板包括两方面：<br>在屏幕左侧，Solr的logo下面是一个菜单栏。这个菜单栏提供了交互界面的所有页面的导航。上半部分链接内容指向系统信息和配置、日志、Core管理、Java配置和其他内容。下半部分是Solr实例的配置管理信息。选中一个Core后，会展示一个二级菜单。这个菜单用于展示对应Core的信息和配置选项等，菜单内容包括：Schema，配置，插件，查询数据等。</p>
-<p>页面的中心部分展示了选中的详细信息。这部分可能的内容是参数的二级导航、文本内容、请求数据的图形化展示。详细信息请查看对应页面的说明文档。</p>
-<p>实际上，Solr管理界面使用了和其他客户端访问获取Solr数据同样的 HTTP API 来展示图形界面。</p>
-<p>注意：Solr管理交互界面的地址为<code>http://hostname:port/solr</code>，在当前版本（5.5）该地址会被重定向到<code>http://hostname:port/solr/#/</code>。当然，也支持快捷重定向，只需要通过<code>http://hostname:port/</code>也会重定向到<code>http://hostname:port/solr/#/</code>，从而访问管理界面。</p>
-<h3 id="在solrconfig-xml配置管理界面"><a href="#在solrconfig-xml配置管理界面" class="headerlink" title="在solrconfig.xml配置管理界面"></a>在solrconfig.xml配置管理界面</h3><p>在solrconfig.xml文件中，<admin>标签定义了在特定Core查询页面的默认查询语句。默认值是<code>*:*</code>，将会查询所有的文档。本例中，改为<code>solr</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;admin&gt;</div><div class="line">&lt;defaultQuery&gt;solr&lt;/defaultQuery&gt;</div><div class="line">&lt;/admin&gt;</div></pre></td></tr></table></figure></admin></p>
-<h3 id="相关主题"><a href="#相关主题" class="headerlink" title="相关主题"></a>相关主题</h3><ul>
-<li>Configuring solrconfig.xml</li>
-</ul>
-
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用POI操作Excel时，往往会有一些特殊的列值设定。这里进行记录。</p>
+<h3 id="设置列值为下拉选择"><a href="#设置列值为下拉选择" class="headerlink" title="设置列值为下拉选择"></a>设置列值为下拉选择</h3><p>有的时候，需要设置某一列的值为固定选项的值，这时候就需要进行数据类值的设定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> //生下拉框</div><div class="line">String[] data = XXX;//生成数据</div><div class="line">DVConstraint constraint = DVConstraint.createExplicitListConstraint(data);</div><div class="line">//设置数据有效性加载在哪个单元格上,四个参数分别是：起始行、终止行、起始列、终止列</div><div class="line">CellRangeAddressList regions = new CellRangeAddressList(currentRowIndex, 65535, 5, 5);</div><div class="line">//数据有效性对象</div><div class="line">HSSFDataValidation data_validation_list = new HSSFDataValidation(regions, constraint);</div><div class="line">workbook.getSheetAt(0).addValidationData(data_validation_list);</div></pre></td></tr></table></figure>
+<h3 id="设置值内容为文本"><a href="#设置值内容为文本" class="headerlink" title="设置值内容为文本"></a>设置值内容为文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//设置日期列为文本模式</div><div class="line">HSSFCellStyle textStyle = workbook.createCellStyle();</div><div class="line">HSSFDataFormat format = workbook.createDataFormat();</div><div class="line">textStyle.setDataFormat(format.getFormat(&quot;@&quot;));</div><div class="line">workbook.getSheetAt(0).setDefaultColumnStyle(3,textStyle);</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/20/Apache Solr(5.5)帮助文档(10)-使用Solr管理交互界面-Solr管理交互界面概述/" class="archive-article-date">
-  	<time datetime="2017-02-20T08:55:52.623Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+      <a href="/2016/12/01/POI 使用列值设置/" class="archive-article-date">
+  	<time datetime="2016-12-01T02:11:22.603Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/column/">column</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poi/">poi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作总结/">工作总结</a></li></ul>
 	</div>
 
       
@@ -468,439 +359,204 @@
 
 
   
-    <article id="post-Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux常用总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/">Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面</a>
-    </h1>
-  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/01/linux常用总结/" class="archive-article-date">
+  	<time datetime="2016-12-01T01:51:22.702Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
+</a>
+      
+      
 
-      </header>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql_innodb_lock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
     
     <div class="article-entry" itemprop="articleBody">
       
 	  <!-- Table of Contents -->
 		
-        <blockquote>
-<p>Using the Solr Administration User Interface</p>
-</blockquote>
-<p>这部分内容介绍了Solr管理交互界面（ the Solr Administration User Interface ，Admin UI）。<br><strong>Solr管理交互界面概述</strong>介绍了交互界面的初始管理界面的基本特征，以及如果配置界面。此外，对管理界面的每个页面，都有单独的章节进行描述。</p>
+        <h1 id="InnoDB-Locking"><a href="#InnoDB-Locking" class="headerlink" title="InnoDB Locking"></a>InnoDB Locking</h1><p>这里描述了Innodb中使用的锁。</p>
 <ul>
-<li><strong>获得帮助</strong> 介绍如何获得关于交互界面的更多信息</li>
-<li><strong>日志</strong> 介绍了不同的日志级别，以及调用他们的方式</li>
-<li><strong>Cloud页面</strong> 在运行SolrCloud模式时，展示关于节点的信息</li>
-<li><strong>Core管理</strong>  介绍如何获取每个Core的管理信息</li>
-<li><strong>JAVA配置</strong> 介绍每个Core的JAVA信息</li>
-<li><strong>线程 dump</strong> 展示每一个线程的详细信息，和状态信息</li>
-<li><strong>指定Core的工具</strong> 是每个命名了的Core可使用的功能页面集的介绍<ul>
-<li><strong>分析</strong> 分析指定field的数据</li>
-<li><strong>Dataimport</strong> 展示<strong>Data Import Handler</strong>的状态</li>
-<li><strong>Documents</strong> 提供一个可以在浏览器里执行不同Solr索引命令的表单</li>
-<li><strong>文件</strong> 展示当前Core的配置信息，例如 solrconfig.xml 和 schema.xml。</li>
-<li><strong>Ping</strong> ping一个指定的Core，来判断该Core是否处于活动中</li>
-<li><strong> Plugins/Stats</strong> 展示插件的统计数据，还有其他已经安装的组件</li>
-<li><strong>查询</strong>  运行提交关于一个Core的不同元素的结构化查询</li>
-<li><strong>Replication</strong> 展示当前Core的replication的状态，并运行启用/禁止replication</li>
-<li><strong>Schema 浏览</strong> 在浏览器窗口展示schema</li>
-<li><strong> Segments 信息</strong> 为潜在的Lucene索引segment提供可视化界面</li>
+<li>Shared and Exclusive Locks 共享锁和排他锁</li>
+<li>Intention Locks 意向锁</li>
+<li>Record Locks 行锁</li>
+<li>Gap Locks 间隙锁</li>
+<li>Next-Key Locks next-key锁</li>
+<li>Insert Intention Locks 插入意向锁</li>
+<li>AUTO-INC Locks 自增锁</li>
 </ul>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/16/Apache Solr(5.5)帮助文档(9)-使用Solr管理交互界面/" class="archive-article-date">
-  	<time datetime="2017-02-16T00:50:55.658Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(8)-开始-Solr启动脚步参考" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/15/Apache Solr(5.5)帮助文档(8)-开始-Solr启动脚步参考/">Apache Solr(5.5)帮助文档(8)-开始-Solr启动脚步参考</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>Solr Start Script Reference</p>
-</blockquote>
-<p>Solr中”bin/solr”脚本，运行你启动，停止Solr，创建和删除集合或是Core，检查Solr运行状态和配置好的shards。可以在Solr安装目录下的<code>bin/</code>目录下找到这个脚本。<code>bin/solr</code>脚本通过提供简单的命令和选项使得Solr更容易使用，更快的实现一般目标。<br>本章节下面的标题与solr命令一致。对于每个命令，可用的选项都在示例中进行说明。<br>更多关于<code>bin/solr</code>使用的例子在整个帮助文档中都有，但是主要时在Running Solr章节和Getting started with SolrCloud。</p>
+<h2 id="Shared-and-Exclusive-Locks"><a href="#Shared-and-Exclusive-Locks" class="headerlink" title="Shared and Exclusive Locks"></a>Shared and Exclusive Locks</h2><p>InnoDB实现了标准的行级别锁，现在有两种类别的锁，共享锁（shared locks,S locks），排他锁（exclusive locks, X locks）。</p>
 <ul>
-<li>启动和停止<ul>
-<li>启动和重启</li>
-<li>停止</li>
+<li>共享锁<br>允许持有锁的事务读取一行数据；<br>共享锁就是多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改；</li>
+<li>排他锁<br>排他锁允许持有锁的事务更新或是删除一行数据</li>
 </ul>
-</li>
-<li>信息相关<ul>
-<li>版本</li>
-<li>状态</li>
-<li>运行健康状态检查</li>
+<p>如果事务T1持有一行数据r的S锁，其他事务T2发起的针对该行的事务如下：</p>
+<ul>
+<li>如果T2请求的是一个S锁，那么T2会马上获得S锁，T1和T2都会持有r的S锁；（s锁个数？）</li>
+<li>如果T2请求的是一个X锁，那么T2不会马上获得锁；</li>
 </ul>
-</li>
-<li>集合和Core<ul>
-<li>创建</li>
-<li>删除</li>
+<p>如果T1持有r的X锁，T2如果请求获得任意锁，都不会马上得到，T2会等待T1释放锁。</p>
+<h2 id="Intension-Locks意向锁"><a href="#Intension-Locks意向锁" class="headerlink" title="Intension Locks意向锁"></a>Intension Locks意向锁</h2><blockquote>
+<p>InnoDB supports multiple granularity locking which permits coexistence of row-level locks and locks on entire tables.<br>To make locking at multiple granularity levels practical, additional types of locks called intention locks are used.</p>
+</blockquote>
+<p>InnoDB 支持了多粒度锁机制，允许行锁和表锁共存。为了实现上述多粒度锁机制，InnoDB使用了意向锁。</p>
+<blockquote>
+<p>Intention locks are table-level locks in InnoDB that indicate which type of lock (shared or exclusive) a transaction<br>will require later for a row in that table.<br>There are two types of intention locks used in InnoDB (assume<br>that transaction T has requested a lock of the indicated type on table t):<br>Intention shared (IS): Transaction T intends to set S locks on individual rows in table t.<br>Intention exclusive (IX): Transaction T intends to set X locks on those rows.</p>
+</blockquote>
+<p>在InnoDB中，意向锁是表级别的锁，也就是说，在一张表中，<br>在InnoDB中，有两种意向锁，（假设事务T已经请求了表t的某种锁）：</p>
+<ul>
+<li>意向共享锁，IS锁：事务T想要对表t中个别的行加上s锁；</li>
+<li>意向排他锁，IX锁：事务T想要对那些行集上X锁。</li>
 </ul>
-</li>
-<li>Zookeeper操作<ul>
-<li>上传配置集合</li>
-<li>下载配置集合</li>
+<p>例如<code>SELECT ... LOCK IN SHARE MODE</code> 设置了IS锁， <code>SELECT ... FOR UPDATE</code> 设置了IX锁。</p>
+<p>意向锁协议如下：</p>
+<ul>
+<li>一个事务，如果可以获得表t的一行的S锁(即加上S锁)，那么该事务必须首先获得表t的IS锁或是更强的锁；</li>
+<li>一个事务，如果可以获得一行数据的X锁(即加上X锁)，那么它必须首先获得表t的IX锁。</li>
 </ul>
-</li>
-</ul>
-<h3 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h3><h4 id="启动和重启"><a href="#启动和重启" class="headerlink" title="启动和重启"></a>启动和重启</h4><p>启动命令用来启动Solr，重启命令用来在Solr正在运行或以及被停止时重启Solr。<br>通过启动和重启命令的一些参数，可以使你的Solr运行在SolrCloud模式，或是使用示例项目配置，或是指定非默认端口，或是指向本地的一个Zookeeper。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start [options]</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -help</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr restart [options]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr restart -help</div></pre></td></tr></table></figure>
-<p>当使用重启命令时，必须传递与启动时相同的参数。重启命令的后台运行时，会首先创建一个停止命令，从而在再次启动Solr前先停止运行中的Solr。当然，如果没有Solr节点在运行，重启命令会跳过停止这一步，直接到启动Solr。</p>
-<h5 id="可用的参数"><a href="#可用的参数" class="headerlink" title="可用的参数"></a>可用的参数</h5><p><code>bin/solr</code>脚本提供了很多参数，允许你按照一些常见的方式来启动服务器，例如改变监听端口。然而，特别是在初次接触时，绝大部分的默认配置已经足够使用。</p>
+<p>锁兼容矩阵</p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th style="text-align:center">描述</th>
-<th>示例</th>
+<th>请求锁模式<br>是否兼容<br>当前锁模式</th>
+<th>X</th>
+<th>IX</th>
+<th>S</th>
+<th>IS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-a “<string>“</string></td>
-<td style="text-align:center">采用额外的JVM参数启动Solr。<br>例如<code>-X</code>开头的一些参数参数。如果输入了以<code>-D</code>开头JVM参数，可以省略-a选项</td>
-<td>bin/solr start -a “-Xdebug<br>-Xrunjdwp:transport=dt_socket,<br>server=y,suspend=n,address=1044”</td>
+<td>X</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
 </tr>
 <tr>
-<td>-cloud</td>
-<td style="text-align:center">按照SolrCloud模式启动Solr，<br>会启动在Solr中的嵌入的Zookeeper。<br> 参数可以简写为-c。<br> 如果已经启动了外部的Zkeeper，<br>想要用它替代嵌入的Zookeeper，<br>，需要传入-z参数。<br>更多细节，请查看后面的SolrCloud Mode章节。</td>
-<td>bin/solr start -c</td>
+<td>IX</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>冲突</td>
+<td>兼容</td>
 </tr>
 <tr>
-<td>-d <dir></dir></td>
-<td style="text-align:center">指定服务端的目录，默认为$SOLR_HOME/server。<br>一般很少会覆盖这个参数。<br>当在同一个主机下运行多个实例时，更常见的做法是使用统一的服务端目录，每个实例指定不同的Solr home目录（-s 选项</td>
-<td>bin/solr start -d newSErverDir</td>
+<td>S</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
 </tr>
 <tr>
-<td>-e <name></name></td>
-<td style="text-align:center">按照示例项目的配置启动Solr。这些示例是为了让你更快的熟悉Solr，或是尝试某个特定的特征而准备的。可选参数为：<br> cloud <br> techproducts <br> dih <br> shcemaless <br>更多细节可以查看Running with Example Configurations章节</td>
-<td>bin/solr start -e schemaless</td>
-</tr>
-<tr>
-<td>-f</td>
-<td style="text-align:center">在前台启动Solr；在使用-e参数时启动示例应用时不可以使用-f参数</td>
-<td>bin/solr start -f</td>
-</tr>
-<tr>
-<td>-h <hostname></hostname></td>
-<td style="text-align:center">按照指定的主机名词启动Solr。如果本参数没有设置，将会使用默认的”localhost”</td>
-<td>bin/solr start -h search.mysolr.com</td>
-</tr>
-<tr>
-<td>-m <memory></memory></td>
-<td style="text-align:center">设置Solr启动时JVM堆大小的最小值(-Xms)和最大值(-Xmx)</td>
-<td>bin/siolr start -m 1g</td>
-</tr>
-<tr>
-<td>-nopromt</td>
-<td style="text-align:center">在启动Solr时，禁止显示其它参数产生的提示。它带来的影响就是会在后台接受所有的默认设置。例如，当运行”cloud”示例时，一个交互式进程会允许你配置SolrCloud集群的参数。如果你希望按照默认值处理，只需要在请求上增加-nopromt参数。</td>
-<td>bin/solr start -e cloud -noprompt</td>
-</tr>
-<tr>
-<td>-p <port></port></td>
-<td style="text-align:center">按照定义的端口启动Solr。如果参数未指定，会采用”8983”端口</td>
-<td>bin/slr start -p 8655</td>
-</tr>
-<tr>
-<td>-s <dir></dir></td>
-<td style="text-align:center">设置solr.solr.home系统变量。Solr会在该目录下创建core的目录。这个参数允许你在同一主机上创建多个Solr示例，并且复用-d参数设置的服务端目录。如果设置了本参数，指定的目录会包含solr.xml配置文件，除非该文件在Zookeeper上。本参数的默认值时<code>server/solr</code>。当运行示例程序时，这个参数会被忽略，是因为solr.solr.home变量依赖运行的示例程序。</td>
-<td>bin/solr start -s newHome</td>
-</tr>
-<tr>
-<td>-V</td>
-<td style="text-align:center">在启动时显示启动脚本输出的信息</td>
-<td>bin/solr start -V</td>
-</tr>
-<tr>
-<td>-z <zkhost></zkhost></td>
-<td style="text-align:center">按照定义的Zookeeper连接信息启动Solr。本参数仅仅会与-c参数一起使用，即在SolrCloud模式下。如果未提供本参数，Solr会启动嵌入的Zookeeper实例，用该实例来进行SolrCloud相关操作。</td>
-<td>bin/solr start -c -z server1:2181,server2:2181</td>
+<td>IS</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
+<td>兼容</td>
 </tr>
 </tbody>
 </table>
-<p>为了强调默认参数如何工作的，我们可以通过下面两个命令来理解。下面这两个命令实际上时等价的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -h localhost -p 8983 -d server -s solr -m 512m</div></pre></td></tr></table></figure>
-<p>如果默认参数可以满足你的需求，就没有必要在启动时定义上述参数。</p>
-<h5 id="设置JAVA参数"><a href="#设置JAVA参数" class="headerlink" title="设置JAVA参数"></a>设置JAVA参数</h5><p><code>bin/solr</code>脚本会将所有以-D开头的额外参数传递给JVM，这样就允许设置任意的Java系统参数。例如，如果要设置<strong>soft-commit</strong>频率为3秒，可以执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -Dsolr.autoSoftCommit.maxTime=3000</div></pre></td></tr></table></figure></p>
-<h5 id="SolrCloud模式"><a href="#SolrCloud模式" class="headerlink" title="SolrCloud模式"></a>SolrCloud模式</h5><p>-c参数和-cloud参数时等价的，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -c</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -cloud</div></pre></td></tr></table></figure>
-<p>如果你指定了Zookeeper连接信息，例如”-z 192.168.1.4:2181”，那么Solr会连接到对应的Zookeeper，加入到该集群。如果在启动cloud模式时不指定-z参数，Solr会启动一个嵌入式的Zookeeper实例，端口号为当前Solr端口号加上1000。例如，如果Solr运行在端口8983，那么嵌入的Zookeeper将会在端口9983上运行。</p>
-<p>重要信息：如果Zookeeper连接信息变更了根目录，如<code>localhost:2181/solr</code>，那么在你运行<code>bin/solr</code>脚本启动SolrCloud之前，需要加载 /solr的Zookeeper节点。这就需要使用<code>zkcli.sh</code>脚本，附带着启动的Solr脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server/scripts/cloud-scripts/zkcli.sh -zkhost localhost:2181/solr -cmd bootstrap -solrhome server/solr</div></pre></td></tr></table></figure></p>
-<p>当运行在SolrCloud模式下时，交互进程会提示你选择一个使用的配置集。更多关于启动SolrCloud模式的信息，查看Getting Started with SolrCloud章节。</p>
-<h5 id="运行实例配置"><a href="#运行实例配置" class="headerlink" title="运行实例配置"></a>运行实例配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr start -e &lt;name&gt;</div></pre></td></tr></table></figure>
-<p>示例配置允许你通过一个现成的配置快速实现你希望从Solr中获得的内容。</p>
-<p>每一个示例以<strong>managed schema</strong>形式启动Solr。该形式运行的Solr通过Schema API来修改schema，但是不允许手动修改schema.xml文件。如果你想要修改schema.xml文件，可以按照Managed Schema Definition in SolrConfig章节中的描述修改默认配置。<br>在下面的描述中，除了特别声明的，相应的示例都不允许SolrCloud模式或是无shcema模式。<br>下面是提供的示例：</p>
-<ul>
-<li>cloud：这个例子在一台机器上启动有1-4个节点的SolrCloud集群。当选择该模式，一个交互进程将会启动，指导你选择需要使用的初始化配置，示例集群的节点个数，端口号，需要创建的集合的名称。当使用本示例时，可以选择在$SOLR_HOME/server/solr/configsets目录下的任意一个配置。</li>
-<li>techproducts：本例启动了一个单机模式的Solr，相应的样例documents的schema文件在$SOLR_HOME/example/exampledocs目录中。配置文件在$SOLR_HOME/server/solr/configsets/sample_techproducts_configs目录下。</li>
-<li>dih：本例中，Solr为单机模式，并且启用了DataImportHandler(DIH)，不同的示例dataconfig.xml文件在启动前配置，这些示例配置包含了不同支持DIH的数据类别（数据库内容，email，RSS feeds等等）。配置集合时为DIH自定义的配置，可以在$SOLR_HOME/example/example-DIH/solr/conf目录下找到。更过关于DIH的信息，请查看Uploading Structured Data Stroe Data With the Data Import Handler。</li>
-<li>schemaless：本例启动了Solr的单机模式，使用的时<strong>managed schema</strong>。详细描述在Managed Schema Definition in SolrConfig中。本例中提供了非常少的预定义schema。在这种配置下，Solr将会运行在Schemaless模式，会在运行中创建字段，并根据输入的documents猜测字段的类别。配置集合位于$SOLR_HOME/server/solr/configsets/data_driver_schema_configs。</li>
-</ul>
-<p>注意：在前台运行参数-f与-e参数不能一起使用，是由于启动脚本在启动Solr后需要执行其他的任务。</p>
-<h4 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h4><p>停止命令向正在运行的Solr服务器发送停止请求，从而可以正常关闭Solr。该命令会等待5秒钟来让Solr正常关闭，如果到时候还未关闭，会强制结束进程(kill -9)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr stop [ptions]</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr stop -help</div></pre></td></tr></table></figure>
-<h5 id="可用参数"><a href="#可用参数" class="headerlink" title="可用参数"></a>可用参数</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-p<port></port></td>
-<td style="text-align:center">停止在指定端口上运行的Solr。如果运行了多个Solr实例，或是运行了SolrCloud模式，或是要在不同的停止命令中指定不同的端口号，或是使用-all 参数</td>
-<td style="text-align:center">bin/solr stop -p 8983</td>
-</tr>
-<tr>
-<td style="text-align:center">-all</td>
-<td style="text-align:center">停止所有正在运行的有有效进程号的实例。</td>
-<td style="text-align:center">bin/slr stop -all</td>
-</tr>
-<tr>
-<td style="text-align:center">-k <key></key></td>
-<td style="text-align:center">停止保护意外停止Solr的key，默认是”solrrocks”</td>
-<td style="text-align:center">bin/solr stop -k solrrocks</td>
-</tr>
-</tbody>
-</table>
-<h3 id="信息相关"><a href="#信息相关" class="headerlink" title="信息相关"></a>信息相关</h3><h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><p>版本命令返回当前安装和正在运行的Solr版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr version</div></pre></td></tr></table></figure></p>
-<h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4><p>状态命令以JSON格式展示当前系统中正在运行的Solr节点的基本信息。状态命令使用SOLR_PID_DIR环境变量来定位Solr进程ID文件，从而找到运行的Solr实例；SOLR_PID_DIR环境变量默认是Solr安装目录的bin目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr status</div></pre></td></tr></table></figure></p>
-<p>输出结果将会包含集群中每个节点的状态，示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Found 2 Solr nodes:</div><div class="line">Solr process 39920 running on port 7574</div><div class="line">&#123;</div><div class="line">  &quot;solr_home&quot;:&quot;/Applications/Solr/solr-5.0.0/example/cloud/node2/solr/&quot;,</div><div class="line">  &quot;version&quot;:&quot;5.0.0 1658469 - anshumgupta - 2015-02-09 09:54:36&quot;,</div><div class="line">  &quot;startTime&quot;:&quot;2015-02-10T17:19:54.739Z&quot;,</div><div class="line">  &quot;uptime&quot;:&quot;1 days, 23 hours, 55 minutes, 48 seconds&quot;,</div><div class="line">  &quot;memory&quot;:&quot;77.2 MB (%15.7) of 490.7 MB&quot;,</div><div class="line">  &quot;cloud&quot;:&#123;</div><div class="line">    &quot;ZooKeeper&quot;:&quot;localhost:9865&quot;,</div><div class="line">    &quot;liveNodes&quot;:&quot;2&quot;,</div><div class="line">    &quot;collections&quot;:&quot;2&quot;&#125;&#125;</div><div class="line">Solr process 39827 running on port 8865</div><div class="line">&#123;</div><div class="line">  &quot;solr_home&quot;:&quot;/Applications/Solr/solr-5.0.0/example/cloud/node1/solr/&quot;,</div><div class="line">  &quot;version&quot;:&quot;5.0.0 1658469 - anshumgupta - 2015-02-09 09:54:36&quot;,</div><div class="line">  &quot;startTime&quot;:&quot;2015-02-10T17:19:49.057Z&quot;,</div><div class="line">  &quot;uptime&quot;:&quot;1 days, 23 hours, 55 minutes, 54 seconds&quot;,</div><div class="line">  &quot;memory&quot;:&quot;94.2 MB (%19.2) of 490.7 MB&quot;,</div><div class="line">  &quot;cloud&quot;:&#123;</div><div class="line">    &quot;ZooKeeper&quot;:&quot;localhost:9865&quot;,</div><div class="line">    &quot;liveNodes&quot;:&quot;2&quot;,</div><div class="line">    &quot;collections&quot;:&quot;2&quot;&#125;&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="健康状态检测"><a href="#健康状态检测" class="headerlink" title="健康状态检测"></a>健康状态检测</h4><p>当运行SolrCloud模式时，健康状态检测命令为每个集合生成JSON格式的健康状态报告。健康状态报告提供了一个集合中所有<strong>shards</strong>的每一个复制的状态信息，包括已经提交的documents数量和当前的状态。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/solr healthcheck [options]</div><div class="line">bin/solr healthcheck -help</div></pre></td></tr></table></figure></p>
-<h5 id="可用参数-1"><a href="#可用参数-1" class="headerlink" title="可用参数"></a>可用参数</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-c <collection></collection></td>
-<td style="text-align:center">需要运行健康检测的集合名词（必填）</td>
-<td style="text-align:center">bin/solr healthcheck -c gettingstarted</td>
-</tr>
-<tr>
-<td style="text-align:center">-z <zkhost></zkhost></td>
-<td style="text-align:center">Zookeeper连接串，默认为”localhost:9983”，如果不是在8983端口运行Solr，需要指定相应的Zookeeper连接串。默认端口为Solr的端口加1000</td>
-<td style="text-align:center">bin/solr healthcheck  -z localhost:2181</td>
-</tr>
-</tbody>
-</table>
-<p>下面是一个健康检测的请求和响应示例。该Zookeeper采用的不是标准连接信息，当前有两个节点在运行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">$ bin/solr healthcheck -c gettingstarted -z localhost:9865</div><div class="line">&#123;</div><div class="line">	&quot;collection&quot;:&quot;gettingstarted&quot;,</div><div class="line">	&quot;status&quot;:&quot;healthy&quot;,</div><div class="line">	&quot;numDocs&quot;:0,</div><div class="line">	&quot;numShards&quot;:2,</div><div class="line">	&quot;shards&quot;:[</div><div class="line">	&#123;</div><div class="line">	&quot;shard&quot;:&quot;shard1&quot;,</div><div class="line">	&quot;status&quot;:&quot;healthy&quot;,</div><div class="line">	&quot;replicas&quot;:[</div><div class="line">	&#123;</div><div class="line">	&quot;name&quot;:&quot;core_node1&quot;,</div><div class="line">	&quot;url&quot;:&quot;http://10.0.1.10:8865/solr/gettingstarted_shard1_replica2/&quot;,</div><div class="line">	&quot;numDocs&quot;:0,</div><div class="line">	&quot;status&quot;:&quot;active&quot;,</div><div class="line">	&quot;uptime&quot;:&quot;2 days, 1 hours, 18 minutes, 48 seconds&quot;,</div><div class="line">	&quot;memory&quot;:&quot;25.6 MB (%5.2) of 490.7 MB&quot;,</div><div class="line">	&quot;leader&quot;:true&#125;,</div><div class="line">	&#123;</div><div class="line">	&quot;name&quot;:&quot;core_node4&quot;,</div><div class="line">	&quot;url&quot;:&quot;http://10.0.1.10:7574/solr/gettingstarted_shard1_replica1/&quot;,</div><div class="line">	&quot;numDocs&quot;:0,</div><div class="line">	&quot;status&quot;:&quot;active&quot;,</div><div class="line">	&quot;uptime&quot;:&quot;2 days, 1 hours, 18 minutes, 42 seconds&quot;,</div><div class="line">	&quot;memory&quot;:&quot;95.3 MB (%19.4) of 490.7 MB&quot;&#125;]&#125;,</div><div class="line">	&#123;</div><div class="line">	&quot;shard&quot;:&quot;shard2&quot;,</div><div class="line">	&quot;status&quot;:&quot;healthy&quot;,</div><div class="line">	&quot;replicas&quot;:[</div><div class="line">	&#123;</div><div class="line">	&quot;name&quot;:&quot;core_node2&quot;,</div><div class="line">	&quot;url&quot;:&quot;http://10.0.1.10:8865/solr/gettingstarted_shard2_replica2/&quot;,</div><div class="line">	&quot;numDocs&quot;:0,</div><div class="line">	&quot;status&quot;:&quot;active&quot;,</div><div class="line">	&quot;uptime&quot;:&quot;2 days, 1 hours, 18 minutes, 48 seconds&quot;,</div><div class="line">	&quot;memory&quot;:&quot;25.8 MB (%5.3) of 490.7 MB&quot;&#125;,</div><div class="line">	&#123;</div><div class="line">	&quot;name&quot;:&quot;core_node3&quot;,</div><div class="line">	&quot;url&quot;:&quot;http://10.0.1.10:7574/solr/gettingstarted_shard2_replica1/&quot;,</div><div class="line">	&quot;numDocs&quot;:0,</div><div class="line">	&quot;status&quot;:&quot;active&quot;,</div><div class="line">	&quot;uptime&quot;:&quot;2 days, 1 hours, 18 minutes, 42 seconds&quot;,</div><div class="line">	&quot;memory&quot;:&quot;95.4 MB (%19.4) of 490.7 MB&quot;,</div><div class="line">	&quot;leader&quot;:true&#125;]&#125;]&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="Collections和Cores"><a href="#Collections和Cores" class="headerlink" title="Collections和Cores"></a>Collections和Cores</h3><p>bin/solr脚本可以帮助你创建新的collections（SolrCloud模式）或是cores（单机模式），或者删除collections。</p>
-<h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>注意：创建命令的用户权限<br>        当使用”create”命令，确保运行当前命令的用户与启动Solr的用户是同一个用户。如果使用的是UNIX/Linux安装脚本，将会创建一个名为solr的用户。如果Solr是以solr用户运行，但是用root用户创建core，那么Solr将不能覆盖由start脚本创建的目录。<br>        如果运行的是cloud模式，权限就不是个问题了。在cloud模式下，所有的配置都存储在Zookeeper中，创建脚本不需要创建目录或是复制配置文件。Solr自己会创建所有必须的目录。</p>
-<p>创建命令会检测当前在运行的Solr模式（单机或是SolrCloud），然后根据模式创建core或是collection。</p>
-<h5 id="可用参数-2"><a href="#可用参数-2" class="headerlink" title="可用参数"></a>可用参数</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-c <name></name></td>
-<td style="text-align:center">要创建的collection或是core的名字，必填。</td>
-<td style="text-align:center">bin/solr create -c mycollection</td>
-</tr>
-<tr>
-<td style="text-align:center">-d <confdir></confdir></td>
-<td style="text-align:center">配置信息目录，默认值为data_driven_schema_configs。关于更多细节，查看Configuration Directories and SolrCloud章节</td>
-<td style="text-align:center">bin/solr create -d basic_config</td>
-</tr>
-<tr>
-<td style="text-align:center">-n <configname></configname></td>
-<td style="text-align:center">配置的名称。默认值是与core或是collection的名称一致</td>
-<td style="text-align:center">bin/solr create -n basic</td>
-</tr>
-<tr>
-<td style="text-align:center">-p <port></port></td>
-<td style="text-align:center">创建命令对应的Solr实例的端口号，默认情况下，脚本会查找运行中的Solr实例，从而检测到端口号。当在同一台主机上运行多个单机Solr实例时，-p参数是非常有用的，可以指定想要在具体哪个实例上创建core</td>
-<td style="text-align:center">bin/solr crate -p 8983</td>
-</tr>
-<tr>
-<td style="text-align:center">-s <shards> <br> -shards</shards></td>
-<td style="text-align:center">将collection划分成shards的个数，默认为1；只有当运行在SolrCloud模式下才生效。</td>
-<td style="text-align:center">bin/solr create -s 2</td>
-</tr>
-<tr>
-<td style="text-align:center">-rf <replicas> <br> -replicationFactor</replicas></td>
-<td style="text-align:center">collection中每个document的备份个数，默认是1（无备份）</td>
-<td style="text-align:center">bin/solr create -rf 2</td>
-</tr>
-</tbody>
-</table>
-<h5 id="配置目录和SolrCloud"><a href="#配置目录和SolrCloud" class="headerlink" title="配置目录和SolrCloud"></a>配置目录和SolrCloud</h5><p>在SolrCloud上创建collection之前，collection使用的配置目录需要上传到ZooKeeper。创建命令支持多种collections和配置目录工作的方式，你需要决定的是ZooKeeper中的配置目录师傅需要在多个collection之间共享。让我们通过几个例子来阐述SolrCloud中配置目录如何工作的。</p>
-<p>首先，如果不提供-d或是-n参数，默认配置（$SOLR_HOME/server/solr/configsets/data_driver_schema_configs/conf）会上传到ZooKeeper，名称与collection一致。例如，<code>bin/solr create -c contacts</code>命令，将会把data_driver_schema_configs的配置上传到ZooKeeper中的/configs/contacts目录下。此时，如果创建另一个collection，命令脚本为<code>bin/solr create -c contacts2</code>，那么，data_driver_schema_configs目录会被复制到ZooKeeper的/configs/contacts2下。在contacts的collection上作的任何配置修改都不会影响contracts2的collection。简单来书，默认情况下，会为你创建的每一个collection复制唯一的配置目录。</p>
-<p>你可以通过-n参数，修改上传到ZooKeeper的配置目录的名称。例如，<code>bin/solr create -c logs -d basic_config -n basic</code>将会将server/solr/configsets/basic_configs/conf目录上传到ZooKeeper下的/configs/basic。</p>
-<p>通过<code>-d</code>参数，我们使用指定的配置目录替换了采用默认配置。在<code>server/solr/configsets</code>目录下，Solr提供了多个内置的配置文件。当然，你也可以通过<code>-d</code>参数指定自己的配置文件目录。例如，<code>bin/solr create -c mycoll -d /tmp/myconfigs</code>命令，将会把<code>/tmp/myconfigs</code>上传到Zookeeper下的<code>/configs/mycoll</code>。重申一下，配置文件目录的名称与collection的名称保持一致，除非使用<code>-n</code>参数修改该值。</p>
-<p>其他的collection可以通过使用<code>-n</code>参数指定需要共享的配置。例如，下面的命令将会创建一个使用先前创建的basic 配置的新collection。<code>bin/solr create -c logs2 -n basic</code>。</p>
-<h5 id="数据驱动schema和共享配置"><a href="#数据驱动schema和共享配置" class="headerlink" title="数据驱动schema和共享配置"></a>数据驱动schema和共享配置</h5><p><code>data_driven_schema_configs</code>模式下的schema，会在数据索引时产生变化。因此，我们不建议在多个collection之间共享数据驱动的配置，除非你十分确定当数据索引进任意一个collection时，所有的collection都需要产生一样的变化。</p>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>删除命令会检测正在运行的Solr（单机模式或是SolrCloud模式），然后根据不同的情况选择删除指定的core（单机模式）或是指定的collection（SolrCloud模式）.。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/solr delete [options]</div><div class="line">bin/solr delete -help</div></pre></td></tr></table></figure></p>
-<p>如果运行在SolrCloud模式下，删除命令会检查要删除的collection使用的配置目录是否被其他的collection所使用。如果不是，那么对应的配置目录也会从ZooKeeper下删除。例如，如果你通过<code>bin/solr create -c contacts</code>创建了一个collection，那么删除命令<code>bin/solr delete -c contacts</code>将会检查<code>/configs/contacts</code>配置目录是否被其他的collection使用。如果是否，那么<code>/configs/contacts</code>目录会从ZooKeeper下移除。</p>
-<h5 id="可用参数-3"><a href="#可用参数-3" class="headerlink" title="可用参数"></a>可用参数</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-c <name></name></td>
-<td style="text-align:center">需要删除的core或是collection，必填</td>
-<td style="text-align:center">bin/solr delete -c mycoll</td>
-</tr>
-<tr>
-<td style="text-align:center">-deleteConfig <true or="" false=""></true></td>
-<td style="text-align:center">是否从ZooKeeper下删除配置目录，默认为true。如果该目录被其他collection使用，那么即使使用-deleteConfig true参数，也不会被删除。</td>
-<td style="text-align:center">bin/solr delete -deleteConfig false</td>
-</tr>
-<tr>
-<td style="text-align:center">-p <port></port></td>
-<td style="text-align:center">需要执行删除命令的Solr实例的端口号。默认情况下，脚本通过查找运行中的Solr实例，来检测端口号。当在一台主机上运行多个单机Solr实例时，通过本参数来指定需要从哪个实例上删除core</td>
-<td style="text-align:center">bin/solr delete -p 8983</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ZooKeeper操作"><a href="#ZooKeeper操作" class="headerlink" title="ZooKeeper操作"></a>ZooKeeper操作</h3><p><code>bin/solr</code>脚本运行通过特定操作来控制ZooKeeper，这些操作只能再SolrCloud下执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/solr zk [options]</div><div class="line">bin/solr zk -help</div></pre></td></tr></table></figure></p>
-<p>注意：在通过上述命令初始化ZooKeeper和Solr节点之前，Solr必须至少启动过一次。一旦ZooKeeper初始化完成，Solr就不需要任意节点来运行这些命令，可以但多运行。</p>
-<h4 id="上传配置集"><a href="#上传配置集" class="headerlink" title="上传配置集"></a>上传配置集</h4><p>通过ZooKeeper子命令可以将预先配置好的或是自定义配置集上传到ZooKeeper。</p>
-<h5 id="可选参数（都是必填参数）"><a href="#可选参数（都是必填参数）" class="headerlink" title="可选参数（都是必填参数）"></a>可选参数（都是必填参数）</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-upconfig</td>
-<td style="text-align:center">从本地文件系统上传配置集到ZooKeeper</td>
-<td style="text-align:center">-upconfig</td>
-</tr>
-<tr>
-<td style="text-align:center">-n <name></name></td>
-<td style="text-align:center">在ZooKeeper中的配置集的名称。这个命令会将配置集上传到ZooKeeper节点上的”configs”下指定名称的目录下。<br>可以通过云screens的管理界面查看所有上传的配置，通过Cloud-&gt;tree-&gt;config来查看。<br> 如果指定一个已经存在的配置，那么会进行覆盖操作。</td>
-<td style="text-align:center">-n myconfig</td>
-</tr>
-<tr>
-<td style="text-align:center">-d <configsetdir></configsetdir></td>
-<td style="text-align:center">需要上传的配置集的路径。在路径下应该有”conf”文件夹，里面包含了solrconfig.xml等。<br>如果仅提供了一个目录名字，那么会在<code>$SOLR_HOME/server/solr/configsets</code>路径下检查该目录，因此最好提供绝对路径</td>
-<td style="text-align:center">-d directory_under_configsets <br> -d /absolute/path/to/configset/source</td>
-</tr>
-<tr>
-<td style="text-align:center">-z <zkhost></zkhost></td>
-<td style="text-align:center">ZooKeeper连接串</td>
-<td style="text-align:center">-z 123.321.23.43:2181</td>
-</tr>
-</tbody>
-</table>
-<p>一个带有这些参数的示例命令时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/solr zk -upconfig -z 111.222.333.444:2181 -n mynewconfig -d /path/to/configset</div></pre></td></tr></table></figure></p>
-<p>上述命令不会让变更立即生效，它仅仅上传配置集到ZooKeeper。可以通过Collection API来触发一个重载命令，使得配置生效。</p>
-<h4 id="下载配置集"><a href="#下载配置集" class="headerlink" title="下载配置集"></a>下载配置集</h4><p>通过ZooKeeper子命令可以从ZooKeeper下载一个配置集。</p>
-<h5 id="可选参数（都是必填参数）-1"><a href="#可选参数（都是必填参数）-1" class="headerlink" title="可选参数（都是必填参数）"></a>可选参数（都是必填参数）</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">-downconfig</td>
-<td style="text-align:center">从ZooKeeper下载一个配置集到本地文件系统。</td>
-<td style="text-align:center">-downconfig</td>
-</tr>
-<tr>
-<td style="text-align:center">-n <name></name></td>
-<td style="text-align:center">要下载的配置集的名称。管理界面&gt;&gt;Cloud&gt;&gt;tree&gt;&gt;configs 展示了所有的配置集。</td>
-<td style="text-align:center">-n myconfig</td>
-</tr>
-<tr>
-<td style="text-align:center">-d<configsetdir></configsetdir></td>
-<td style="text-align:center">下载的配置集的保存路径。如果仅提供目录名，将会在$SOLR_HOME/server/solr/configsets路径下保存目录；也可以提供一个绝对路径。在任意一种情况下，如果目的地址已经存在相应的配置，那么该目录会被覆盖。</td>
-<td style="text-align:center">-d directory_under_configsets -d /absolute/path/to/configset/destination</td>
-</tr>
-<tr>
-<td style="text-align:center">-z <zkhost></zkhost></td>
-<td style="text-align:center">ZooKeeper连接串</td>
-<td style="text-align:center">-z 123.321.23.43:2181</td>
-</tr>
-</tbody>
-</table>
-<p>一个带有这些参数的示例命令时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/solr zk -downconfig -z 111.222.333.444:2181 -n mynewconfig -d</div><div class="line">/path/to/configset</div></pre></td></tr></table></figure></p>
-<p>最好的方式是在版本控制系统中保存你的配置文件，那样的话，下载命令将基本不会使用。</p>
+<p>如果请求锁的事务的请求模式与当前锁模式兼容，请求的事务可以获得锁。否则不会获得锁，将会等待冲突的当前锁释放。如果请求锁与现有锁模式冲突，<br>不会获得锁，因为那样会造成死锁，甚至错误。</p>
+<p><a href="http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html</a><br><a href="http://www.myexception.cn/mysql/1712377.html" target="_blank" rel="external">http://www.myexception.cn/mysql/1712377.html</a><br><a href="http://blog.csdn.net/xifeijian/article/details/20313977" target="_blank" rel="external">http://blog.csdn.net/xifeijian/article/details/20313977</a></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/15/Apache Solr(5.5)帮助文档(8)-开始-Solr启动脚步参考/" class="archive-article-date">
-  	<time datetime="2017-02-15T00:56:41.915Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-15</time>
+      <a href="/2016/11/25/mysql_innodb_lock/" class="archive-article-date">
+  	<time datetime="2016-11-25T07:46:33.068Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-25</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-一次mavenjar的冲突解决" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/一次mavenjar的冲突解决/">一次maven的冲突解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前项目有统一的公共父pom文件，为的是保证各个项目组的依赖统一。但是，当前统一的配置与自己的项目有冲突，因此，对冲突进行了排解。<br>主要目的是升级现有的spring框架，需要检查当前项目的依赖关系。</p>
+<h2 id="maven命令"><a href="#maven命令" class="headerlink" title="maven命令"></a>maven命令</h2><h3 id="mvn-dependency-tree"><a href="#mvn-dependency-tree" class="headerlink" title="mvn dependency tree"></a>mvn dependency tree</h3><p><code>mvn dependency:tree</code>命令可以查看当前项目的依赖关系。可以将当前POM的依赖关系按照树形结构展开。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- org.springframework:spring-aop:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  \- aopalliance:aopalliance:jar:1.0:compile</div><div class="line">[INFO] |  +- org.springframework:spring-beans:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.springframework:spring-expression:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-core:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.aspectj:aspectjweaver:jar:1.8.9:compile</div><div class="line">[INFO] +- org.freemarker:freemarker:jar:2.3.20:compile</div><div class="line">[INFO] +- mysql:mysql-connector-java:jar:5.1.22:compile</div><div class="line">[INFO] +- c3p0:c3p0:jar:0.9.1.2:compile</div><div class="line">[INFO] +- org.slf4j:slf4j-api:jar:1.7.5:compile</div><div class="line">[INFO] +- org.slf4j:jcl-over-slf4j:jar:1.7.5:compile</div><div class="line">[INFO] +- org.slf4j:log4j-over-slf4j:jar:1.7.5:compile</div><div class="line">[INFO] +- ch.qos.logback:logback-classic:jar:1.0.13:compile</div><div class="line">[INFO] |  \- ch.qos.logback:logback-core:jar:1.0.13:compile</div></pre></td></tr></table></figure></p>
+<p>上述树形结构里，’-’表示当前父节点最后的子节点。</p>
+<h4 id="–Dverbose"><a href="#–Dverbose" class="headerlink" title="–Dverbose"></a>–Dverbose</h4><p>加上这个参数，可以将当前所有的依赖关系都展示出来，包括来自不同处的依赖项。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-context:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-tx:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  \- org.aspectj:aspectjweaver:jar:1.8.9:compile</div></pre></td></tr></table></figure></p>
+<h4 id="–Dincludes"><a href="#–Dincludes" class="headerlink" title="–Dincludes"></a>–Dincludes</h4><p><code>-Dincludes</code> 可以进行参数过滤，如果需要查询spring相关的依赖，可以<br><code>mvn dependency:tree -Dverbose -Dincludes=*spring*:*spring*</code>，结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[INFO] +- org.springframework:spring-context:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- org.springframework:spring-aop:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  +- org.springframework:spring-beans:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] |  \- org.springframework:spring-expression:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |     \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for duplicate)</div><div class="line">[INFO] +- org.springframework:spring-core:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-context-support:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-context:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-jdbc:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  +- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] |  \- (org.springframework:spring-tx:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-tx:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] |  +- (org.springframework:spring-beans:jar:4.2.8.RELEASE:compile - omitted for duplicate)</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:compile - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div><div class="line">[INFO] +- org.springframework:spring-aspects:jar:4.2.8.RELEASE:compile</div><div class="line">[INFO] +- org.springframework:spring-test:jar:4.2.8.RELEASE:test</div><div class="line">[INFO] |  \- (org.springframework:spring-core:jar:4.1.1.RELEASE:test - version managed from 4.2.8.RELEASE; omitted for conflict with 4.2.8.RELEASE)</div></pre></td></tr></table></figure></p>
+<p>当然，可以将输出结果导入到文本中。只需要在命令后加入”&gt;a.txt”即可。</p>
+<h3 id="mvn-help-effective-pom"><a href="#mvn-help-effective-pom" class="headerlink" title="mvn help:effective-pom"></a>mvn help:effective-pom</h3><p>上述命令可以将当前项目自己的POM已经从父类中继承的POM内容输出，可以输出到文本中<br><code>mvn help:effective-pom&gt;a.txt</code></p>
+<h3 id="mvn-dependency-analyze"><a href="#mvn-dependency-analyze" class="headerlink" title="mvn dependency:analyze"></a>mvn dependency:analyze</h3><p><code>dependency:analyze</code>是通过分析bytecode来输出报告。上面的输出有两部分，一是’Used undeclared dependencies’（使用但未定义的依赖项），<br>二是’Unused declared dependencies’（未使用但却定义的依赖项）。<br>‘Used undeclared dependencies’<br>该列表列出的是程序代码直接用到的、但并没在pom.xml里定义的依赖项。<br>Unused declared dependencies<br>该列表列出的是程序代码没用到的、但在pom.xml里定义的依赖项。<br>注意，该列表可能不准确，因为程序代码可能使用了反射技术，在运行时需要这些jar包存在。</p>
+<h2 id="排除依赖"><a href="#排除依赖" class="headerlink" title="排除依赖"></a>排除依赖</h2><h3 id="dependency"><a href="#dependency" class="headerlink" title="dependency"></a>dependency</h3><p>在dependency中，可以通过exclusions标签进行依赖排除。<br>排除spring<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">   &lt;exclusion&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring&lt;/artifactId&gt;</div><div class="line">   &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure></p>
+<p>排除所有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">   &lt;exclusion&gt;</div><div class="line">      &lt;groupId&gt;*&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;*&lt;/artifactId&gt;</div><div class="line">   &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当有的引入是由当前项目POM继承父POM时，子类继承了父类的dependencyManagement。这种机制本身作用是将公共模块提取出来，<br>在子类中可以不用声明版本号，统一按照父类的定义。<br>但是，如果我们想要指定新的版本号，则需要在子类的dependency中声明版本号，只有dependencies元素中没有指明版本信息时，<br>dependencyManagement 中的 dependencies 元素才起作用。<br>可以通过mvn help:effective-pom查看生成的POM，可以发现子类中包含了dependencyManagement元素。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/22/一次mavenjar的冲突解决/" class="archive-article-date">
+  	<time datetime="2016-11-22T00:30:44.205Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/冲突/">冲突</a></li></ul>
 	</div>
 
       
@@ -920,7 +576,7 @@
 
 
   
-    <article id="post-JAVA基础-开发规范" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux软件安装 rpm_yum_dnf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -930,7 +586,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/JAVA基础-开发规范/">JAVA基础-开发规范（阿里巴巴）</a>
+      <a class="article-title" href="/2016/11/22/Linux软件安装 rpm_yum_dnf/">Linux软件安装：rpm/yum/dnf</a>
     </h1>
   
 
@@ -940,80 +596,28 @@
       
 	  <!-- Table of Contents -->
 		
-        <h1 id="编程规约"><a href="#编程规约" class="headerlink" title="编程规约"></a>编程规约</h1><h2 id="命名规约"><a href="#命名规约" class="headerlink" title="命名规约"></a>命名规约</h2><ol>
-<li>【强制】 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。<br>反例：<code>_name</code> / <code>__name</code> / <code>$Object</code> / <code>name_</code> / <code>name$</code> / <code>Object$</code></li>
-<li>【强制】 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。<br>说明： 正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用。<br>反例： DaZhePromotion [打折] / getPingfenByName() [评分] / int 某变量 = 3<br>正例： alibaba / taobao / youku / hangzhou 等国际通用的名称， 可视同英文。</li>
-<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外： （ 领域模型的相关命名） DO / BO / DTO / VO 等。<br>正例： <code>MarcoPolo</code> / <code>UserDO</code> / <code>XmlService</code> / <code>TcpUdpDeal</code> / <code>TaPromotion</code><br>反例： <code>macroPolo</code> / <code>UserDo</code> / <code>XMLService</code> / <code>TCPUDPDeal</code> / <code>TAPromotion</code>   </li>
-<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。<br>正例： <code>localValue</code> / <code>getHttpMessage()</code> / <code>inputUserId</code>   </li>
-<li>【 强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。<br>正例： <code>MAX_STOCK_COUNT</code><br>反例： <code>MAX_COUNT</code>   </li>
-<li>【强制】抽象类命名使用 <code>Abstract</code> 或 <code>Base</code> 开头； 异常类命名使用 <code>Exception</code> 结尾； 测试类命名以它要测试的类的名称开始，以 <code>Test</code> 结尾。   </li>
-<li>【强制】中括号是数组类型的一部分，数组定义如下： <code>String[] args;</code><br>反例： 请勿使用 <code>String args[]</code> 的方式来定义。   </li>
-<li>【强制】 POJO 类中布尔类型的变量，都不要加 <code>is</code> ，否则部分框架解析会引起序列化错误。<br>反例： 定义为基本数据类型 <code>boolean isSuccess;</code> 的属性，它的方法也是 <code>isSuccess()</code>， RPC框架在反向解析的时候， “以为”对应的属性名称是 <code>success</code> ，导致属性获取不到，进而抛出异常。   </li>
-<li>【强制】包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。<br>正例： 应用工具类包名为 <code>com.alibaba.open.util</code>、类名为 <code>MessageUtils</code> （ 此规则参考spring 的框架结构）   </li>
-<li>【强制】杜绝完全不规范的缩写， 避免望文不知义。<br>反例： <code>AbstractClass</code> “缩写” 命名成 <code>AbsClass</code> ； <code>condition</code>“缩写” 命名成 <code>condi</code>，此类随意缩写严重降低了代码的可阅读性。 </li>
-<li>【推荐】如果使用到了设计模式，建议在类名中体现出具体模式。<br>说明： 将设计模式体现在名字中，有利于阅读者快速理解架构设计思想。<br>正例：<br><code>public class OrderFactory;</code><br><code>public class LoginProxy;</code><br><code>public class ResourceObserver;</code>   </li>
-<li>【推荐】接口类中的方法和属性不要加任何修饰符号（ <code>public</code> 也不要加） ，保持代码的简洁性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。<br>正例： 接口方法签名： <code>void f();</code><br>接口基础常量表示： <code>String COMPANY = &quot;alibaba&quot;;</code><br>反例： 接口方法定义： <code>public abstract void f();</code><br>说明： JDK8 中接口允许有默认实现，那么这个 <code>default</code> 方法，是对所有实现类都有价值的默认实现。</li>
-<li>接口和实现类的命名有两套规则：<br>1） 【强制】对于 Service 和 DAO 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部的实现类用 Impl 的后缀与接口区别。<br>正例： <code>CacheServiceImpl</code> 实现 <code>CacheService</code> 接口。<br>2）【推荐】 如果是形容能力的接口名称，取对应的形容词做接口名 （ 通常是–able 的形式）。<br>正例： <code>AbstractTranslator</code> 实现 <code>Translatable</code>。   </li>
-<li>【参考】枚举类名建议带上 <code>Enum</code> 后缀，枚举成员名称需要全大写，单词间用下划线隔开。<br>说明： 枚举其实就是特殊的常量类，且构造方法被默认强制是私有。<br>正例： 枚举名字： <code>DealStatusEnum</code>， 成员名称： <code>SUCCESS</code> / <code>UNKOWN_REASON</code>。    </li>
-<li>【参考】各层命名规约：<br>A) Service/DAO 层方法命名规约<br>　1） 获取单个对象的方法用 <code>get</code> 做前缀。<br>　2） 获取多个对象的方法用 <code>list</code> 做前缀。<br>　3） 获取统计值的方法用 <code>count</code> 做前缀。<br>　4） 插入的方法用 <code>save</code>（ 推荐） 或 <code>insert</code> 做前缀。<br>　5） 删除的方法用 <code>remove</code>（ 推荐） 或 <code>delete</code> 做前缀。<br>　6） 修改的方法用 <code>update</code> 做前缀。<br>B) 领域模型命名规约<br>　1） 数据对象： xxxDO， xxx 即为数据表名。<br>　2） 数据传输对象： xxxDTO， xxx 为业务领域相关的名称。<br>　3） 展示对象： xxxVO， xxx 一般为网页名称。<br>　4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。   </li>
-</ol>
-<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><ol>
-<li>【强制】不允许出现任何魔法值（ 即未经定义的常量） 直接出现在代码中。<br>反例：<code>String key=&quot;Id#taobao_&quot;+tradeId;</code><br>　　　<code>cache.put(key, value);</code></li>
-<li>【强制】 <code>long</code> 或者 <code>Long</code> 初始赋值时，必须使用大写的 <code>L</code>，不能是小写的 <code>l</code>，小写容易跟数字<code>1</code> 混淆，造成误解。<br>说明： <code>Long a = 2l</code>; 写的是数字的 21，还是 Long 型的 2?   </li>
-<li>【推荐】不要使用一个常量类维护所有常量，应该按常量功能进行归类，分开维护。如：缓存相关的常量放在类： <code>CacheConsts</code> 下； 系统配置相关的常量放在类： <code>ConfigConsts</code> 下。<br>说明： 大而全的常量类，非得使用查找功能才能定位到修改的常量，不利于理解和维护。   </li>
-<li>【推荐】常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量。<br>1） 跨应用共享常量：放置在二方库中，通常是 client.jar 中的 constant 目录下。<br>2） 应用内共享常量：放置在一方库的 modules 中的 constant 目录下。<br>反例： 易懂变量也要统一定义成应用内共享常量，两位攻城师在两个类中分别定义了表示“是”的变量：<br>　　类 A 中： <code>public static final String YES = &quot;yes&quot;;</code><br>　　类 B 中： <code>public static final String YES = &quot;y&quot;;</code><br>　　<code>A.YES.equals(B.YES)</code>，预期是 <code>true</code>，但实际返回为 <code>false</code>，导致产生线上问题。<br>3） 子工程内部共享常量：即在当前子工程的 constant 目录下。<br>4） 包内共享常量：即在当前包下单独的 <code>constant</code> 目录下。<br>5） 类内共享常量：直接在类内部 <code>private static final</code> 定义。   </li>
-<li>【推荐】如果变量值仅在一个范围内变化用 <code>Enum</code> 类。如果还带有名称之外的延伸属性，必须使用 <code>Enum</code> 类，下面正例中的数字就是延伸信息，表示星期几。<br>正例： <code>public Enum{ MONDAY(1), TUESDAY(2), WEDNESDAY(3), THURSDAY(4), FRIDAY(5),SATURDAY(6), SUNDAY(7);}</code></li>
-</ol>
-<h2 id="格式规约"><a href="#格式规约" class="headerlink" title="格式规约"></a>格式规约</h2><ol>
-<li>【强制】大括号的使用约定。如果是大括号内为空，则简洁地写成<code>{}</code>即可，不需要换行；如果是非空代码块则：<br> 1） 左大括号前不不换行。<br> 2） 左大括号后换行。<br> 3） 右大括号前换行。<br> 4） 右大括号后还有<code>else</code>等代码则不换行；表示终止右大括号后必须换行。   </li>
-<li>【强制】 左括号和后一个字符之间不出现空格；同样，右括号和前一个字符之间也不出现空格。详见第5条下方正例提示。</li>
-<li>【强制】<code>if</code>/<code>for</code>/<code>while</code>/<code>switch</code>/<code>do</code>等保留字与左右括号之间都必须加空格。</li>
-<li>【强制】任何运算符左右必须加一个空格。<br>说明：运算符包括赋值运算符=、逻辑运算符&amp;&amp;、加减乘除符号、三目运行符等。   </li>
-<li><p>【强制】缩进采用4个空格，禁止使用tab字符。<br>说明： 如果使用tab缩进，必须设置1个tab为4个空格。IDEA设置tab为4个空格时，请勿勾选Use tab character；而在eclipse中，必须勾选insert spaces for tabs。<br>正例： （涉及1-5点）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public static void main(String args[]) &#123;</div><div class="line">    // 缩进4个空格</div><div class="line">    String say = &quot;hello&quot;;</div><div class="line">    // 运算符的左右必须有一个空格</div><div class="line">    int flag = 0;</div><div class="line">    // 关键词if与括号之间必须有一个空格，括号内的f与左括号，0与右括号不需要空格</div><div class="line">    if (flag == 0) &#123;</div><div class="line">        System.out.println(say);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 左大括号前加空格且不换行；左大括号后换行</div><div class="line">    if (flag == 1) &#123;</div><div class="line">        System.out.println(&quot;world&quot;);</div><div class="line">    // 右大括号前换行，右大括号后有else，不用换行</div><div class="line">    &#125; else &#123;</div><div class="line">        System.out.println(&quot;ok&quot;);</div><div class="line">        // 在右大括号后直接结束，则必须换行</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>【强制】单行字符数限不超过 120 个，超出需要换行时，换行时遵循如下原则：<br> 1） 第二行相对一缩进 4个空格，从第三行开始不再继续缩进参考示例。<br> 2） 运算符与下文一起换行。<br> 3） 方法调用的点符号与下文一起换行。<br> 4） 在多个参数超长，逗号后进行换行。<br> 5） 在括号前不要换行，见反例。<br>正例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">StringBuffer sb = new StringBuffer();</div><div class="line">//超过120个字符的情况下，换行缩进4个空格，并且方法前的点符号一起换行</div><div class="line">sb.append(&quot;zi&quot;).append(&quot;xin&quot;)...</div><div class="line">    .append(&quot;huang&quot;)...</div><div class="line">    .append(&quot;huang&quot;)...</div><div class="line">    .append(&quot;huang&quot;);</div><div class="line">```    </div><div class="line"></div><div class="line">反例：</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>StringBuffer sb = new StringBuffer();<br>//超过120个字符的情况下，不要在括号前换行<br>sb.append(“zi”).append(“xin”)…append<br>    (“huang”);<br>//参数很多的方法调用可能超过120个字符，不要在逗号前换行<br>method(args1, args2, args3, …<br>    , argsX);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7. 【强制】方法参数在定义和传入时，多个参数逗号后边必须加空格。</div><div class="line">正例：下例中实参的&quot;a&quot;,后边必须要有一个空格。</div></pre></td></tr></table></figure></p>
-<p>method(“a”, “b”, “c”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">8. 【强制】IDE的text file encoding设置为UTF-8; IDE中文件的换行符使用Unix格式，不要使用windows格式。</div><div class="line">9. 【推荐】没有必要增加若干空格来使某一行的字符与上一行的相应字符对齐。</div><div class="line">正例：</div></pre></td></tr></table></figure></p>
-<p>int a = 3;<br>long b = 4L;<br>float c = 5F;<br>StringBuffer sb = new StringBuffer();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">说明：增加`sb`这个变量，如果需要对齐，则给`a`、`b`、`c`都要增加几个空格，在变量比较多的情况下，是一种累赘的事情。   </div><div class="line"></div><div class="line">10. 【推荐】方法体内的执行语句组、变量的定义语句组、不同的业务逻辑之间或者不同的语义之间插入一个空行。相同业务逻辑和语义之间不需要插入空行。    </div><div class="line">说明：没有必要插入多行空格进行隔开。</div><div class="line"></div><div class="line">## OOP规约</div><div class="line">1. 【强制】避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可。</div><div class="line">2. 【强制】所有的覆写方法，必须加`@Override`注解。   </div><div class="line"> 反例：`getObject()`与`get0bject()`的问题。一个是字母的O，一个是数字的0，加`@Override`可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编译报错。</div><div class="line">3. 【强制】相同参数类型，相同业务含义，才可以使用Java的可变参数，避免使用Object。    </div><div class="line"> 说明：可变参数必须放置在参数列表的最后。（提倡同学们尽量不用可变参数编程）    </div><div class="line"> 正例：`public User getUsers(String type, Integer... ids)`</div><div class="line">4. 【强制】对外暴露的接口签名，原则上不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加`@Deprecated`注解，并清晰地说明采用的新接口或者新服务是什么。</div><div class="line">5. 【强制】不能使用过时的类或方法。   </div><div class="line">说明：`java.net.URLDecoder` 中的方法`decode(String encodeStr)` 这个方法已经过时，应该使用双参数`decode(String source, String encode)`。接口提供方既然明确是过时接口，那么有义务同时提供新的接口；作为调用方来说，有义务去考证过时方法的新实现是什么。 </div><div class="line">6. 【强制】`Object`的`equals`方法容易抛空指针异常，应使用常量或确定有值的对象来调用`equals`。    </div><div class="line">正例： `&quot;test&quot;.equals(object);`       </div><div class="line">反例： `object.equals(&quot;test&quot;);`    </div><div class="line">说明：推荐使用`java.util.Objects#equals` （JDK7引入的工具类）</div><div class="line"></div><div class="line">7. 【强制】所有的相同类型的包装类对象之间值的比较，全部使用`equals`方法比较。    </div><div class="line">说明：对于`Integer var=?`在-128至127之间的赋值，`Integer`对象是在`IntegerCache.cache`产生，会复用已有对象，这个区间内的`Integer`值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用`equals`方法进行判断。</div><div class="line"></div><div class="line">8. 【强制】关于基本数据类型与包装数据类型的使用标准如下：    </div><div class="line">1） 所有的POJO类属性必须使用包装数据类型。    </div><div class="line">2） RPC方法的返回值和参数必须使用包装数据类型。    </div><div class="line">3） 所有的局部变量【推荐】使用基本数据类型。    </div><div class="line">说明：POJO类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何NPE问题，或者入库检查，都由使用者来保证。   </div><div class="line">正例：数据库的查询结果可能是`null`，因为自动拆箱，用基本数据类型接收有NPE风险。    </div><div class="line">反例：比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。所以包装数据类型的null值，能够表示额外的信息，如：远程调用失败，异常退出。   </div><div class="line"></div><div class="line">9. 【强制】定义DO/DTO/VO等POJO类时，不要设定任何属性默认值。    </div><div class="line">反例：POJO类的`gmtCreate`默认值为`new Date();`但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</div><div class="line"></div><div class="line">10. 【强制】序列化类新增属性时，请不要修改`serialVersionUID`字段，避免反序列失败；如果完全不兼容升级，避免反序列化混乱，那么请修改`serialVersionUID`值。    </div><div class="line">说明：注意`serialVersionUID`不一致会抛出序列化运行时异常。</div><div class="line"></div><div class="line">11. 【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在`init`方法中。</div><div class="line"></div><div class="line">12. 【强制】POJO类必须写`toString`方法。使用IDE的中工具：source&gt; generate toString时，如果继承了另一个POJO类，注意在前面加一下`super.toString`。   </div><div class="line">说明：在方法执行抛出异常时，可以直接调用POJO的toString()方法打印其属性值，便于排查问题。</div><div class="line"></div><div class="line">13. 【推荐】使用索引访问用`String`的`split`方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛IndexOutOfBoundsException的风险。   </div><div class="line">说明：</div></pre></td></tr></table></figure></p>
-<p>String str = “a,b,c,,”;<br>String[] ary = str.split(“,”);<br>//预期大于3，结果是3<br>System.out.println(ary.length);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">14. 【推荐】当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读。</div><div class="line"></div><div class="line">15. 【推荐】 类内方法定义顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; getter/setter方法。    </div><div class="line">说明：公有方法是类的调用者和维护者最关心的方法，首屏展示最好；保护方法虽然只是子类关心，也可能是“模板设计模式”下的核心方法；而私有方法外部一般不需要特别关心，是一个黑盒实现；因为方法信息价值较低，所有Service和DAO的getter/setter方法放在类体最后。</div><div class="line"></div><div class="line">16. 【推荐】setter方法中，参数名称与类成员变量名称一致，this.成员名=参数名。在getter/setter方法中，尽量不要增加业务逻辑，增加排查问题的难度。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
-<p>public Integer getData(){<br>    if(true) {<br>        return data + 100;<br>    } else {<br>        return data - 100;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">17. 【推荐】循环体内，字符串的联接方式，使用`StringBuilder`的`append`方法进行扩展。    </div><div class="line">反例：</div></pre></td></tr></table></figure></p>
-<p>String str = “start”;<br>for(int i=0; i<100; i++){="" str="str" +="" "hello";="" }="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">说明：反编译出的字节码文件显示每次循环都会`new`出一个`StringBuilder`对象，然后进行`append`操作，最后通过`toString`方法返回`String`对象，造成内存资源浪费。</div><div class="line"></div><div class="line">18. 【推荐】`final`可提高程序响应效率，声明成`final`的情况：    </div><div class="line">1） 不需要重新赋值的变量，包括类属性、局部变量。    </div><div class="line">2） 对象参数前加`final`，表示不允许修改引用的指向。   </div><div class="line">3） 类方法确定不允许被重写。   </div><div class="line"></div><div class="line">19. 【推荐】慎用`Object`的`clone`方法来拷贝对象。    </div><div class="line">说明：对象的`clone`方法默认是浅拷贝，若想实现深拷贝需要重写`clone`方法实现属性对象的拷贝。</div><div class="line"></div><div class="line">20. 【推荐】类成员与方法访问控制从严： </div><div class="line">1） 如果不允许外部直接通过`new`来创建对象，那么构造方法必须是`private`。    </div><div class="line">2） 工具类不允许有`public`或`default`构造方法。    </div><div class="line">3） 类非`static`成员变量并且与子类共享，必须是`protected`。    </div><div class="line">4） 类非`static`成员变量并且仅在本类使用，必须是`private`。    </div><div class="line">5） 类`static`成员变量如果仅在本类使用，必须是`private`。   </div><div class="line">6） 若是`static`成员变量，必须考虑是否为`final`。    </div><div class="line">7） 类成员方法只供类内部调用，必须是`private`。    </div><div class="line">8） 类成员方法只对继承类公开，那么限制为`protected`。   </div><div class="line">说明：任何类、方法、参数、变量，严控访问范围。过宽泛的访问范围，不利于模块解耦。   </div><div class="line">思考：如果是一个`private`的方法，想删除就删除，可是一个`public`的`Service`方法，或者一个`public`的成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大，如果无限制的到处跑，那么你会担心的。</div><div class="line"></div><div class="line">## 集合处理</div><div class="line">1. 【强制】关于`hashCode`和`equals`的处理，遵循如下规则：   </div><div class="line">1） 只要重写`equals`，就必须重写`hashCode`。    </div><div class="line">2） 因为`Set`存储的是不重复的对象，依据`hashCode`和`equals`进行判断，所以`Set`存储的对象必须重写这两个方法。    </div><div class="line">3） 如果自定义对象做为`Map`的键，那么必须重写`hashCode`和`equals`。 说明：`String`重写了`hashCode`和`equals`方法，</div><div class="line">所以我们可以非常愉快地使用`String`对象作为`key`来使用。</div><div class="line"></div><div class="line">2. 【强制】 `ArrayList`的`subList`结果不可强转成`ArrayList`，否则会抛出`ClassCastException`   </div><div class="line">异常：`java.util.RandomAccessSubList cannot be cast to java.util.ArrayList` ;   </div><div class="line">说明：`subList` 返回的是 `ArrayList` 的内部类 `SubList`，并不是 `ArrayList` ，   </div><div class="line">而是 `ArrayList` 的一个视图，对于`SubList`子列表的所有操作最终会反映到原列表上。</div><div class="line"></div><div class="line">3. 【强制】 在`subList`场景中，高度注意对原集合元素个数的修改，</div><div class="line">会导致子列表的遍历、增加、删除均产生`ConcurrentModificationException` 异常。</div><div class="line"></div><div class="line">4. 【强制】使用集合转数组的方法，必须使用集合的`toArray(T[] array)`，传入的是类型完全一样的数组，大小就是`list.size()`。   </div><div class="line">说明：使用`toArray`带参方法，入参分配的数组空间不够大时，`toArray`方法内部将重新分配内存空间，并返回新数组地址；</div><div class="line">如果数组元素大于实际所需，下标为[`list.size()`]的数组元素将被置为`null`，其它数组元素保持原值，</div><div class="line">因此最好将方法入参数组大小定义与集合元素个数一致。   </div><div class="line">正例：</div></pre></td></tr></table></100;></p>
-<p>List<string> list = new ArrayList<string>(2);<br>list.add(“guan”);<br>list.add(“bao”);<br>String[] array = new String[list.size()];<br>array = list.toArray(array);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">反例：直接使用`toArray`无参方法存在问题，此方法返回值只能是`Object[]`类，若强转其它类型数组将出现`ClassCastException`错误。</div><div class="line"></div><div class="line">5. 【强制】使用工具类`Arrays.asList()`把数组转换成集合时，不能使用其修改集合相关的方法，</div><div class="line">它的`add/remove/clear`方法会抛出`UnsupportedOperationException`异常。</div><div class="line">说明：`asList`的返回对象是一个`Arrays`内部类，并没有实现集合的修改方法。`Arrays.asList`体现的是适配器模式，只是转换接口，</div><div class="line">后台的数据仍是数组。</div></pre></td></tr></table></figure></string></string></p>
-<p>String[] str = new String[] { “a”, “b” };<br>List list = Arrays.asList(str);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">第一种情况：`list.add(&quot;c&quot;);` 运行时异常。    </div><div class="line">第二种情况：`str[0] = &quot;gujin&quot;;` 那么`list.get(0)`也会随之修改。</div><div class="line"></div><div class="line">6. 【强制】泛型通配符`&lt;? extends T&gt;`来接收返回的数据，此写法的泛型集合不能使用`add`方法，而`&lt;? super T&gt;`不能使用`get`方法，</div><div class="line">做为接口调用赋值时易出错。    </div><div class="line">说明：扩展说一下`PECS(Producer Extends Consumer Super)`原则：</div><div class="line">1）频繁往外读取内容的，适合用上界`Extends`。</div><div class="line">2）经常往里插入的，适合用下界`Super`。</div><div class="line"></div><div class="line">7. 【强制】不要在`foreach`循环里进行元素的`remove/add`操作。`remove`元素请使用`Iterator`方式，如果并发操作，需要对`Iterator`对象加锁。</div><div class="line">反例：</div></pre></td></tr></table></figure></p>
-<p>List<string> a = new ArrayList<string>();<br>a.add(“1”);<br>a.add(“2”);<br>for (String temp : a) {<br>    if (“1”.equals(temp)) {<br>        a.remove(temp);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">说明：以上代码的执行结果肯定会出乎大家的意料，那么试一下把“1”换成“2”，会是同样的结果吗？</div><div class="line">正例：</div></pre></td></tr></table></figure></string></string></p>
-<p>Iterator<string> it = a.iterator();<br>while (it.hasNext()) {<br>String temp = it.next();<br>if (删除元素的条件) {<br>    it.remove();<br>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">8. 【强制】 在JDK7版本及以上，`Comparator`要满足如下三个条件，不然`Arrays.sort`，`Collections.sort`会报`IllegalArgumentException`异常。</div><div class="line">说明：   </div><div class="line">1） x，y的比较结果和y，x的比较结果相反。    </div><div class="line">2） x&gt;y，y&gt;z，则x&gt;z。    </div><div class="line">3） x=y，则x，z比较结果和y，z比较结果相同。   </div><div class="line">反例：下例中没有处理相等的情况，实际使用中可能会出现异常：</div></pre></td></tr></table></figure></string></p>
-<p>new Comparator<student>() {<br>@Override<br>public int compare(Student o1, Student o2) {<br>    return o1.getId() &gt; o2.getId() ? 1 : -1;<br>}<br>}<br>```</student></p>
-<ol>
-<li><p>【推荐】集合初始化时，尽量指定集合初始值大小。<br>说明：<code>ArrayList</code>尽量使用<code>ArrayList(int initialCapacity)</code> 初始化。</p>
-</li>
-<li><p>【推荐】使用<code>entrySet</code>遍历<code>Map</code>类集合KV，而不是<code>keySet</code>方式进行遍历。<br>说明：<code>keySet</code>其实是遍历了2次，一次是转为<code>Iterator</code>对象，另一次是从<code>hashMap</code>中取出<code>key</code>所对应的<code>value</code>。<br>而<code>entrySet</code>只是遍历了一次就把<code>key</code>和<code>value</code>都放到了<code>entry</code>中，效率更高。如果是JDK8，使用<code>Map.foreach</code>方法。<br>正例：<code>values()</code>返回的是V值集合，是一个<code>list</code>集合对象；<code>keySet()</code>返回的是K值集合，是一个<code>Set</code>集合对象；<code>entrySet()</code>返回的是K-V值组合集合。</p>
-</li>
-<li><p>【推荐】高度注意<code>Map</code>类集合K/V能不能存储null值的情况，如下表格：<br>|集合类|<code>Key</code>|<code>Value</code>|<code>Super</code>|说明|<br>|:—:|:–:|:–:|:–:|:–:|<br>|<code>Hashtable</code>|不允许为<code>null</code>|不允许为<code>null</code>|<code>Dictionary</code>|线程安全|<br>|<code>ConcurrentHashMap</code>|不允许为<code>null</code>|不允许为<code>null</code>|<code>AbstractMap</code>|分段锁技术|<br>|<code>TreeMap</code>|不允许为<code>null</code>|允许为<code>null</code>|<code>AbstractMap</code>|线程不安全|<br>|<code>HashMap</code>|允许为<code>null</code>|允许为<code>null</code>|<code>AbstractMap</code>|线程不安全|</p>
-</li>
-</ol>
-<p>反例： 由于<code>HashMap</code>的干扰，很多人认为<code>ConcurrentHashMap</code>是可以置入<code>null</code>值，注意存储<code>null</code>值时会抛出NPE异常。</p>
-<ol>
-<li><p>【参考】合理利用好集合的有序性(sort)和稳定性(order)，避免集合的无序性(unsort)和不稳定性(unorder)带来的负面影响。<br>说明：有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次序是一定的。<br>如：<code>ArrayList</code>是order/unsort；<code>HashMap</code>是unorder/unsort；<code>TreeSet</code>是order/sort。</p>
-</li>
-<li><p>【参考】利用<code>Set</code>元素唯一的特性，可以快速对一个集合进行去重操作，避免使用<code>List</code>的<code>contains</code>方法进行遍历、对比、去重操作。</p>
-</li>
-</ol>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h3><p>一个软件包（简称包），包括需要安装和运行的应用程序，工具，服务器，系统软件脚本，程序，文件和目录，也包括依赖的其他包。软件包的作用是方便<br>软件的安装，更新和卸载。<br>通常的软件包可以是可执行文件或源代码文件。</p>
+<h3 id="PMS"><a href="#PMS" class="headerlink" title="PMS"></a>PMS</h3><p>PMS，是包管理系统，是一个工具集，用于软件的安装，升级，卸载，搜索，提供了一个统一的方式。它可以跟踪一个包的所有文件，便于卸载。常见的软件<br>包管理器有RPM（RPM软件包管理器）和dkpg（Debian软件包）。</p>
+<h3 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h3><p>RPM（RedHat Package Manager），现在是RPM Package Manager，RPM软件包管理。现在已经是公认的行业标准。RPM可以下载，安装，卸载，升级，<br>查询和验证RPM包，对应的包的扩展名为.rpm。</p>
+<p>Linux下程序安装的方式有：</p>
+<ul>
+<li>源码安装，需要自己下载源码包（如tar.gz结尾），需要自己进行源码编译和安装（config命令，make命令，make install 命令）</li>
+<li>软件包</li>
+<li>通用二进制格式，解压后就可以使用，找到对应的文件执行就可以启动。（idea目录下的idea.sh）</li>
+</ul>
+<h2 id="RPM-1"><a href="#RPM-1" class="headerlink" title="RPM"></a>RPM</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.cnblogs.com/shijiaqi1066/p/3843955.html" target="_blank" rel="external">Linux软件安装，RPM与YUM</a></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/14/JAVA基础-开发规范/" class="archive-article-date">
-  	<time datetime="2017-02-14T06:27:40.219Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
+      <a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" class="archive-article-date">
+  	<time datetime="2016-11-22T00:30:44.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发规范/">开发规范</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dnf/">dnf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
 	</div>
 
       
@@ -1033,7 +637,7 @@
 
 
   
-    <article id="post-JAVA基础-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Fedora安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -1043,7 +647,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/JAVA基础-HashMap/">JAVA基础-HashMap</a>
+      <a class="article-title" href="/2016/11/18/Fedora安装/">Fedora安装</a>
     </h1>
   
 
@@ -1053,234 +657,258 @@
       
 	  <!-- Table of Contents -->
 		
-        <h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><h2 id="名词说明"><a href="#名词说明" class="headerlink" title="名词说明"></a>名词说明</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">名词</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bucket</td>
-<td style="text-align:center">桶</td>
-</tr>
-<tr>
-<td style="text-align:center">bin</td>
-<td style="text-align:center">箱子</td>
-</tr>
-</tbody>
-</table>
-<h2 id="源码结构"><a href="#源码结构" class="headerlink" title="源码结构"></a>源码结构</h2><h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><img src="http://upload-images.jianshu.io/upload_images/1213316-3d2e5ebc515bb001.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常量"></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">serialVersionUID</td>
-<td style="text-align:center">序列化ID</td>
-</tr>
-<tr>
-<td style="text-align:center">DEFAULT_INITIAL_CAPACITY</td>
-<td style="text-align:center">默认容量，16</td>
-</tr>
-<tr>
-<td style="text-align:center">MAXIMUM_CAPACITY</td>
-<td style="text-align:center">最大容量，2的30次方</td>
-</tr>
-<tr>
-<td style="text-align:center">DEFAULT_LOAD_FACTOR</td>
-<td style="text-align:center">默认加载因子0.75，加载因子用于扩容时，如果当前已经存储的数据量大于总容量的0.75，会进行扩容</td>
-</tr>
-<tr>
-<td style="text-align:center">TREEIFY_THRESHOLD</td>
-<td style="text-align:center">8，这个阈值表明，当一个bucket有超过8个节点时，会将链表转成树</td>
-</tr>
-<tr>
-<td style="text-align:center">UNTREEIFY_THRESHOLD</td>
-<td style="text-align:center">6，这个阈值表明，当一个bucket小于6个节点时，会将链表转成树</td>
-</tr>
-<tr>
-<td style="text-align:center">MIN_TREEIFY_CAPACITY</td>
-<td style="text-align:center">bin被树化时最小的hash表容量</td>
-</tr>
-</tbody>
-</table>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
-<li>transient ：java语言的关键字，变量修饰符，如果用transient声明一个实例变量，当对象存储时，它的值不需要维持。换句话来说就是，用transient关键字标记的成员变量不参与序列化过程。</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-4d3effbbd092efc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="变量"></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">table</td>
-<td style="text-align:center">Node<k,v>[]</k,v></td>
-<td style="text-align:center">HashMap的实际数据结构，为一个数组，Node<k,v>为内部定义的数据结构。</k,v></td>
-</tr>
-<tr>
-<td style="text-align:center">entrySet</td>
-<td style="text-align:center">Set<map.entry<k,v>&gt;</map.entry<k,v></td>
-<td style="text-align:center">—</td>
-</tr>
-<tr>
-<td style="text-align:center">size</td>
-<td style="text-align:center">int</td>
-<td style="text-align:center">当前存储数据的数量</td>
-</tr>
-<tr>
-<td style="text-align:center">modCount</td>
-<td style="text-align:center">int</td>
-<td style="text-align:center">记录HashMap结构修改的次数</td>
-</tr>
-<tr>
-<td style="text-align:center">threshold</td>
-<td style="text-align:center">int</td>
-<td style="text-align:center">触发扩容的数值</td>
-</tr>
-<tr>
-<td style="text-align:center">loadFactor</td>
-<td style="text-align:center">int</td>
-<td style="text-align:center">加载因子，加载因子用于扩容时，如果当前已经存储的数据量/总容量&gt;loadFactor，会进行扩容</td>
-</tr>
-</tbody>
-</table>
-<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>Node类是一个HashMap中存储的基本数据（）</p>
-<ul>
-<li>hash 哈希值，在table[i]位置存储的Node初始是队列，队列的所有的hash值相等</li>
-<li>key 主键</li>
-<li>value 值</li>
-<li>next 指向链表的下个Node</li>
-</ul>
-<h4 id="KeySet"><a href="#KeySet" class="headerlink" title="KeySet"></a>KeySet</h4><p>存储所有Key值的Set，Key值不重复。</p>
-<h4 id="Values"><a href="#Values" class="headerlink" title="Values"></a>Values</h4><p>存储所有的Value类</p>
-<h4 id="EntrySet"><a href="#EntrySet" class="headerlink" title="EntrySet"></a>EntrySet</h4><h4 id="HashIterator"><a href="#HashIterator" class="headerlink" title="HashIterator"></a>HashIterator</h4><p>抽象类</p>
-<h4 id="KeyIterator"><a href="#KeyIterator" class="headerlink" title="KeyIterator"></a>KeyIterator</h4><h4 id="ValueIterator"><a href="#ValueIterator" class="headerlink" title="ValueIterator"></a>ValueIterator</h4><h4 id="EntryIterator"><a href="#EntryIterator" class="headerlink" title="EntryIterator"></a>EntryIterator</h4><h4 id="HashMapSpliterator"><a href="#HashMapSpliterator" class="headerlink" title="HashMapSpliterator"></a>HashMapSpliterator</h4><h4 id="KeySpliterator"><a href="#KeySpliterator" class="headerlink" title="KeySpliterator"></a>KeySpliterator</h4><h4 id="ValueSpliterator"><a href="#ValueSpliterator" class="headerlink" title="ValueSpliterator"></a>ValueSpliterator</h4><h4 id="EntrySpliterator"><a href="#EntrySpliterator" class="headerlink" title="EntrySpliterator"></a>EntrySpliterator</h4><h4 id="TreeNode"><a href="#TreeNode" class="headerlink" title="TreeNode"></a>TreeNode</h4><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>HashMap提供四种构造函数。</p>
-<ul>
-<li>HashMap(int initialCapacity, float loadFactor)，指定初始容量和加载因子</li>
-<li>HashMap(int initialCapacity)，指定初始容量</li>
-<li>HashMap()，采用默认值</li>
-<li>HashMap(Map&lt;? extends K, ? extends V&gt; m)，根据一个Map初始化hashMap</li>
-</ul>
-<h4 id="hash-Object-key"><a href="#hash-Object-key" class="headerlink" title="hash(Object key)"></a>hash(Object key)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static final int hash(Object key) &#123;</div><div class="line">    int h;</div><div class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至于为什么会有移位异或，可以参看<a href="https://www.zhihu.com/question/20733617" target="_blank" rel="external">这里</a>。<br>总结如下：</p>
-<ul>
-<li>代码的学名叫”扰动函数”</li>
-<li>int类型32位，右移16位，再将高地位异或，混合原始哈希码的高位和低位，以此来加大低位的随机性</li>
-</ul>
-<h4 id="comparableClassFor-Object-x"><a href="#comparableClassFor-Object-x" class="headerlink" title="comparableClassFor(Object x)"></a>comparableClassFor(Object x)</h4><p>判断一个对象是否实现了<code>Comparable</code>接口，如果是，返回x的class对象；否，返回null。</p>
-<h4 id="compareComparables-Class-lt-gt-kc-Object-k-Object-x"><a href="#compareComparables-Class-lt-gt-kc-Object-k-Object-x" class="headerlink" title="compareComparables(Class&lt;?&gt; kc, Object k, Object x)"></a>compareComparables(Class&lt;?&gt; kc, Object k, Object x)</h4><p>判断对象x的class类别不是是kc，返回0；否则，比对k和x的大小。</p>
-<h4 id="tableSizeFor-int-cap"><a href="#tableSizeFor-int-cap" class="headerlink" title="tableSizeFor(int cap)"></a>tableSizeFor(int cap)</h4><p>返回大于等于cap的最小的2的整幂数，如果超过最大值，则返回最大值。<br>解释可以参看<a href="http://blog.csdn.net/fan2012huan/article/details/51097331" target="_blank" rel="external">这里</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">static final int tableSizeFor(int cap) &#123;</div><div class="line">       int n = cap - 1;</div><div class="line">       n |= n &gt;&gt;&gt; 1;</div><div class="line">       n |= n &gt;&gt;&gt; 2;</div><div class="line">       n |= n &gt;&gt;&gt; 4;</div><div class="line">       n |= n &gt;&gt;&gt; 8;</div><div class="line">       n |= n &gt;&gt;&gt; 16;</div><div class="line">       return (n &lt; 0) ? 1 : (n &gt;= (1 &lt;&lt; 30)) ? (1 &lt;&lt; 30) : n + 1;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>通过将n不断移位或运算（加上n的二进制为1的最大位为Bit），得到Bit之后所有位值都是1的数，然后加1，得到最小的2的整幂数。<br><code>cap-1</code>的原理如下：<br>假设一个数值，二进制有m个1，如果</p>
-<ul>
-<li>m=1，则m-1的最高位会降低，即最高位会变成原来位后一位；</li>
-<li>m&gt;1，m-1的最高位不会降低；</li>
-</ul>
-<p>只有1个1，要借位到最高位；多个1，不用借位到最高，最高位不变。</p>
-<p>最终目的是为了得到大于等于cap的最小的2的整幂数，所以，通过<code>cap-1</code>，假设原来是<code>0000 1000</code>，减一得到<code>0000 01111</code>，最终再加1，得到本身；如果原来的不是2的整幂，减一也不会降低最高位，那么最终结果就是大于该值的最小2的整幂数。</p>
-<h4 id="putMapEntries-Map-lt-extends-K-extends-V-gt-m-boolean-evict"><a href="#putMapEntries-Map-lt-extends-K-extends-V-gt-m-boolean-evict" class="headerlink" title="putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict)"></a>putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict)</h4><h4 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h4><p>返回大小。</p>
-<h4 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty()"></a>isEmpty()</h4><p>判断是否为空。</p>
-<h4 id="get-Object-key"><a href="#get-Object-key" class="headerlink" title="get(Object key)"></a>get(Object key)</h4><p>获取对象。</p>
-<h4 id="getNode-int-hash-Object-key"><a href="#getNode-int-hash-Object-key" class="headerlink" title="getNode(int hash, Object key)"></a>getNode(int hash, Object key)</h4><ul>
-<li>根据给定的hash值，计算在<code>table</code>中的位置((n - 1) &amp; hash，n为table的size),得到first</li>
-<li>如果该位置的第一个节点first（Node<k,v>）的<code>key</code>值与输入的<code>key</code>一致，则返回first；</k,v></li>
-<li>否则，遍历first对应的列表或是tree，得到匹配返回，没有则返回null。</li>
-</ul>
-<h4 id="containsKey-Object-key"><a href="#containsKey-Object-key" class="headerlink" title="containsKey(Object key)"></a>containsKey(Object key)</h4><p>判断是否包含key</p>
-<h4 id="put-K-key-V-value"><a href="#put-K-key-V-value" class="headerlink" title="put(K key, V value)"></a>put(K key, V value)</h4><p>添加键值对</p>
-<h4 id="putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict"><a href="#putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict" class="headerlink" title="putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)"></a>putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)</h4>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/14/JAVA基础-HashMap/" class="archive-article-date">
-  	<time datetime="2017-02-14T05:37:37.300Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础/">JAVA基础</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apache Solr(5.5)帮助文档(7)—开始—更进一步" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/">Apache Solr(5.5)帮助文档(7)-开始-更进一步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-		
-        <blockquote>
-<p>A Step Closer</p>
+        <h2 id="操作系统安装"><a href="#操作系统安装" class="headerlink" title="操作系统安装"></a>操作系统安装</h2><p>下载操作系统，安装，不再赘述。</p>
+<h2 id="终端快捷键"><a href="#终端快捷键" class="headerlink" title="终端快捷键"></a>终端快捷键</h2><p>设置-&gt;键盘-&gt;自定义快捷键<br>名称为:terminal<br>命令：/usr/bin/gnome-terminal<br><img src="http://img1.ph.126.net/r0aDTFg7DtQNTtpDPQVJLQ==/6631568043492828073.png" alt="新建自定义快捷键"><br><img src="http://img2.ph.126.net/R_kosqiRtiJY-yW2syPLDQ==/6631518565469583956.png" alt="设置快捷键1"><br>然后点击’禁用’<br><img src="http://img1.ph.126.net/E0sPsa4ULp1Gu13tbRUDvQ==/6632025440326887643.png" alt="设置快捷键2"><br>随便按下快捷键(ctrl+alt+t)<br><img src="http://img1.ph.126.net/veOi2kABWK1LGCI8-hDLgg==/6632211257791991827.png" alt="设置快捷键3"></p>
+<h2 id="卸载自带jdk"><a href="#卸载自带jdk" class="headerlink" title="卸载自带jdk"></a>卸载自带jdk</h2><h3 id="查看现有jdk"><a href="#查看现有jdk" class="headerlink" title="查看现有jdk"></a>查看现有jdk</h3><p>命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -aq|grep jdk</div></pre></td></tr></table></figure></p>
+<p>得到结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$rpm -aq|grep jdk</div><div class="line">copy-jdk-configs-1.1-4.fc24.noarch</div><div class="line">java-1.8.0-openjdk-headless-1.8.0.91-7.b14.fc24.x86_64</div></pre></td></tr></table></figure></p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf remove java-1.8.0-openjdk-headless-1.8.0.91-7.b14.fc24.x86_64</div></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载jdk，到/usr/local/java中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-8u111-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/profile</div></pre></td></tr></table></figure>
+<p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_111</div><div class="line">export JAVA_BIN=$JAVA_HOME/bin</div><div class="line">export JAVA_LIB=$JAVA_HOME/lib</div><div class="line">export CLASSPATH=.:JAVA_LIB/tools.jar:$JAVA_LIB/dt.jar</div><div class="line">export PATH=$JAVA_BIN:$PATH</div></pre></td></tr></table></figure></p>
+<p>刷新配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure></p>
+<p>查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$java -version</div><div class="line">java version &quot;1.8.0_111&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_111-b14)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)</div></pre></td></tr></table></figure></p>
+<h2 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h2><p>参考<a href="http://www.cnblogs.com/zhangyin6985/p/5635846.html" target="_blank" rel="external">这里</a></p>
+<h3 id="添加chrome源"><a href="#添加chrome源" class="headerlink" title="添加chrome源"></a>添加chrome源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$cd /etc/yum.repos.d/</div><div class="line">$wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repo </div><div class="line">$dnf install -y google-chrome-stable</div></pre></td></tr></table></figure>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install git</div></pre></td></tr></table></figure>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.7.4</div></pre></td></tr></table></figure>
+<h2 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h2><h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><p>来自<a href="https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/" target="_blank" rel="external">这里</a></p>
+<h4 id="资源库安装"><a href="#资源库安装" class="headerlink" title="资源库安装"></a>资源库安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc24-8.noarch.rpm</div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc23-8.noarch.rpm</div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc22-8.noarch.rpm</div></pre></td></tr></table></figure>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install mysql-community-server</div></pre></td></tr></table></figure>
+<h3 id="tar文件安装"><a href="#tar文件安装" class="headerlink" title="tar文件安装"></a>tar文件安装</h3><p>由于网络原因，dnf安装一直失败。因此采用tar文件安装。<a href="http://www.jb51.net/article/90317.htm" target="_blank" rel="external">参考</a></p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">下载</a>下的Linux Generic里的<code>mysql-5.7.16-linux-glibc2.5-x86_64.tar</code>。</p>
+<h4 id="增加用户和用户组"><a href="#增加用户和用户组" class="headerlink" title="增加用户和用户组"></a>增加用户和用户组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure>
+<p>为什么要增加用户和用户组呢，原因可以参考<a href="http://www.kryptosx.info/archives/456.html" target="_blank" rel="external">这里</a>，引用如下</p>
+<blockquote>
+<p>为什么要用这个mysql用户<br>一开始有点奇怪，安装软件为何还需要申请一个用户。原来这是为了使用linux的安全机制——“任意的访问控制”DAC。<br> 每个文件对应所属用户，组用户，其它用户三个类型，对于三种类型用户可以分别设置读，写，执行的权限，root用户始终有最高权限。<br>如果mysql以mysql用户启动，那么它的权限将仅限于允许mysql用户操作的文件。然后，把数据库的用户归属设置为mysql，那样mysql正常的数据库操作就没有问题了。<br>原因：这样一来，即使mysqld被黑客控制，黑客也只能得到mysql用户的权限，不是root权限。账号的shell使用/sbin/nologin，此时用户即使有密码也无法登录系统。<br>缺陷：如果运行多个数据库实例在同个mysql用户下，一旦启动一个mysqld被攻破，其它实例的数据库可能会被泄密。<br>注意：文件所属用户仅仅是限定用户对此文件操作的权限。文件执行时所属的用户和文件所属用户是无关的。 mysql推荐的是用mysqld_safe启动，mysqld_safe脚本在root权限下运行，进行一些需要root权限的配置，然后降权，以mysql用户权限启动mysqld，并监视其运行。</p>
 </blockquote>
-<p>当前你已经知道一些关于Solr的schema的知识了，这部分内容将会描述Solr的home目录和其他的一些配置。<br>当Solr在服务器上运行时，它需要访问一个home目录。home目录里包含了重要的配置信息和存储的索引内容。home目录的结构在单机模式和SolrCloud模式下会有一些不同。<br>Solr的home目录的关键部分如下面的例子。</p>
-<p><strong>单机模式</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-cac4b6d3ca4f0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单机模式"></p>
-<p><strong>SolrCloud模式</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1213316-c333c247b76d7365.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SolrCloud模式"></p>
-<p>也许会看到其他的一些文件，但是需要掌握的主要的文件如下：</p>
-<ul>
-<li>solr.xml 表明了你Solr服务器运行实例的配置信息。关于Solr.xml的更多信息，可以查看Solr Cores and solr.xml章节</li>
-<li>每个Solr的Core<ul>
-<li>core.properties 定义了每个core的特定属性，例如名字，core所属的集合，schema文件的位置和其他参数。更多关于core.properties的细节，清查看Defining core.properties。</li>
-<li>solrconfig.xml 控制更高级别的行为。例如，可以指定数据目录的位置。更多关于solrconfig.xml的信息，可以查看Configuring solrconfig.xml。</li>
-<li>schema.xml （或是managed-schema）描述了Solr需要索引的documents。在schema.xml里，可以定义document，实际上时一些字段的集合。需要定义字段的类别和字段本身。字段类别定义是很重要的，它包括了Solr如何处理输入字段值和查询值。更多关于schema.xml的信息，可以看Documents，Fields，and Schema Design。如果使用的是Solr的Schema API来管理字段，你需要查看managed-schema而不是schema.xml（看Managed Schma Definition in SolrConfig获取更多信息）。</li>
-<li>data/ 包括低级别索引文件的目录。</li>
-</ul>
-</li>
-</ul>
-<p>需要注意的是，SolrCloud示例在每个Solr Core里不包括conf目录（就没有solrconfig.xml或是schema.xml文件）。这是因为在conf目录下的配置文件保存在Zookeeper中，从而可以在集群中传播。<br>如果使用的是SolrCloud以及嵌入式Zookeeper实例，你会看到Zookeeper配置zoo.cfg和数据文件zoo.data。然而，如果使用的是自己的Zookeeper，将会将你自己的Zookeeper中的配置应用到Solr中，而Solr中的复制文件将不会被使用。更多关于Zookeeper和SolrCloud信息，请查看SolrCloud章节。</p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p>解压到<code>usr/local/mysql</code>。<code>mysql-5.7.16-linux-glibc2.5-x86_64.tar</code>解压得到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</div><div class="line">mysql-test-5.7.16-linux-glibc2.5-x86_64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>再次解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql-5.7.16-linux-glibc2.5-x86_64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>得到程序目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$pwd</div><div class="line">/usr/local/mysql</div><div class="line">$ls</div><div class="line">bin  COPYING  docs  include  lib  man  README  share  support-files</div></pre></td></tr></table></figure></p>
+<h4 id="给用户权限"><a href="#给用户权限" class="headerlink" title="给用户权限"></a>给用户权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$chown -R mysql .</div><div class="line">$chgrp -R mysql .</div></pre></td></tr></table></figure>
+<h4 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h4><p>/etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=$PATH:/usr/local/mysql/bin</div></pre></td></tr></table></figure></p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</div></pre></td></tr></table></figure>
+<p>记住给出的密码：cOuIuVezj1#d。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</div></pre></td></tr></table></figure></p>
+<h4 id="增加配置文件"><a href="#增加配置文件" class="headerlink" title="增加配置文件"></a>增加配置文件</h4><p>首先在/etc/下增加my.cnf文件，内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[client]</div><div class="line">port=3306</div><div class="line">socket=/usr/local/mysql/mysql.sock</div><div class="line"></div><div class="line">[mysqld]</div><div class="line"></div><div class="line">basedir = /usr/local/mysql</div><div class="line">datadir = /usr/local/mysql/data</div><div class="line">port = 3306</div><div class="line">socket = /usr/local/mysql/mysql.sock</div><div class="line">user = mysql</div><div class="line">bind-address = 0.0.0.0</div><div class="line">server-id = 1</div><div class="line">#sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES,这种配置会有1055错误</div><div class="line">sql_mode=&apos;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&apos;</div></pre></td></tr></table></figure></p>
+<p>然后配置到/etc/init.d/目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql</div></pre></td></tr></table></figure></p>
+<p>需要修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">basedir = /usr/local/mysql</div><div class="line">datadir = /usr/local/mysql/data</div></pre></td></tr></table></figure></p>
+<h4 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/mysqld_safe --user=mysql &amp;</div></pre></td></tr></table></figure>
+<p>登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/mysql --user=root –p</div></pre></td></tr></table></figure></p>
+<p>输入记住的密码：cOuIuVezj1#d<br>然后修改密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; set password=password(&apos;XXX&apos;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt;grant all privileges on *.* to root@&apos;%&apos; identified by &apos;A123456&apos;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; flush privileges</div></pre></td></tr></table></figure>
+<p>查看用户信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; use mysql;</div><div class="line">mysql&gt; select host,user from user;</div></pre></td></tr></table></figure></p>
+<h4 id="mysql自启动"><a href="#mysql自启动" class="headerlink" title="mysql自启动"></a>mysql自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chmod 755 /etc/init.d/mysql</div><div class="line">chkconfig --add mysql</div><div class="line">chkconfig --level 345 mysql on</div><div class="line">chkconfig --list</div></pre></td></tr></table></figure>
+<h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><p>这时，如果用<code>mysql -version</code>，会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql: error while loading shared libraries:</div></pre></td></tr></table></figure></p>
+<p>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install libncurses.so.5</div></pre></td></tr></table></figure></p>
+<p>继续错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</div></pre></td></tr></table></figure></p>
+<p>原因是/tmp/mysql.sock没有权限。根本原因在于没有指定对应的配置。</p>
+<h4 id="mysql-配置文件读取顺序"><a href="#mysql-配置文件读取顺序" class="headerlink" title="mysql 配置文件读取顺序"></a>mysql 配置文件读取顺序</h4><h2 id="navicat使用"><a href="#navicat使用" class="headerlink" title="navicat使用"></a>navicat使用</h2><h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><p>点击<a href="https://www.navicat.com/download/navicat-premium" target="_blank" rel="external">这里</a>下载试用版。</p>
+<h3 id="解压-1"><a href="#解压-1" class="headerlink" title="解压"></a>解压</h3><p>在～/usr/下，解压（tar -zxvf）</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start_navicat</div></pre></td></tr></table></figure>
+<h3 id="解决乱码"><a href="#解决乱码" class="headerlink" title="解决乱码"></a>解决乱码</h3><h4 id="navicat无法输入中文"><a href="#navicat无法输入中文" class="headerlink" title="navicat无法输入中文"></a>navicat无法输入中文</h4><p>在navicat的工作区内，输入汉字，会变成方框。<br>修改Tools-&gt;Options&gt;Apperence-&gt;font的字体，不起作用。最后发现，在start_navicat文件中，将语言设置为了英文。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export LANG=&quot;zh_CN.UTF-8&quot;</div></pre></td></tr></table></figure></p>
+<p>改成上述即可。</p>
+<h4 id="查询结果乱码"><a href="#查询结果乱码" class="headerlink" title="查询结果乱码"></a>查询结果乱码</h4><p>在处理navicat无法输入中文的问题时，不断修改Edit Connection中的属性，Advanced中的Encoding修改成了UTF8。<br>这是，改为Auto，发现查询结果可以正常显示中文。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/14/Apache Solr(5.5)帮助文档(7)—开始—更进一步/" class="archive-article-date">
-  	<time datetime="2017-02-14T00:14:40.395Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-14</time>
+      <a href="/2016/11/18/Fedora安装/" class="archive-article-date">
+  	<time datetime="2016-11-18T00:15:16.811Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-18</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache-Solr-5-5-翻译/">Apache Solr(5.5)翻译</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-githubpage搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/15/githubpage搭建/">githubpage搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a href="https://pages.github.com" target="_blank" rel="external">GitHub Pages</a>，可以根据github<br>资源仓库中的文件，建立对应的静态网站。</p>
+<h2 id="资源库搭建"><a href="#资源库搭建" class="headerlink" title="资源库搭建"></a>资源库搭建</h2><h3 id="建立资源库"><a href="#建立资源库" class="headerlink" title="建立资源库"></a>建立资源库</h3><p>在Github上新建一个与用户名相关的资源库，<code>username.github.io</code>,<br>username是用户名（或者组织的名称）。</p>
+<h3 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/username/username.github.io</div></pre></td></tr></table></figure>
+<p>记得修改自己的用户名</p>
+<h3 id="编辑index-html"><a href="#编辑index-html" class="headerlink" title="编辑index.html"></a>编辑index.html</h3><p>新建一个index.html页面，并进行编辑</p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add --all</div><div class="line">git commit -m &quot;Initial commit&quot;</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>当然，上述操作需要配置好本机的git。可以通过<br><code>git config --list</code><br>查看当前的配置。如果需要进行配置，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your name&quot;</div><div class="line">git config --global user.email &quot;Your email&quot;</div></pre></td></tr></table></figure></p>
+<p>一般配置文件在~目录下的.gitconfig中可以看到。<br>如果需要配置ssh key,可以参考<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">这里</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls -al ~/.ssh</div><div class="line"># 列出所有存在的sshkey</div></pre></td></tr></table></figure></p>
+<p>上述内容主要来自<a href="https://pages.github.com" target="_blank" rel="external">GitHub Pages</a>，比较简单。</p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><a href="http://hexo.io" target="_blank" rel="external">hexo</a>是一个静态博客的生成器，可以方便的与github pages联系起来。<br>hexo是基于nodejs的，因此，首先要安装nodejs。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h4><p>采用dnf安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ dnf install nodejs</div><div class="line">$ dnf install npm</div></pre></td></tr></table></figure></p>
+<p>安装完成后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node --version</div></pre></td></tr></table></figure></p>
+<p><img src="http://img0.ph.126.net/LZvVEzDRZon5j4T6Hg7_gQ==/6631892399419889046.png" alt="结果"></p>
+<h3 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>如果发现网络连接很慢，可以考虑换成国内的资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
+<p>然后初始化一个目录</p>
+<h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd /home/li/workspace/blog</div><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/15/githubpage搭建/" class="archive-article-date">
+  	<time datetime="2016-11-15T00:18:22.832Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/githubpage/">githubpage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-freemarker日期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/10/freemarker日期/">Freemarker 日期处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在freemarker页面，根据日期大小，来判断是否显示日期内容。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li>输入的数据可能格式错误，需要进行正则匹配</li>
+<li>将字符串转变成日期对象</li>
+<li>日期大小比较   </li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="正则处理"><a href="#正则处理" class="headerlink" title="正则处理"></a>正则处理</h3><p>首先约定，处理的日期数据均为 “yyyy-mm-dd”格式，不符合上述内容不予显示。<br>在freemarker里，实现正则匹配，需要利用freemarker的内置函数matches。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;#assign reg=&quot;^\\d&#123;4&#125;(\\-)\\d&#123;2&#125;\\1\\d&#123;2&#125;$&quot; /&gt;</div><div class="line">&lt;#if variable?? &amp;&amp; variable.matches(reg)&gt;&lt;!-- variable存在并且与reg进行匹配 --&gt;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="字符串和日期转换"><a href="#字符串和日期转换" class="headerlink" title="字符串和日期转换"></a>字符串和日期转换</h3><h4 id="字符串转成日期"><a href="#字符串转成日期" class="headerlink" title="字符串转成日期"></a>字符串转成日期</h4><p>如果匹配相应的格式，这里需要将字符串数据转变成日期数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;variable?date(&quot;yyyy-MM-dd&quot;)&#125;</div></pre></td></tr></table></figure>
+<h4 id="日期转成字符串"><a href="#日期转成字符串" class="headerlink" title="日期转成字符串"></a>日期转成字符串</h4><p>当然，在接受到java.util.date类型，如果在Freemarker显示，则需要利用日期处理函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$&#123;parameters.fieldDate?date&#125;                                           //标准日期转日期字符串</div><div class="line">$&#123;parameters.fieldDate?datetime&#125;　　　　　　　　　　　　　//标准日期转日期+时间 字符串</div><div class="line">$&#123;parameters.fieldDate?string(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#125;   //标准日期转自定格式 字符串</div><div class="line">$&#123;(data.validateTimeDate?string(&quot;yyyy-MM-dd&quot;))&#125;               //yyyy-MM-dd日期格式的字符串</div></pre></td></tr></table></figure></p>
+<h3 id="大小比较"><a href="#大小比较" class="headerlink" title="大小比较"></a>大小比较</h3><p>大小比较就很简单了，转变好日期格式后，即可以进行比较。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;#assign startDate=&quot;1970-01-01&quot;?date(&quot;yyyy-MM-dd&quot;) /&gt; &lt;!-- 声明日期对象 --&gt;</div><div class="line">&lt;#if variable?date(&quot;yyyy-MM-dd&quot;) gt startDate&gt;</div><div class="line">			$&#123;variable&#125;</div><div class="line">&lt;/#if&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/10/freemarker日期/" class="archive-article-date">
+  	<time datetime="2016-11-10T06:04:04.117Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Freemarker/">Freemarker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日期/">日期</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Jsgrid使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/31/Jsgrid使用/">Jsgrid使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>当前项目中需要使用表格组件，由于是新建项目，并且前端人手不足，而且不想再使用Jqgrid组件，因此，决定采用新的组件。google了一些<br>常用组件</p>
+<ul>
+<li>大型框架中的组件，bootstrap、easyui、H-ui、Amaze-ui</li>
+<li><a href="https://codegeekz.com/best-javascript-data-grid-libraries/，里面列举了13个常用的datagrid组件。" target="_blank" rel="external">https://codegeekz.com/best-javascript-data-grid-libraries/，里面列举了13个常用的datagrid组件。</a><br>最终，选择了jsGrid(轻量级，样式也入眼，只依赖jquery)。不过jsGrid的相关资料真是不多，经常会提示我是不是搜索jqgrid。</li>
+</ul>
+<h2 id="jsgrid"><a href="#jsgrid" class="headerlink" title="jsgrid"></a>jsgrid</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="http://js-grid.com/" target="_blank" rel="external">官网地址</a>，<a href="https://github.com/tabalinas/jsgrid" target="_blank" rel="external">github地址</a>，很多问题可以在其github上的issues里面找到答案。</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>jsgrid引入需要依赖jquery，已经一个js文件，和一个样式文件。</p>
+<h2 id="jsgrid-与spring-mvc"><a href="#jsgrid-与spring-mvc" class="headerlink" title="jsgrid 与spring mvc"></a>jsgrid 与spring mvc</h2><h3 id="显示静态数据"><a href="#显示静态数据" class="headerlink" title="显示静态数据"></a>显示静态数据</h3><h3 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h3><h2 id="相关依赖知识"><a href="#相关依赖知识" class="headerlink" title="相关依赖知识"></a>相关依赖知识</h2><h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><h3 id="apply和call"><a href="#apply和call" class="headerlink" title="apply和call"></a>apply和call</h3><p>&lt;<img src="http://img9.ph.126.net/2OjLFVzr74uX_u9vwatBDQ==/62768919807297899.jpg" alt="图片"><br>待完成</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/31/Jsgrid使用/" class="archive-article-date">
+  	<time datetime="2016-10-31T09:52:25.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsgrid/">jsgrid</a></li></ul>
 	</div>
 
       
@@ -1302,7 +930,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1365,7 +993,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Apache-Solr-5-5-翻译/" style="font-size: 20px;">Apache Solr(5.5)翻译</a> <a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 12.5px;">Freemarker</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 12.5px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 17.5px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 15px;">项目实践</a>
+    				<a href="/tags/Fedora/" style="font-size: 10px;">Fedora</a> <a href="/tags/Freemarker/" style="font-size: 13.33px;">Freemarker</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/IOC/" style="font-size: 10px;">IOC</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JAVA中级/" style="font-size: 10px;">JAVA中级</a> <a href="/tags/JAVA基础/" style="font-size: 20px;">JAVA基础</a> <a href="/tags/JAVA面试题/" style="font-size: 10px;">JAVA面试题</a> <a href="/tags/Mybatis/" style="font-size: 16.67px;">Mybatis</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/WEB开发/" style="font-size: 10px;">WEB开发</a> <a href="/tags/charset/" style="font-size: 10px;">charset</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/dnf/" style="font-size: 10px;">dnf</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/freeMemory/" style="font-size: 10px;">freeMemory</a> <a href="/tags/githubpage/" style="font-size: 10px;">githubpage</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/jsgrid/" style="font-size: 10px;">jsgrid</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/maxMemory/" style="font-size: 10px;">maxMemory</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/smart-framework/" style="font-size: 10px;">smart-framework</a> <a href="/tags/springboot-vue-webpack/" style="font-size: 10px;">springboot-vue-webpack</a> <a href="/tags/totalMemory/" style="font-size: 10px;">totalMemory</a> <a href="/tags/web开发/" style="font-size: 10px;">web开发</a> <a href="/tags/yum/" style="font-size: 10px;">yum</a> <a href="/tags/事务/" style="font-size: 16.67px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/兼容/" style="font-size: 10px;">兼容</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/字符集/" style="font-size: 10px;">字符集</a> <a href="/tags/工作总结/" style="font-size: 10px;">工作总结</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/开发规范/" style="font-size: 10px;">开发规范</a> <a href="/tags/日期/" style="font-size: 10px;">日期</a> <a href="/tags/架构探险/" style="font-size: 10px;">架构探险</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/特殊字符/" style="font-size: 10px;">特殊字符</a> <a href="/tags/算法学习/" style="font-size: 10px;">算法学习</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/软件架构/" style="font-size: 10px;">软件架构</a> <a href="/tags/项目实践/" style="font-size: 16.67px;">项目实践</a>
     			</div>
     	</section>
     
