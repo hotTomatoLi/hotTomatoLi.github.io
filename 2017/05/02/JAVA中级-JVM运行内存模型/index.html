@@ -6,14 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: dnf | li</title>
+  <title>JAVA中级-JVM运行内存模型 | li</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="li">
-<meta property="og:url" content="http://yoursite.com/tags/dnf/index.html">
+  <meta name="description" content="注意：个人学习总结，面试准备
+概述在JAVA中，所有程序最终是运行在JVM（java virtual machine）中。首先经过编译器编译好的字节码文件，会经过JVM的加载、验证等步骤，最终可以实现相应的逻辑。在JVM中，所具有的内存会划分成多个区域，不同的区域存储不同形式的数据。
+JVM运行内存在虚拟机规范中，规定了JVM所具有的内存会划分成以下几个部分：
+
+程序计数器（线程私有）
+虚拟机栈（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA中级-JVM运行内存模型">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/JAVA中级-JVM运行内存模型/index.html">
 <meta property="og:site_name" content="li">
+<meta property="og:description" content="注意：个人学习总结，面试准备
+概述在JAVA中，所有程序最终是运行在JVM（java virtual machine）中。首先经过编译器编译好的字节码文件，会经过JVM的加载、验证等步骤，最终可以实现相应的逻辑。在JVM中，所具有的内存会划分成多个区域，不同的区域存储不同形式的数据。
+JVM运行内存在虚拟机规范中，规定了JVM所具有的内存会划分成以下几个部分：
+
+程序计数器（线程私有）
+虚拟机栈（">
+<meta property="og:updated_time" content="2017-05-02T08:52:58.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="li">
+<meta name="twitter:title" content="JAVA中级-JVM运行内存模型">
+<meta name="twitter:description" content="注意：个人学习总结，面试准备
+概述在JAVA中，所有程序最终是运行在JVM（java virtual machine）中。首先经过编译器编译好的字节码文件，会经过JVM的加载、验证等步骤，最终可以实现相应的逻辑。在JVM中，所具有的内存会划分成多个区域，不同的区域存储不同形式的数据。
+JVM运行内存在虚拟机规范中，规定了JVM所具有的内存会划分成以下几个部分：
+
+程序计数器（线程私有）
+虚拟机栈（">
   
     <link rel="alternative" href="/atom.xml" title="li" type="application/atom+xml">
   
@@ -137,54 +156,114 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-JAVA中级-JVM运行内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/22/Linux软件安装 rpm_yum_dnf/" class="archive-article-date">
-  	<time datetime="2016-11-22T00:30:44.194Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/22/Linux软件安装 rpm_yum_dnf/">Linux软件安装：rpm/yum/dnf</a>
+    <h1 class="article-title" itemprop="name">
+      JAVA中级-JVM运行内存模型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM运行内存"><span class="toc-number">2.</span> <span class="toc-text">JVM运行内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#程序计数器"><span class="toc-number">2.1.</span> <span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机栈"><span class="toc-number">2.2.</span> <span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地方法栈"><span class="toc-number">2.3.</span> <span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆"><span class="toc-number">2.4.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法区"><span class="toc-number">2.5.</span> <span class="toc-text">方法区</span></a></li></ol></li></ol>
+		</div>
+		
+        <p>注意：个人学习总结，面试准备</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在JAVA中，所有程序最终是运行在JVM（java virtual machine）中。首先经过编译器编译好的字节码文件，会经过JVM的加载、验证等步骤，最终可以实现相应的逻辑。<br>在JVM中，所具有的内存会划分成多个区域，不同的区域存储不同形式的数据。</p>
+<h1 id="JVM运行内存"><a href="#JVM运行内存" class="headerlink" title="JVM运行内存"></a>JVM运行内存</h1><p>在虚拟机规范中，规定了JVM所具有的内存会划分成以下几个部分：</p>
+<ul>
+<li>程序计数器（线程私有）</li>
+<li>虚拟机栈（线程私有）</li>
+<li>本地方法栈（线程私有）</li>
+<li>堆</li>
+<li>方法区</li>
+</ul>
+<p>不同的虚拟机的具体实现方式是不一样的，尤其是<strong>方法区</strong>，在HotSpot1.8之前的虚拟机版本中，<strong>方法区</strong>是用<strong>Permanent Generation（永久代）</strong>实现，但是自从1.8版本后，就不再存在<strong>永久代</strong>的概念，取而代之的是<strong>Metaspace（元空间）</strong>。（在1.7版本时，原来在<strong>永久代</strong>的字符串常量池就已经移除，放到堆中。当<strong>永久代</strong>存在时，<strong>永久代</strong>的回收是与老年代合并在一起，这两个区域任意一个区域满了都会触发<strong>Major GC</strong>）。</p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>程序计数器为线程私有，指向正在执行的字节码的指令地址（本地方法值为Undefined），同时也未定义<code>OutOfMemoryError</code>异常。</p>
+<h2 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h2><p>线程私有，虚拟机栈的生命周期与相应的线程一致。每个JAVA方法执行的时候，都会创建一个栈帧（Stack Frame），栈中存放了方法内相关的数据，在编译阶段，栈帧大小就已经确定，与运行时数据无关。<br><code>StackOverflowError</code>和<code>OutOfMemoryError</code>两种错误。</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>本地方法栈，是JVM使用Native方法时，即某个线程，调用了一个本地方法，那么就可以不再受虚拟机限制（通过虚拟机运行时数据；使用本地处理器中寄存器；分配内存等等）。当线程调用本地方法时，会生成本地方法对应的栈，存放到这个区域。<br>会有<code>StackOverflowError</code>和<code>OutOfMemoryError</code>。</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>堆，一般是JAVA虚拟机管理的最大的内存，是线程共享的区域，用于存放对象实例。堆可以分为：</p>
+<ul>
+<li>新生代<ul>
+<li>Eden</li>
+<li>survivor * 2</li>
+</ul>
+</li>
+<li>老年代<br>会有<code>OutOfMemoryError</code>异常。</li>
+</ul>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>线程共享，存储被JVM加载的类信息、常量、静态变量等等，JVM规范中，方法区描述为堆的一个逻辑部分，单俗称”非堆（Non-Heap）”。HotSpot上称为永久代，但是1.8之后已经移除。会有<code>OutOfMemoryError</code>异常。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/02/JAVA中级-JVM运行内存模型/" class="archive-article-date">
+  	<time datetime="2017-05-02T07:29:10.860Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-02</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dnf/">dnf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpm/">rpm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA中级/">JAVA中级</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/28/工具使用-IDEA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">工具使用-IDEA</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -207,9 +286,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
